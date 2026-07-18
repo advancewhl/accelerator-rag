@@ -1,0 +1,122 @@
+[
+    {
+        "id": "epics-pv",
+        "title": "EPICS 中的过程变量 PV",
+        "text": "PV 是 Process Variable 的缩写，是 EPICS 控制系统中具有唯一名称的过程变量。设备测量值、状态、设定值和控制参数都可以通过 PV 表示。",
+        "metadata": {
+            "system": "EPICS",
+            "topic": "PV",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "epics-ioc",
+        "title": "IOC 的主要职责",
+        "text": "IOC 是 Input Output Controller 的缩写。IOC 运行 EPICS 数据库记录，执行记录处理逻辑，并把记录字段以 PV 的形式提供给网络中的客户端。",
+        "metadata": {
+            "system": "EPICS",
+            "topic": "IOC",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "epics-opi",
+        "title": "OPI 操作员界面",
+        "text": "OPI 是 Operator Interface 的缩写。OPI 为运行人员提供图形界面，用于显示设备状态、趋势曲线、报警信息和操作控件。OPI 通常通过 PV 与 IOC 通信。",
+        "metadata": {
+            "system": "EPICS",
+            "topic": "OPI",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "epics-ca",
+        "title": "Channel Access 通信",
+        "text": "Channel Access 是 EPICS 中用于客户端和 IOC 之间进行 PV 通信的网络协议。caget、caput、camonitor 和许多 OPI 客户端都可以通过它访问 PV。",
+        "metadata": {
+            "system": "EPICS",
+            "topic": "Channel Access",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "epics-cli",
+        "title": "caget 与 caput",
+        "text": "caget 用于读取一个 PV 的当前值，caput 用于向可写 PV 写入新值。加速器知识库可以解释这些命令，但第一版 RAG 系统不得自动执行真实设备写操作。",
+        "metadata": {
+            "system": "EPICS",
+            "topic": "命令行工具",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "bpm-position",
+        "title": "束流位置监测器 BPM",
+        "text": "BPM 是 Beam Position Monitor 的缩写，用于测量束流经过某个位置时的横向位置。BPM 通常根据多个电极或腔体拾取到的束流信号估计水平方向和垂直方向的位置。",
+        "metadata": {
+            "system": "Beam Diagnostics",
+            "topic": "BPM",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "bpm-orbit",
+        "title": "束流轨道与 BPM",
+        "text": "沿加速器分布的多个 BPM 可以得到束流在不同位置上的横向坐标。把这些位置测量结果组合起来，可以形成束流轨道，并用于轨道显示、分析和校正。",
+        "metadata": {
+            "system": "Beam Diagnostics",
+            "topic": "Orbit",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "mba-emittance",
+        "title": "MBA 晶格与低发射度",
+        "text": "MBA 是 Multi-Bend Achromat 的缩写。MBA 晶格在一个周期单元中使用多个弯转磁铁，通过优化色散和光学函数降低电子束的自然发射度，从而提升同步辐射光源亮度。",
+        "metadata": {
+            "system": "Accelerator Physics",
+            "topic": "MBA",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "hla-role",
+        "title": "高层应用 HLA",
+        "text": "HLA 是 High Level Application 的缩写。高层应用位于控制系统基础设施之上，利用设备数据和物理模型完成轨道显示、轨道校正、参数扫描、数据分析等任务。",
+        "metadata": {
+            "system": "High Level Application",
+            "topic": "HLA",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "rag-boundary",
+        "title": "加速器 RAG 系统运行边界",
+        "text": "第一版加速器 RAG 系统只用于文档检索、知识解释和证据定位。系统不得自动执行 caput、调束、设备启停或其他可能改变真实加速器状态的控制指令。",
+        "metadata": {
+            "system": "RAG",
+            "topic": "Safety",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "rf-cavity",
+        "title": "射频腔的作用",
+        "text": "射频腔通过时变电磁场向带电粒子提供能量，也可以用于补偿电子束在同步辐射过程中损失的能量。",
+        "metadata": {
+            "system": "RF",
+            "topic": "RF Cavity",
+            "source": "day4_demo"
+        }
+    },
+    {
+        "id": "vacuum-pressure",
+        "title": "真空系统与压力监测",
+        "text": "加速器真空系统维持束流管道内的低压环境。真空计用于测量压力，真空泵用于抽除气体，联锁系统可以在压力异常时保护设备。",
+        "metadata": {
+            "system": "Vacuum",
+            "topic": "Pressure",
+            "source": "day4_demo"
+        }
+    }
+]
