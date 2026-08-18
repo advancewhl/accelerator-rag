@@ -12,6 +12,7 @@ dependencies = [
     "jieba>=0.42.1",
     "numpy>=1.26",
     "sentence-transformers>=5,<6",
+    "qdrant-client==1.18.0",
 ]
 
 [project.optional-dependencies]
