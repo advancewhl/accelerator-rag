@@ -1,0 +1,180 @@
+[
+    {
+        "id": "q001",
+        "question": "PV 是什么？",
+        "expected_ids": [
+            "epics-pv"
+        ],
+        "category": "技术缩写",
+        "scored": true
+    },
+    {
+        "id": "q002",
+        "question": "什么叫过程变量？",
+        "expected_ids": [
+            "epics-pv"
+        ],
+        "category": "中文同义表达",
+        "scored": true
+    },
+    {
+        "id": "q003",
+        "question": "EPICS 中设备测量值、状态和设定值通常用什么表示？",
+        "expected_ids": [
+            "epics-pv"
+        ],
+        "category": "语义改写",
+        "scored": true
+    },
+    {
+        "id": "q004",
+        "question": "Process Variable",
+        "expected_ids": [
+            "epics-pv"
+        ],
+        "category": "英文精确术语",
+        "scored": true
+    },
+    {
+        "id": "q005",
+        "question": "IOC 是什么，它主要负责什么？",
+        "expected_ids": [
+            "epics-ioc"
+        ],
+        "category": "定义问题",
+        "scored": true
+    },
+    {
+        "id": "q006",
+        "question": "哪个组件负责运行 EPICS 数据库记录，并把记录字段作为 PV 提供给客户端？",
+        "expected_ids": [
+            "epics-ioc"
+        ],
+        "category": "长语义改写",
+        "scored": true
+    },
+    {
+        "id": "q007",
+        "question": "OPI 是什么？",
+        "expected_ids": [
+            "epics-opi"
+        ],
+        "category": "技术缩写",
+        "scored": true
+    },
+    {
+        "id": "q008",
+        "question": "运行人员通过什么图形界面查看设备状态、趋势曲线和报警？",
+        "expected_ids": [
+            "epics-opi"
+        ],
+        "category": "自然语言改写",
+        "scored": true
+    },
+    {
+        "id": "q009",
+        "question": "Channel Access 是做什么的？",
+        "expected_ids": [
+            "epics-ca"
+        ],
+        "category": "英文技术术语",
+        "scored": true
+    },
+    {
+        "id": "q010",
+        "question": "camonitor 通过什么协议访问 PV？",
+        "expected_ids": [
+            "epics-ca"
+        ],
+        "category": "精确技术词",
+        "scored": true
+    },
+    {
+        "id": "q011",
+        "question": "caget 和 caput 分别有什么作用？",
+        "expected_ids": [
+            "epics-cli"
+        ],
+        "category": "命令行术语",
+        "scored": true
+    },
+    {
+        "id": "q012",
+        "question": "哪个命令用于读取一个 PV 的当前值？",
+        "expected_ids": [
+            "epics-cli"
+        ],
+        "category": "自然语言改写",
+        "scored": true
+    },
+    {
+        "id": "q013",
+        "question": "BPM 是什么？",
+        "expected_ids": [
+            "bpm-position"
+        ],
+        "category": "技术缩写",
+        "scored": true
+    },
+    {
+        "id": "q014",
+        "question": "哪个设备用来测量束流的横向位置？",
+        "expected_ids": [
+            "bpm-position"
+        ],
+        "category": "自然语言改写",
+        "scored": true
+    },
+    {
+        "id": "q015",
+        "question": "多个 BPM 的位置测量结果组合起来可以得到什么？",
+        "expected_ids": [
+            "bpm-orbit"
+        ],
+        "category": "关系理解",
+        "scored": true
+    },
+    {
+        "id": "q016",
+        "question": "MBA 为什么能够帮助降低电子束自然发射度？",
+        "expected_ids": [
+            "mba-emittance"
+        ],
+        "category": "解释型问题",
+        "scored": true
+    },
+    {
+        "id": "q017",
+        "question": "高层应用 HLA 可以完成哪些任务？",
+        "expected_ids": [
+            "hla-role"
+        ],
+        "category": "技术缩写",
+        "scored": true
+    },
+    {
+        "id": "q018",
+        "question": "第一版加速器 RAG 为什么不能自动执行 caput？",
+        "expected_ids": [
+            "rag-boundary"
+        ],
+        "category": "安全边界",
+        "scored": true
+    },
+    {
+        "id": "q019",
+        "question": "射频腔的主要作用是什么？",
+        "expected_ids": [
+            "rf-cavity"
+        ],
+        "category": "领域语义",
+        "scored": true
+    },
+    {
+        "id": "q020",
+        "question": "SR:BPM01:X",
+        "expected_ids": [],
+        "category": "语料覆盖诊断",
+        "scored": false
+    }
+]
