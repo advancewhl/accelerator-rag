@@ -33,7 +33,7 @@ def main() -> int:
     logger.info("数据目录: %s", settings.data_dir)
     logger.info("Qdrant 地址: %s", settings.qdrant_url)
     logger.info("Collection: %s", settings.collection_name)
-    logger.info("Day 2 项目骨架运行成功")
+    logger.info("检索实验环境检查成功")
 
     return 0
 

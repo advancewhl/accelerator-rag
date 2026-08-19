@@ -28,18 +28,18 @@ class BM25SearchResult:
 
 
 def tokenize(text: str) -> list[str]:
-    """将文本切为合适基础关键词检索的token"""
+    """将文本切分为适合关键词检索的 token。"""
 
     raw_tokens = TOKEN_PATTERN.findall(text)
 
     tokens: list[str] = []
 
     for token in raw_tokens:
-        # 中文文本交给jieba分词
+        # 中文文本交给 Jieba 分词
         if re.fullmatch(r"[\u4e00-\u9fff]+", token):
             tokens.extend(word.strip() for word in jieba.lcut(token) if word.strip())
         else:
-            # 英文缩写、pv名统一转小写
+            # 英文缩写、PV 名统一转小写
             tokens.append(token.casefold())
 
     return tokens
@@ -123,10 +123,10 @@ class BM25BaselineRetriever:
         top_k: int = 3,
     ) -> list[BM25SearchResult]:
         if not query.strip():
-            raise ValueError("query connot be empty")
+            raise ValueError("query cannot be empty")
 
         if top_k <= 0:
-            raise ValueError("top_k must be great than 0")
+            raise ValueError("top_k must be greater than 0")
 
         query_tokens = tokenize(query)
 

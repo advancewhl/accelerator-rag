@@ -4,5 +4,5 @@
     "log_level": "INFO",
     "data_dir": "data",
     "qdrant_url": "http://localhost:6333",
-    "collection_name": "acclerator_docs"
+    "collection_name": "accelerator_docs"
 }

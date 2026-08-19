@@ -13,7 +13,7 @@ from accelerator_rag.storage import QdrantVectorStore
 
 
 class QdrantSemanticRetriever:
-    """基于 QDrant 的语义检索器"""
+    """基于 Qdrant 的语义检索器。"""
 
     def __init__(
         self,
@@ -27,7 +27,7 @@ class QdrantSemanticRetriever:
         self,
         chunks: Sequence[DocumentChunk],
     ) -> None:
-        """为文本块生成Embedding并写入Qdrant"""
+        """为文本块生成 Embedding 并写入 Qdrant。"""
 
         if not chunks:
             raise ValueError("chunks 不能为空")
@@ -48,7 +48,7 @@ class QdrantSemanticRetriever:
         query: str,
         top_k: int = 3,
     ) -> list[SearchResult]:
-        """执行语义检索"""
+        """执行语义检索。"""
 
         if not query.strip():
             raise ValueError("query 不能为空")
