@@ -1,0 +1,145 @@
+[
+  {
+    "doc_id": "epics-application-developers-guide-r3-16-2",
+    "title": "EPICS Application Developer's Guide",
+    "source_path": "data/raw/EPICS/EPICS_Application_Developers_Guide_R3.16.2.pdf",
+    "category": "control_system",
+    "topic": "epics",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "R3.16.2 (2018-10-22)",
+    "status": "active"
+  },
+  {
+    "doc_id": "epics-documentation-latest-2026-08-18",
+    "title": "EPICS Documentation",
+    "source_path": "data/raw/EPICS/EPICS_Documentation_latest.pdf",
+    "category": "control_system",
+    "topic": "epics",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "latest (2026-08-18)",
+    "status": "active"
+  },
+  {
+    "doc_id": "european-xfel-full-technical-design-report-2007",
+    "title": "The European X-Ray Free-Electron Laser Technical Design Report",
+    "source_path": "data/raw/Hard_XFEL_European_XFEL/European_XFEL_Full_Technical_Design_Report.pdf",
+    "category": "accelerator_physics",
+    "topic": "accelerator_design",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "DESY 2006-097 (2007-07)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+    "title": "The European XFEL Undulator Commissioning Spectrometer",
+    "source_path": "data/raw/Hard_XFEL_European_XFEL/European_XFEL_Undulator_Commissioning_Spectrometer_CDR.pdf",
+    "category": "beam_diagnostics",
+    "topic": "photon_diagnostics",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "Rev B, Ver 2 (2011-06-08)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+    "title": "X-Ray Optics and Beam Transport",
+    "source_path": "data/raw/Hard_XFEL_European_XFEL/European_XFEL_X-Ray_Optics_and_Beam_Transport_TDR.pdf",
+    "category": "accelerator_physics",
+    "topic": "beam_transport",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "XFEL.EU TR-2012-006 (2012-12)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+    "title": "Standard E-Beam Diagnostics for the European-XFEL",
+    "source_path": "data/raw/Hard_XFEL_European_XFEL/Standard_E-Beam_Diagnostics_for_European_XFEL.pdf",
+    "category": "beam_diagnostics",
+    "topic": "electron_beam_diagnostics",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "LINAC2010 TUP095",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+    "title": "EPICS IOC and PVs Information Management System for SHINE",
+    "source_path": "data/raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+    "category": "control_system",
+    "topic": "ioc",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "PCaPAC2022 FRO21",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-accelerator-fast-interlock-2024",
+    "title": "SHINE 加速器快联锁系统设计与开发",
+    "source_path": "data/raw/Hard_XFEL_SHINE/SHINE_Accelerator_Fast_Interlock_System_Design_and_Development_CN.pdf",
+    "category": "control_system",
+    "topic": "interlock",
+    "document_type": "pdf",
+    "language": "zh",
+    "version": "核技术 47(12):120203 (2024-12)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-control-system-status-icalepcs2019",
+    "title": "Status of the SHINE Control System",
+    "source_path": "data/raw/Hard_XFEL_SHINE/Status_of_the_SHINE_Control_System_ICALEPCS2019.pdf",
+    "category": "control_system",
+    "topic": "control_architecture",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "ICALEPCS2019 WEPHA167",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-cryogenic-control-system-2021",
+    "title": "The Cryogenic Control System of SHINE",
+    "source_path": "data/raw/Hard_XFEL_SHINE/The_Cryogenic_Control_System_of_SHINE_2021.pdf",
+    "category": "control_system",
+    "topic": "cryogenics",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "EPJ Techniques and Instrumentation (2021)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+    "title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+    "source_path": "data/raw/Hard_XFEL_SHINE/White_Rabbit_Based_Beam_Synchronous_Timing_Systems_for_SHINE_IPAC2022.pdf",
+    "category": "control_system",
+    "topic": "timing",
+    "document_type": "pdf",
+    "language": "en",
+    "version": "IPAC2022 THIYGD1",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-accelerator-control-system-design-presentation",
+    "title": "SHINE 加速器控制系统设计与开发",
+    "source_path": "data/raw/SHINE加速器控制系统设计与开发.pdf",
+    "category": "control_system",
+    "topic": "control_architecture",
+    "document_type": "pdf",
+    "language": "zh",
+    "version": "unknown",
+    "status": "reference"
+  },
+  {
+    "doc_id": "shine-accelerator-preliminary-design-report-2017",
+    "title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+    "source_path": "data/raw/加速器分册(20171226).pdf",
+    "category": "accelerator_physics",
+    "topic": "accelerator_design",
+    "document_type": "pdf",
+    "language": "zh",
+    "version": "初步设计报告 (2017-12-26)",
+    "status": "reference"
+  }
+]

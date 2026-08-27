@@ -2,8 +2,9 @@
 
 面向 EPICS、HLA、束流诊断和加速器物理资料的 RAG 检索学习项目。
 
-项目目前完成到 Day 7，已经建立从文本块、Embedding、向量存储到
-检索评测的最小闭环。当前重点是检索层实验，还未包含 LLM 答案生成。
+项目目前完成到 Day 8，已经建立从文本块、Embedding、向量存储到
+检索评测的最小闭环，并完成首批真实加速器语料的登记与分类。当前重点是
+检索层和语料治理，还未包含 LLM 答案生成。
 
 ## 已实现功能
 
@@ -12,6 +13,8 @@
 - 使用 Jieba 和 BM25 实现关键词检索，并保留 EPICS PV 名等技术词；
 - 使用 Qdrant 持久化向量，支持写入、查询和删除；
 - 使用固定问题和 Ground Truth 对 Dense、BM25 检索进行对比评测；
+- 使用 registry 管理真实文档的主题、类型、语言、版本和状态；
+- 自动核对 registry 与 `data/raw`，并输出 corpus inventory；
 - 提供单元测试、演示脚本和基线分析报告。
 
 ## 技术栈
@@ -35,6 +38,7 @@ accelerator-rag/
 ├── scripts/                 # Day 4 至 Day 7 演示脚本
 ├── src/accelerator_rag/
 │   ├── evaluation/          # Ground Truth 与检索评测
+│   ├── corpus/              # 语料分类、登记与一致性校验
 │   ├── retrieval/           # Dense、BM25 和 Qdrant 检索器
 │   ├── storage/             # Qdrant 向量存储封装
 │   ├── config.py
@@ -125,6 +129,23 @@ Docker Volume `qdrant_storage` 中。
 - [Day 7 检索报告](reports/day7_baseline.md)
 - [Day 7 结果分析](reports/day7_analysis.md)
 - [Day 6 Qdrant 说明](docs/day06_qdrant.md)
+
+## Day 8 语料登记
+
+首批 13 份 PDF 放在 `data/raw`，登记信息保存在
+`data/documents/registry.json`。原始资料不直接提交到 Git，registry 和分类规则
+需要纳入版本管理。
+
+运行登记表与原始文件一致性检查：
+
+```bash
+python scripts/day8_corpus_inventory.py
+```
+
+命令会列出每份文档，并统计类别、主题、格式、语言和状态；如果发现漏登记或
+登记文件缺失，将返回非零退出码。
+
+详细规则与本次结果见 [Day 8 语料管理报告](reports/day8_corpus_inventory.md)。
 
 ## 当前边界
 
