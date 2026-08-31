@@ -23,11 +23,13 @@ logs/*.log
 data/raw/*
 data/interim/*
 data/processed/*
+data/parsed/*
 
 # 保留空目录
 !data/raw/.gitkeep
 !data/interim/.gitkeep
 !data/processed/.gitkeep
+!data/parsed/.gitkeep
 
 # 编辑器配置
 .vscode/
