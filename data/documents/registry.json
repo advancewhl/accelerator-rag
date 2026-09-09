@@ -141,5 +141,60 @@
     "language": "zh",
     "version": "初步设计报告 (2017-12-26)",
     "status": "reference"
+  },
+  {
+    "doc_id": "epics-7-overview-training-slides",
+    "title": "EPICS 7 – Introduction and Overview",
+    "source_path": "data/raw/control_system/EPICS_7_Overview.pptx",
+    "category": "control_system",
+    "topic": "epics",
+    "document_type": "pptx",
+    "language": "en",
+    "version": "epics-training/epics7-overview (modified 2025-04-10)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "epics-ioc-setup-training-slides",
+    "title": "Working with EPICS – Simple IOC Setup",
+    "source_path": "data/raw/control_system/EPICS_IOC_Setup.pptx",
+    "category": "control_system",
+    "topic": "ioc",
+    "document_type": "pptx",
+    "language": "en",
+    "version": "Timo Korhonen, stream-introduction training (2026-04-21)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "areadetector-epics-training-slides",
+    "title": "areaDetector: A Module for EPICS Area Detector Support",
+    "source_path": "data/raw/control_system/areaDetector_training.pptx",
+    "category": "control_system",
+    "topic": "epics",
+    "document_type": "pptx",
+    "language": "en",
+    "version": "Mark Rivers, epics-training/areadetector-training (2024-04-15)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "lnl-accelerator-complex-code-legend-rule",
+    "title": "Naming Convention LNL Accelerator Complex Code Legend Rule",
+    "source_path": "data/raw/control_system/LNL_Accelerator_Complex_Code_Legend_Rule.docx",
+    "category": "control_system",
+    "topic": "control_architecture",
+    "document_type": "docx",
+    "language": "en",
+    "version": "Version 5 (2023-05-19)",
+    "status": "reference"
+  },
+  {
+    "doc_id": "epics-centos8-packages-doc",
+    "title": "EPICS Packages to Build EPICS base, synApps, and areaDetector on CentOS 8",
+    "source_path": "data/raw/control_system/EPICS_Centos8_Packages.docx",
+    "category": "control_system",
+    "topic": "epics",
+    "document_type": "docx",
+    "language": "en",
+    "version": "Mark Rivers, 2020-04-02",
+    "status": "reference"
   }
 ]
