@@ -25,6 +25,13 @@ data/interim/*
 data/processed/*
 data/parsed/*
 
+# 其他分支保留的论文数据层与本地中间产物
+data/l0_raw/
+data/l1_entities/
+data/l2_evidence/
+data/l3_benchmark/
+tmp/
+
 # 保留空目录
 !data/raw/.gitkeep
 !data/interim/.gitkeep
