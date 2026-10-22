@@ -1,0 +1,42 @@
+{
+  "protected_historical_files": {
+    "tmp/stage-two-seven/baai--bge-small-zh-v1.5/qdrant/collection/knowledge_stage27_baai__bge_small_zh_v1.5/storage.sqlite": "5c10909ab5e7344a71b17cf11cf2587ab6097e5ec83b2dac1c30bfd581646656",
+    "tmp/stage-two-seven/intfloat--multilingual-e5-base/qdrant/collection/knowledge_stage27_intfloat__multilingual_e5_base/storage.sqlite": "528eec377ede0e4d9ce65b9d778009b057d2dc210550a5823b6e5dda7711cf47",
+    "tmp/stage-two-seven/baai--bge-base-zh-v1.5/qdrant/collection/knowledge_stage27_baai__bge_base_zh_v1.5/storage.sqlite": "ce8743e8ccbf1c9b4861c23b025194482659789809b3d2e393600de9a95f86e1",
+    "reports/rag-stage-two-seven-embedding-comparison.json": "1c4ef2d9d9b4d4725f602becd21858643fff7ec318ae73f8fca2e3e89bb14752",
+    "reports/rag-stage-two-seven-embedding-comparison.md": "7f6e4d74f2c5bf75ffead7b3508a657a62224829aaff1d3bf527482e15c3ba6a"
+  },
+  "recommendation": "B．继续 cross-language / multi-evidence Dense investigation。v2 下 E5 完整命中 18/21，BM25 完整命中 16/21；两者 both_hit 为 16，bm25_only 为 0，dense_only 为 IOC management 和 control layers 两条。三个共同 miss 恰为三条跨语言问题。BGE-base 对 IOC startup 有 1/2、cryo interlock 有 2/3 部分覆盖，说明需要定位完整证据召回和排序缺口。审核确实修复了 benchmark 漏标，但现有结果不足以支持直接实施 RRF；本轮不执行下一阶段。",
+  "validation": [
+    "pytest -q：317 passed。",
+    "ruff check .：通过。",
+    "git diff --check：通过。",
+    "python scripts/corpus_inventory.py：13 份 registered PDFs，validation OK。",
+    "离线 audit/rejudge：全部 v1 指标重现，v2 全部 alternatives 通过 raw PDF 与 eligible canonical chunk 强校验。",
+    "在阻断模型加载、document/query encoding 与 Qdrant 打开的守卫下运行离线生成器；未触发任何被阻断操作。",
+    "三个历史 SQLite 文件、Stage 2.7 JSON/Markdown 及 13 份原始 PDF 的 SHA-256 未变；所有 Top-5 ranking 摘要一致。",
+    "Stage 2.7 Markdown 由保存的 measurement 与独立人工 review artifact 逐字重建。"
+  ],
+  "dense_contract_verification": [
+    {
+      "test": "tests/retrieval/test_index_contract.py::test_contract_identity_excludes_operational_identity",
+      "result": "passed",
+      "behavior": "semantic changes alter deterministic SHA-256; path/batch/threads excluded"
+    },
+    {
+      "test": "tests/retrieval/test_passages.py::test_persistent_document_replacement_preserves_other_points",
+      "result": "passed",
+      "behavior": "persistent reopen and same-contract A update preserve B vector/payload and do not encode B"
+    },
+    {
+      "test": "tests/retrieval/test_index_contract.py::test_reopen_rejects_new_passage_policy_before_mutation",
+      "result": "passed",
+      "behavior": "index_document/index_corpus/search reject before encode or mutation"
+    },
+    {
+      "test": "tests/retrieval/test_index_contract.py::test_same_768_dimension_different_model_rejected_after_reopen",
+      "result": "passed",
+      "behavior": "different requested model/weights, both 768 dimensions, rejected before query/document encode after reopen; stored points unchanged"
+    }
+  ]
+}

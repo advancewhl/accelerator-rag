@@ -1,0 +1,1079 @@
+{
+  "schema_version": 2,
+  "judgment_revision": "evidence-contract-v1",
+  "review": [
+    {
+      "id": "epics-pp",
+      "judgment_mode": "all",
+      "groups": 2,
+      "note": "Require both processing-before-input timing and PP/passive-SCAN condition. Reviewed raw physical 88; no ranking-based target selection."
+    },
+    {
+      "id": "epics-reconnect",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "epics-cli",
+      "judgment_mode": "all",
+      "groups": 3,
+      "note": "Split read/write/monitor into three required groups; old partial excerpt did not prove all three commands. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "xfel-rf",
+      "judgment_mode": "all",
+      "groups": 2,
+      "note": "Two required facts: 1.3 GHz and 20 GeV; raw physical 72 also explicitly states 1,300 MHz as a frequency alternative. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "xfel-normal-energy",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "undulator-tuning",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "xfel-mirror-angle",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "xfel-soft-mono",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "xfel-bpm-types",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "shine-ioc-management",
+      "judgment_mode": "all",
+      "groups": 3,
+      "note": "Require CA/pvAccess PV collection/storage, IOC startup metadata registration, and MySQL-backed web display. Raw physical 1 reviewed without ranking-based target selection."
+    },
+    {
+      "id": "shine-ioc-startup",
+      "judgment_mode": "all",
+      "groups": 2,
+      "note": "Require startup installation/time/list on physical 2 and address/CA ports/list on physical 3; a single partial list is not complete. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "interlock-latency",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "interlock-platform",
+      "judgment_mode": "all",
+      "groups": 2,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "shine-control-layers",
+      "judgment_mode": "all",
+      "groups": 5,
+      "note": "Require four-layer names and actual division of responsibilities (operator interfaces, runtime infrastructure, device IO, high-speed data). The old names-only excerpt did not establish complete functional separation. Raw physical 1 reviewed without consulting rankings."
+    },
+    {
+      "id": "cryo-integration",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "cryo-interlock",
+      "judgment_mode": "all",
+      "groups": 3,
+      "note": "Require local DI/DO connection, master PLC logic/exchange, and CPLD optical/electric conversion; old CPLD-only excerpt was incomplete. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "timing-wrtd",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "timing-jitter",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "control-slow-interlock",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "shine-compressors",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Replace header/location excerpt with explicit BC1 space-charge/wakefield and BC2 CSR/stability rationale; retain full question. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    },
+    {
+      "id": "shine-main-linac",
+      "judgment_mode": "all",
+      "groups": 1,
+      "note": "Replace introductory facility-goal excerpt with explicit main-linac continuous-wave and final 8 GeV statement on physical 5. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory."
+    }
+  ],
+  "queries": [
+    {
+      "id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "category": "epics",
+      "answerable": true,
+      "judgment_note": "Require both processing-before-input timing and PP/passive-SCAN condition. Reviewed raw physical 88; no ranking-based target selection.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "epics-application-developers-guide-r3-16-2",
+              "page": 88,
+              "excerpt": "The linked record will be processed only if link’s Process Passive attribute is PP and the target record’s SCAN ﬁeld is\nPassive."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "epics-application-developers-guide-r3-16-2",
+              "page": 88,
+              "excerpt": "It determines if the\nlinked record should be processed before getting a value from an input link or after writing a value to an output link."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "category": "epics",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "epics-application-developers-guide-r3-16-2",
+              "page": 31,
+              "excerpt": "When a server crashes, the client automatically re-establishes communication when the server\nrestarts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "category": "pv",
+      "answerable": true,
+      "judgment_note": "Split read/write/monitor into three required groups; old partial excerpt did not prove all three commands. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 9,
+              "excerpt": "your prompt> caget temperature:water\ntemperature:water\n0"
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 9,
+              "excerpt": "your prompt> caput temperature:water 21\nOld : temperature:water\n0\nNew : temperature:water\n21"
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 9,
+              "excerpt": "Now open yet another terminal (nr. 3) and try camonitor as\ncamonitor temperature:water"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "category": "accelerator_design",
+      "answerable": true,
+      "judgment_note": "Two required facts: 1.3 GHz and 20 GeV; raw physical 72 also explicitly states 1,300 MHz as a frequency alternative. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 65,
+              "excerpt": "L-band (1.3 GHz) electron linear accelerator"
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 72,
+              "excerpt": "whose fundamental TM mode has a frequency of 1,300 MHz."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 65,
+              "excerpt": "nominal design energy of 20 GeV, operating at an accelerating gradient of\n23.6 MV/m."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "category": "accelerator_design",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 21,
+              "excerpt": "energies of up to 20 GeV\n(17.5 GeV is the energy foreseen for the standard mode of operation of the XFEL facility)."
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 57,
+              "excerpt": "energies of up to 20 GeV\n(17.5 GeV is the energy foreseen for normal operation of the XFEL Facility)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "category": "photon_diagnostics",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+              "page": 3,
+              "excerpt": "The commissioning spectrometer, also known as K-monochromator, is mainly used \nwith spontaneous radiation and selects a narrow bandwidth of the x-ray photon beam \nin order to tune the undulator segments."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "category": "beam_transport",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+              "page": 8,
+              "excerpt": "The range of grazing-incidence angles at the SASE3 offset mirrors was \nchanged from 9–25 mrad to 6–20 mrad. The main reason is the smaller \nwavefront distortion coming from shape errors of the mirrors."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "category": "beam_transport",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+              "page": 5,
+              "excerpt": "While the previous design \nwas in the horizontal geometry and more optimized towards higher energy \nresolution, the new design is now focused more on a faster time response. \nThe vertical in-line geometry makes a monochromatic beam now equally \navailable to all three branch beamlines at SASE3."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "category": "beam_diagnostics",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+              "page": 1,
+              "excerpt": "The standard BPMs \nwill be of the button type. Precision monitors will be \ndifferent cavity BPM types."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "category": "ioc",
+      "answerable": true,
+      "judgment_note": "Require CA/pvAccess PV collection/storage, IOC startup metadata registration, and MySQL-backed web display. Raw physical 1 reviewed without ranking-based target selection.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 1,
+              "excerpt": "PV service \nfetches PVs from EPICS run-time databases via Channel \nAccess and pvAccess. At the same time, it retrieves the \nrunning information of servers such as the available free \nmemory, CPU load, etc. Then it saves all the data into the \ndatabase."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 1,
+              "excerpt": "Another web application is designed to render \nservers, IOCs and PVs data in MySQL on the web to give \nus an overall running status of the control system."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 1,
+              "excerpt": "as soon as the IOC starts up, the information of the \nserver’s address, the IOC installation path, and all the rec-\nords maintained by the IOC will be automatically pushed \nto the application and then stored in the database."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "category": "ioc",
+      "answerable": true,
+      "judgment_note": "Require startup installation/time/list on physical 2 and address/CA ports/list on physical 3; a single partial list is not complete. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 2,
+              "excerpt": "the installation path, the startup time, \nthe record lists, and so on."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 3,
+              "excerpt": "IP address, epics ca server \nport,  epics ca repeater port and lists of the record for an \nIOC."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "category": "interlock",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 2,
+              "excerpt": "联锁系统单节点响应时间\n应小于10 µs，节点间的响应时间应小于100 µs。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "category": "interlock",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 3,
+              "excerpt": "Spartan6 XC6SLX25 系列芯\n片，"
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 3,
+              "excerpt": "SHINE 联锁系统选用\nverilog HDL语言进行相关功能开发。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "category": "control_architecture",
+      "answerable": true,
+      "judgment_note": "Require four-layer names and actual division of responsibilities (operator interfaces, runtime infrastructure, device IO, high-speed data). The old names-only excerpt did not establish complete functional separation. Raw physical 1 reviewed without consulting rankings.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-control-system-status-icalepcs2019",
+              "page": 1,
+              "excerpt": "the control system can be divided \ninto four layers to ensure the performance and scalability, \nwhich are operator interface layer, middle layer, device \ncontrol layer and data acquisition layer."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-control-system-status-icalepcs2019",
+              "page": 1,
+              "excerpt": "The operator interface layer offers graphical user inter-\nface (GUI), command line interface (CLI) and high-level \napplication programming interface (API) to the operators, \nengineers and physicists. It allows them to interact with the \nmachine components."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-control-system-status-icalepcs2019",
+              "page": 1,
+              "excerpt": "The middle layer consists of compute, storage and net-\nwork devices. It provides the runtime environment for the \nwhole accelerator control system."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-control-system-status-icalepcs2019",
+              "page": 1,
+              "excerpt": "input and output device control, such as magnet \npower supply control, vacuum gauge control"
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-control-system-status-icalepcs2019",
+              "page": 1,
+              "excerpt": "The data acquisition layer is designed for the high speed \nimage and stream data acquisition, processing and storage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "category": "cryogenics",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "page": 3,
+              "excerpt": "At the middle layer, PLC will implement most of control logic and PID cycle. Soft\nIOCs running EPICS runtime database accomplish signal collection from PLC, and\nconvert them to Process Variables (PV) under the rule of EPICS Channel Access (CA)\nprotocol."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "category": "cryogenics",
+      "answerable": true,
+      "judgment_note": "Require local DI/DO connection, master PLC logic/exchange, and CPLD optical/electric conversion; old CPLD-only excerpt was incomplete. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "page": 6,
+              "excerpt": "Each cryostat control station has\nthree pairs of DI/DO signal connected to master interlock PLC."
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "page": 6,
+              "excerpt": "Master interlock PLC\nwill execute more complicated safe logic and exchange interlock signals"
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "page": 6,
+              "excerpt": "a dedicated Complex Programmable Logic Device (CPLD) module with one fiber\nport, sixteen electric ports and LATTICE chip is developed. With one pair of this mod-\nule, electric and optical signal can be converted bidirectional in microsecond level [3]."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "category": "timing",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+              "page": 2,
+              "excerpt": "but the max repetition frequency of \nSHINE is too high. The 10 Gigabit White Rabbit switches \nare required, but there is no commercial product yet."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "category": "timing",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+              "page": 5,
+              "excerpt": "For the beam-synchronous trigger signal distribution, the \njitter between the output of slave node and the external ref-\nerence signal is less than 20ps (RMS). The jitter between \nthe outputs from different slave nodes is less than 10ps \n(RMS). For the random-event trigger signal distribution, \nthe jitter between the output of slave node and the external \nreference signal is less than 35ps (RMS)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "category": "interlock",
+      "answerable": true,
+      "judgment_note": "Retain question and source; replace partial-word/context-heavy seed excerpt with complete factual evidence. Manually reviewed raw accepted page; all required facts retained, alternatives not exhaustive. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-accelerator-control-system-design-presentation",
+              "page": 21,
+              "excerpt": "慢联锁关键信号响应时间：\n站内≤20ms，站间≤100ms"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "category": "accelerator_design",
+      "answerable": true,
+      "judgment_note": "Replace header/location excerpt with explicit BC1 space-charge/wakefield and BC2 CSR/stability rationale; retain full question. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 61,
+              "excerpt": "两级磁压缩位置的选择基于束流稳定性的优化及束团集体效应对束流亮度\n和品质的影响。第一级磁压缩BC1 通常距离注入器比较近，电子束能量比较低，\n束团也比较长，需要尽早压缩束团长度以克服加速过程中横向尾场对电子束的影\n响。但相反，如果第一级磁压缩距离注入器太近，电子束能量太低，空间电荷效\n应对束流的亮度影响越大，同时束流的不稳定性也随之增加。因此综合考虑各种\n效应以后，将BC1 处的束流能量选在270MeV。BC2 位置的选择主要考虑到相\n干同步辐射效应（CSR）对电子束发射度的破坏，束流能量、能散和到达时间的\n稳定性的优化。图3.3.3.1-3 给出了第二级磁压缩束流能量选在不同位置时的束流\n稳定性结果。目前BC2 选择在L2 段18 个模组之后，电子束能量约为2.1GeV。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "category": "accelerator_design",
+      "answerable": true,
+      "judgment_note": "Replace introductory facility-goal excerpt with explicit main-linac continuous-wave and final 8 GeV statement on physical 5. Reviewed before Stage 2.5 ranking; eligible-chunk containment is mandatory.",
+      "judgment_mode": "all",
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 5,
+              "excerpt": "主加速\n器基于超导连续波工作模式，采用三级加速、两级压缩的结构，将电子束团能量\n提高到8 GeV；"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-finance",
+      "query": "What was NVIDIA quarterly revenue in fiscal 2026 Q4?",
+      "language": "en",
+      "category": "out_of_corpus",
+      "answerable": false,
+      "judgment_note": "Deliberately out of scope for the registered accelerator/control corpus; returned neighbors do not count as hits.",
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "obvious"
+    },
+    {
+      "id": "no-answer-recipe",
+      "query": "如何制作四川麻婆豆腐？请给出食材和烹饪步骤。",
+      "language": "zh",
+      "category": "out_of_corpus",
+      "answerable": false,
+      "judgment_note": "Deliberately out of scope for the registered accelerator/control corpus; returned neighbors do not count as hits.",
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "obvious"
+    },
+    {
+      "id": "no-answer-token",
+      "query": "zxqv9999unlistedcalibrationartifact",
+      "language": "en",
+      "category": "out_of_corpus",
+      "answerable": false,
+      "judgment_note": "Deliberately out of scope for the registered accelerator/control corpus; returned neighbors do not count as hits.",
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "obvious"
+    },
+    {
+      "id": "no-answer-hard-live-pv",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 的 temperature:water PV 实时读数是多少？",
+      "language": "zh",
+      "category": "epics",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "2026-10-19",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "temperature:water",
+          "matching_pages": 2,
+          "context_samples": [
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 9,
+              "context": "how EPICS works.\nIn whatever directory you like, prepare a file test.db that reads like\nrecord(ai, \"temperature:water\")\n{\nfield(DESC, \"Water temperature in the fish tank\")\n}\nThis file defines a record instance called temperature:water, which is an analog input (ai) record. As you can imagine\nDESC stays for Description. Now we st"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 10,
+              "context": "EPICS Documentation\nrecord(ai, \"temperature:water\")\n{\nfield(DESC, \"Water temperature in Lab 10\")\nfield(MDEL, \".01\")\n}\nMDEL stands for Monitor Deadband. If you now run\nsoftIoc -d test.db\nwith the new test.db file, you will see that camonitor reacts only to change"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-live-ioc-count",
+      "query": "How many SHINE IOCs are online at 10:00 UTC on 19 October 2026?",
+      "language": "en",
+      "category": "ioc",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "19 October 2026",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "active IOCs",
+          "matching_pages": 1,
+          "context_samples": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 1,
+              "context": "lication and then stored in the database. With this \nnecessary information, we could access all the active IOCs \nand PVs. Another web application is designed to render \nservers, IOCs and PVs data in MySQL on the web to give \nus an overall running status of the control system. We also \nfully consider the modularity and portabilit"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-live-interlock",
+      "query": "SHINE 快联锁在 2026-10-19 10:00 UTC 的在线许可状态是什么？",
+      "language": "zh",
+      "category": "interlock",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "2026-10-19",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "联锁",
+          "matching_pages": 47,
+          "context_samples": [
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 1,
+              "context": "12 月\nVol.47，No.12\nDecember 2024\n120203-1\n核   技   术  NUCLEAR TECHNIQUES\nwww.hjs.sinap.ac.cn\nSHINE加速器快联锁系统设计与开发\n于春蕾 陈广花 丁建国 李明 肖庆雯 阎映炳\n（中国科学院上海高等研究院    上海  201210）\n摘要 上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility，SHINE）\n是我国在建的大型科学工程，SHINE高达1 MHz的重复频率和长达数千米的超大规模对加速器联锁系统提出\n了新的挑战。大型加速器联锁系统必须具有微秒级响应速度、并"
+            },
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 2,
+              "context": "、化学、材料、\n生命科学等诸多领域都有非常广泛和重要的应用。\nSHINE 目前设计有三条波荡器束线，从注入器至波\n荡器末端装置长度约为2 km\n［4］，SHINE 装置的总体\n示意图如图1所示。加速器联锁系统可以在故障发\n生时对加速器的关键设备提供及时有效的保护，避\n免机器损坏\n［5］。同时，联锁系统还需要将报警信息\n上传至上层控制系统，提醒操作人员进行相应的操\n作和处理，并提供机器状态指示、历史记录查询等\n功能\n［6］。\n由于上海硬X射线自由电子激光装置具有高重\n复频率、高稳定性等特点，联锁系统单节点响应时间\n应小于10 µs，节点间的响应时间应小于100 µs。传\n统基于可编程逻辑控制器（Programmable Logic \nController"
+            },
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 3,
+              "context": "于春蕾等： SHINE加速器快联锁系统设计与开发\n120203-3\n系统的工艺和供电问题，并且缩减了快联锁系统所\n需的安装空间，和慢联锁系统在硬件结构和外观上\n可结合为一个“整体”。FPIO 模块内置的FPGA 使\n用的是Xilinx 公司的Spartan6 XC6SLX25 系列芯\n片，其开发和设计流程遵循FPGA开发的通用流程。\n模块带有编程口，通过转接线缆和JTAG 编程线缆\n可连接计算机，实现与Xilinx 的工具包ISE Design \nSuite 的连接。BSP（Board"
+            },
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 4,
+              "context": "核\n技\n术  2024, 47: 120203\n120203-4\n对PLC 地址寄存器的访问。基于快慢联锁之间数\n据通讯程序的开发，EPICS 远程控制系统可以获取\n整个联锁系统包含基于FPGA的快联锁系统的任意\n相关数据，实现联锁系统的远程监测与控制。\nSHINE 控制系统的界面选用PyDM（Python Display \nManager）进行设计与开发，可结合Archiver \nAppliance和CSS Alarm等多种上层应用软件获取联\n锁系统的数据信息。\n3  系统设计与结构 \nSHINE 联锁系统信号量庞大且地理分布广，因\n此系统整体采用“主站"
+            },
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 5,
+              "context": "于春蕾等： SHINE加速器快联锁系统设计与开发\n120203-5\n损报警等信号，功率源的低电平系统状态和控制信\n号、真空快规报警信号等，SHINE快联锁系统主要信\n号的数量统计如表2所示。快联锁的逻辑处理与加\n速器的运行模式相关，当装置处于运行状态时，任意\n一路快联锁信号报警，快联锁系统将执行停束操作，\n包括关闭快激光光闸和停止激光系统的定时触发，\n如图5所示。\n4  模式控制和传输 \n为了方便物理人员的操作，并且进一步降低误\n操作的发生概率，在联锁系统中引入运行模式的设\n计。运行模"
+            },
+            {
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 6,
+              "context": "核\n技\n术  2024, 47: 120203\n120203-6\n术不仅可以使联锁系统各个站点都获取运行模式的\n设定信息，而且通过CPU和FPGA之间的数据传输，\n也同样解决了快联锁系统获取运行模式的问题。\n5  系统搭建与测试 \n5.1　 系统搭建　\n基于FPGA 的快联锁系统和运行模式传输方\n案，在SHINE 注入器联锁系统中完成搭建、开发和\n验证。目前，SHINE 注入器段的联锁系统已完成现\n场安装，图7 展示了一个联锁子站的现场图。注入\n器段联锁系统由1个主站和3个子站构成，系统采用\nFAM3 SP71-4S 系列CPU，每"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-live-cryo",
+      "query": "What is the measured SHINE helium refrigerator outlet pressure at 10:00 UTC on 19 October 2026?",
+      "language": "en",
+      "category": "cryogenics",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "19 October 2026",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "pressure",
+          "matching_pages": 79,
+          "context_samples": [
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 124,
+              "context": "ecords can store an analog value, and are typically used for things like set-\npoints, temperatures, pressure, flow rates, etc. The records perform number of functions like data conversions, alarm\nprocessing, filtering, etc.\nBinary Input and Output (BI and BO) records are generally used for commands and statuses to and from equip"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 138,
+              "context": "gh, low, etc.). Analog conversions require converting between levels and engi-\nneering units (i.e., pressure, temperature, level, etc.). These conversions are made to provide operators and application\ncodes with values in meaningful units.\nThe following sections discuss these types of conversions. The actual field names appear i"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 140,
+              "context": "he I/O card uses a 0-10 Volt interface.\nFig. 1.7: Example transducer setup\nThe transducer transmits pressure: 0 PSI at 0 Volts and 175 PSI at 10 Volts. The engineering units full scale and low\nscale are determined as follows:\neng. units full scale = 17.5 × 10.0\neng. units low scale = 17.5 × 0.0\nThe field entries in an analog inp"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 141,
+              "context": "ut card) the conversion is as follows:\neng units = 0 + measured A/D counts\n4095\n* (175 −0)\nWhen the pressure is 175 PSI, 10 Volts is sent to the I/O module. At 10 Volts the signal is read as 4095. When this is\nplugged into the conversion, the value is 175 PSI.\nTransducer Lower than the I/O module\nLet’s consider a variation of th"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 142,
+              "context": "its full scale = 17.5 × 10 eng. units low scale = 17.5 × (-10)\nThe database entries to convert this pressure will be as follows:\nLINR: Linear\nEGUF: 175\nEGUL: -175\nEGU: PSI\nThe conversion will also take into account the precision of the I/O module. In this example (assuming a 12 bit analog\ninput card) the conversion is as follows"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 143,
+              "context": "on\neng units low scale = 43.75 × (-10)\n(175 / 4 = 43.75) The record’s field entries to convert this pressure will be as follows:\nLINR Linear\nEGUF 437.5\nEGUL -437.5\nEGU PSI\nThe conversion will also take into account the precision of the I/O module. In this example (assuming a 12 bit analog\ninput card) the conversion is as follows"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-deployed-firmware",
+      "query": "What exact firmware build SHA was installed on the SHINE White Rabbit master on 19 October 2026?",
+      "language": "en",
+      "category": "timing",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "19 October 2026",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "firmware",
+          "matching_pages": 0,
+          "context_samples": []
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-current-ioc-ip",
+      "query": "SHINE IOC 在 2026-10-19 10:00 UTC 使用的实时 server IP 完整清单是什么？",
+      "language": "zh",
+      "category": "ioc",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "2026-10-19",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "IP address",
+          "matching_pages": 24,
+          "context_samples": [
+            {
+              "document_id": "epics-application-developers-guide-r3-16-2",
+              "page": 24,
+              "context": "eters set up like:\nController LUN =00\nDevice LUN\n=00\nNode Control Memory Address =FFE10000\nClient IP Address\n=‘Dotted-decimal’ IP address of IOC\nServer IP Address\n=‘Dotted-decimal’ IP address of TFTP/NFS server\nSubnet IP Address Mask =‘Dotted-decimal’ IP address of subnet mask (255.255.255.0 for class C subnet)\nBroadcast IP Addr"
+            },
+            {
+              "document_id": "epics-application-developers-guide-r3-16-2",
+              "page": 166,
+              "context": "the client, the number of response bytes which have not\nbeen ﬂushed to the client, the client’s IP address, the client’s port number, and the client’s state.\n2\nLevel two provides all information in levels 0 and 1 and adds the number of bytes allocated by each client and\na list of channel names used by each client. Level 2 also p"
+            },
+            {
+              "document_id": "epics-application-developers-guide-r3-16-2",
+              "page": 284,
+              "context": " block the calling task for a maximum of 2 seconds trying to connect to a server with the\ngiven ip address and port. If a connection cannot be established, an error message is printed on the console, but the"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 56,
+              "context": "ameters set up like:\nController LUN =00\nDevice LUN =00\nNode Control Memory Address =FFE10000\nClient IP Address =‘Dotted-decimal’ IP address of IOC\nServer IP Address =‘Dotted-decimal’ IP address of TFTP/NFS server\nSubnet IP Address Mask =‘Dotted-decimal’ IP address of subnet mask (255.255.255.0 for class C subnet)\nBroadcast IP Ad"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 207,
+              "context": "EPICS Documentation\nClient hostname is always the numeric IP address. HAG() entries must either contain numeric IP addresses, or as-\nCheckClientIP=1 flag must be set to translate hostnames into IPs on ACF file load (effects CA server as well). This\nprevents clients from trivially forging"
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 218,
+              "context": "om the client, the number of response bytes which have not been flushed to the client,\nthe client’s IP address, the client’s port number, and the client’s state.\n2\nLevel two provides all information in levels 0 and 1 and adds the number of bytes allocated by each client and a list of\nchannel names used by each client. Level 2 al"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-live-bpm-calibration",
+      "query": "What measured BPM calibration constant was approved at SHINE on 19 October 2026?",
+      "language": "en",
+      "category": "beam_diagnostics",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "19 October 2026",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "calibration",
+          "matching_pages": 19,
+          "context_samples": [
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 58,
+              "context": "led process) or attached to hardware.\nThese other services can for example provide configuration or calibration data, or computing services like particle\nbeam modeling. Since all the services “speak” the same protocol and exchange the same type of data structures, the\ndata source is transparent to the client software (i.e., you "
+            },
+            {
+              "document_id": "epics-documentation-latest-2026-08-18",
+              "page": 350,
+              "context": "ded in an EPICS IOC to serve process variables, or some special-purpose server, serving for example\ncalibration data from a suitable data storage like a database.\n1.30 PVData structure definition\nThis section describes pvData structures in a metalanguage. The metalanguage is used for documentation; there are\nno parsers or a stri"
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 79,
+              "context": "tects the signal’s pulse shape (see Figures 4.2.2 and 4.2.3). Prior to the measurement,\na low power calibration is done. This allows the calculation of the accelerating gradient\nEacc from the transmitted (probe) power values. The cavity quality factor Q0 is derived from\nthe stored energy, the RF pulse decay time, and the measure"
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 81,
+              "context": "h logarithmical amplifiers to obtain the signal’s pulse shape. Prior to the\nmeasurement a low power calibration is done. This allows the calculation of the\naccelerating gradient Eacc from the transmitted (probe) power values. The cavity quality\nfactor Q0 is derived from the stored energy W and the cryogenic losses Ploss, measure"
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 106,
+              "context": "r the amplitude and 0.01° for the phase. Additional requirements are imposed\non the accuracy of the calibration of the vector- sum which must be in the order of 1% for\namplitude and 0.5° for phase in presence of ±10° microphonics (see also Section\n4.2.5.2).\nOperational requirements\nBesides field stabilisation, the RF control sys"
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 111,
+              "context": "and code generation. Other servers relate to\nlocal reference oscillators (LO)-generation, RF system calibration, waveguide tuner\ncontrol, cavity resonance frequency control, the ADC server for measurement of probe,\nforward and reflected power, and hardware and software diagnostics.\nLocal oscillator signal generation\nEach RF stat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-answer-hard-live-beam-energy",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？",
+      "language": "zh",
+      "category": "accelerator_design",
+      "answerable": false,
+      "judgment_mode": "all",
+      "evidence_groups": [],
+      "negative_type": "hard_domain",
+      "judgment_note": "Static design/history documents describe mechanisms or nominal parameters, not a time-stamped operational observation on 19 October 2026. Full 13-PDF raw-text search found no requested date; contextual topic passages manually checked. No live data source is in this corpus. This is absence of adequate evidence, not a claim that the physical device/state does not exist.",
+      "negative_verification": [
+        {
+          "term": "2026-10-19",
+          "matching_pages": 0,
+          "context_samples": []
+        },
+        {
+          "term": "电子束能量",
+          "matching_pages": 14,
+          "context_samples": [
+            {
+              "document_id": "shine-accelerator-control-system-design-presentation",
+              "page": 4,
+              "context": "X射线自由电子激光\n\n国际上运行或在建的硬X射线自由电子激光装置\n装置名称\n(国家)\n电子束能量 \n(GeV)\n装置长度\n(M)\n重复频率\n(Hz)\n加速器类型\n出光或运行时间\nLCLS\n(美国)\n14.3\n1500\n120\nS波段常温\n 2009\nSACLA\n(日本)\n8.0\n750\n60\nC波段常温\n 2011\nPAL-XFEL\n(韩国)\n10.0\n1100\n60\nS波段常温\n 2017\nEuropean-XFEL\n(欧盟)\n17.5\n3400\n3000 x 10\nL波段超导\n 2017\nSwissFEL\n(瑞士)\n5.8\n715\n10"
+            },
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 59,
+              "context": "稳定性，以满足电\n子束在波荡器中辐射的要求。硬X 射线自由电子激光装置对主加速器出口的束\n流参数要求如表3.3.3.1-1 所示：\n表3.3.3.1-1 SCLF 主加速器的主要性能指标\n名称\n数值\n电子束能量（GeV）\n8\n切片能散（RMS）\n<0.01%\n归一化切片发射度（mm-mrad）\n0.2-0.7\n电荷量（pC）\n10-300\n最高重复频率（MHz）\n1\n峰值流强（A）\n500-3000\n束团长度（μm，rms）\n8\n3.1.1 布局\n自从LCLS 装置于2009 年实现0.15nm 硬X 射线自由电子激光的出光并达\n到饱和起，在其后的几年中，世界上X 射线自由电子激光装置获得了极大的发\n展。日本的SACLA、韩国的PAL-FEL 都先后实"
+            },
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 60,
+              "context": "加速段则分别由18 个和54 个\n1.3GHz 超导模组组成，其中第三加速段由低温真空设计要求分隔成L3、L4 段。\n在两个磁压缩下游还有用于高品质电子束的束流诊断的束测段。主加速器后部还\n有用于补偿电子束能量啁啾的褶皱结构段。超导直线加速器段总长约1.35km。\n图3.4.3.1-1 硬X 射线自由电子激光装置主加速器结构布局示意图\n3.1.2 工作参数\n注入器出口的电子束团能量约为100MeV，流强约为12A，束流长度约为\n1mm。电子束进入主加速器后首先在激光加热器（laser heater）与激光进行相互\n作用，增加电子束的切片能散，以抑制电子束的微束团不稳定性效应。主加速器\n的第一个加速段（L1）将电子束加速到约270MeV，加速相位选在峰值"
+            },
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 61,
+              "context": " 注入器出口；(b) BC1 出口；(c) BC2 出口；(d) L3 出口\n两级磁压缩位置的选择基于束流稳定性的优化及束团集体效应对束流亮度\n和品质的影响。第一级磁压缩BC1 通常距离注入器比较近，电子束能量比较低，\n束团也比较长，需要尽早压缩束团长度以克服加速过程中横向尾场对电子束的影\n响。但相反，如果第一级磁压缩距离注入器太近，电子束能量太低，空间电荷效\n应对束流的亮度影响越大，同时束流的不稳定性也随之增加。因此综合考虑各种\n效应以后，将BC1 处的束流能量选在270MeV。BC2 位置的选择主要考虑到相\n干同步辐射效应（CSR）对电子束发射度的破坏，束流能量、能散和到达时间的\n稳定性的优化。图3.3.3.1-3 给出了第二级磁压缩束流能量选在不"
+            },
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 63,
+              "context": "实现电子束从\n100MeV到270MeV加速的同时完成第一级束团长度压缩。其后，刮束段1（COL1）\n再次对杂散电子刮束，同时利用此处的FODO 结构对压缩后的电子束参数进行\n测量。L2/BC2 段将电子束能量加速到2.1GeV 的同时完成第二级束团长度压缩，\nEmit2 段可对压缩后的束流参数进行测量。L3 段根据真空需要可分为两部分，实\n现最终8GeV 束流能量加速的目标。各功能段束线元件布局及Twiss 参数变化如\n图3.3.3.1-4 所示。"
+            },
+            {
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 65,
+              "context": "函数沿主加速器的变化\n3.1.4 数值模拟\n在确定了主加速器的布局和磁聚焦结构参数以后，需要对电子束进行从头至\n尾（start-to-end）的模拟来研究电子束在主加速器中的演化过程。在注入器中由\n于电子束能量比较低，电子束的空间电荷效应占主要影响，因此采用考虑空间电\n荷模型的ASTRA 来模拟。当电子束能量较高时，空间电荷力对电子束的影响比\n较小，但束团的集体效应，包括相干同步辐射效应，尾场效应，高阶非线性效应，\n微束团不稳定性效应等对束团影响较大，因此采用ELEGANT 软件来进行模拟。\n图3.3.3.1-6 给出了电子束的束团长度、能散和中心能量沿着主加速器的演变，\n图3.3.3.1-7 给出了电子束在主加速器出口处的流强和水平方向发射度沿电子束"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

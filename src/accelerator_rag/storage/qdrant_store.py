@@ -1,238 +1,130 @@
-from __future__ import annotations
-
 from collections.abc import Sequence
-from uuid import NAMESPACE_URL, uuid5
-
+from dataclasses import asdict
 import numpy as np
-from numpy.typing import NDArray
-from qdrant_client import QdrantClient, models
-
-from accelerator_rag.retrieval.semantic_search import (
-    DocumentChunk,
-    SearchResult,
-)
+from qdrant_client import models
+from accelerator_rag.domain.knowledge import KnowledgeChunk, RetrievalResult
+from accelerator_rag.embedding import FloatArray
+from accelerator_rag.storage.qdrant_collection import QdrantCollection
 
 
-FloatArray = NDArray[np.float32]
+class QdrantVectorStore(QdrantCollection):
+    """Canonical KnowledgeChunk payload writes and cosine retrieval."""
 
-
-class QdrantVectorStore:
-    """负责 DocumentChunk 与 Qdrant 之间的持久化和向量查询。"""
-
-    def __init__(
+    def _validate_vectors(
         self,
-        client: QdrantClient,
-        collection_name: str,
-        vector_size: int,
-        distance: models.Distance = models.Distance.COSINE,
-    ) -> None:
-        if vector_size <= 0:
-            raise ValueError("vector_size 必须大于 0")
-
-        if not collection_name.strip():
-            raise ValueError("collection_name 不能为空")
-
-        self._client = client
-        self._collection_name = collection_name
-        self._vector_size = vector_size
-        self._distance = distance
-
-    def ensure_collection(self) -> None:
-        """确保目标 Collection 存在。"""
-
-        if self._client.collection_exists(
-            self._collection_name
-        ):
-            return
-
-        self._client.create_collection(
-            collection_name=self._collection_name,
-            vectors_config=models.VectorParams(
-                size=self._vector_size,
-                distance=self._distance,
-            ),
-        )
+        chunks: Sequence[KnowledgeChunk],
+        vectors: FloatArray,
+    ) -> FloatArray:
+        array = np.asarray(vectors, dtype=np.float32)
+        if array.ndim != 2 or array.shape != (len(chunks), self._vector_size):
+            raise ValueError("vectors must have shape (chunk count, vector_size)")
+        if not np.isfinite(array).all() or np.any(np.linalg.norm(array, axis=1) == 0):
+            raise ValueError("vectors must be finite and nonzero for cosine search")
+        if len({c.chunk_id for c in chunks}) != len(chunks):
+            raise ValueError("duplicate chunk_id in batch")
+        return array
 
     def upsert_chunks(
         self,
-        chunks: Sequence[DocumentChunk],
+        chunks: Sequence[KnowledgeChunk],
         vectors: FloatArray,
     ) -> None:
-        """把文本块及其向量写入 Qdrant。"""
-
         if not chunks:
-            raise ValueError("chunks 不能为空")
-
-        vectors = np.asarray(
-            vectors,
-            dtype=np.float32,
-        )
-
-        if vectors.ndim != 2:
-            raise ValueError(
-                "vectors 必须是二维矩阵"
-            )
-
-        if len(chunks) != vectors.shape[0]:
-            raise ValueError(
-                "chunks 数量必须与 vectors 行数一致"
-            )
-
-        if vectors.shape[1] != self._vector_size:
-            raise ValueError(
-                "vector 维数与 Collection 配置不一致"
-            )
-
-        points: list[models.PointStruct] = []
-
-        for chunk, vector in zip(
-            chunks,
-            vectors,
-            strict=True,
-        ):
-            points.append(
-                models.PointStruct(
-                    id=self._point_id(chunk.id),
-                    vector=vector.tolist(),
-                    payload={
-                        "chunk_id": chunk.id,
-                        "title": chunk.title,
-                        "text": chunk.text,
-                        "metadata": chunk.metadata,
-                    },
-                )
-            )
-
+            raise ValueError("chunks cannot be empty")
+        vectors = self._validate_vectors(chunks, vectors)
+        self.ensure_collection()
         self._client.upsert(
-            collection_name=self._collection_name,
-            points=points,
+            self._collection_name,
             wait=True,
+            points=[
+                models.PointStruct(
+                    id=self._point_id(c.chunk_id),
+                    vector=v.tolist(),
+                    payload=asdict(c),
+                )
+                for c, v in zip(chunks, vectors, strict=True)
+            ],
         )
+
+    def replace_document(
+        self,
+        document_id: str,
+        chunks: Sequence[KnowledgeChunk],
+        vectors: FloatArray,
+    ) -> None:
+        """Upsert new evidence then delete stale IDs for this document only.
+
+        Not transactional: interrupted writes can leave old and new chunks until
+        retry. Empty chunks explicitly clear the document. Validate before mutation.
+        """
+        if not document_id.strip() or any(c.document_id != document_id for c in chunks):
+            raise ValueError("all chunks must belong to the specified document_id")
+        self._validate_vectors(chunks, vectors)
+        self.ensure_collection()
+        if chunks:
+            self.upsert_chunks(chunks, vectors)
+        self.prune_document(document_id, [c.chunk_id for c in chunks])
 
     def search(
         self,
         query_vector: FloatArray,
         top_k: int = 3,
-    ) -> list[SearchResult]:
-        """使用一个查询向量搜索最相关的文本块。"""
-
-        if top_k <= 0:
-            raise ValueError("top_k 必须大于 0")
-
-        query_vector = np.asarray(
-            query_vector,
-            dtype=np.float32,
-        )
-
-        if query_vector.ndim != 1:
-            raise ValueError(
-                "query_vector 必须是一维向量"
-            )
-
-        if query_vector.shape[0] != self._vector_size:
-            raise ValueError(
-                "query_vector 维数与 Collection 配置不一致"
-            )
-
+    ) -> list[RetrievalResult]:
+        if type(top_k) is not int or top_k <= 0:
+            raise ValueError("top_k must be a positive integer")
+        vector = np.asarray(query_vector, dtype=np.float32)
+        if vector.shape != (self._vector_size,):
+            raise ValueError("query_vector dimension must match vector_size")
+        if not np.isfinite(vector).all() or np.linalg.norm(vector) == 0:
+            raise ValueError("query_vector must be finite and nonzero")
+        self.ensure_collection()
         response = self._client.query_points(
-            collection_name=self._collection_name,
-            query=query_vector.tolist(),
+            self._collection_name,
+            query=vector.tolist(),
             limit=top_k,
             with_payload=True,
         )
-
-        results: list[SearchResult] = []
-
-        for rank, point in enumerate(
-            response.points,
-            start=1,
-        ):
-            payload = point.payload
-
-            if payload is None:
-                raise RuntimeError(
-                    "Qdrant Point 缺少 payload"
-                )
-
-            chunk_id = payload.get("chunk_id")
-            title = payload.get("title")
-            text = payload.get("text")
-            metadata = payload.get(
-                "metadata",
-                {},
-            )
-
-            if not isinstance(chunk_id, str):
-                raise RuntimeError(
-                    "payload.chunk_id 无效"
-                )
-
-            if not isinstance(title, str):
-                raise RuntimeError(
-                    "payload.title 无效"
-                )
-
-            if not isinstance(text, str):
-                raise RuntimeError(
-                    "payload.text 无效"
-                )
-
-            if not isinstance(metadata, dict):
-                raise RuntimeError(
-                    "payload.metadata 无效"
-                )
-
-            normalized_metadata = {
-                str(key): str(value)
-                for key, value in metadata.items()
-            }
-
-            chunk = DocumentChunk(
-                id=chunk_id,
-                title=title,
-                text=text,
-                metadata=normalized_metadata,
-            )
-
-            results.append(
-                SearchResult(
-                    rank=rank,
-                    score=float(point.score),
-                    chunk=chunk,
-                )
-            )
-
+        results = []
+        for rank, point in enumerate(response.points, start=1):
+            try:
+                chunk = KnowledgeChunk(**(point.payload or {}))
+            except (TypeError, ValueError) as exc:
+                raise ValueError(
+                    f"invalid KnowledgeChunk payload at {point.id}: {exc}"
+                ) from exc
+            results.append(RetrievalResult(rank, float(point.score), chunk, "qdrant"))
         return results
 
-    def delete_chunks(
-        self,
-        chunk_ids: Sequence[str],
-    ) -> None:
-        """根据业务 chunk_id 删除 Qdrant Points。"""
-
-        if not chunk_ids:
-            return
-
-        point_ids = [
-            self._point_id(chunk_id)
-            for chunk_id in chunk_ids
-        ]
-
-        self._client.delete(
-            collection_name=self._collection_name,
-            points_selector=models.PointIdsList(
-                points=point_ids,
-            ),
-            wait=True,
-        )
-
-    @staticmethod
-    def _point_id(chunk_id: str) -> str:
-        """把业务 chunk_id 稳定映射成 Qdrant UUID。"""
-
-        return str(
-            uuid5(
-                NAMESPACE_URL,
-                f"accelerator-rag:{chunk_id}",
+    def delete_chunks(self, chunk_ids: Sequence[str]) -> None:
+        if chunk_ids:
+            self.ensure_collection()
+            self._client.delete(
+                self._collection_name,
+                wait=True,
+                points_selector=models.PointIdsList(
+                    points=[self._point_id(c) for c in chunk_ids],
+                ),
             )
-        )
+
+    def document_ids(self) -> set[str]:
+        """Inspect provenance before reusing a dedicated corpus collection."""
+        self.ensure_collection()
+        result = set()
+        offset = None
+        while True:
+            points, offset = self._client.scroll(
+                self._collection_name,
+                limit=256,
+                offset=offset,
+                with_payload=["document_id"],
+                with_vectors=False,
+            )
+            for point in points:
+                document_id = (point.payload or {}).get("document_id")
+                if not isinstance(document_id, str):
+                    raise ValueError(
+                        "existing collection contains points without document identity"
+                    )
+                result.add(document_id)
+            if offset is None:
+                return result

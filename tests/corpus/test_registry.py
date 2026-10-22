@@ -15,7 +15,7 @@ def make_document_record(**overrides: str) -> DocumentRecord:
     data = {
         "doc_id": "demo-epics",
         "title": "EPICS Demo Document",
-        "source_path": "data/raw/demo.pdf",
+        "source_path": "data/l0_raw/demo.pdf",
         "category": "control_system",
         "topic": "epics",
         "document_type": "pdf",
@@ -68,10 +68,10 @@ def test_document_record_accepts_valid_metadata() -> None:
             "不支持 topic",
         ),
         ({"source_path": "/tmp/demo.pdf"}, "安全相对路径"),
-        ({"source_path": "data/raw/../demo.pdf"}, "安全相对路径"),
-        ({"source_path": "docs/demo.pdf"}, "必须位于 data/raw"),
+        ({"source_path": "data/l0_raw/../demo.pdf"}, "安全相对路径"),
+        ({"source_path": "docs/demo.pdf"}, "必须位于 data/l0_raw"),
         (
-            {"source_path": "data/raw/demo.pptx"},
+            {"source_path": "data/l0_raw/demo.pptx"},
             "扩展名必须与 document_type 一致",
         ),
     ],
@@ -141,7 +141,7 @@ def test_load_registry_rejects_invalid_json(tmp_path: Path) -> None:
 
 
 def test_inventory_reports_counts_and_consistency(tmp_path: Path) -> None:
-    raw_root = tmp_path / "data" / "raw"
+    raw_root = tmp_path / "data" / "l0_raw"
     raw_root.mkdir(parents=True)
     (raw_root / "demo.pdf").write_bytes(b"demo")
     records = [make_document_record()]
@@ -158,7 +158,7 @@ def test_inventory_reports_counts_and_consistency(tmp_path: Path) -> None:
 
 
 def test_inventory_detects_missing_and_unregistered_files(tmp_path: Path) -> None:
-    raw_root = tmp_path / "data" / "raw"
+    raw_root = tmp_path / "data" / "l0_raw"
     raw_root.mkdir(parents=True)
     (raw_root / "unregistered.pdf").write_bytes(b"pdf")
     records = [make_document_record()]
@@ -166,8 +166,8 @@ def test_inventory_detects_missing_and_unregistered_files(tmp_path: Path) -> Non
     inventory = build_inventory(records, tmp_path)
 
     assert not inventory.is_consistent
-    assert inventory.missing_files == ("data/raw/demo.pdf",)
-    assert inventory.unregistered_files == ("data/raw/unregistered.pdf",)
+    assert inventory.missing_files == ("data/l0_raw/demo.pdf",)
+    assert inventory.unregistered_files == ("data/l0_raw/unregistered.pdf",)
     with pytest.raises(ValueError, match="登记但缺失.*存在但未登记"):
         validate_inventory(inventory)
 
@@ -179,3 +179,41 @@ def test_project_registry_has_thirteen_valid_records() -> None:
 
     assert len(records) == 13
     assert len({record.doc_id for record in records}) == 13
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        "data/raw/old.pdf",
+        "data/l0_raw//sample.pdf",
+        "data/l0_raw/./sample.pdf",
+        r"data/l0_raw/a\b.pdf",
+    ],
+)
+def test_registry_rejects_noncanonical_source_paths(path: str) -> None:
+    with pytest.raises(ValueError):
+        make_document_record(source_path=path)
+
+
+def test_unmanaged_non_pdf_sources_do_not_fail_pdf_validation(tmp_path: Path):
+    root = tmp_path / "data/l0_raw"
+    root.mkdir(parents=True)
+    (root / "demo.pdf").write_bytes(b"pdf")
+    for name in ["slides.pptx", "notes.docx"]:
+        (root / name).write_bytes(b"unmanaged")
+    inventory = build_inventory([make_document_record()], tmp_path)
+    assert inventory.is_consistent
+    assert inventory.unregistered_files == ()
+    assert inventory.unmanaged_files == (
+        "data/l0_raw/notes.docx",
+        "data/l0_raw/slides.pptx",
+    )
+    validate_inventory(inventory)
+
+
+def test_missing_registered_file_alone_fails(tmp_path: Path):
+    (tmp_path / "data/l0_raw").mkdir(parents=True)
+    inventory = build_inventory([make_document_record()], tmp_path)
+    assert not inventory.is_consistent
+    with pytest.raises(ValueError, match="登记但缺失"):
+        validate_inventory(inventory)

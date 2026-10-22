@@ -1,0 +1,509 @@
+{
+  "verified_on": "2026-10-19",
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "embedding_dimension": 512,
+  "embedding_device": "cpu",
+  "model_download": false,
+  "qdrant_mode": "memory",
+  "query_template": "为这个句子生成表示以用于检索相关文章：{query}",
+  "query_template_evidence": {
+    "source": "locally cached model card, model table and Sentence-Transformers s2p example",
+    "cache_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "model_card_sha256": "c48a4eeea77f6b1d38b48ec1c5b8d4f86d5550cc43fa345a0db1b2ca1d082369"
+  },
+  "chunking": {
+    "algorithm": "pdf-chunks-v2",
+    "max_chars": 1200,
+    "min_chars": 300,
+    "cross_page": false
+  },
+  "page_chunk_counts": {
+    "1": 5,
+    "2": 5,
+    "3": 3
+  },
+  "cleanup_audit": {
+    "publication_identifiers": {
+      "raw_occurrences": 6,
+      "chunk_occurrences": 0
+    },
+    "copyright_statements": {
+      "raw_occurrences": 6,
+      "chunk_occurrences": 0
+    },
+    "running_publication_code": {
+      "raw_occurrences": 3,
+      "chunk_occurrences": 0
+    },
+    "orphaned_word_fragment": {
+      "raw_occurrences": 1,
+      "chunk_occurrences": 0
+    }
+  },
+  "raw_block_count": 61,
+  "cleaned_page_char_counts": {
+    "1": 4329,
+    "2": 4291,
+    "3": 3075
+  },
+  "validation": {
+    "pytest": "106 passed",
+    "ruff": "All checks passed!",
+    "git_diff_check": "exit 0, no output",
+    "inventory_exit_code": 0,
+    "registered_pdfs_present": 13,
+    "unsupported_unmanaged_sources": 5,
+    "original_sources_preserved": true
+  },
+  "limitations": [
+    "Cleanup and column order use conservative geometry and text heuristics, not a layout engine.",
+    "Hyphenated wraps without intact spelling evidence keep their hyphen; some artifacts remain.",
+    "Chunks do not cross physical page boundaries, so page transitions can split sentences.",
+    "One-document smoke test is not a general retrieval quality benchmark."
+  ],
+  "chunks": [
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b6059397793d2b70627c391898dc02f228b98dfd253ea13a205ab2f944322106",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "Abstract\n\nFor Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE), EPICS is adopted as standard to build the complex control system which involves hundreds of IOCs and millions of records. Most of IOCs run in in-dustrial control computers as soft IOC. However, with the large amount of PVs, the need has emerged to develop re-mote tools to monitor all the channels and IOCs. One application backed by MySQL is designed, running periodi-cally to interact with EPICS system where to take data from run-time databases via Channel Access and pvAccess. We embed scripting codes into the IOC startup script to realize that as soon as the IOC starts up, the information of the server’s address, the IOC installation path, and all the records maintained by the IOC will be automatically pushed to the application and then stored in the database. With this necessary information, we could access all the active IOCs and PVs. Another web application is designed to render servers, IOCs and PVs data in MySQL on the web to give us an overall running status of the control system.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 1,
+      "page_end": 1
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:265f8e47fa827a201c79fec447652b767702eebc79c1023c0ebde87725019899",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "We also fully consider the modularity and portability for the appli-cations to apply and extend in none-SHINE environments.\n\nINTRODUCTION Motivated by the successful operation of X-ray FEL facilities worldwide and the great breakthroughs in atomic, molecular, and optical physics, condensed matter physics, matter in extreme conditions, chemistry and biology, the first hard X-ray FEL light source in China, the so called Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE), is under construction. SHINE will utilize a photocathode electron gun combined with the superconducting Linac to produce 8 GeV FEL quality electron beams up to 1 MHz repetition rate [1]. Hundreds of IOCs, located in Shaft #1, Shaft #2 and Shaft #3, will directly or indirectly control almost every equipment distributed in tunnels of the injector, the superconducting linac, and three FEL undulator lines, with the total length of approximately 3.1 kilometers long(as shown in Figure 1). Shaft #1 is a building at the end of the injector, Shaft #2 is at the end of linac, and Shaft #3 is at the end of undulator lines.\n\nFigure 1: SHINE Accelerator Layout.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 1,
+      "page_end": 1
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:2829d93129b710450b3027c2d5ebdf9866018719d737dfa61c67021a87ab1b46",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "The control system involves heterogeneous equipment and interfaces with a number of different subsystems. Several IOCs will be deployed in one server, in which hundreds of PVs perform real-world I/O and local control tasks. But we suffer from a lack of high level tools to centrally manage all the IOCs and PVs and help us to verify which PVs are running on a specified IOC, and how many IOCs are running on a specific server. For an IOC, we also need to know which PVs are active. In this case, we develop the application to obtain all the PVs from EPICS system and store them in the MySQL database. In order to search through data easily, we also develop the web application to represent the information of the database. Details are de-scribed in the following sections.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 1,
+      "page_end": 1
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:c0b28ca03d11c6c31b6f9102ce6aecdea4088a28f9a1071243cf369de67b987f",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "ARCHITECTURE OVERVIEW The data flow view of the architecture as shown in Figure 2 can be divided into four functional modules, namely database, import service, PV service and web service. The database is a general storage container for the properties and real-time values of servers, IOCs, EPICS records and PVs. The import service aims to import the initial information such as record types, field name lists and field types into the relational database from a spreadsheet. PV service fetches PVs from EPICS run-time databases via Channel Access and pvAccess. At the same time, it retrieves the running information of servers such as the available free memory, CPU load, etc. Then it saves all the data into the database. Web service is mainly used to render the data on the web to give us an overall running status of EPICS control system for SHINE.\n\nFigure 2: System Architecture.\n\nDatabase Schema",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 1,
+      "page_end": 1
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:52c3d76b59fb8550567060b02291364158fed6efaed503098f91c2949e00f76e",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "The database saves the properties as Name/Value pairs. Details are illustrated in Figure 3. More specifically, it is needed to store the information of server, IOC, record and PV. For the server, the database is not only to store static attributes, like environment variables related to EPICS, but also to store the runtime information, for instance, when the server is started, when the server is scanned, CPU load,",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 1,
+      "page_end": 1
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:d233bad8ca1d2f6b15e5178b5ed3e4cc17de3be2e92a55735343b9cecf03fa9d",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "etc. These are handled by tables of server, server_env, ep-ics_env, and server_runtime, respectively. Generally speaking, there are several environment variables set up for the server to run EPICS system, such as EPICS_BASE, EPICS_EXTENSIONS, EPICS_HOST_ARCH, EP-ICS_CA_AUTO_ADDR_LIST,EPICS_CA_ADDR_ LIST and so on. They are stored as Name/Value pairs as shown in table server_env. Similarly, others environment variables, such as EPICS_TIMEZONE, EP-ICS_CA_CLNT_CNT, EPICS_CA_CONN_TMO, EP-ICS_TS_NTP_INET, EPICS_VERSION, stored in ep-ics_env table are also designed as Name/Value pairs. The running information, like available free memory, CPU load, buffers are archived with timestamp when the server is scanned.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 2,
+      "page_end": 2
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:aa6f651dfb853c4ed13dcec4e7320104005c34e6ec9fcceab81ba04d8f25edad",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "Figure 3: Database Schema. The ioc table is to store the installation directory, startup time, active/inactive state and the UDP port to which an IOC is listening (5064, 5066...). What’s more, a foreign key is inserted into the table that represents the server for One-to-Many relationship between them. The other six tables are used to store records and PVs. However, their relationship is a little complicated. A diversity of data from hardware are obtained by IOC as different record types, such as ai, bi, mbbi, mbbo and so on. Moreover, each record contains dozens of fields for different purposes, for ex-ample, INP field used to obtain the record’s input, EGU and DESC used to present meaningful data to the operator. These data are stored in tables of record_type and field_type. Similarly, one field will be used in many record types. For instance, the DESC filed is utilized in multiple records. A many-to-many relationship occurs here, which is handled by a joining table that sits between the two tables. Its purpose is to store a record for each of the combinations of these two tables. It might seem like a bit of work to create, but it provides a much better data structure.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 2,
+      "page_end": 2
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:c092347a066fdf288b91127ed341935a9b7dd177531694e1772b5565979445ec",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "A specific record which belongs to a typical record type involves a fixed set of field types. The values of fields, the so-called PVs are stored in field_value table. Field type/value is designed as Name/Value pairs for storing, that could simplify the overall complexity of the database schema. Import Service\n\nWe create a spreadsheet with custom CSV layout to store the field types included by each type of record, that allows for easy import into the database. The tabs of ai and bi are shown in Figure 4. A single tab is initialed for each type of record. There are 15 record types we use frequently for SHINE, called ai, ao, bi, bo, longin, longout, mbbi, mbbo,\n\nstringin, stringout, waveform, subArray, compress, calc, calcout. Types vary from one facility to another.\n\nFigure 4: CSV layout. Import Service aims to import the data in the spreadsheet, as well as their relationships into MySQL database at one time. Apache POI [2] helps us to easily read and manipu-late the excel files in our application by writing the Java code. Of course, duplicate records in the spreadsheet will be checked and consolidated into single records in the database.\n\nPV Service",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 2,
+      "page_end": 2
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b2760b39968348abe1b8e369761759a5568d14b56c1d89060aeca3b4e4f6efc3",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "PV Service accesses EPICS Channel Access channels using ca library to get PVs asynchronously. Ca is a pure Java Channel Access client implementation developed by PSI [3]. As shown in Figure 5, PV Service is responsible to store PVs into the database as well. A channel is established for each of several fields involved in a record, and a channel group is formed by multiple channels, which communi-cates with IOC asynchronously. Meanwhile, SSH protocol is used to connect to IOC servers to execute shell com-mands for getting running status of the IOC server, such as CPU load and memory usage. JSch [4], as a pure Java implementation of SSH2, allows us to integrate these func-tions into our Java programs.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 2,
+      "page_end": 2
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b9a8c9e7af51145ea1b2c7e1f77dcfaf62c2916da4157cde4556d2de3a4bf5bf",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "Figure 5: PV Service Architecture. To be specific, the operation process of PV Service is divided into three stages: register, scanning and updating. First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on. All the information is automatically written to a text file, which is then delivered to the\n\n108 Data Acquisition and Data Storage, Data Analysis",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 2,
+      "page_end": 2
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:c61c5f1de8e133f8db8aa205fafea3b77eb56415700fb35f89540f1d04e61ef8",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "server running PV Service, making use of the combination technologies of rsync+ssh+lsync.\n\nSecond, the program parses the text file for the information of the installation path, IP address, epics ca server port, epics ca repeater port and lists of the record for an IOC. With the IP address, we can access the server to get the memory usage information: mem total, mem free, buffers and cached, the CPU usage information: CPU model, CPU number, as well as the information of the file de-scriptors: file free, file max. The IOC related information is stored to ioc table, while the record related information is inserted into record table.\n\nepicsEnvSet(\"PVINFOFILE\", \"/home/iocusr/pvinfo/${IOCNAME}.pvinfo\")\n\nsystem \"echo IOCName:${IOCNAME} > ${PVINFOFILE} \" system \"echo path:${TOP} >> ${PVINFOFILE}\" system \"echo -n Date: >> ${PVINFOFILE}\" date >> ${PVINFOFILE}\n\nsystem \"echo env_params: >>${PVINFOFILE}\" epicsPrtEnvParams >> ${PVINFOFILE}\n\nsystem \"echo record: >> ${PVINFOFILE}\" dbl >> ${PVINFOFILE}\n\nFigure 6: Part of Scripts.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 3,
+      "page_end": 3
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:0b2a9c7c719bdb66ce0a93bc5d6b0362c99d0d3c3de79c79d8ea8557967c1c3d",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "Finally, the Java scheduled task is set up to obtain PVs for all the fields in a record via CA protocol and store the data in the database. Therefore, the data are always in the latest state.\n\nWeb Service\n\nThe web service is built with JavaServer Faces [5] tech-nology, together with PrimeFaces UI framework. It is deployed in Glassfish container and serves pages viewed in the web browser hierarchically. There are three panels illustrated in Figures 7, 8 and 9 to display the information of the server, ioc and record, respectively. When the web page appears, it shows a simple drop-down menu that allows you to select a server on the left side. Then the relevant information will be demonstrated on the right side, coupled with all the IOCs deployed in the server. The server’s information includes the IP address, the startup time, OS ver-sion, CPU model, CPU cores, the available memory size, the unused memory size, CPU load, etc.\n\nFigure 7: Display interface of the server.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 3,
+      "page_end": 3
+    },
+    {
+      "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:af31642a2b083aa2ea88cfd778fea88b1a667e5188b87c759045437cf710bc9f",
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+      "text": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC. The information of the IOC includes the installation path, the startup time, epics ca server port, epics ca repeater port, running status, the number of con-nected and unconnected records. The record panel shown in Figure 9 displays all the fields’ information.\n\nFigure 8: Display interface of the IOC.\n\nFigure 9: Display interface of the record.\n\nCONCLUSION We succeed in developing EPICS IOC and PVs information management system for SHINE. MySQL database is utilized to store all the information, of which the running data from the control system is fetched via PSI CA interfaces and the running states of servers are obtained via SSH protocol. The web service allows web pages to render for the information in MySQL database. The system has been operating stably for more than one year in the cryomodule test facility for SHINE [6]. With this system, we can easily and fully grasp the holistic control system operation.",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "document_version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "topic": "ioc",
+      "page_start": 3,
+      "page_end": 3
+    }
+  ],
+  "queries": [
+    {
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "chunk_count": 13,
+      "physical_pages": [
+        1,
+        2,
+        3
+      ],
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "retriever": "bm25",
+      "results": [
+        {
+          "rank": 1,
+          "score": 3.677584120714811,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:2829d93129b710450b3027c2d5ebdf9866018719d737dfa61c67021a87ab1b46",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The control system involves heterogeneous equipment and interfaces with a number of different subsystems. Several IOCs will be deployed in one server, in which hundreds of PVs perform real-world I/O and local control tasks. But we suffer from a lack of high level tools to centrally manage all the IOCs and PVs and help us to verify which PVs are running on a specified IOC, and how many IOCs are running on a specific server. For an IOC, we also need to know which PVs are active. In this case, we develop the application to obtain all the PVs from EPICS system and store them in the MySQL database. In order to search through data easily, we also develop the web application to represent the information of the database. Details are de-scribed in the following sections.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 1,
+            "page_end": 1
+          },
+          "retriever": "bm25"
+        },
+        {
+          "rank": 2,
+          "score": 2.2523820505323604,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b9a8c9e7af51145ea1b2c7e1f77dcfaf62c2916da4157cde4556d2de3a4bf5bf",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "Figure 5: PV Service Architecture. To be specific, the operation process of PV Service is divided into three stages: register, scanning and updating. First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on. All the information is automatically written to a text file, which is then delivered to the\n\n108 Data Acquisition and Data Storage, Data Analysis",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 2,
+            "page_end": 2
+          },
+          "retriever": "bm25"
+        },
+        {
+          "rank": 3,
+          "score": 2.020932700741771,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:52c3d76b59fb8550567060b02291364158fed6efaed503098f91c2949e00f76e",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The database saves the properties as Name/Value pairs. Details are illustrated in Figure 3. More specifically, it is needed to store the information of server, IOC, record and PV. For the server, the database is not only to store static attributes, like environment variables related to EPICS, but also to store the runtime information, for instance, when the server is started, when the server is scanned, CPU load,",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 1,
+            "page_end": 1
+          },
+          "retriever": "bm25"
+        }
+      ]
+    },
+    {
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "chunk_count": 13,
+      "physical_pages": [
+        1,
+        2,
+        3
+      ],
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "retriever": "bm25",
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.13074082886002236,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:af31642a2b083aa2ea88cfd778fea88b1a667e5188b87c759045437cf710bc9f",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC. The information of the IOC includes the installation path, the startup time, epics ca server port, epics ca repeater port, running status, the number of con-nected and unconnected records. The record panel shown in Figure 9 displays all the fields’ information.\n\nFigure 8: Display interface of the IOC.\n\nFigure 9: Display interface of the record.\n\nCONCLUSION We succeed in developing EPICS IOC and PVs information management system for SHINE. MySQL database is utilized to store all the information, of which the running data from the control system is fetched via PSI CA interfaces and the running states of servers are obtained via SSH protocol. The web service allows web pages to render for the information in MySQL database. The system has been operating stably for more than one year in the cryomodule test facility for SHINE [6]. With this system, we can easily and fully grasp the holistic control system operation.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 3,
+            "page_end": 3
+          },
+          "retriever": "bm25"
+        },
+        {
+          "rank": 2,
+          "score": 0.1187128019897857,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b6059397793d2b70627c391898dc02f228b98dfd253ea13a205ab2f944322106",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "Abstract\n\nFor Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE), EPICS is adopted as standard to build the complex control system which involves hundreds of IOCs and millions of records. Most of IOCs run in in-dustrial control computers as soft IOC. However, with the large amount of PVs, the need has emerged to develop re-mote tools to monitor all the channels and IOCs. One application backed by MySQL is designed, running periodi-cally to interact with EPICS system where to take data from run-time databases via Channel Access and pvAccess. We embed scripting codes into the IOC startup script to realize that as soon as the IOC starts up, the information of the server’s address, the IOC installation path, and all the records maintained by the IOC will be automatically pushed to the application and then stored in the database. With this necessary information, we could access all the active IOCs and PVs. Another web application is designed to render servers, IOCs and PVs data in MySQL on the web to give us an overall running status of the control system.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 1,
+            "page_end": 1
+          },
+          "retriever": "bm25"
+        },
+        {
+          "rank": 3,
+          "score": 0.10886601179788527,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:52c3d76b59fb8550567060b02291364158fed6efaed503098f91c2949e00f76e",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The database saves the properties as Name/Value pairs. Details are illustrated in Figure 3. More specifically, it is needed to store the information of server, IOC, record and PV. For the server, the database is not only to store static attributes, like environment variables related to EPICS, but also to store the runtime information, for instance, when the server is started, when the server is scanned, CPU load,",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 1,
+            "page_end": 1
+          },
+          "retriever": "bm25"
+        }
+      ]
+    },
+    {
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "chunk_count": 13,
+      "physical_pages": [
+        1,
+        2,
+        3
+      ],
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "retriever": "dense",
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.65623649318688,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b9a8c9e7af51145ea1b2c7e1f77dcfaf62c2916da4157cde4556d2de3a4bf5bf",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "Figure 5: PV Service Architecture. To be specific, the operation process of PV Service is divided into three stages: register, scanning and updating. First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on. All the information is automatically written to a text file, which is then delivered to the\n\n108 Data Acquisition and Data Storage, Data Analysis",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 2,
+            "page_end": 2
+          },
+          "retriever": "qdrant"
+        },
+        {
+          "rank": 2,
+          "score": 0.6438542138766676,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:af31642a2b083aa2ea88cfd778fea88b1a667e5188b87c759045437cf710bc9f",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC. The information of the IOC includes the installation path, the startup time, epics ca server port, epics ca repeater port, running status, the number of con-nected and unconnected records. The record panel shown in Figure 9 displays all the fields’ information.\n\nFigure 8: Display interface of the IOC.\n\nFigure 9: Display interface of the record.\n\nCONCLUSION We succeed in developing EPICS IOC and PVs information management system for SHINE. MySQL database is utilized to store all the information, of which the running data from the control system is fetched via PSI CA interfaces and the running states of servers are obtained via SSH protocol. The web service allows web pages to render for the information in MySQL database. The system has been operating stably for more than one year in the cryomodule test facility for SHINE [6]. With this system, we can easily and fully grasp the holistic control system operation.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 3,
+            "page_end": 3
+          },
+          "retriever": "qdrant"
+        },
+        {
+          "rank": 3,
+          "score": 0.6418021482857753,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:2829d93129b710450b3027c2d5ebdf9866018719d737dfa61c67021a87ab1b46",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The control system involves heterogeneous equipment and interfaces with a number of different subsystems. Several IOCs will be deployed in one server, in which hundreds of PVs perform real-world I/O and local control tasks. But we suffer from a lack of high level tools to centrally manage all the IOCs and PVs and help us to verify which PVs are running on a specified IOC, and how many IOCs are running on a specific server. For an IOC, we also need to know which PVs are active. In this case, we develop the application to obtain all the PVs from EPICS system and store them in the MySQL database. In order to search through data easily, we also develop the web application to represent the information of the database. Details are de-scribed in the following sections.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 1,
+            "page_end": 1
+          },
+          "retriever": "qdrant"
+        }
+      ]
+    },
+    {
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "chunk_count": 13,
+      "physical_pages": [
+        1,
+        2,
+        3
+      ],
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "retriever": "dense",
+      "results": [
+        {
+          "rank": 1,
+          "score": 0.530283248342649,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:af31642a2b083aa2ea88cfd778fea88b1a667e5188b87c759045437cf710bc9f",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC. The information of the IOC includes the installation path, the startup time, epics ca server port, epics ca repeater port, running status, the number of con-nected and unconnected records. The record panel shown in Figure 9 displays all the fields’ information.\n\nFigure 8: Display interface of the IOC.\n\nFigure 9: Display interface of the record.\n\nCONCLUSION We succeed in developing EPICS IOC and PVs information management system for SHINE. MySQL database is utilized to store all the information, of which the running data from the control system is fetched via PSI CA interfaces and the running states of servers are obtained via SSH protocol. The web service allows web pages to render for the information in MySQL database. The system has been operating stably for more than one year in the cryomodule test facility for SHINE [6]. With this system, we can easily and fully grasp the holistic control system operation.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 3,
+            "page_end": 3
+          },
+          "retriever": "qdrant"
+        },
+        {
+          "rank": 2,
+          "score": 0.5132400112304971,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:b9a8c9e7af51145ea1b2c7e1f77dcfaf62c2916da4157cde4556d2de3a4bf5bf",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "Figure 5: PV Service Architecture. To be specific, the operation process of PV Service is divided into three stages: register, scanning and updating. First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on. All the information is automatically written to a text file, which is then delivered to the\n\n108 Data Acquisition and Data Storage, Data Analysis",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 2,
+            "page_end": 2
+          },
+          "retriever": "qdrant"
+        },
+        {
+          "rank": 3,
+          "score": 0.49108713764403855,
+          "chunk": {
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:c61c5f1de8e133f8db8aa205fafea3b77eb56415700fb35f89540f1d04e61ef8",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "text": "server running PV Service, making use of the combination technologies of rsync+ssh+lsync.\n\nSecond, the program parses the text file for the information of the installation path, IP address, epics ca server port, epics ca repeater port and lists of the record for an IOC. With the IP address, we can access the server to get the memory usage information: mem total, mem free, buffers and cached, the CPU usage information: CPU model, CPU number, as well as the information of the file de-scriptors: file free, file max. The IOC related information is stored to ioc table, while the record related information is inserted into record table.\n\nepicsEnvSet(\"PVINFOFILE\", \"/home/iocusr/pvinfo/${IOCNAME}.pvinfo\")\n\nsystem \"echo IOCName:${IOCNAME} > ${PVINFOFILE} \" system \"echo path:${TOP} >> ${PVINFOFILE}\" system \"echo -n Date: >> ${PVINFOFILE}\" date >> ${PVINFOFILE}\n\nsystem \"echo env_params: >>${PVINFOFILE}\" epicsPrtEnvParams >> ${PVINFOFILE}\n\nsystem \"echo record: >> ${PVINFOFILE}\" dbl >> ${PVINFOFILE}\n\nFigure 6: Part of Scripts.",
+            "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+            "document_version": "PCaPAC2022 FRO21",
+            "language": "en",
+            "category": "control_system",
+            "topic": "ioc",
+            "page_start": 3,
+            "page_end": 3
+          },
+          "retriever": "qdrant"
+        }
+      ]
+    }
+  ]
+}

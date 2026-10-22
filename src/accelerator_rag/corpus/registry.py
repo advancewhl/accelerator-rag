@@ -11,11 +11,9 @@ from accelerator_rag.corpus.taxonomy import TOPICS_BY_CATEGORY, VALID_CATEGORIES
 
 VALID_DOCUMENT_TYPES = frozenset({"docx", "md", "pdf", "pptx", "txt"})
 VALID_LANGUAGES = frozenset({"en", "unknown", "zh", "zh-en"})
-VALID_STATUSES = frozenset(
-    {"active", "deprecated", "draft", "reference", "unknown"}
-)
+VALID_STATUSES = frozenset({"active", "deprecated", "draft", "reference", "unknown"})
 _DOC_ID_PATTERN = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-_RAW_ROOT_PARTS = ("data", "raw")
+_RAW_ROOT_PARTS = ("data", "l0_raw")
 
 
 @dataclass(frozen=True)
@@ -52,9 +50,7 @@ class DocumentRecord:
                 raise ValueError(f"{field_name} 不能包含首尾空白")
 
         if not _DOC_ID_PATTERN.fullmatch(self.doc_id):
-            raise ValueError(
-                "doc_id 只能使用小写字母、数字和单个连字符分隔的 slug"
-            )
+            raise ValueError("doc_id 只能使用小写字母、数字和单个连字符分隔的 slug")
 
         if self.document_type not in VALID_DOCUMENT_TYPES:
             raise ValueError(f"不支持的 document_type: {self.document_type}")
@@ -67,28 +63,32 @@ class DocumentRecord:
 
         valid_topics = TOPICS_BY_CATEGORY[self.category]
         if self.topic not in valid_topics:
-            raise ValueError(
-                f"category={self.category} 不支持 topic: {self.topic}"
-            )
+            raise ValueError(f"category={self.category} 不支持 topic: {self.topic}")
 
         source_path = PurePosixPath(self.source_path)
-        if source_path.is_absolute() or ".." in source_path.parts:
-            raise ValueError("source_path 必须是 data/raw 下的安全相对路径")
+        if (
+            source_path.is_absolute()
+            or ".." in source_path.parts
+            or source_path.as_posix() != self.source_path
+            or "\\" in self.source_path
+        ):
+            raise ValueError("source_path 必须是 data/l0_raw 下的安全相对路径")
         if source_path.parts[:2] != _RAW_ROOT_PARTS:
-            raise ValueError("source_path 必须位于 data/raw 下")
+            raise ValueError("source_path 必须位于 data/l0_raw 下")
         if source_path.suffix.lower() != f".{self.document_type}":
             raise ValueError("source_path 扩展名必须与 document_type 一致")
 
 
 @dataclass(frozen=True)
 class CorpusInventory:
-    """Registry-to-filesystem reconciliation and corpus statistics."""
+    """PDF health check; unregistered non-PDF sources are reported as unmanaged."""
 
     registered_count: int
     raw_file_count: int
     registered_size_bytes: int
     missing_files: tuple[str, ...]
     unregistered_files: tuple[str, ...]
+    unmanaged_files: tuple[str, ...]
     by_category: dict[str, int]
     by_topic: dict[str, int]
     by_document_type: dict[str, int]
@@ -141,7 +141,7 @@ def load_registry(path: str | Path) -> list[DocumentRecord]:
 
 
 def discover_raw_files(project_root: str | Path) -> tuple[str, ...]:
-    """Return all non-placeholder files currently present under data/raw."""
+    """Return all non-placeholder files currently present under data/l0_raw."""
 
     root = Path(project_root).resolve()
     raw_root = root.joinpath(*_RAW_ROOT_PARTS)
@@ -161,12 +161,13 @@ def build_inventory(
     records: list[DocumentRecord],
     project_root: str | Path,
 ) -> CorpusInventory:
-    """Reconcile registry records with data/raw and calculate statistics."""
+    """Reconcile registry records with data/l0_raw and calculate statistics."""
 
     root = Path(project_root).resolve()
     registered_paths = {record.source_path for record in records}
     raw_paths = set(discover_raw_files(root))
     existing_registered_paths = registered_paths & raw_paths
+    unregistered = raw_paths - registered_paths
 
     return CorpusInventory(
         registered_count=len(records),
@@ -176,7 +177,12 @@ def build_inventory(
             for source_path in existing_registered_paths
         ),
         missing_files=tuple(sorted(registered_paths - raw_paths)),
-        unregistered_files=tuple(sorted(raw_paths - registered_paths)),
+        unregistered_files=tuple(
+            sorted(path for path in unregistered if Path(path).suffix.lower() == ".pdf")
+        ),
+        unmanaged_files=tuple(
+            sorted(path for path in unregistered if Path(path).suffix.lower() != ".pdf")
+        ),
         by_category=_count(records, "category"),
         by_topic=_count(records, "topic"),
         by_document_type=_count(records, "document_type"),
@@ -186,7 +192,7 @@ def build_inventory(
 
 
 def validate_inventory(inventory: CorpusInventory) -> None:
-    """Raise a concise error when registry and data/raw disagree."""
+    """Raise a concise error when registry and data/l0_raw disagree."""
 
     problems: list[str] = []
     if inventory.missing_files:

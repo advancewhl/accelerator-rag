@@ -1,5 +1,7 @@
 # Day 8：加速器语料范围、分类与登记
 
+> 历史学习快照。本文路径、脚本和验证数字不代表当前工程状态；当前操作请使用 [Knowledge Retrieval 运行手册](../docs/runbooks/knowledge-retrieval.md)。
+
 ## 今日目标
 
 Day 8 不做 PDF 正文解析、切块、Embedding 或 Qdrant 入库。今天建立的是
