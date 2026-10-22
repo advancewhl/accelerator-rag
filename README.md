@@ -1,70 +1,20 @@
-# SHINE/EPICS Trusted Agent
+# SHINE/EPICS Knowledge Retrieval
 
-面向加速器控制、EPICS 和 SHINE 领域知识的可私有化部署 Agent 项目。
-
-项目以 LangGraph 作为编排层，保留并持续完善原有 PDF/PPTX/DOCX 解析、BM25、Dense 和 Qdrant 检索能力。RAG 作为 Agent 的第一个领域工具，与任务规划、工具调用、结果核验、澄清、人工确认、可观测和部署能力并行建设。
-
-完整的长期目标、边界、架构、阶段出口和目录责任见 [Agent 总体设计规划](docs/AGENT_MASTER_PLAN.md)。当前唯一执行状态见 [当前里程碑](docs/roadmap/CURRENT.md)。
+面向加速器控制、EPICS 和 SHINE 文档的本地知识检索工程。当前交付覆盖 PDF 解析、语料审计、BM25、Dense、证据评测及双模型候选重排。Agent 是后续独立交付范围。
 
 ## 当前状态
 
-已有基础：
+RAG 已完成 Stage 2.8.2。13 份已登记 PDF 共 2178 个物理页，生成 4537 个 canonical KnowledgeChunk，其中 4532 个符合检索资格。每条结果保留文档、来源路径和物理页码。
 
-- PDF 文档解析与切块；
-- 文档 Registry 和语料盘点；
-- BM25、内存 Dense 和 Qdrant 检索；
-- 固定问题的基础检索评价；
-- Pytest、Ruff 和 Qdrant Docker Compose。
+- PDF 清洗与切块采用 `pdf-chunks-v3`。
+- Dense 使用独立的 token-safe passage，检索后聚合回 canonical parent。
+- 索引契约绑定模型指纹、编码模板、tokenizer 与 passage 配置，拒绝混用不兼容索引。
+- 冻结评测包含 21 条可回答问题和 11 条负例，采用 `evidence-contract-v2`。
+- Stage 2.8.2 复用 E5 与 Qwen3 的签名索引，各取前 10 个 parent，用 Qwen3-Reranker-0.6B 评分后返回前 5 个。
 
-正在进入 M1：
+固定样本上，双模型重排的 Hit@5 为 20/21，MRR@5 为 0.6071。实际评分 passage 的证据覆盖为 19/21。`shine-ioc-startup` 仍缺少完整证据，parent 命中也不保证被评分 passage 含有全部证据。结果属于小样本诊断，尚未校准负例拒答阈值。
 
-- LangGraph 状态和最小工作流；
-- 框架无关的工具契约；
-- 将现有检索封装为 `knowledge_search`；
-- CLI 端到端问答与测试。
-
-尚未实现的 Agent、API、持久化、Web、可观测和完整部署能力不得描述为已完成。
-
-## 设计边界
-
-- 第一阶段采用单 Agent 和显式状态图；
-- 所有领域工具默认只读；
-- 不接入真实 EPICS 写操作；
-- 权限、参数校验和审批由确定性代码控制；
-- RAG 与 Agent 通过稳定工具接口解耦；
-- 风险敏感检索研究暂不阻塞 Agent 主线。
-
-## 目标结构
-
-```text
-accelerator-rag/
-├── config/                  # 应用和服务配置
-├── data/                    # 原始、处理、评测和测试夹具
-├── deploy/                  # Docker 与部署配置
-├── docs/
-│   ├── architecture/        # 组件与接口设计
-│   ├── decisions/           # Architecture Decision Records
-│   ├── roadmap/             # 当前里程碑和后续计划
-│   └── runbooks/            # 开发、部署与运维手册
-├── scripts/                 # 可执行迁移和维护入口
-├── src/accelerator_rag/
-│   ├── agent/               # LangGraph 状态、节点和策略
-│   ├── api/                 # FastAPI 服务
-│   ├── corpus/              # 文档解析与切块
-│   ├── domain/              # SHINE/EPICS 领域模型
-│   ├── evaluation/          # RAG 与 Agent 评测
-│   ├── memory/              # 会话、任务和 checkpoint 适配
-│   ├── observability/       # trace、日志和指标
-│   ├── retrieval/           # BM25、Dense 和混合检索
-│   ├── storage/             # 数据存储适配
-│   └── tools/               # 框架无关的领域工具
-└── tests/
-    ├── unit/
-    ├── integration/
-    └── e2e/
-```
-
-旧模块暂时保留原位置，在测试保护下逐步接入新边界，不进行一次性大搬迁。
+当前推荐保留双模型候选加重排方案，但尚未改为通用 CLI 的默认路径。未实现 OCR、复杂公式与表格识别、PPTX/DOCX 解析、Hybrid、LLM 回答或 Agent 检索工具接入。
 
 ## 环境
 
@@ -74,31 +24,31 @@ conda activate accelerator-rag
 python -m pip install -e ".[dev]"
 ```
 
-已有环境可直接更新：
+原始文件位于 `data/l0_raw/`，由 `data/documents/registry.json` 登记。原始 PDF、模型权重和本地 Qdrant 索引均不进入 Git。模型需单独准备，正式编码使用离线加载。
+
+## 使用与验证
 
 ```bash
-conda activate accelerator-rag
-python -m pip install -e ".[dev]"
-```
-
-## 当前验证命令
-
-```bash
+python scripts/corpus_inventory.py
+python -m accelerator_rag.retrieval.cli \
+  --document-id shine-epics-ioc-pv-information-management-pcapac2022 \
+  --query 'How are IOC and PV information managed in SHINE?' \
+  --top-k 3
 pytest -q
 ruff check .
-accelerator-rag
+git diff --check
 ```
 
-需要 Qdrant 时：
+默认 CLI 使用 BM25。Dense 的本地模型、集合与 passage 规则见运行手册。Stage 2.8.1 和 Stage 2.8.2 脚本依赖对应的历史报告、模型和索引，运行条件见[双模型检索与重排](docs/runbooks/dense-reranking.md)。
 
-```bash
-docker compose up -d
-docker compose ps
-```
+## 文档入口
 
-## 历史分支
+- [当前 RAG 里程碑](docs/roadmap/CURRENT.md)：现状、指标与限制。
+- [检索运行手册](docs/runbooks/knowledge-retrieval.md)：数据边界、查询和索引语义。
+- [全语料基线](docs/runbooks/corpus-baseline.md)：清洗、资格策略和证据评测。
+- [Dense passage](docs/runbooks/dense-passages.md)：token 预算与 parent 聚合。
+- [Embedding 比较](docs/runbooks/embedding-comparison.md)：模型契约、指纹和离线测量。
+- [证据审核](docs/runbooks/evidence-audit.md)：标注审核、重判与索引签名。
+- [双模型检索与重排](docs/runbooks/dense-reranking.md)：最新实验入口与结果。
 
-- `main`：原 30 天 RAG 学习项目基线；
-- `learning-pause-2026-09-09`：原学习项目暂停检查点；
-- `paper-risk-aware-retrieval`：风险敏感混合检索论文工作区；
-- `codex/agent-platform`：当前完整 Agent 开发主线。
+旧学习期检索实现、演示数据和重复入口已由正式链路替代。历史报告保留测量当时的环境与结论，不能代替当前接口说明。长期 Agent 目标见 [Agent 总体设计规划](docs/AGENT_MASTER_PLAN.md)。

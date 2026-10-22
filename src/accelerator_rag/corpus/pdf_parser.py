@@ -3,10 +3,8 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
-# from pydoc import text
 from typing import Any
 
-# import warnings
 
 import pymupdf
 
@@ -182,7 +180,10 @@ def _parse_page(page: pymupdf.Page, page_index: int) -> PdfPage:
     )
 
 
-def parse_pdf(path: str | Path) -> ParsedPdfDocument:
+def parse_pdf(path: str | Path, *, source_path: str | None = None) -> ParsedPdfDocument:
+    """Read a local file; source_path is its logical identifier, never inferred
+    from an absolute local path. Standalone parsing defaults to the filename.
+    """
     pdf_path = Path(path)
 
     if not pdf_path.exists():
@@ -213,7 +214,7 @@ def parse_pdf(path: str | Path) -> ParsedPdfDocument:
         page_count = document.page_count
 
     return ParsedPdfDocument(
-        source_path=pdf_path.as_posix(),
+        source_path=source_path if source_path is not None else pdf_path.name,
         file_name=pdf_path.name,
         page_count=page_count,
         metadata=metadata,

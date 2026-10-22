@@ -1,5 +1,7 @@
 # Day 9 PDF 文档解析报告
 
+> 历史学习快照。本文路径、脚本和验证数字不代表当前工程状态；当前操作请使用 [Knowledge Retrieval 运行手册](../docs/runbooks/knowledge-retrieval.md)。
+
 ## 1. 解析结果 Summary
 
 Day 9 完成了第一版真实 PDF 文档解析流水线。

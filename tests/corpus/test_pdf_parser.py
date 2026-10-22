@@ -151,3 +151,15 @@ def test_private_use_character_is_not_garbled() -> None:
 
 def test_looks_garbled_detects_null_character() -> None:
     assert _looks_garbled("XFEL\x00control") is True
+
+
+def test_parser_preserves_native_block_order_and_coordinates(corpus_root, record):
+    path = corpus_root / record.source_path
+    parsed = parse_pdf(path, source_path=record.source_path)
+    with pymupdf.open(path) as source:
+        for page, original in zip(parsed.pages, source, strict=True):
+            expected = [b for b in original.get_text("blocks") if b[4].strip()]
+            assert [(b.block_number, b.bbox, b.text) for b in page.blocks] == [
+                (int(b[5]), tuple(float(x) for x in b[:4]), b[4].strip())
+                for b in expected
+            ]

@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-SCRIPT_PATH = PROJECT_ROOT / "scripts" / "day8_corpus_inventory.py"
+SCRIPT_PATH = PROJECT_ROOT / "scripts" / "corpus_inventory.py"
 
 
 def write_registry(path: Path) -> None:
@@ -15,7 +15,7 @@ def write_registry(path: Path) -> None:
                 {
                     "doc_id": "demo-epics",
                     "title": "EPICS Demo",
-                    "source_path": "data/raw/demo.pdf",
+                    "source_path": "data/l0_raw/demo.pdf",
                     "category": "control_system",
                     "topic": "epics",
                     "document_type": "pdf",
@@ -29,7 +29,9 @@ def write_registry(path: Path) -> None:
     )
 
 
-def run_inventory(tmp_path: Path, registry_path: Path) -> subprocess.CompletedProcess[str]:
+def run_inventory(
+    tmp_path: Path, registry_path: Path
+) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
         [
             sys.executable,
@@ -46,7 +48,7 @@ def run_inventory(tmp_path: Path, registry_path: Path) -> subprocess.CompletedPr
 
 
 def test_inventory_script_succeeds_for_matching_file(tmp_path: Path) -> None:
-    raw_root = tmp_path / "data" / "raw"
+    raw_root = tmp_path / "data" / "l0_raw"
     raw_root.mkdir(parents=True)
     (raw_root / "demo.pdf").write_bytes(b"pdf")
     registry_path = tmp_path / "registry.json"
@@ -60,7 +62,7 @@ def test_inventory_script_succeeds_for_matching_file(tmp_path: Path) -> None:
 
 
 def test_inventory_script_fails_for_unregistered_file(tmp_path: Path) -> None:
-    raw_root = tmp_path / "data" / "raw"
+    raw_root = tmp_path / "data" / "l0_raw"
     raw_root.mkdir(parents=True)
     (raw_root / "demo.pdf").write_bytes(b"pdf")
     (raw_root / "extra.pdf").write_bytes(b"pdf")
@@ -72,3 +74,28 @@ def test_inventory_script_fails_for_unregistered_file(tmp_path: Path) -> None:
     assert result.returncode == 1
     assert "unregistered_files" in result.stdout
     assert "validation: FAILED" in result.stdout
+
+
+def test_inventory_reports_unmanaged_sources_without_failing(tmp_path: Path):
+    raw_root = tmp_path / "data/l0_raw"
+    raw_root.mkdir(parents=True)
+    (raw_root / "demo.pdf").write_bytes(b"pdf")
+    (raw_root / "slides.pptx").write_bytes(b"slides")
+    (raw_root / "notes.docx").write_bytes(b"notes")
+    registry = tmp_path / "registry.json"
+    write_registry(registry)
+    result = run_inventory(tmp_path, registry)
+    assert result.returncode == 0
+    assert "registered_pdfs: 1" in result.stdout
+    assert "unsupported_unmanaged_source_files: 2" in result.stdout
+    assert "slides.pptx" in result.stdout and "notes.docx" in result.stdout
+    assert "validation: OK" in result.stdout
+
+
+def test_inventory_script_fails_for_missing_registered_file(tmp_path: Path):
+    (tmp_path / "data/l0_raw").mkdir(parents=True)
+    registry = tmp_path / "registry.json"
+    write_registry(registry)
+    result = run_inventory(tmp_path, registry)
+    assert result.returncode == 1
+    assert "missing_files" in result.stdout

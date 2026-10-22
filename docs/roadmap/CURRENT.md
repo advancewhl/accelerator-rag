@@ -1,34 +1,42 @@
-# Current Milestone
+# 当前 RAG 里程碑
 
 ## 当前阶段
 
-M0：分支与设计基线。
+截至 2026 年 10 月 22 日，RAG Stage 2.8.2 已执行。当前推荐固化 E5 与 Qwen3 双模型候选加 Qwen3-Reranker-0.6B 的检索方案。该推荐来自冻结样本评测，通用 CLI 默认路径尚未切换。
 
-## 已完成
+## 语料与评测边界
 
-- 风险敏感检索论文现场已保存到 `paper-risk-aware-retrieval` 分支。
-- Agent 分支已从 `main` 创建。
-- Agent 总体规划与首份 ADR 已建立。
+- 13 份 PDF、2178 个物理页、4537 个 canonical KnowledgeChunk，其中 4532 个符合检索资格。
+- 清洗与切块采用 `pdf-chunks-v3`，Dense passage 独立拆分并恢复 canonical parent 引用。
+- 采用 `evidence-contract-v2`，固定 21 条可回答问题和 11 条负例。
+- 模型指纹和 passage 契约写入索引签名，历史无签名索引需先核验或在独立目录重建。
 
-## 正在进行
+## 最新结果
 
-- 建立 Agent 应用层、工具层和项目文档目录骨架。
+| 方法 | Hit@1 | Hit@3 | Hit@5 | MRR@5 |
+| --- | ---: | ---: | ---: | ---: |
+| E5 单模型 | 0.3810 | 0.7143 | 0.8571 | 0.5754 |
+| 语言路由 | 0.3810 | 0.7619 | 0.9048 | 0.6048 |
+| E5 与 Qwen3 RRF | 0.3810 | 0.7619 | 0.9048 | 0.5786 |
+| 双模型候选加重排 | 0.3810 | 0.8095 | 0.9524 | 0.6071 |
 
-## 下一里程碑
+重排从两路各取前 10 个 canonical parent。候选证据覆盖为 20/21，最终前 5 个 parent 的完整命中为 20/21。实际评分 passage 的证据覆盖为 19/21。`shine-main-linac` 的 parent 含完整证据，但 winning passage 不完整；`shine-ioc-startup` 仍未完整命中。
 
-M1：最小 Agent 闭环。
+32 条查询共评分 537 对 query/passage，CPU 使用 6 个线程，总重排耗时为 801.83 s。该值仅表示本轮环境的实测成本，不代表部署延迟承诺。11 条负例均返回结果，尚无阈值或拒答结论。
 
-验收目标：真实问题能够经过 LangGraph 调用现有检索器，并返回结构化证据；正常、空结果和失败路径具有测试。
+## 阶段证据
 
-## 下一步
+- Stage 2.5：语料清洗、资格策略与证据级基线。
+- Stage 2.6：token-safe passage，保留 canonical 引用。
+- Stage 2.7 与 2.7.1：模型比较、证据审核、重判及索引契约。
+- Stage 2.8：共享 QueryPlan 的多查询实验未带来稳定收益。
+- Stage 2.8.1：语言路由和双模型 RRF 均完整命中 19/21。
+- [Stage 2.8.2 报告](../../reports/rag-stage-two-eight-two-reranking.md)：双模型候选加重排完整命中 20/21；同名 JSON 保存逐条结果。
 
-1. 增加 LangGraph 依赖和配置。
-2. 定义 `AgentState` 与工具契约。
-3. 封装 `knowledge_search`。
-4. 实现最小四节点 Graph。
-5. 增加 CLI 和测试。
+运行入口、环境依赖与回滚见[双模型检索与重排](../runbooks/dense-reranking.md)。历史报告是各阶段执行记录，本页给出最新 RAG 状态。
 
-## 当前阻塞
+## 剩余限制
 
-无。
+保留原始证据，继续关注 PDF 提取损坏、公式丢失、清洗启发式和非穷尽标注。当前结果不能外推为生产质量。后续需补齐 IOC startup 的候选证据，评估负例阈值和重排成本，再确定服务默认策略。
 
+Agent 代码、配置、服务及其验收记录由后续独立提交交付，本次 RAG 提交不包含这些实现。
