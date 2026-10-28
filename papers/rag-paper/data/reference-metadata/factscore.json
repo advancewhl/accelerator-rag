@@ -1,0 +1,25 @@
+{
+  "key": "factscore",
+  "kind": "doi",
+  "doi": "10.18653/v1/2023.emnlp-main.741",
+  "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+  "author": [
+    "Sewon Min",
+    "Kalpesh Krishna",
+    "Xinxi Lyu",
+    "Mike Lewis",
+    "Wen-tau Yih",
+    "Pang Koh",
+    "Mohit Iyyer",
+    "Luke Zettlemoyer",
+    "Hannaneh Hajishirzi"
+  ],
+  "year": 2023,
+  "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+  "volume": "",
+  "number": "",
+  "pages": "12076-12100",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2023.emnlp-main.741",
+  "landing_url": "https://doi.org/10.18653/v1/2023.emnlp-main.741"
+}

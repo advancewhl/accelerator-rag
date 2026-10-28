@@ -1,0 +1,20 @@
+\section{实验设置}
+\sectionclaim{统一 v2 标注和逐查询配对使 11 种配置的证据覆盖可直接复核。}
+
+\textbf{语料覆盖三类文献来源与中英文技术表达。}语料汇总见表\ref{tab:corpus}，包含 EPICS 开发资料、European XFEL 技术报告及 SHINE 专题资料。版本与物理页随引用保留，复现快照固定于 2026 年 10 月 27 日。
+\begin{table}[!htbp]\centering\small
+\caption{13 份 PDF 形成 2,178 页和 4,532 个可检索父块。规模按登记文档去重。}\label{tab:corpus}
+\begin{tabular}{lrrrr}\toprule 来源 & 文档数 & 物理页 & 规范块 & 可检索块\\\midrule
+EPICS &2&809&1,919&1,918\\
+European XFEL &4&834&2,019&2,019\\
+SHINE &7&535&599&595\\\midrule
+合计 &13&2,178&4,537&4,532\\\bottomrule\end{tabular}
+\end{table}
+
+\textbf{冻结集将完整证据与无证据问题分开评价。}21 条可回答问题包含 35 个证据组、13 条英文和 8 条中文；3 条含跨语言目标。11 条负例包含 3 条明显负例和 8 条针对指定时刻运行状态的领域负例。所有方法按式\eqref{eq:metrics}返回 5 个父块；横向比较统一使用\texttt{evidence-contract-v2}。
+
+\textbf{11 种配置覆盖表示、查询和排序三个选择维度。}基线为 BM25、BGE-small-zh、BGE-base-zh、E5、BGE-M3 稠密表示与 Qwen3；扩展为 E5 多查询、Qwen3 多查询、语言路由、双模型 RRF 和双模型重排。多查询共享由\texttt{qwen3-vl}生成的最多 3 个改写，包含原始查询；路由按是否含汉字选择 E5 或 Qwen3。编码均复用本地冻结权重及签名索引。
+
+\textbf{配对重采样保留同一问题在各方法间的对应。}我们以查询为单位进行 1,000 次有放回 bootstrap，固定 PCG64 seed 为 20261027，使用 2.5\%与 97.5\%线性分位数形成 95\%区间\citep{efron}；E5 与最终方案采用相同重采样索引，并进行双侧精确 McNemar 检验\citep{mcnemar,smucker,sakai}。\texttt{paper\_stats.py --check}重算 231 条排名、32 条延迟和全部新增统计，并按可复现计算原则保存输入 SHA-256\citep{sandve}。
+
+\textbf{服务验证固定了生成模型与硬件运行口径。}完整 32 问于 2026 年 10 月 26 日使用\texttt{qwen3.8-Flash-Next}完成；E5、Qwen3 查询编码为 GPU FP32，重排为 GPU BF16。统计使用服务内部稳态计时，包括需求、证据选择、综合和核查。CPU 检索实验及 2026 年 10 月 27 日\texttt{ds-1017}代表性验证分别保留。

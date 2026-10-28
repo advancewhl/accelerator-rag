@@ -1,0 +1,19 @@
+{
+  "key": "bge",
+  "kind": "arxiv",
+  "arxiv": "2309.07597",
+  "doi": "10.48550/arXiv.2309.07597",
+  "title": "C-Pack: Packed Resources For General Chinese Embeddings",
+  "author": [
+    "Xiao, Shitao",
+    "Liu, Zheng",
+    "Zhang, Peitian",
+    "Muennighoff, Niklas",
+    "Lian, Defu",
+    "Nie, Jian-Yun"
+  ],
+  "year": 2024,
+  "venue": "Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+  "source_url": "https://arxiv.org/abs/2309.07597",
+  "landing_url": "https://arxiv.org/abs/2309.07597"
+}

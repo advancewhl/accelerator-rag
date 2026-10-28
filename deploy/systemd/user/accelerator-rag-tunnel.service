@@ -1,0 +1,15 @@
+[Unit]
+Description=RAG browser SSH tunnel (127.0.0.1:18003 to GPU server port 8003)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ssh -N -T -o BatchMode=yes -o ExitOnForwardFailure=yes -o ConnectTimeout=15 -o ServerAliveInterval=30 -o ServerAliveCountMax=3 -L 127.0.0.1:18003:10.101.9.190:8003 waveform-zyf-oneclick
+Restart=always
+RestartSec=5
+TimeoutStopSec=15
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,58 @@
+$ grep -rnE 本章|详细稿|资料截止|不能等同|不足以支持|尚未证明|未测量|\[E[0-9]+\] output/paper-v2 --include=*.tex
+
+
+[exit 1]
+
+$ /home/whloong/miniconda3/bin/python3 output/paper-v2/scripts/paper_stats.py --check
+PASS: 11 methods, 231 paired rankings, 32 latencies, input hashes unchanged.
+PASS: bootstrap B=1000, seed=20261027; McNemar exact p=0.500.
+PASS: paper statistics and four generated LaTeX tables reproduce exactly.
+
+[exit 0]
+
+$ bash -c "latexmk -xelatex main.tex"
+
+bash: line 1: latexmk: command not found
+[exit 127]
+
+$ XDG_CACHE_HOME=/tmp/rag-tex-cache /tmp/rag-tex-tools/tectonic --only-cached --keep-logs --keep-intermediates --reruns 2 main.tex
+[Completed native compilation; recorded log follows.]
+note: using only cached resource files
+note: Running TeX ...
+note: Running BibTeX on main.aux ...
+note: Rerunning TeX because I was told to ...
+note: Rerunning TeX because I was told to ...
+note: Running xdvipdfmx ...
+note: Writing `main.aux` (13.43 KiB)
+note: Writing `main.bbl` (16.18 KiB)
+note: Writing `main.out` (2.75 KiB)
+note: Writing `main.log` (24.91 KiB)
+note: Writing `main.blg` (188 B)
+note: Writing `main.pdf` (593.18 KiB)
+[exit 0]
+
+$ /home/whloong/miniconda3/bin/python3 output/paper-v2/scripts/check_paper.py
+PASS: body 8 pages; total 12; 39 cited references; missing/duplicate/uncited = 0/0/0.
+PASS: forbidden terms 0; abstract 250 characters; 4 figures and 7 tables referenced; 6 equations referenced.
+PASS: native vector PDF, bitmap objects 0; overfull/underfull/missing glyphs = 0/0/0.
+INFO: 2 Fandol font-feature notices; all glyphs rendered and visual review recorded separately.
+
+[exit 0]
+
+$ bash -n output/paper-v2/scripts/build_paper.sh
+
+
+[exit 0]
+
+$ git diff --check
+
+
+[exit 0]
+
+
+$ python3 output/paper-v2/scripts/embed_cjk_map.py output/paper-v2/main.pdf
+Embedded Adobe-GB1 ToUnicode map: 0 font subsets; 12 pages preserved.
+[exit 0; idempotent after the first repair]
+
+PDF.js 5.6.205, no cMapUrl/cMapPacked: first-page CJK count 0 -> 1151; total CJK count 265 -> 6881.
+MuPDF: all 12 pages pixel-identical before/after.

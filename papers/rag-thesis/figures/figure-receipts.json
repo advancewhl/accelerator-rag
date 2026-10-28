@@ -1,0 +1,58 @@
+[
+  {
+    "figure": "fig01-rag-architecture",
+    "width_mm": 180,
+    "height_mm": 110.5,
+    "note": "Implementation schematic; arrows show data flow, not measured throughput.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig02-corpus-composition",
+    "width_mm": 180,
+    "height_mm": 118.1,
+    "note": "All 13 registered documents; count axes start at zero.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig03-retrieval-comparison",
+    "width_mm": 180,
+    "height_mm": 94.0,
+    "note": "11 methods exported; 9 original-query methods shown here; multi-query in Figure 5.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig04-query-rank-matrix",
+    "width_mm": 180,
+    "height_mm": 134.6,
+    "note": "21 answerable queries; a cell can require evidence spread across multiple parent results.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig05-controls-and-negative-results",
+    "width_mm": 180,
+    "height_mm": 82.6,
+    "note": "No cross-panel effect sizes should be inferred; label versions are explicit.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig06-evidence-layer-gap",
+    "width_mm": 180,
+    "height_mm": 92.7,
+    "note": "Candidate union has up to 20 parents; final ranking has at most 5 parents.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig07-grounded-generation-contract",
+    "width_mm": 180,
+    "height_mm": 101.6,
+    "note": "Schematic of current implementation; same model/provider performs multiple roles, not an independent judge.",
+    "text_bounds_check": "passed"
+  },
+  {
+    "figure": "fig08-production-validation",
+    "width_mm": 180,
+    "height_mm": 111.8,
+    "note": "Raw per-request points; fixed sample, warm runtime, no confidence interval or concurrency extrapolation.",
+    "text_bounds_check": "passed"
+  }
+]

@@ -1,0 +1,67 @@
+\section{结果与机制分析}
+\sectionclaim{双模型重排以两条新增完整命中兑现候选互补性，同时揭示证据粒度和清单核查的两个失配点。}
+
+\subsection{主结果与配对效应}
+\textbf{双模型重排把完整 Hit@5 从 0.857 提高到 0.952。}表\ref{tab:main}比较 11 种配置；最终方案完整覆盖 20/21 条问题，MRR@5 为 0.607。BM25 的 MRR@5 为 0.627，首位命中为 0.524，说明精确词项具有较强早期排序能力；最终方案的主要收益是扩展前 5 项的完整覆盖。
+\begin{table}[!htbp]\centering\small
+\caption{双模型重排达到 20/21 完整命中。各方法使用同一查询集（n=21）、v2 标注和式\eqref{eq:metrics}。}\label{tab:main}
+\begin{tabular}{lrrrrr}\toprule 方法 & Hit@1 & Hit@3 & Hit@5 & MRR@5 & 完整数\\\midrule
+\input{tables/main-results}
+\end{tabular}
+\end{table}
+
+\textbf{配对分析把总体效应落实到两条翻转。}E5 与最终方案共同命中 18 条、共同遗漏 1 条，正向翻转 2 条、反向翻转 0 条；Hit@5 差值为 0.095，95\%配对 bootstrap 区间为[0.000,0.238]，精确 McNemar 检验\(p=0.500\)。MRR@5 差值为 0.032，区间为[-0.131,0.187]。表\ref{tab:ci}与图\ref{fig:ci}给出四种主要方法的区间，逐问题机制见表\ref{tab:flips}。
+\begin{table}[!htbp]\centering\small
+\caption{配对重采样刻画四种方法的分数波动。n=21，1,000 次，seed=20261027，95\%百分位区间。}\label{tab:ci}
+\begin{tabular}{lcc}\toprule 方法 & Hit@5 区间 & MRR@5 区间\\\midrule
+\input{tables/confidence-intervals}
+\end{tabular}
+\end{table}
+
+\vectfigure{fig03-bootstrap-cn}{双模型重排把完整覆盖由 85.7\%提高到 95.2\%，BM25 保持较高的首次完整排名得分。n=21，v2 标注，误差线为固定 seed 的 95\% bootstrap 百分位区间。}{fig:ci}
+
+\subsection{输入安全与标注治理}
+\textbf{token-safe 表示解决输入超限，其检索收益集中在一条问题。}v1 标注下，BGE-small-zh 由直接编码的 8/21 提高至片段表示的 9/21，MRR@5 由 0.180 升至 0.204；4,950 个片段全部适配 512 tokens。新增命中的快联锁延迟证据原本位于可见范围，结果指向表示粒度对排序的影响；压缩器目标虽跨原截断边界，消除截断后仍被其它主题候选压过。
+
+\textbf{等价证据治理单独改变了分数而保持排名不变。}审核对 11 条问题增加 39 个来源备选，备选总数由 37 增至 76。相同 E5 排名经重判，Hit@5 从 16/21 变为 18/21；BM25 从 15/21 变为 16/21。这个可分离的标注效应使统一 v2 成为全部横向比较的前提，避免把来源补全写成排序收益。
+
+\subsection{互补候选与逐问题翻转}
+\textbf{E5 与 Qwen3 的独有成功集合补足了两条最终增益。}两者共同命中 15 条，E5 独有 3 条，Qwen3 独有 2 条，成功并集为 20 条。语言路由与 RRF 各达到 19/21，最终片段重排恢复全部 20 条候选完整问题。两条新增问题的 E5 前 10 个候选均缺失冻结目标，Qwen3 候选则完整包含所需证据；表\ref{tab:flips}将增益定位为异构候选补充，E5 成功集合得到完整保留。
+\begin{table}[!htbp]\centering\small
+\caption{两条新增命中来自互补证据，反向翻转为 0。排名表示首次完整覆盖（n=21，v2）。}\label{tab:flips}
+\begin{tabularx}{180mm}{YcccY}\toprule 问题 ID & E5 & Qwen3 & 重排 & 补足证据\\\midrule
+\texttt{xfel-normal-energy}&外&2&3&XFEL 设计报告物理页 57，运行与最大能量定义\\
+\texttt{cryo-interlock}&外&5&3&低温论文物理页 6，主 PLC 与 CPLD 保护链\\\bottomrule\end{tabularx}
+\end{table}
+
+\textbf{三条原始候选轨迹解释了同主题召回与完整覆盖的差别。}对 IOC 问题，E5 首位为控制设计幻灯片物理页 28，内容是静态信息与数据库管理；Qwen3 首位为 IOC 论文物理页 3 的面板描述，前 5 项只完成 1/2 组。对低温问题，E5 首位为快联锁论文物理页 2，涉及响应需求却缺少 PLC/CPLD 三组证据；Qwen3 定位低温论文物理页 6 并在前 5 项覆盖 3/3 组。对 XFEL 能量问题，E5 首位来自 SHINE 初设物理页 59；Qwen3 第二位定位 XFEL 报告物理页 57。原始分数、片段和 ID 保存在随文候选轨迹文件中。
+
+\subsection{证据粒度与语言分层}
+\textbf{父块与评分片段的完整覆盖相差 1 条。}候选父块完整 20/21，实际评分片段完整 19/21，最终父块完整 20/21，获胜片段完整 19/21；差异集中在主加速器问题。其完整父块同时包含模式与能量，获胜片段只保留局部内容。图\ref{fig:diagnostics}a 将这一差异定位到重排输入，而生成阶段获得恢复后的完整父块。
+
+\textbf{中文与跨语言问题解释了模型互补的主要来源。}表\ref{tab:language}显示，E5 与最终方案在 13 条英文问题上均为 13/13；8 条中文问题由 5/8 提高到 7/8。3 条跨语言目标中，Qwen3 和最终方案均覆盖 2/3，而 E5 为 0/3。跨语言目标是证据语言切片，与中文、英文分组存在重叠。
+\begin{table}[!htbp]\centering\small
+\caption{增益集中在中文与跨语言目标。单元格为完整数/组内 n 及 Hit@5，跨语言行是重叠切片。}\label{tab:language}
+\begin{tabular}{lcccc}\toprule 切片 & BM25 & E5 & Qwen3 & 双模型重排\\\midrule
+\input{tables/language}
+\end{tabular}
+\end{table}
+
+\subsection{多查询的成本收益与服务延迟}
+\textbf{多查询增加调用却降低 E5 的完整覆盖。}32 问各执行 91 次检索，相对原始 32 次为 2.844 倍；21 条可回答问题各执行 69 次，为 3.286 倍。E5 完整命中由 18/21 降至 15/21，下降 14.286 个百分点；Qwen3 保持 17/21 且 MRR@5 由 0.511 降至 0.485。记录的查询评测总耗时分别为 111.568 s 和 138.446 s，平均 3.486 s 和 4.326 s。据此，最终系统选择原始查询加异构候选重排，图\ref{fig:diagnostics}b 展示覆盖代价。
+
+\textbf{32 条完整服务请求以平均 2.513 s 完成。}21 条可回答问题返回 20 条\texttt{answered}与 1 条\texttt{partial}，11 条负例全部返回\texttt{insufficient}，31 条冻结集引用均解析到真实父块与 PDF 页。表\ref{tab:latency}和图\ref{fig:diagnostics}c 显示延迟分布：可回答问题均值 3.337 s，中位数 3.178 s；全部请求 P95 为 4.152 s，最大值 5.056 s。按总时长聚合，稠密检索、重排及生成流程分别占 4.107\%、8.996\%和 86.875\%，生成核查构成主要耗时。
+\begin{table}[!htbp]\centering\small
+\caption{可回答问题与负例具有不同的延迟分布。单位为 s，分位数使用线性插值，计时包含全部问答处理阶段。}\label{tab:latency}
+\begin{tabular}{lrrrr}\toprule 请求组 & 均值 & P50 & P95 & 最大值\\\midrule
+\input{tables/latency}
+\end{tabular}
+\end{table}
+
+\vectfigure{fig04-diagnostics-cn}{完整父块比评分片段多覆盖 1 条问题，多查询降低 E5 覆盖，生成流程主导服务耗时。a、b 采用 21 条问题的 v2 证据口径；c 为 2026 年 10 月 26 日 32 条请求，横线为组内中位数。}{fig:diagnostics}
+
+\subsection{回答完整性的方向性失配}
+\label{sec:completeness}
+\textbf{IOC 清单揭示了一次有来源但不完整的过度标记。}内部流程将 32/33 个要求标为支持；IOC 答案列出地址、安装路径和 records，状态为\texttt{answered}，却遗漏冻结清单中的启动时间、CA server 端口和 CA repeater 端口。20 条\texttt{answered}中至少 1 条存在该类字段缺口。该例把误差定位为“宽泛要求接受部分清单”，而不是引用身份错误。
+
+\textbf{低温和 XFEL 案例把回答覆盖与参数归属进一步分开。}低温 PLC/CPLD 问题在最终检索中完整，但回答核查只保留 PLC 部分，明确返回\texttt{partial}；这与 IOC 的过度完整标记方向相反。XFEL 能量问题中，原始首位候选还包含 FLASH 对象，第二位才提供目标装置的正常与最大能量定义；系统据文档、对象和版本分别组织参数。这三条轨迹共同支持分层追踪作为系统评价的必要接口。

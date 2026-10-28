@@ -1,0 +1,35 @@
+{
+  "model_base_url": "http://127.0.0.1:8000/v1",
+  "model_name": "ds-1017",
+  "indexes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "model_path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+      "index_path": "/workspace/tmp/stage-two-eight/e5_reused_signed_index",
+      "collection": "knowledge_stage27_intfloat__multilingual_e5_base",
+      "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4",
+      "point_count": 4746,
+      "device": "cuda:0",
+      "dtype": "float32"
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "model_path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+      "index_path": "/workspace/tmp/stage-two-eight/qwen3_embedding_0_6b_fp32/qdrant",
+      "collection": "knowledge_stage28_qwen3_embedding_0_6b_fp32",
+      "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823",
+      "point_count": 4532,
+      "device": "cuda:0",
+      "dtype": "float32"
+    }
+  ],
+  "reranker": {
+    "model_path": "/workspace/tmp/stage-two-eight-two/models/Qwen--Qwen3-Reranker-0.6B",
+    "device": "cuda:0",
+    "dtype": "auto",
+    "batch_size": 4
+  },
+  "generation_max_tokens": 4096,
+  "trace_dir": "tmp/rag-request-traces",
+  "source_root": "/workspace/data/l0_raw"
+}

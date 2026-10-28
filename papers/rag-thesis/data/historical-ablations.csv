@@ -1,0 +1,11 @@
+﻿experiment,method,condition,Hit@5,MRR@5
+annotation-only rejudgment,BM25,v1,0.7142857142857143,0.5198412698412699
+annotation-only rejudgment,BM25,v2,0.7619047619047619,0.6269841269841271
+annotation-only rejudgment,BAAI/bge-small-zh-v1.5,v1,0.42857142857142855,0.20396825396825397
+annotation-only rejudgment,BAAI/bge-small-zh-v1.5,v2,0.42857142857142855,0.2634920634920635
+annotation-only rejudgment,intfloat/multilingual-e5-base,v1,0.7619047619047619,0.47777777777777775
+annotation-only rejudgment,intfloat/multilingual-e5-base,v2,0.8571428571428571,0.5753968253968254
+annotation-only rejudgment,BAAI/bge-base-zh-v1.5,v1,0.6190476190476191,0.27539682539682536
+annotation-only rejudgment,BAAI/bge-base-zh-v1.5,v2,0.6190476190476191,0.31111111111111106
+passage A/B (v1 labels),BGE-small-zh,direct,0.38095238095238093,0.18015873015873016
+passage A/B (v1 labels),BGE-small-zh,passage,0.42857142857142855,0.20396825396825397

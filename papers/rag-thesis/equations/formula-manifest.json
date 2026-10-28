@@ -1,0 +1,74 @@
+[
+  {
+    "number": 1,
+    "latex": "B_m=L_m-H_m-G,",
+    "image": "eq-01.png",
+    "width_pt": 94.92,
+    "height_pt": 9.96,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 2,
+    "latex": "s_m(q,c)=\\max_{p\\in\\mathcal{P}^{\\mathrm{ret}}_m(c,q)}\\frac{\\mathbf{e}_m(q)^{\\mathsf{T}}\\mathbf{e}_m(p)}{\\Vert\\mathbf{e}_m(q)\\Vert_2\\Vert\\mathbf{e}_m(p)\\Vert_2}.",
+    "image": "eq-02.png",
+    "width_pt": 157.92,
+    "height_pt": 22.92,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 3,
+    "latex": "a_{qg}(K)=\\mathbf{1}\\left[\\exists c\\in\\mathcal{R}_K(q),\\ \\exists t\\in\\mathcal{A}_{qg}:\\operatorname{match}(c,t)\\right].",
+    "image": "eq-03.png",
+    "width_pt": 223.92,
+    "height_pt": 12.0,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 4,
+    "latex": "I_q(K)=\\prod_{g=1}^{G_q}a_{qg}(K).",
+    "image": "eq-04.png",
+    "width_pt": 90.96,
+    "height_pt": 31.92,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 5,
+    "latex": "\\mathrm{Hit@}K=\\frac{1}{|\\mathcal{Q}_{+}|}\\sum_{q\\in\\mathcal{Q}_{+}}I_q(K).",
+    "image": "eq-05.png",
+    "width_pt": 114.96,
+    "height_pt": 21.96,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 6,
+    "latex": "r_q=\\min\\{k\\in\\{1,2,3,4,5\\}:I_q(k)=1\\}.",
+    "image": "eq-06.png",
+    "width_pt": 195.0,
+    "height_pt": 12.0,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 7,
+    "latex": "\\mathrm{MRR@5}=\\frac{1}{|\\mathcal{Q}_{+}|}\\sum_{q\\in\\mathcal{Q}_{+}}\\frac{\\mathbf{1}[r_q\\leq 5]}{r_q}.",
+    "image": "eq-07.png",
+    "width_pt": 129.96,
+    "height_pt": 22.92,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 8,
+    "latex": "s_{\\mathrm{RRF}}(q,c)=\\sum_{m\\in\\mathcal{M}:\\,c\\in\\mathcal{C}_m(q)}\\frac{1}{60+\\operatorname{rank}_m(q,c)}.",
+    "image": "eq-08.png",
+    "width_pt": 183.96,
+    "height_pt": 22.92,
+    "font_size_pt": 10.2
+  },
+  {
+    "number": 9,
+    "latex": "s_{\\mathrm{rr}}(q,p)=\\frac{\\exp(z_{\\mathrm{yes}})}{\\exp(z_{\\mathrm{yes}})+\\exp(z_{\\mathrm{no}})}.",
+    "image": "eq-09.png",
+    "width_pt": 126.0,
+    "height_pt": 18.96,
+    "font_size_pt": 10.2
+  }
+]

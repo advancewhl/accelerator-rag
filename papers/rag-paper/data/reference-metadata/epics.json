@@ -1,0 +1,25 @@
+{
+  "key": "epics",
+  "kind": "doi",
+  "doi": "10.1016/0168-9002(94)91493-1",
+  "title": "The experimental physics and industrial control system architecture: past, present, and future",
+  "author": [
+    "Leo R. Dalesio",
+    "Jeffrey O. Hill",
+    "Martin Kraimer",
+    "Stephen Lewis",
+    "Douglas Murray",
+    "Stephan Hunt",
+    "William Watson",
+    "Matthias Clausen",
+    "John Dalesio"
+  ],
+  "year": 1994,
+  "venue": "Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment",
+  "volume": "352",
+  "number": "1-2",
+  "pages": "179-184",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1016%2F0168-9002%2894%2991493-1",
+  "landing_url": "https://doi.org/10.1016/0168-9002(94)91493-1"
+}

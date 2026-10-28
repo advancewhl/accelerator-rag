@@ -1,0 +1,47 @@
+{
+  "body_pages": 8,
+  "total_pages": 12,
+  "references": 39,
+  "missing_references": 0,
+  "duplicate_doi": 0,
+  "uncited_entries": 0,
+  "banned_terms": 0,
+  "legacy_negative_phrases": 0,
+  "display_equations": 6,
+  "abstract_characters": 250,
+  "figure_count": 4,
+  "table_count": 7,
+  "bitmap_image_objects": 0,
+  "tex_overfull_underfull_missing_glyphs": 0,
+  "input_files_checked": 57,
+  "font_feature_warnings": 2,
+  "pdf_sha256": "4a8680312b71d7a08ec3661d3a36f24379b68da1284b3f3fa990fd5ad371919e",
+  "renderer": "native XeTeX + BibTeX + xdvipdfmx via Tectonic 0.15.0",
+  "cjk_font_subsets_with_embedded_unicode_map": 3,
+  "visual_review": {
+    "pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "equations_reviewed": 6,
+    "figures_reviewed": 4,
+    "grayscale_legible": true,
+    "pdfjs_pages_reviewed": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "all_12_pages_pixel_identical_after_mapping_fix": true
+  }
+}

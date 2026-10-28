@@ -1,0 +1,18 @@
+{
+  "title": "EPICS IOC and PVs Information Management System for SHINE",
+  "author": [
+    "Huihui Lv",
+    "Yingbing Yan",
+    "Qingru Mi",
+    "Guanghua Chen"
+  ],
+  "year": 2023,
+  "venue": "Proceedings of the 13th International Workshop on Emerging Technologies and Scientific Facilities Controls",
+  "type": "proceedings-article",
+  "pages": "107--109",
+  "source_url": "https://proceedings.jacow.org/pcapac2022/papers/fro21.pdf",
+  "key": "shineioc",
+  "kind": "doi",
+  "doi": "10.18429/JACoW-PCaPAC2022-FRO21",
+  "verification": "Publisher primary record / original PDF; not registered in Crossref"
+}

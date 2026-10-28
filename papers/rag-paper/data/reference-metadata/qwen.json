@@ -1,0 +1,25 @@
+{
+  "key": "qwen",
+  "kind": "arxiv",
+  "arxiv": "2506.05176",
+  "doi": "10.48550/arXiv.2506.05176",
+  "title": "Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models",
+  "author": [
+    "Zhang, Yanzhao",
+    "Li, Mingxin",
+    "Long, Dingkun",
+    "Zhang, Xin",
+    "Lin, Huan",
+    "Yang, Baosong",
+    "Xie, Pengjun",
+    "Yang, An",
+    "Liu, Dayiheng",
+    "Lin, Junyang",
+    "Huang, Fei",
+    "Zhou, Jingren"
+  ],
+  "year": 2025,
+  "venue": "arXiv",
+  "source_url": "https://arxiv.org/abs/2506.05176",
+  "landing_url": "https://arxiv.org/abs/2506.05176"
+}

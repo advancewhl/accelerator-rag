@@ -1,0 +1,19 @@
+{
+  "key": "bgem3",
+  "kind": "arxiv",
+  "arxiv": "2402.03216",
+  "doi": "10.48550/arXiv.2402.03216",
+  "title": "M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation",
+  "author": [
+    "Chen, Jianlv",
+    "Xiao, Shitao",
+    "Zhang, Peitian",
+    "Luo, Kun",
+    "Lian, Defu",
+    "Liu, Zheng"
+  ],
+  "year": 2024,
+  "venue": "arXiv",
+  "source_url": "https://arxiv.org/abs/2402.03216",
+  "landing_url": "https://arxiv.org/abs/2402.03216"
+}

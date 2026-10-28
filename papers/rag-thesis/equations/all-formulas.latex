@@ -1,0 +1,44 @@
+% Equation 1
+\[
+B_m=L_m-H_m-G,
+\]
+
+% Equation 2
+\[
+s_m(q,c)=\max_{p\in\mathcal{P}^{\mathrm{ret}}_m(c,q)}\frac{\mathbf{e}_m(q)^{\mathsf{T}}\mathbf{e}_m(p)}{\Vert\mathbf{e}_m(q)\Vert_2\Vert\mathbf{e}_m(p)\Vert_2}.
+\]
+
+% Equation 3
+\[
+a_{qg}(K)=\mathbf{1}\left[\exists c\in\mathcal{R}_K(q),\ \exists t\in\mathcal{A}_{qg}:\operatorname{match}(c,t)\right].
+\]
+
+% Equation 4
+\[
+I_q(K)=\prod_{g=1}^{G_q}a_{qg}(K).
+\]
+
+% Equation 5
+\[
+\mathrm{Hit@}K=\frac{1}{|\mathcal{Q}_{+}|}\sum_{q\in\mathcal{Q}_{+}}I_q(K).
+\]
+
+% Equation 6
+\[
+r_q=\min\{k\in\{1,2,3,4,5\}:I_q(k)=1\}.
+\]
+
+% Equation 7
+\[
+\mathrm{MRR@5}=\frac{1}{|\mathcal{Q}_{+}|}\sum_{q\in\mathcal{Q}_{+}}\frac{\mathbf{1}[r_q\leq 5]}{r_q}.
+\]
+
+% Equation 8
+\[
+s_{\mathrm{RRF}}(q,c)=\sum_{m\in\mathcal{M}:\,c\in\mathcal{C}_m(q)}\frac{1}{60+\operatorname{rank}_m(q,c)}.
+\]
+
+% Equation 9
+\[
+s_{\mathrm{rr}}(q,p)=\frac{\exp(z_{\mathrm{yes}})}{\exp(z_{\mathrm{yes}})+\exp(z_{\mathrm{no}})}.
+\]

@@ -1,0 +1,267 @@
+{
+  "source_benchmark_sha256": "f5578371bca4589e8b2011ac4fbea2c17dbef57ab24b811f9247d92954f3ac65",
+  "requests": 36,
+  "positive_answered": 21,
+  "negative_correctly_refused": 11,
+  "citation_count": 51,
+  "cited_documents": 13,
+  "supplemented_requests": 8,
+  "version_scope_differences": 0,
+  "quoted_frozen_target_complete": 17,
+  "selected_parent_frozen_target_complete": 21,
+  "invalid": [],
+  "frozen_target_coverage": [
+    {
+      "id": "epics-pp",
+      "groups": 2,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2
+      ],
+      "selected_parent_groups": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "epics-reconnect",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "epics-cli",
+      "groups": 3,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2,
+        3
+      ],
+      "selected_parent_groups": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "xfel-rf",
+      "groups": 2,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2
+      ],
+      "selected_parent_groups": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "xfel-normal-energy",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "undulator-tuning",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "xfel-mirror-angle",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "xfel-soft-mono",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "xfel-bpm-types",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "shine-ioc-management",
+      "groups": 3,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2,
+        3
+      ],
+      "selected_parent_groups": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "shine-ioc-startup",
+      "groups": 2,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2
+      ],
+      "selected_parent_groups": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "interlock-latency",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "interlock-platform",
+      "groups": 2,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2
+      ],
+      "selected_parent_groups": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "shine-control-layers",
+      "groups": 5,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        4,
+        5
+      ],
+      "selected_parent_groups": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "cryo-integration",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "cryo-interlock",
+      "groups": 3,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1,
+        2,
+        3
+      ],
+      "selected_parent_groups": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "timing-wrtd",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "timing-jitter",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "control-slow-interlock",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "shine-compressors",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    },
+    {
+      "id": "shine-main-linac",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    }
+  ],
+  "interpretation": "Target containment is a diagnostic; it is independent of self-reported supported flags and does not alone prove semantic accuracy."
+}

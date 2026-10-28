@@ -1,0 +1,20 @@
+{
+  "key": "alce",
+  "kind": "doi",
+  "doi": "10.18653/v1/2023.emnlp-main.398",
+  "title": "Enabling Large Language Models to Generate Text with Citations",
+  "author": [
+    "Tianyu Gao",
+    "Howard Yen",
+    "Jiatong Yu",
+    "Danqi Chen"
+  ],
+  "year": 2023,
+  "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+  "volume": "",
+  "number": "",
+  "pages": "6465-6488",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2023.emnlp-main.398",
+  "landing_url": "https://doi.org/10.18653/v1/2023.emnlp-main.398"
+}

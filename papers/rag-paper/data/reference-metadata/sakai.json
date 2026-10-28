@@ -1,0 +1,17 @@
+{
+  "key": "sakai",
+  "kind": "doi",
+  "doi": "10.1145/2911451.2911492",
+  "title": "Statistical Significance, Power, and Sample Sizes: A Systematic Review of SIGIR and TOIS, 2006-2015",
+  "author": [
+    "Tetsuya Sakai"
+  ],
+  "year": 2016,
+  "venue": "Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval",
+  "volume": "",
+  "number": "",
+  "pages": "5-14",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.1145%2F2911451.2911492",
+  "landing_url": "https://doi.org/10.1145/2911451.2911492"
+}

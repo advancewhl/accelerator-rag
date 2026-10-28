@@ -17,7 +17,18 @@ class Qwen3Reranker:
               'can only be "yes" or "no".<|im_end|>\n<|im_start|>user\n')
     suffix = '<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n'
 
-    def __init__(self, model_path, *, batch_size=4):
+    def __init__(self, model_path, *, batch_size=4, device="cpu", dtype="auto"):
+        if type(batch_size) is not int or batch_size <= 0:
+            raise ValueError("batch_size must be positive")
+        self.device = torch.device(device)
+        if dtype == "auto":
+            dtype = "float32"
+            if self.device.type == "cuda":
+                with torch.cuda.device(self.device):
+                    dtype = "bfloat16" if torch.cuda.is_bf16_supported() else "float16"
+        if dtype not in {"float32", "float16", "bfloat16"}:
+            raise ValueError("unsupported reranker dtype")
+        self.dtype = dtype
         started = perf_counter()
         self.path = Path(model_path).resolve()
         self.batch_size = batch_size
@@ -26,9 +37,9 @@ class Qwen3Reranker:
             self.path, local_files_only=True, padding_side="left"
         )
         self.model = AutoModelForCausalLM.from_pretrained(
-            self.path, local_files_only=True, dtype=torch.float32,
+            self.path, local_files_only=True, dtype=getattr(torch, self.dtype),
             attn_implementation="sdpa",
-        ).eval().to("cpu")
+        ).eval().to(self.device)
         self.prefix_ids = self.tokenizer.encode(self.prefix, add_special_tokens=False)
         self.suffix_ids = self.tokenizer.encode(self.suffix, add_special_tokens=False)
         self.no_id = self.tokenizer.convert_tokens_to_ids("no")
@@ -54,10 +65,10 @@ class Qwen3Reranker:
                 sequences.append(ids)
             inputs = self.tokenizer.pad(
                 {"input_ids": sequences}, padding=True, return_tensors="pt"
-            )
+            ).to(self.device)
             # Same final-token logits as the official example; skip unused vocabulary logits.
             logits = self.model(**inputs, logits_to_keep=1, use_cache=False).logits[:, -1, :]
-            yes_no = torch.stack([logits[:, self.no_id], logits[:, self.yes_id]], dim=1)
+            yes_no = torch.stack([logits[:, self.no_id], logits[:, self.yes_id]], dim=1).float()
             scores.extend(torch.nn.functional.log_softmax(yes_no, dim=1)[:, 1].exp().tolist())
         self.scored_pairs += len(passages)
         return scores
@@ -90,6 +101,6 @@ class Qwen3Reranker:
             "local_model_bytes": sum(p.stat().st_size for p in files),
             "instruction": self.instruction, "prefix": self.prefix, "suffix": self.suffix,
             "max_length": self.max_length, "batch_size": self.batch_size,
-            "dtype": "float32", "device": "cpu", "attention": "sdpa",
+            "dtype": self.dtype, "device": str(self.device), "attention": "sdpa",
             "score": "P(yes | yes/no final-token logits)",
         }

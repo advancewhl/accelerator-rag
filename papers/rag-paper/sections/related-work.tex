@@ -1,0 +1,16 @@
+\section{相关工作}
+\sectionclaim{本文把通用检索增强方法落实为可执行的工程证据契约，并逐层评价证据覆盖。}
+
+\subsection{检索增强生成与归因}
+\textbf{外部记忆支持知识密集型问答。}RAG\citep{rag}与 REALM\citep{realm}结合检索和语言模型，FiD\citep{fid}与 Atlas\citep{atlas}研究多片段融合和知识更新。长上下文位置效应\citep{lostmiddle}与 Self-RAG 的检索、反思机制\citep{selfrag}进一步说明上下文组织本身影响回答。本文与这些工作的差别是以固定物理来源贯通预训练组件，研究工程证据在各处理层的保留情况。
+
+\textbf{归因评价把事实支持拆成可检查单元。}AIS\citep{ais}、Attributed QA\citep{attributedqa}和 ALCE\citep{alce}分别定义来源支持、归因问答及引用质量，FActScore\citep{factscore}以原子事实评价长文本精度；RAGAs\citep{ragas}与 ARES\citep{ares}评价检索上下文和生成忠实度。本文与之的差别是同时要求证据组完整覆盖、字段清单满足和 PDF 物理页解析，使遗漏与无来源陈述可以分开定位。
+
+\subsection{稠密检索与重排}
+\textbf{稠密检索与重排提供互补的表示能力。}DPR\citep{dpr}采用双编码器，ColBERT\citep{colbert}采用延迟交互，monoT5\citep{monot5}通过生成相关性标签完成排序。多语言 E5\citep{e5}、中文 BGE\citep{bge}、BGE-M3\citep{bgem3}和 Qwen3\citep{qwen}扩展了跨语言及长文本表示；BEIR\citep{beir}、MTEB\citep{mteb}比较任务间迁移。本文与之的差别是固定规范父块和证据组，比较模型专用片段最终恢复的完整证据。
+
+\subsection{多路融合与查询扩展}
+\textbf{多路融合需要以候选互补性解释收益。}BM25\citep{bm25}提供词项统计基线，RRF\citep{rrf}以排名融合规避异构分数尺度，混合检索分析\citep{hybrid}揭示融合函数与参数的作用。HyDE\citep{hyde}及 Query2doc\citep{query2doc}通过生成文本扩展查询。本文与之的差别是保留原始问题并复用冻结索引，通过调用计数、逐问题翻转及实际评分片段评价组合收益。
+
+\subsection{领域知识与加速器控制软件}
+\textbf{加速器控制软件沉淀了可定位、强约束的工程事实。}EPICS 体系及开发文档\citep{epics,epicsdocs}提供记录处理与通信语义；SHINE 的 IOC 管理\citep{shineioc}、低温控制\citep{shinecryo}、快联锁\citep{shinefast}和 White Rabbit 定时\citep{shinetiming}覆盖现场工程对象；XFEL 设计报告\citep{xfel}提供跨装置参数参照。本文与这些工作的差别是把分散文献组织为静态知识服务，以完整证据而非控制执行作为评价对象。

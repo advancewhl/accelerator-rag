@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-28",
+  "model": "ds-1017",
+  "local_tests_passed": 149,
+  "bulk_http_before_version_fix": {
+    "requests": 36,
+    "statuses": {
+      "answered": 23,
+      "insufficient": 11,
+      "partial": 2
+    },
+    "http_errors": 0,
+    "client_errors": 0
+  },
+  "final_targeted_http": {
+    "requests": 6,
+    "statuses": {
+      "answered": 4,
+      "insufficient": 1,
+      "partial": 1
+    },
+    "http_errors": 0,
+    "client_errors": 0,
+    "cases": [
+      {
+        "id": "xfel-normal-energy",
+        "request_id": "ef8ef324881e4e469f794eb67da61d55",
+        "status": "answered",
+        "seconds": 45.55
+      },
+      {
+        "id": "no-answer-hard-live-beam-energy",
+        "request_id": "27ca0480829a4ccbbd15fe026ea8f9d3",
+        "status": "insufficient",
+        "seconds": 21.54
+      },
+      {
+        "id": "cryo-original",
+        "request_id": "ed477dbd4e314ae39844210b009ea61d",
+        "status": "answered",
+        "seconds": 35.68
+      },
+      {
+        "id": "cryo-paraphrase",
+        "request_id": "be102ef739bc4df38b94168786cb82f3",
+        "status": "answered",
+        "seconds": 41.7
+      },
+      {
+        "id": "cryo-missing-details",
+        "request_id": "26e1cf3e6a074cdf899c5ad2a14128f7",
+        "status": "partial",
+        "seconds": 31.45
+      },
+      {
+        "id": "xfel-version-scopes",
+        "request_id": "1e22bdc2aa924139af8719221842f659",
+        "status": "answered",
+        "seconds": 23.49
+      }
+    ]
+  },
+  "final_audit_invalid": [],
+  "compared_versions_coexist": true,
+  "limits": [
+    "Semantic review uses the same model service as generation.",
+    "Finite candidate and evidence budgets do not give a corpus-wide optimum.",
+    "The bulk fast-interlock answer omits an explicit strict inequality; see report."
+  ]
+}

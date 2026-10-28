@@ -1,0 +1,19 @@
+# Preserve binary artifacts and keep generated/vendor assets out of source review.
+*.pdf binary
+*.png binary
+*.woff2 binary
+*.ttf binary
+*.pfb binary
+*.wasm binary
+*.bcmap binary
+*.gz binary
+src/accelerator_rag/rag/web/katex/** linguist-vendored -whitespace
+src/accelerator_rag/rag/web/markdown/** linguist-vendored -whitespace
+src/accelerator_rag/rag/web/pdfjs/** linguist-vendored -whitespace
+papers/rag-thesis/figures/** linguist-generated -whitespace
+papers/rag-thesis/equations/** linguist-generated -whitespace
+papers/rag-paper/figures/** linguist-generated -whitespace
+papers/rag-paper/tables/** linguist-generated -whitespace
+papers/rag-paper/fonts/** linguist-vendored -whitespace
+# Keep exported CSV bytes unchanged, including their standard CRLF endings.
+papers/rag-thesis/data/*.csv whitespace=cr-at-eol

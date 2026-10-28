@@ -1,0 +1,30 @@
+[
+  {
+    "figure": "fig01-architecture-cn",
+    "width_mm": 180,
+    "height_mm": 74.93,
+    "minimum_label_pt": 8,
+    "text_bounds": "passed"
+  },
+  {
+    "figure": "fig02-grounded-state-cn",
+    "width_mm": 180,
+    "height_mm": 67.30999999999999,
+    "minimum_label_pt": 8,
+    "text_bounds": "passed"
+  },
+  {
+    "figure": "fig03-bootstrap-cn",
+    "width_mm": 180,
+    "height_mm": 73.66,
+    "minimum_label_pt": 8,
+    "text_bounds": "passed"
+  },
+  {
+    "figure": "fig04-diagnostics-cn",
+    "width_mm": 180,
+    "height_mm": 73.66,
+    "minimum_label_pt": 8,
+    "text_bounds": "passed"
+  }
+]

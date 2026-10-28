@@ -1,0 +1,18 @@
+{
+  "key": "fid",
+  "kind": "doi",
+  "doi": "10.18653/v1/2021.eacl-main.74",
+  "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+  "author": [
+    "Gautier Izacard",
+    "Edouard Grave"
+  ],
+  "year": 2021,
+  "venue": "Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume",
+  "volume": "",
+  "number": "",
+  "pages": "874-880",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2021.eacl-main.74",
+  "landing_url": "https://doi.org/10.18653/v1/2021.eacl-main.74"
+}

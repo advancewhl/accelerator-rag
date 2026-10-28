@@ -1,0 +1,33 @@
+﻿query_id,query,answerable,language,category,negative_type,judgment_mode,evidence_groups
+epics-pp,When does an EPICS PP input link process its target record?,True,en,epics,,all,2
+epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,True,en,epics,,all,1
+epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",True,en,pv,,all,3
+xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,True,en,accelerator_design,,all,2
+xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,True,zh,accelerator_design,,all,1
+undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,True,en,photon_diagnostics,,all,1
+xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,True,en,beam_transport,,all,1
+xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,True,en,beam_transport,,all,1
+xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,True,en,beam_diagnostics,,all,1
+shine-ioc-management,How are IOC and PV information managed in SHINE?,True,en,ioc,,all,3
+shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,True,zh,ioc,,all,2
+interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,True,zh,interlock,,all,1
+interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,True,zh,interlock,,all,2
+shine-control-layers,How are the functional layers of the SHINE control system separated?,True,en,control_architecture,,all,5
+cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,True,en,cryogenics,,all,1
+cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,True,zh,cryogenics,,all,3
+timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,True,en,timing,,all,1
+timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,True,en,timing,,all,1
+control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,True,zh,interlock,,all,1
+shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,True,zh,accelerator_design,,all,1
+shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,True,zh,accelerator_design,,all,1
+no-answer-finance,What was NVIDIA quarterly revenue in fiscal 2026 Q4?,False,en,out_of_corpus,obvious,all,0
+no-answer-recipe,如何制作四川麻婆豆腐？请给出食材和烹饪步骤。,False,zh,out_of_corpus,obvious,all,0
+no-answer-token,zxqv9999unlistedcalibrationartifact,False,en,out_of_corpus,obvious,all,0
+no-answer-hard-live-pv,SHINE 在 2026-10-19 10:00 UTC 的 temperature:water PV 实时读数是多少？,False,zh,epics,hard_domain,all,0
+no-answer-hard-live-ioc-count,How many SHINE IOCs are online at 10:00 UTC on 19 October 2026?,False,en,ioc,hard_domain,all,0
+no-answer-hard-live-interlock,SHINE 快联锁在 2026-10-19 10:00 UTC 的在线许可状态是什么？,False,zh,interlock,hard_domain,all,0
+no-answer-hard-live-cryo,What is the measured SHINE helium refrigerator outlet pressure at 10:00 UTC on 19 October 2026?,False,en,cryogenics,hard_domain,all,0
+no-answer-hard-deployed-firmware,What exact firmware build SHA was installed on the SHINE White Rabbit master on 19 October 2026?,False,en,timing,hard_domain,all,0
+no-answer-hard-current-ioc-ip,SHINE IOC 在 2026-10-19 10:00 UTC 使用的实时 server IP 完整清单是什么？,False,zh,ioc,hard_domain,all,0
+no-answer-hard-live-bpm-calibration,What measured BPM calibration constant was approved at SHINE on 19 October 2026?,False,en,beam_diagnostics,hard_domain,all,0
+no-answer-hard-live-beam-energy,SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？,False,zh,accelerator_design,hard_domain,all,0

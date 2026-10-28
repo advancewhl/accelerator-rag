@@ -1,0 +1,17 @@
+{
+  "key": "mcnemar",
+  "kind": "doi",
+  "doi": "10.1007/BF02295996",
+  "title": "Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages",
+  "author": [
+    "Quinn McNemar"
+  ],
+  "year": 1947,
+  "venue": "Psychometrika",
+  "volume": "12",
+  "number": "2",
+  "pages": "153-157",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1007%2FBF02295996",
+  "landing_url": "https://doi.org/10.1007/bf02295996"
+}

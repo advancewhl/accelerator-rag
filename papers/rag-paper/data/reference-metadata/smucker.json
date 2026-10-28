@@ -1,0 +1,19 @@
+{
+  "key": "smucker",
+  "kind": "doi",
+  "doi": "10.1145/1321440.1321528",
+  "title": "A comparison of statistical significance tests for information retrieval evaluation",
+  "author": [
+    "Mark D. Smucker",
+    "James Allan",
+    "Ben Carterette"
+  ],
+  "year": 2007,
+  "venue": "Proceedings of the sixteenth ACM conference on Conference on information and knowledge management",
+  "volume": "",
+  "number": "",
+  "pages": "623-632",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.1145%2F1321440.1321528",
+  "landing_url": "https://doi.org/10.1145/1321440.1321528"
+}

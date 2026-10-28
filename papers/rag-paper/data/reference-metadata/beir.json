@@ -1,0 +1,18 @@
+{
+  "key": "beir",
+  "kind": "arxiv",
+  "arxiv": "2104.08663",
+  "doi": "10.48550/arXiv.2104.08663",
+  "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+  "author": [
+    "Thakur, Nandan",
+    "Reimers, Nils",
+    "Rücklé, Andreas",
+    "Srivastava, Abhishek",
+    "Gurevych, Iryna"
+  ],
+  "year": 2021,
+  "venue": "Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks",
+  "source_url": "https://arxiv.org/abs/2104.08663",
+  "landing_url": "https://arxiv.org/abs/2104.08663"
+}

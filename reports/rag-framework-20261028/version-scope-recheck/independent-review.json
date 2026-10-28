@@ -1,0 +1,27 @@
+{
+  "source_benchmark_sha256": "f5578371bca4589e8b2011ac4fbea2c17dbef57ab24b811f9247d92954f3ac65",
+  "requests": 6,
+  "positive_answered": 1,
+  "negative_correctly_refused": 1,
+  "citation_count": 13,
+  "cited_documents": 3,
+  "supplemented_requests": 2,
+  "version_scope_differences": 1,
+  "quoted_frozen_target_complete": 1,
+  "selected_parent_frozen_target_complete": 1,
+  "invalid": [],
+  "frozen_target_coverage": [
+    {
+      "id": "xfel-normal-energy",
+      "groups": 1,
+      "judgment_mode": "all",
+      "quoted_groups": [
+        1
+      ],
+      "selected_parent_groups": [
+        1
+      ]
+    }
+  ],
+  "interpretation": "Target containment is a diagnostic; it is independent of self-reported supported flags and does not alone prove semantic accuracy."
+}
