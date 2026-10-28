@@ -1,0 +1,7 @@
+{
+  "package": "pdfjs-dist",
+  "version": "6.4.299",
+  "source": "https://www.npmjs.com/package/pdfjs-dist",
+  "license": "Apache-2.0",
+  "runtime": "local assets; no CDN"
+}

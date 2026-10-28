@@ -1,0 +1,42 @@
+[
+  {
+    "name": "before",
+    "pages": 12,
+    "cjk_characters_per_page": [
+      0,
+      0,
+      108,
+      81,
+      0,
+      27,
+      49,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "total_cjk": 265,
+    "external_cmaps_configured": false
+  },
+  {
+    "name": "after",
+    "pages": 12,
+    "cjk_characters_per_page": [
+      1151,
+      950,
+      788,
+      723,
+      647,
+      776,
+      610,
+      768,
+      22,
+      51,
+      18,
+      377
+    ],
+    "total_cjk": 6881,
+    "external_cmaps_configured": false
+  }
+]

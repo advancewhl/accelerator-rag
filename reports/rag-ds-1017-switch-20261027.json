@@ -1,0 +1,283 @@
+{
+  "model": "ds-1017",
+  "cases": [
+    {
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "http_status": 200,
+      "wall_seconds": 10.841,
+      "response": {
+        "status": "answered",
+        "answer": "《硬 X 射线自由电子激光装置初步设计报告（加速器分册）》（初步设计报告，2017-12-26）中，主加速器采用三级加速、两级压缩的结构设计，装置基于超导连续波工作模式。 [1]\n\n《硬 X 射线自由电子激光装置初步设计报告（加速器分册）》（初步设计报告，2017-12-26）中，主加速器第三个加速段 L3 由 54 个模组组成，将电子束的能量由 2.1GeV 加速至最终的 8GeV。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 初步设计中的主加速器采用什么工作模式？",
+            "supported": true,
+            "span_ids": [
+              "S1.4"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 初步设计中的主加速器最终把电子加速到多少能量？",
+            "supported": true,
+            "span_ids": [
+              "S1.17"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 60,
+            "page_end": 60,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:cf8f273a1807979a26bbeb8f961f70b0886235053ba0f7b80ee3989f17712b7b",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9997388124465942,
+            "quote": "硬X 射线自由电子激光装置基于超导连续波工作模式，其主加 速器采用三级加速、两级压缩的结构设计，如图3.4.3.1-1 所示。\n\n主 加速器第三个加速段L3 由54 个模组组成，将电子束的能量由2.1GeV 加速至最 终的8GeV。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.1915388964116573,
+          "rerank_seconds": 0.5581080131232738,
+          "generation_seconds": 9.080648098140955,
+          "total_seconds": 10.831529881805182
+        }
+      }
+    },
+    {
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "http_status": 200,
+      "wall_seconds": 6.678,
+      "response": {
+        "status": "answered",
+        "answer": "《SHINE 加速器控制系统设计与开发》中，慢联锁关键信号响应时间指标为站内\\(\\leq 20\\,\\mathrm{ms}\\)。 [1]\n\n《SHINE 加速器控制系统设计与开发》中，慢联锁关键信号响应时间指标为站间\\(\\leq 100\\,\\mathrm{ms}\\)。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 控制系统设计中慢联锁的站内响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 控制系统设计中慢联锁的站间响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 21,
+            "page_end": 21,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:4e92201c2cf375a954b2860baf67a725b258f56b1a36a01b061e46d2775928dc",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9996200203895569,
+            "quote": "联锁系统  快联锁 + 慢联锁；主站 + 从站，分层设计 快联锁关键信号响应时间： 站内≤10us，站间≤100us 慢联锁关键信号响应时间： 站内≤20ms，站间≤100ms",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.1519007682800293,
+          "rerank_seconds": 0.316203810274601,
+          "generation_seconds": 6.202293820679188,
+          "total_seconds": 6.670882016420364
+        }
+      }
+    },
+    {
+      "query": "请分别说明 SHINE 的主加速器模式、最终能量，以及此刻在线的 IOC 数量。",
+      "http_status": 200,
+      "wall_seconds": 7.108,
+      "response": {
+        "status": "partial",
+        "answer": "依据 《SHINE 加速器控制系统设计与开发》（文档未标明版本）:\nSHINE 的电子束能量为 8 GeV。 [1]\n\n依据 《EPICS IOC and PVs Information Management System for SHINE》（PCaPAC2022 FRO21）:\nSHINE 利用光阴极电子枪结合超导直线加速器产生能量达 8 GeV 的 FEL 品质电子束。 [2]\n\n依据 《SHINE 加速器快联锁系统设计与开发》（核技术 47(12):120203 (2024-12)）:\nSHINE 的电子能量达 8 GeV。 [3]\n\n当前资料未能确认：\n- SHINE 的主加速器模式是什么？\n- 此刻在线的 IOC 数量是多少？",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 的主加速器模式是什么？",
+            "supported": false,
+            "span_ids": []
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 的最终能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S3.3",
+              "S5.3"
+            ]
+          },
+          {
+            "id": "R3",
+            "text": "此刻在线的 IOC 数量是多少？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:028145fdcf7f3c6b61a4f50c060f8cf74bff6a85e1b0e1b1d9ae736b70167520",
+            "retrieval_rank": 1,
+            "rerank_score": 0.979667603969574,
+            "quote": " Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE) e-beam : 8 GeV Photon energy : 0.4 ～25 keV Pulse duration : 1～100 fs Repetition : 1 MHz Total length : 3.1 km Underground ~ 29 m SHINE",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          },
+          {
+            "number": 2,
+            "source_id": "S3",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:dbbe5b3ca2a4ae4ff7f7debebe9fc61aa28441bfff953e06bf43c18deaa03696",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9740425944328308,
+            "quote": "SHINE will utilize a photocathode electron gun combined with the superconducting Linac to produce 8 GeV FEL quality electron beams up to 1 MHz repetition rate [1].",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 3,
+            "source_id": "S5",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 2,
+            "page_end": 2,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9603611826896667,
+            "quote": "Key words Fast interlock, FPGA, Data transmission, FL-net, Response time 上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置 ［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV ［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.0801117829978466,
+          "rerank_seconds": 0.2746685743331909,
+          "generation_seconds": 6.740891151130199,
+          "total_seconds": 7.096159759908915
+        }
+      }
+    },
+    {
+      "query": "Which FPGA and language does the SHINE FPIO use? Answer in English.",
+      "http_status": 200,
+      "wall_seconds": 8.828,
+      "response": {
+        "status": "answered",
+        "answer": "The FPGA built into the SHINE FPIO module uses Xilinx's Spartan6 XC6SLX25 series chip (source: \"SHINE 加速器快联锁系统设计与开发\", 核技术 47(12):120203, 2024-12). [1]\n\nThe SHINE interlock system uses Verilog HDL for the related function development (source: \"SHINE 加速器快联锁系统设计与开发\", 核技术 47(12):120203, 2024-12). [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Which FPGA does the SHINE FPIO use?",
+            "supported": true,
+            "span_ids": [
+              "S2.2"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "Which language does the SHINE FPIO use?",
+            "supported": true,
+            "span_ids": [
+              "S2.5"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:3989f77d1ed901e922429b49a72751dc4b71b50fb0267e5c7a8fe005090a5120",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999541699886322,
+            "quote": "FPIO 模块内置的FPGA 使 用的是Xilinx 公司的Spartan6 XC6SLX25 系列芯 片，其开发和设计流程遵循FPGA开发的通用流程。\n\n在此 基础上，使用硬件描述性语言可以实现联锁系统自 行定义的控制逻辑开发，SHINE 联锁系统选用 verilog HDL语言进行相关功能开发。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.07819994166493416,
+          "rerank_seconds": 0.302905548363924,
+          "generation_seconds": 8.43816677108407,
+          "total_seconds": 8.81978065147996
+        }
+      }
+    },
+    {
+      "query": "现在 SHINE 低温系统出口压力的实时读数是多少？",
+      "http_status": 200,
+      "wall_seconds": 1.344,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "现在 SHINE 低温系统出口压力的实时读数是多少？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.07703825831413269,
+          "rerank_seconds": 0.3001992516219616,
+          "generation_seconds": 0.9588122591376305,
+          "total_seconds": 1.3364622443914413
+        }
+      }
+    },
+    {
+      "query": "上海明天会下雨吗？",
+      "http_status": 200,
+      "wall_seconds": 2.462,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库未找到足以确认所问事实的资料。请补充设备名称、文档版本或更具体的问题。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "上海明天会下雨吗？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.28684791550040245,
+          "rerank_seconds": 0.3074014000594616,
+          "generation_seconds": 1.797689989209175,
+          "total_seconds": 2.392253551632166
+        }
+      }
+    }
+  ]
+}

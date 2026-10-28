@@ -1,0 +1,781 @@
+{
+  "monot5": {
+    "key": "monot5",
+    "kind": "doi",
+    "doi": "10.18653/v1/2020.findings-emnlp.63",
+    "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+    "author": [
+      "Rodrigo Nogueira",
+      "Zhiying Jiang",
+      "Ronak Pradeep",
+      "Jimmy Lin"
+    ],
+    "year": 2020,
+    "venue": "Findings of the Association for Computational Linguistics: EMNLP 2020",
+    "volume": "",
+    "number": "",
+    "pages": "708-718",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2020.findings-emnlp.63",
+    "landing_url": "https://doi.org/10.18653/v1/2020.findings-emnlp.63"
+  },
+  "fid": {
+    "key": "fid",
+    "kind": "doi",
+    "doi": "10.18653/v1/2021.eacl-main.74",
+    "title": "Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering",
+    "author": [
+      "Gautier Izacard",
+      "Edouard Grave"
+    ],
+    "year": 2021,
+    "venue": "Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume",
+    "volume": "",
+    "number": "",
+    "pages": "874-880",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2021.eacl-main.74",
+    "landing_url": "https://doi.org/10.18653/v1/2021.eacl-main.74"
+  },
+  "dpr": {
+    "key": "dpr",
+    "kind": "doi",
+    "doi": "10.18653/v1/2020.emnlp-main.550",
+    "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+    "author": [
+      "Vladimir Karpukhin",
+      "Barlas Oguz",
+      "Sewon Min",
+      "Patrick Lewis",
+      "Ledell Wu",
+      "Sergey Edunov",
+      "Danqi Chen",
+      "Wen-tau Yih"
+    ],
+    "year": 2020,
+    "venue": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    "volume": "",
+    "number": "",
+    "pages": "6769-6781",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2020.emnlp-main.550",
+    "landing_url": "https://doi.org/10.18653/v1/2020.emnlp-main.550"
+  },
+  "colbert": {
+    "key": "colbert",
+    "kind": "doi",
+    "doi": "10.1145/3397271.3401075",
+    "title": "ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT",
+    "author": [
+      "Omar Khattab",
+      "Matei Zaharia"
+    ],
+    "year": 2020,
+    "venue": "Proceedings of the 43rd International ACM SIGIR Conference on Research and Development in Information Retrieval",
+    "volume": "",
+    "number": "",
+    "pages": "39-48",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.1145%2F3397271.3401075",
+    "landing_url": "https://doi.org/10.1145/3397271.3401075"
+  },
+  "ais": {
+    "key": "ais",
+    "kind": "doi",
+    "doi": "10.1162/coli_a_00486",
+    "title": "Measuring Attribution in Natural Language Generation Models",
+    "author": [
+      "Hannah Rashkin",
+      "Vitaly Nikolaev",
+      "Matthew Lamm",
+      "Lora Aroyo",
+      "Michael Collins",
+      "Dipanjan Das",
+      "Slav Petrov",
+      "Gaurav Singh Tomar",
+      "Iulia Turc",
+      "David Reitter"
+    ],
+    "year": 2023,
+    "venue": "Computational Linguistics",
+    "volume": "49",
+    "number": "4",
+    "pages": "777-840",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1162%2Fcoli_a_00486",
+    "landing_url": "https://doi.org/10.1162/coli_a_00486"
+  },
+  "rrf": {
+    "key": "rrf",
+    "kind": "doi",
+    "doi": "10.1145/1571941.1572114",
+    "title": "Reciprocal rank fusion outperforms condorcet and individual rank learning methods",
+    "author": [
+      "Gordon V. Cormack",
+      "Charles L A Clarke",
+      "Stefan Buettcher"
+    ],
+    "year": 2009,
+    "venue": "Proceedings of the 32nd international ACM SIGIR conference on Research and development in information retrieval",
+    "volume": "",
+    "number": "",
+    "pages": "758-759",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.1145%2F1571941.1572114",
+    "landing_url": "https://doi.org/10.1145/1571941.1572114"
+  },
+  "alce": {
+    "key": "alce",
+    "kind": "doi",
+    "doi": "10.18653/v1/2023.emnlp-main.398",
+    "title": "Enabling Large Language Models to Generate Text with Citations",
+    "author": [
+      "Tianyu Gao",
+      "Howard Yen",
+      "Jiatong Yu",
+      "Danqi Chen"
+    ],
+    "year": 2023,
+    "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    "volume": "",
+    "number": "",
+    "pages": "6465-6488",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2023.emnlp-main.398",
+    "landing_url": "https://doi.org/10.18653/v1/2023.emnlp-main.398"
+  },
+  "bm25": {
+    "key": "bm25",
+    "kind": "doi",
+    "doi": "10.1561/1500000019",
+    "title": "The Probabilistic Relevance Framework: BM25 and Beyond",
+    "author": [
+      "Stephen Robertson",
+      "Hugo Zaragoza"
+    ],
+    "year": 2009,
+    "venue": "Foundations and Trends® in Information Retrieval",
+    "volume": "4",
+    "number": "1-2",
+    "pages": "1-174",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1561%2F1500000019",
+    "landing_url": "https://doi.org/10.1561/1500000019"
+  },
+  "ares": {
+    "key": "ares",
+    "kind": "doi",
+    "doi": "10.18653/v1/2024.naacl-long.20",
+    "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+    "author": [
+      "Jon Saad-Falcon",
+      "Omar Khattab",
+      "Christopher Potts",
+      "Matei Zaharia"
+    ],
+    "year": 2024,
+    "venue": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    "volume": "",
+    "number": "",
+    "pages": "338-354",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2024.naacl-long.20",
+    "landing_url": "https://doi.org/10.18653/v1/2024.naacl-long.20"
+  },
+  "ragas": {
+    "key": "ragas",
+    "kind": "doi",
+    "doi": "10.18653/v1/2024.eacl-demo.16",
+    "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+    "author": [
+      "Shahul Es",
+      "Jithin James",
+      "Luis Espinosa Anke",
+      "Steven Schockaert"
+    ],
+    "year": 2024,
+    "venue": "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations",
+    "volume": "",
+    "number": "",
+    "pages": "150-158",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2024.eacl-demo.16",
+    "landing_url": "https://doi.org/10.18653/v1/2024.eacl-demo.16"
+  },
+  "lostmiddle": {
+    "key": "lostmiddle",
+    "kind": "doi",
+    "doi": "10.1162/tacl_a_00638",
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "author": [
+      "Nelson F. Liu",
+      "Kevin Lin",
+      "John Hewitt",
+      "Ashwin Paranjape",
+      "Michele Bevilacqua",
+      "Fabio Petroni",
+      "Percy Liang"
+    ],
+    "year": 2024,
+    "venue": "Transactions of the Association for Computational Linguistics",
+    "volume": "12",
+    "number": "",
+    "pages": "157-173",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1162%2Ftacl_a_00638",
+    "landing_url": "https://doi.org/10.1162/tacl_a_00638"
+  },
+  "factscore": {
+    "key": "factscore",
+    "kind": "doi",
+    "doi": "10.18653/v1/2023.emnlp-main.741",
+    "title": "FActScore: Fine-grained Atomic Evaluation of Factual Precision in Long Form Text Generation",
+    "author": [
+      "Sewon Min",
+      "Kalpesh Krishna",
+      "Xinxi Lyu",
+      "Mike Lewis",
+      "Wen-tau Yih",
+      "Pang Koh",
+      "Mohit Iyyer",
+      "Luke Zettlemoyer",
+      "Hannaneh Hajishirzi"
+    ],
+    "year": 2023,
+    "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    "volume": "",
+    "number": "",
+    "pages": "12076-12100",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2023.emnlp-main.741",
+    "landing_url": "https://doi.org/10.18653/v1/2023.emnlp-main.741"
+  },
+  "smucker": {
+    "key": "smucker",
+    "kind": "doi",
+    "doi": "10.1145/1321440.1321528",
+    "title": "A comparison of statistical significance tests for information retrieval evaluation",
+    "author": [
+      "Mark D. Smucker",
+      "James Allan",
+      "Ben Carterette"
+    ],
+    "year": 2007,
+    "venue": "Proceedings of the sixteenth ACM conference on Conference on information and knowledge management",
+    "volume": "",
+    "number": "",
+    "pages": "623-632",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.1145%2F1321440.1321528",
+    "landing_url": "https://doi.org/10.1145/1321440.1321528"
+  },
+  "mteb": {
+    "key": "mteb",
+    "kind": "doi",
+    "doi": "10.18653/v1/2023.eacl-main.148",
+    "title": "MTEB: Massive Text Embedding Benchmark",
+    "author": [
+      "Niklas Muennighoff",
+      "Nouamane Tazi",
+      "Loic Magne",
+      "Nils Reimers"
+    ],
+    "year": 2023,
+    "venue": "Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics",
+    "volume": "",
+    "number": "",
+    "pages": "2014-2037",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2023.eacl-main.148",
+    "landing_url": "https://doi.org/10.18653/v1/2023.eacl-main.148"
+  },
+  "mcnemar": {
+    "key": "mcnemar",
+    "kind": "doi",
+    "doi": "10.1007/BF02295996",
+    "title": "Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages",
+    "author": [
+      "Quinn McNemar"
+    ],
+    "year": 1947,
+    "venue": "Psychometrika",
+    "volume": "12",
+    "number": "2",
+    "pages": "153-157",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1007%2FBF02295996",
+    "landing_url": "https://doi.org/10.1007/bf02295996"
+  },
+  "sandve": {
+    "key": "sandve",
+    "kind": "doi",
+    "doi": "10.1371/journal.pcbi.1003285",
+    "title": "Ten Simple Rules for Reproducible Computational Research",
+    "author": [
+      "Geir Kjetil Sandve",
+      "Anton Nekrutenko",
+      "James Taylor",
+      "Eivind Hovig"
+    ],
+    "year": 2013,
+    "venue": "PLoS Computational Biology",
+    "volume": "9",
+    "number": "10",
+    "pages": "e1003285",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1371%2Fjournal.pcbi.1003285",
+    "landing_url": "https://doi.org/10.1371/journal.pcbi.1003285"
+  },
+  "efron": {
+    "key": "efron",
+    "kind": "doi",
+    "doi": "10.1214/aos/1176344552",
+    "title": "Bootstrap Methods: Another Look at the Jackknife",
+    "author": [
+      "B. Efron"
+    ],
+    "year": 1979,
+    "venue": "The Annals of Statistics",
+    "volume": "7",
+    "number": "1",
+    "pages": "1-26",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1214%2Faos%2F1176344552",
+    "landing_url": "https://doi.org/10.1214/aos/1176344552"
+  },
+  "epics": {
+    "key": "epics",
+    "kind": "doi",
+    "doi": "10.1016/0168-9002(94)91493-1",
+    "title": "The experimental physics and industrial control system architecture: past, present, and future",
+    "author": [
+      "Leo R. Dalesio",
+      "Jeffrey O. Hill",
+      "Martin Kraimer",
+      "Stephen Lewis",
+      "Douglas Murray",
+      "Stephan Hunt",
+      "William Watson",
+      "Matthias Clausen",
+      "John Dalesio"
+    ],
+    "year": 1994,
+    "venue": "Nuclear Instruments and Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors and Associated Equipment",
+    "volume": "352",
+    "number": "1-2",
+    "pages": "179-184",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1016%2F0168-9002%2894%2991493-1",
+    "landing_url": "https://doi.org/10.1016/0168-9002(94)91493-1"
+  },
+  "xfel": {
+    "title": "XFEL: The European X-Ray Free-Electron Laser -- Technical Design Report",
+    "author": [
+      "Rafael Abela",
+      "A. Aghababyan",
+      "Massimo Altarelli",
+      "others"
+    ],
+    "year": 2006,
+    "venue": "DESY",
+    "type": "report",
+    "pages": "1--646",
+    "source_url": "https://bib-pubdb1.desy.de/record/77248",
+    "key": "xfel",
+    "kind": "doi",
+    "doi": "10.3204/DESY_06-097",
+    "verification": "Publisher primary record / original PDF; not registered in Crossref"
+  },
+  "shinecontrol": {
+    "title": "Status of the SHINE Control System",
+    "author": [
+      "Yingbing Yan",
+      "Jianguo Ding",
+      "J. F. Chen",
+      "Guanghua Chen",
+      "others"
+    ],
+    "year": 2019,
+    "venue": "Proceedings of the 17th International Conference on Accelerator and Large Experimental Physics Control Systems",
+    "type": "proceedings-article",
+    "pages": "1481--1484",
+    "source_url": "https://proceedings.jacow.org/icalepcs2019/papers/wepha167.pdf",
+    "key": "shinecontrol",
+    "kind": "doi",
+    "doi": "10.18429/JACoW-ICALEPCS2019-WEPHA167",
+    "verification": "Publisher primary record / original PDF; not registered in Crossref"
+  },
+  "shineioc": {
+    "title": "EPICS IOC and PVs Information Management System for SHINE",
+    "author": [
+      "Huihui Lv",
+      "Yingbing Yan",
+      "Qingru Mi",
+      "Guanghua Chen"
+    ],
+    "year": 2023,
+    "venue": "Proceedings of the 13th International Workshop on Emerging Technologies and Scientific Facilities Controls",
+    "type": "proceedings-article",
+    "pages": "107--109",
+    "source_url": "https://proceedings.jacow.org/pcapac2022/papers/fro21.pdf",
+    "key": "shineioc",
+    "kind": "doi",
+    "doi": "10.18429/JACoW-PCaPAC2022-FRO21",
+    "verification": "Publisher primary record / original PDF; not registered in Crossref"
+  },
+  "sakai": {
+    "key": "sakai",
+    "kind": "doi",
+    "doi": "10.1145/2911451.2911492",
+    "title": "Statistical Significance, Power, and Sample Sizes: A Systematic Review of SIGIR and TOIS, 2006-2015",
+    "author": [
+      "Tetsuya Sakai"
+    ],
+    "year": 2016,
+    "venue": "Proceedings of the 39th International ACM SIGIR conference on Research and Development in Information Retrieval",
+    "volume": "",
+    "number": "",
+    "pages": "5-14",
+    "type": "proceedings-article",
+    "source_url": "https://api.crossref.org/works/10.1145%2F2911451.2911492",
+    "landing_url": "https://doi.org/10.1145/2911451.2911492"
+  },
+  "rag": {
+    "key": "rag",
+    "kind": "arxiv",
+    "arxiv": "2005.11401",
+    "doi": "10.48550/arXiv.2005.11401",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "author": [
+      "Lewis, Patrick",
+      "Perez, Ethan",
+      "Piktus, Aleksandra",
+      "Petroni, Fabio",
+      "Karpukhin, Vladimir",
+      "Goyal, Naman",
+      "Küttler, Heinrich",
+      "Lewis, Mike",
+      "Yih, Wen-tau",
+      "Rocktäschel, Tim",
+      "Riedel, Sebastian",
+      "Kiela, Douwe"
+    ],
+    "year": 2020,
+    "venue": "Advances in Neural Information Processing Systems",
+    "source_url": "https://arxiv.org/abs/2005.11401",
+    "landing_url": "https://arxiv.org/abs/2005.11401"
+  },
+  "shinecryo": {
+    "key": "shinecryo",
+    "kind": "doi",
+    "doi": "10.1140/epjti/s40485-021-00066-7",
+    "title": "The cryogenic control system of SHINE",
+    "author": [
+      "Geyang Jiang",
+      "Qing Ni",
+      "Shuhua Wang",
+      "Jiuce Sun",
+      "Zhengrong Ouyang",
+      "Lei Zhang",
+      "Zilei Tong",
+      "Yi Wang"
+    ],
+    "year": 2021,
+    "venue": "EPJ Techniques and Instrumentation",
+    "volume": "8",
+    "number": "1",
+    "pages": "11",
+    "type": "journal-article",
+    "source_url": "https://api.crossref.org/works/10.1140%2Fepjti%2Fs40485-021-00066-7",
+    "landing_url": "https://doi.org/10.1140/epjti/s40485-021-00066-7"
+  },
+  "shinefast": {
+    "title": "SHINE加速器快联锁系统设计与开发",
+    "author": [
+      "于春蕾",
+      "陈广花",
+      "丁建国",
+      "李明",
+      "肖庆雯",
+      "阎映炳"
+    ],
+    "year": 2024,
+    "venue": "核技术",
+    "type": "journal-article",
+    "volume": "47",
+    "number": "12",
+    "pages": "120203",
+    "source_url": "https://doi.org/10.11889/j.0253-3219.2024.hjs.47.120203",
+    "key": "shinefast",
+    "kind": "doi",
+    "doi": "10.11889/j.0253-3219.2024.hjs.47.120203",
+    "verification": "Publisher primary record / original PDF; not registered in Crossref"
+  },
+  "shinetiming": {
+    "title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+    "author": [
+      "Yingbing Yan",
+      "P. X. Yu",
+      "Guanghua Chen",
+      "Qingwen Xiao",
+      "others"
+    ],
+    "year": 2022,
+    "venue": "Proceedings of the 13th International Particle Accelerator Conference",
+    "type": "proceedings-article",
+    "pages": "2415--2419",
+    "source_url": "https://proceedings.jacow.org/ipac2022/papers/thiygd1.pdf",
+    "key": "shinetiming",
+    "kind": "doi",
+    "doi": "10.18429/JACoW-IPAC2022-THIYGD1",
+    "verification": "Publisher primary record / original PDF; not registered in Crossref"
+  },
+  "realm": {
+    "key": "realm",
+    "kind": "arxiv",
+    "arxiv": "2002.08909",
+    "doi": "10.48550/arXiv.2002.08909",
+    "title": "REALM: Retrieval-Augmented Language Model Pre-Training",
+    "author": [
+      "Guu, Kelvin",
+      "Lee, Kenton",
+      "Tung, Zora",
+      "Pasupat, Panupong",
+      "Chang, Ming-Wei"
+    ],
+    "year": 2020,
+    "venue": "Proceedings of the 37th International Conference on Machine Learning",
+    "source_url": "https://arxiv.org/abs/2002.08909",
+    "landing_url": "https://arxiv.org/abs/2002.08909"
+  },
+  "e5": {
+    "key": "e5",
+    "kind": "arxiv",
+    "arxiv": "2402.05672",
+    "doi": "10.48550/arXiv.2402.05672",
+    "title": "Multilingual E5 Text Embeddings: A Technical Report",
+    "author": [
+      "Wang, Liang",
+      "Yang, Nan",
+      "Huang, Xiaolong",
+      "Yang, Linjun",
+      "Majumder, Rangan",
+      "Wei, Furu"
+    ],
+    "year": 2024,
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/2402.05672",
+    "landing_url": "https://arxiv.org/abs/2402.05672"
+  },
+  "bge": {
+    "key": "bge",
+    "kind": "arxiv",
+    "arxiv": "2309.07597",
+    "doi": "10.48550/arXiv.2309.07597",
+    "title": "C-Pack: Packed Resources For General Chinese Embeddings",
+    "author": [
+      "Xiao, Shitao",
+      "Liu, Zheng",
+      "Zhang, Peitian",
+      "Muennighoff, Niklas",
+      "Lian, Defu",
+      "Nie, Jian-Yun"
+    ],
+    "year": 2024,
+    "venue": "Proceedings of the 47th International ACM SIGIR Conference on Research and Development in Information Retrieval",
+    "source_url": "https://arxiv.org/abs/2309.07597",
+    "landing_url": "https://arxiv.org/abs/2309.07597"
+  },
+  "atlas": {
+    "key": "atlas",
+    "kind": "arxiv",
+    "arxiv": "2208.03299",
+    "doi": "10.48550/arXiv.2208.03299",
+    "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+    "author": [
+      "Izacard, Gautier",
+      "Lewis, Patrick",
+      "Lomeli, Maria",
+      "Hosseini, Lucas",
+      "Petroni, Fabio",
+      "Schick, Timo",
+      "Dwivedi-Yu, Jane",
+      "Joulin, Armand",
+      "Riedel, Sebastian",
+      "Grave, Edouard"
+    ],
+    "year": 2023,
+    "venue": "Journal of Machine Learning Research",
+    "source_url": "https://arxiv.org/abs/2208.03299",
+    "landing_url": "https://arxiv.org/abs/2208.03299"
+  },
+  "bgem3": {
+    "key": "bgem3",
+    "kind": "arxiv",
+    "arxiv": "2402.03216",
+    "doi": "10.48550/arXiv.2402.03216",
+    "title": "M3-Embedding: Multi-Linguality, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation",
+    "author": [
+      "Chen, Jianlv",
+      "Xiao, Shitao",
+      "Zhang, Peitian",
+      "Luo, Kun",
+      "Lian, Defu",
+      "Liu, Zheng"
+    ],
+    "year": 2024,
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/2402.03216",
+    "landing_url": "https://arxiv.org/abs/2402.03216"
+  },
+  "selfrag": {
+    "key": "selfrag",
+    "kind": "arxiv",
+    "arxiv": "2310.11511",
+    "doi": "10.48550/arXiv.2310.11511",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "author": [
+      "Asai, Akari",
+      "Wu, Zeqiu",
+      "Wang, Yizhong",
+      "Sil, Avirup",
+      "Hajishirzi, Hannaneh"
+    ],
+    "year": 2024,
+    "venue": "The Twelfth International Conference on Learning Representations",
+    "source_url": "https://arxiv.org/abs/2310.11511",
+    "landing_url": "https://arxiv.org/abs/2310.11511"
+  },
+  "hybrid": {
+    "key": "hybrid",
+    "kind": "arxiv",
+    "arxiv": "2210.11934",
+    "doi": "10.48550/arXiv.2210.11934",
+    "title": "An Analysis of Fusion Functions for Hybrid Retrieval",
+    "author": [
+      "Bruch, Sebastian",
+      "Gai, Siyu",
+      "Ingber, Amir"
+    ],
+    "year": 2022,
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/2210.11934",
+    "landing_url": "https://arxiv.org/abs/2210.11934"
+  },
+  "beir": {
+    "key": "beir",
+    "kind": "arxiv",
+    "arxiv": "2104.08663",
+    "doi": "10.48550/arXiv.2104.08663",
+    "title": "BEIR: A Heterogenous Benchmark for Zero-shot Evaluation of Information Retrieval Models",
+    "author": [
+      "Thakur, Nandan",
+      "Reimers, Nils",
+      "Rücklé, Andreas",
+      "Srivastava, Abhishek",
+      "Gurevych, Iryna"
+    ],
+    "year": 2021,
+    "venue": "Proceedings of the Neural Information Processing Systems Track on Datasets and Benchmarks",
+    "source_url": "https://arxiv.org/abs/2104.08663",
+    "landing_url": "https://arxiv.org/abs/2104.08663"
+  },
+  "attributedqa": {
+    "key": "attributedqa",
+    "kind": "arxiv",
+    "arxiv": "2212.08037",
+    "doi": "10.48550/arXiv.2212.08037",
+    "title": "Attributed Question Answering: Evaluation and Modeling for Attributed Large Language Models",
+    "author": [
+      "Bohnet, Bernd",
+      "Tran, Vinh Q.",
+      "Verga, Pat",
+      "Aharoni, Roee",
+      "Andor, Daniel",
+      "Soares, Livio Baldini",
+      "Ciaramita, Massimiliano",
+      "Eisenstein, Jacob",
+      "Ganchev, Kuzman",
+      "Herzig, Jonathan",
+      "Hui, Kai",
+      "Kwiatkowski, Tom",
+      "Ma, Ji",
+      "Ni, Jianmo",
+      "Saralegui, Lierni Sestorain",
+      "Schuster, Tal",
+      "Cohen, William W.",
+      "Collins, Michael",
+      "Das, Dipanjan",
+      "Metzler, Donald",
+      "Petrov, Slav",
+      "Webster, Kellie"
+    ],
+    "year": 2022,
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/2212.08037",
+    "landing_url": "https://arxiv.org/abs/2212.08037"
+  },
+  "qwen": {
+    "key": "qwen",
+    "kind": "arxiv",
+    "arxiv": "2506.05176",
+    "doi": "10.48550/arXiv.2506.05176",
+    "title": "Qwen3 Embedding: Advancing Text Embedding and Reranking Through Foundation Models",
+    "author": [
+      "Zhang, Yanzhao",
+      "Li, Mingxin",
+      "Long, Dingkun",
+      "Zhang, Xin",
+      "Lin, Huan",
+      "Yang, Baosong",
+      "Xie, Pengjun",
+      "Yang, An",
+      "Liu, Dayiheng",
+      "Lin, Junyang",
+      "Huang, Fei",
+      "Zhou, Jingren"
+    ],
+    "year": 2025,
+    "venue": "arXiv",
+    "source_url": "https://arxiv.org/abs/2506.05176",
+    "landing_url": "https://arxiv.org/abs/2506.05176"
+  },
+  "hyde": {
+    "key": "hyde",
+    "kind": "arxiv",
+    "arxiv": "2212.10496",
+    "doi": "10.48550/arXiv.2212.10496",
+    "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels",
+    "author": [
+      "Gao, Luyu",
+      "Ma, Xueguang",
+      "Lin, Jimmy",
+      "Callan, Jamie"
+    ],
+    "year": 2023,
+    "venue": "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics",
+    "source_url": "https://arxiv.org/abs/2212.10496",
+    "landing_url": "https://arxiv.org/abs/2212.10496"
+  },
+  "query2doc": {
+    "key": "query2doc",
+    "kind": "arxiv",
+    "arxiv": "2303.07678",
+    "doi": "10.48550/arXiv.2303.07678",
+    "title": "Query2doc: Query Expansion with Large Language Models",
+    "author": [
+      "Wang, Liang",
+      "Yang, Nan",
+      "Wei, Furu"
+    ],
+    "year": 2023,
+    "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    "source_url": "https://arxiv.org/abs/2303.07678",
+    "landing_url": "https://arxiv.org/abs/2303.07678"
+  },
+  "epicsdocs": {
+    "kind": "manual",
+    "source_url": "https://epics.anl.gov/base/R3-16/2-docs/AppDevGuide.pdf",
+    "verification": "Official EPICS URL and locally registered PDF; release identity R3.16.2"
+  }
+}

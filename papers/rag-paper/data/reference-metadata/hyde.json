@@ -1,0 +1,17 @@
+{
+  "key": "hyde",
+  "kind": "arxiv",
+  "arxiv": "2212.10496",
+  "doi": "10.48550/arXiv.2212.10496",
+  "title": "Precise Zero-Shot Dense Retrieval without Relevance Labels",
+  "author": [
+    "Gao, Luyu",
+    "Ma, Xueguang",
+    "Lin, Jimmy",
+    "Callan, Jamie"
+  ],
+  "year": 2023,
+  "venue": "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics",
+  "source_url": "https://arxiv.org/abs/2212.10496",
+  "landing_url": "https://arxiv.org/abs/2212.10496"
+}

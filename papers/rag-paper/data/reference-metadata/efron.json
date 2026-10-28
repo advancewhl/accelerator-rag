@@ -1,0 +1,17 @@
+{
+  "key": "efron",
+  "kind": "doi",
+  "doi": "10.1214/aos/1176344552",
+  "title": "Bootstrap Methods: Another Look at the Jackknife",
+  "author": [
+    "B. Efron"
+  ],
+  "year": 1979,
+  "venue": "The Annals of Statistics",
+  "volume": "7",
+  "number": "1",
+  "pages": "1-26",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1214%2Faos%2F1176344552",
+  "landing_url": "https://doi.org/10.1214/aos/1176344552"
+}

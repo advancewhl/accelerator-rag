@@ -1,0 +1,18 @@
+{
+  "key": "bm25",
+  "kind": "doi",
+  "doi": "10.1561/1500000019",
+  "title": "The Probabilistic Relevance Framework: BM25 and Beyond",
+  "author": [
+    "Stephen Robertson",
+    "Hugo Zaragoza"
+  ],
+  "year": 2009,
+  "venue": "Foundations and Trends® in Information Retrieval",
+  "volume": "4",
+  "number": "1-2",
+  "pages": "1-174",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1561%2F1500000019",
+  "landing_url": "https://doi.org/10.1561/1500000019"
+}

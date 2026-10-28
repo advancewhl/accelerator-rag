@@ -44,3 +44,21 @@ tmp/
 
 # 系统文件
 .DS_Store
+
+# RAG vendored PDF.js runtime files are source assets, not Python build output
+!src/accelerator_rag/rag/web/pdfjs/build/
+
+# RAG paper previews and reproducible compiler/process outputs
+/papers/rag-thesis/qa/*.png
+/papers/rag-paper/qa/*.png
+/papers/rag-paper/main.aux
+/papers/rag-paper/main.bbl
+/papers/rag-paper/main.blg
+/papers/rag-paper/main.log
+/papers/rag-paper/main.out
+/papers/rag-paper/main.pdf
+/output/paper/
+/output/paper-v2/
+/output/rag-paper-source.zip
+/output/pdf/rag-paper-font-fixed.pdf
+/output/prompts/codex-paper-rewrite-20261027.md

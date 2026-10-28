@@ -1,0 +1,19 @@
+{
+  "title": "Status of the SHINE Control System",
+  "author": [
+    "Yingbing Yan",
+    "Jianguo Ding",
+    "J. F. Chen",
+    "Guanghua Chen",
+    "others"
+  ],
+  "year": 2019,
+  "venue": "Proceedings of the 17th International Conference on Accelerator and Large Experimental Physics Control Systems",
+  "type": "proceedings-article",
+  "pages": "1481--1484",
+  "source_url": "https://proceedings.jacow.org/icalepcs2019/papers/wepha167.pdf",
+  "key": "shinecontrol",
+  "kind": "doi",
+  "doi": "10.18429/JACoW-ICALEPCS2019-WEPHA167",
+  "verification": "Publisher primary record / original PDF; not registered in Crossref"
+}

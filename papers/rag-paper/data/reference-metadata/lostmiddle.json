@@ -1,0 +1,23 @@
+{
+  "key": "lostmiddle",
+  "kind": "doi",
+  "doi": "10.1162/tacl_a_00638",
+  "title": "Lost in the Middle: How Language Models Use Long Contexts",
+  "author": [
+    "Nelson F. Liu",
+    "Kevin Lin",
+    "John Hewitt",
+    "Ashwin Paranjape",
+    "Michele Bevilacqua",
+    "Fabio Petroni",
+    "Percy Liang"
+  ],
+  "year": 2024,
+  "venue": "Transactions of the Association for Computational Linguistics",
+  "volume": "12",
+  "number": "",
+  "pages": "157-173",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1162%2Ftacl_a_00638",
+  "landing_url": "https://doi.org/10.1162/tacl_a_00638"
+}

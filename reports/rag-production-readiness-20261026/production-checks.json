@@ -1,0 +1,118 @@
+{
+  "concurrent_wall_seconds": 4.019851979974192,
+  "sum_request_wall_seconds": 6.955784647958353,
+  "requests": [
+    {
+      "query": "SHINE 的最终电子束能量是多少？",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "依据 《White Rabbit Based Beam-Synchronous Timing Systems for SHINE》（IPAC2022 THIYGD1）:\nSHINE 的最终电子束能量为 8 GeV。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 的最终电子束能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S2.4"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+            "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+            "document_version": "IPAC2022 THIYGD1",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022:ba766f7f8c0d6e793404658c9a19fe163f5bc70682882cea214a82635c32bc9e",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9994115829467773,
+            "quote": "Parameter Value Beam energy 8 GeV Bunch charge 100 pC Peak current 1500 A Max repetition rate 1.003086 MHz Photon energy 0.4 - 25 keV Total length 3.1 km",
+            "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.42318204045295715,
+          "rerank_seconds": 0.2219594642519951,
+          "generation_seconds": 2.2806492410600185,
+          "total_seconds": 2.9269262179732323
+        }
+      },
+      "wall_seconds": 2.937303851998877
+    },
+    {
+      "query": "EPICS 中如何持续监视 temperature:water 的数值变化？",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "在 EPICS 中可用 camonitor 持续监视 temperature:water 的数值变化，命令为 `camonitor temperature:water`；运行后可在另一终端用 caput 修改该值，观察 camonitor 的输出变化。 [1]\n\n若希望显示更多位数，可运行 `camonitor -g8 temperature:water`。 [1]\n\ncamonitor 的监视可受数据库设置影响：使用新的 test.db 运行 `softIoc -d test.db` 时，camonitor 只对大于 0.01 的变化作出反应。 [2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "在 EPICS 中如何持续监视 temperature:water 的数值变化？",
+            "supported": true,
+            "span_ids": [
+              "S2.2",
+              "S2.5",
+              "S3.2"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "epics-documentation-latest-2026-08-18",
+            "document_title": "EPICS Documentation",
+            "document_version": "latest (2026-08-18)",
+            "page_start": 9,
+            "page_end": 9,
+            "chunk_id": "epics-documentation-latest-2026-08-18:a7cea79623100df414ec81d17f2bc3815c6ee8056a5d45f5f9853372edfe1cf6",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9968273043632507,
+            "quote": "Now open yet another terminal (nr. 3) and try camonitor as camonitor temperature:water First, have a look at what happens when you change the temperature:water value from terminal nr. 2 using caput.\n\nIf you wanted to see more digits, you could run camonitor -g8 temperature:water",
+            "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+          },
+          {
+            "number": 2,
+            "source_id": "S3",
+            "document_id": "epics-documentation-latest-2026-08-18",
+            "document_title": "EPICS Documentation",
+            "document_version": "latest (2026-08-18)",
+            "page_start": 10,
+            "page_end": 10,
+            "chunk_id": "epics-documentation-latest-2026-08-18:c0da265bb4f2c732342b7343aa193602e5cd7cdab9710ef51c012ad87273b3be",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9959298968315125,
+            "quote": "If you now run softIoc -d test.db with the new test.db file, you will see that camonitor reacts only to changes that are larger than 0.01.",
+            "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.8139575682580471,
+          "rerank_seconds": 0.28188469260931015,
+          "generation_seconds": 2.9015021733939648,
+          "total_seconds": 3.997719082981348
+        }
+      },
+      "wall_seconds": 4.018480795959476
+    }
+  ],
+  "http_checks": {
+    "/": 200,
+    "/health": 200,
+    "/v1/rag/documents/shine-accelerator-fast-interlock-2024/view": 200,
+    "/assets/markdown/markdown-it.min.js": 200,
+    "/assets/pdfjs/build/pdf.mjs": 200,
+    "/v1/rag/documents/not-a-document": 404,
+    "/v1/rag/documents/%2Fetc%2Fpasswd": 404,
+    "pdf_range": {
+      "status": 206,
+      "is_pdf": true
+    }
+  }
+}

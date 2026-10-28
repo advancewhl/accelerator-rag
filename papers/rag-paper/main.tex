@@ -1,0 +1,44 @@
+% Build: latexmk -xelatex main.tex; alternative: tectonic main.tex
+\documentclass[UTF8,fontset=none,zihao=5,a4paper]{ctexart}
+\setCJKmainfont[Script=Default,BoldFont=FandolSong-Bold.otf,ItalicFont=FandolKai-Regular.otf]{FandolSong-Regular.otf}
+\setCJKsansfont[Script=Default,BoldFont=FandolHei-Bold.otf]{FandolHei-Regular.otf}
+\setCJKmonofont[Script=Default]{FandolFang-Regular.otf}
+\usepackage[left=15mm,right=15mm,top=18mm,bottom=18mm]{geometry}
+\usepackage{amsmath,amssymb,bm,graphicx,booktabs,tabularx,array,multirow}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{caption,enumitem,fancyhdr,placeins,hyperref,xurl}
+\hypersetup{hidelinks,pdftitle={证据契约驱动的加速器文档检索增强问答},pdfauthor={}}
+\urlstyle{same}
+\linespread{1.24}
+\setlength{\parindent}{2em}\setlength{\parskip}{0.15em}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}\setlength{\intextsep}{9pt plus 2pt minus 2pt}
+\renewcommand{\topfraction}{0.92}\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{3}\setcounter{bottomnumber}{2}\setcounter{totalnumber}{5}
+\ctexset{section={format=\large\bfseries,number=\arabic{section},beforeskip=11pt,afterskip=5pt},subsection={format=\normalsize\bfseries,beforeskip=7pt,afterskip=3pt}}
+\captionsetup{font=small,labelfont=bf,labelsep=quad,skip=5pt}
+\setlist[enumerate]{nosep,leftmargin=2.1em,label=(\arabic*)}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small 证据契约驱动的加速器文档检索增强问答}\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}\setlength{\headheight}{14pt}
+\newcommand{\sectionclaim}[1]{\noindent\textbf{本节结论：#1}\par}
+\newcommand{\vectfigure}[3]{\begin{figure}[!htbp]\centering\includegraphics[width=180mm]{figures/#1.pdf}\caption{#2}\label{#3}\end{figure}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries 证据契约驱动的加速器文档检索增强问答\par}\vspace{4pt}
+{\normalsize Evidence-Contract-Driven Retrieval-Augmented Question Answering\par for Accelerator Technical Documents}
+\end{center}
+\input{sections/abstract}
+\input{sections/introduction}
+\input{sections/related-work}
+\input{sections/evidence-contract}
+\input{sections/system}
+\input{sections/setup}
+\input{sections/results}
+\input{sections/threats}
+\input{sections/conclusion}
+\FloatBarrier\label{maintext-end}\clearpage
+\begingroup\small\interlinepenalty=10000\setlength{\bibsep}{2pt}\bibliographystyle{unsrtnat}\bibliography{refs}\endgroup
+\clearpage\appendix\input{sections/appendix}
+\end{document}

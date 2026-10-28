@@ -30,6 +30,7 @@ class EmbeddingModel:
         local_files_only: bool = True,
         batch_size: int = 32,
         model_path: str | None = None,
+        dtype: str | None = None,
     ) -> None:
         from sentence_transformers import SentenceTransformer
 
@@ -59,12 +60,14 @@ class EmbeddingModel:
         self.model_name = model_name
         self.device = device
 
+        if dtype not in {None, "float32", "float16", "bfloat16"}:
+            raise ValueError("unsupported embedding dtype")
         self._model = SentenceTransformer(
             model_path or model_name,
             device=device,
             local_files_only=local_files_only,
-            model_kwargs={"dtype": "float32"}
-            if model_name == "Qwen/Qwen3-Embedding-0.6B" and device == "cpu"
+            model_kwargs={"dtype": dtype or "float32"}
+            if dtype or (model_name == "Qwen/Qwen3-Embedding-0.6B" and device == "cpu")
             else None,
         )
         if model_name == "Qwen/Qwen3-Embedding-0.6B":

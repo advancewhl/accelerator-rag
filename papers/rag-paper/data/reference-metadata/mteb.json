@@ -1,0 +1,20 @@
+{
+  "key": "mteb",
+  "kind": "doi",
+  "doi": "10.18653/v1/2023.eacl-main.148",
+  "title": "MTEB: Massive Text Embedding Benchmark",
+  "author": [
+    "Niklas Muennighoff",
+    "Nouamane Tazi",
+    "Loic Magne",
+    "Nils Reimers"
+  ],
+  "year": 2023,
+  "venue": "Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics",
+  "volume": "",
+  "number": "",
+  "pages": "2014-2037",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2023.eacl-main.148",
+  "landing_url": "https://doi.org/10.18653/v1/2023.eacl-main.148"
+}

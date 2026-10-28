@@ -1,0 +1,20 @@
+{
+  "key": "ragas",
+  "kind": "doi",
+  "doi": "10.18653/v1/2024.eacl-demo.16",
+  "title": "RAGAs: Automated Evaluation of Retrieval Augmented Generation",
+  "author": [
+    "Shahul Es",
+    "Jithin James",
+    "Luis Espinosa Anke",
+    "Steven Schockaert"
+  ],
+  "year": 2024,
+  "venue": "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics: System Demonstrations",
+  "volume": "",
+  "number": "",
+  "pages": "150-158",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2024.eacl-demo.16",
+  "landing_url": "https://doi.org/10.18653/v1/2024.eacl-demo.16"
+}

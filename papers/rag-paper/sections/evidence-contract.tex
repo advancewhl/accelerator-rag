@@ -1,0 +1,26 @@
+\section{问题定义与证据契约}
+\sectionclaim{文档、物理页和摘录三元组将完整证据检索转化为确定性判断。}
+
+\textbf{来源三元组固定了判定粒度。}设文档集合为\(\mathcal D\)，规范父块为\(c\)，证据目标为\(t=(d,p,e)\)，分别表示文档身份、从 1 开始的物理页与原文摘录。文本规范化函数\(N\)执行 NFKC、大小写与空白规范化，并处理特定英文换行断词。父块匹配规则为
+\begin{equation}
+M(c,t)=\mathbf1\!\left[d_c=d\ \land\ p\in[p_c^{s},p_c^{e}]\ \land\ N(e)\preceq N(x_c)\right].
+\label{eq:match}
+\end{equation}
+式\eqref{eq:match}中的\(\preceq\)表示连续子串关系，因此同页其它块只有包含摘录才获得匹配。标注加载逐条验证每个目标同时存在于原始页和合格父块中。
+
+\textbf{证据组区分等价来源与互补事实。}查询\(q\)具有\(G_q\)个组，第\(g\)组的备选目标集合为\(\mathcal A_{qg}\)；前\(K\)个父块为\(\mathcal R_K(q)\)。组内按 OR 判断，\texttt{all}模式在组间执行 AND，\texttt{any}模式在组间执行 OR：
+\begin{equation}
+a_{qg}(K)=\max_{c\in\mathcal R_K(q),\,t\in\mathcal A_{qg}}M(c,t),\qquad
+I_q(K)=\begin{cases}\prod_{g=1}^{G_q}a_{qg}(K),&\text{all},\\\max_{g=1,\ldots,G_q}a_{qg}(K),&\text{any}.\end{cases}
+\label{eq:groups}
+\end{equation}
+式\eqref{eq:groups}允许多个父块共同完成证据覆盖，保留复合问题中各事实的独立要求；空候选集的组覆盖取 0。
+
+\textbf{完整首次排名决定 Hit 与 MRR 的共同口径。}对可回答集合\(\mathcal Q_+\)，首次完整排名定义为\(r_q=\min\{k:I_q(k)=1\}\)，前 5 项均未完成时取\(r_q=\infty\)。指标为
+\begin{equation}
+\mathrm{Hit@}K=\frac{1}{|\mathcal Q_+|}\sum_{q\in\mathcal Q_+}I_q(K),\quad
+\mathrm{MRR@5}=\frac{1}{|\mathcal Q_+|}\sum_{q\in\mathcal Q_+}h(r_q),\quad
+h(r)=\begin{cases}1/r,&r\le5,\\0,&r>5.\end{cases}
+\label{eq:metrics}
+\end{equation}
+式\eqref{eq:metrics}仅以可回答问题为分母。负例单独统计回答状态，检索、片段与生成三个评价层保留各自的判定单位。

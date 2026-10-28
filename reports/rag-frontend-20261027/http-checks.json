@@ -1,0 +1,33 @@
+{
+  "index.html": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "356599d7ed45e35c40d9be6a2ca8a577793e645f18f58ead86a1f13b0e9e71f9"
+  },
+  "style.css": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "9ca6f3a2a870a00d1b68c045e04428acfa72abb9cef5246898744ec4e733226d"
+  },
+  "app.js": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "433c3f5c585e9dea63cbe75c2d290cb74a0e6cf9a084168fdd0927eb6576fb3a"
+  },
+  "pdf-reader.js": {
+    "status": 200,
+    "matches_local": true,
+    "sha256": "15698b54b4fc1b9b10343d46c03d941e5584f8aba2a7b524917b705a09a91766"
+  },
+  "original_pdf": {
+    "status": 206,
+    "content_range": "bytes 0-31/26720235",
+    "is_pdf": true
+  },
+  "live_answer": {
+    "status": 502,
+    "detail": {
+      "code": "AUTH"
+    }
+  }
+}

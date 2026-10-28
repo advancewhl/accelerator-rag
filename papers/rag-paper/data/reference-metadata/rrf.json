@@ -1,0 +1,19 @@
+{
+  "key": "rrf",
+  "kind": "doi",
+  "doi": "10.1145/1571941.1572114",
+  "title": "Reciprocal rank fusion outperforms condorcet and individual rank learning methods",
+  "author": [
+    "Gordon V. Cormack",
+    "Charles L A Clarke",
+    "Stefan Buettcher"
+  ],
+  "year": 2009,
+  "venue": "Proceedings of the 32nd international ACM SIGIR conference on Research and development in information retrieval",
+  "volume": "",
+  "number": "",
+  "pages": "758-759",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.1145%2F1571941.1572114",
+  "landing_url": "https://doi.org/10.1145/1571941.1572114"
+}

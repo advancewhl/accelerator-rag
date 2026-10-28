@@ -1,0 +1,23 @@
+{
+  "key": "atlas",
+  "kind": "arxiv",
+  "arxiv": "2208.03299",
+  "doi": "10.48550/arXiv.2208.03299",
+  "title": "Atlas: Few-shot Learning with Retrieval Augmented Language Models",
+  "author": [
+    "Izacard, Gautier",
+    "Lewis, Patrick",
+    "Lomeli, Maria",
+    "Hosseini, Lucas",
+    "Petroni, Fabio",
+    "Schick, Timo",
+    "Dwivedi-Yu, Jane",
+    "Joulin, Armand",
+    "Riedel, Sebastian",
+    "Grave, Edouard"
+  ],
+  "year": 2023,
+  "venue": "Journal of Machine Learning Research",
+  "source_url": "https://arxiv.org/abs/2208.03299",
+  "landing_url": "https://arxiv.org/abs/2208.03299"
+}

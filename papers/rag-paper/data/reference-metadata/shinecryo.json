@@ -1,0 +1,24 @@
+{
+  "key": "shinecryo",
+  "kind": "doi",
+  "doi": "10.1140/epjti/s40485-021-00066-7",
+  "title": "The cryogenic control system of SHINE",
+  "author": [
+    "Geyang Jiang",
+    "Qing Ni",
+    "Shuhua Wang",
+    "Jiuce Sun",
+    "Zhengrong Ouyang",
+    "Lei Zhang",
+    "Zilei Tong",
+    "Yi Wang"
+  ],
+  "year": 2021,
+  "venue": "EPJ Techniques and Instrumentation",
+  "volume": "8",
+  "number": "1",
+  "pages": "11",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1140%2Fepjti%2Fs40485-021-00066-7",
+  "landing_url": "https://doi.org/10.1140/epjti/s40485-021-00066-7"
+}

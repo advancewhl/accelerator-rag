@@ -1,0 +1,26 @@
+\section{复现与数据说明}
+\textbf{随文脚本从冻结文件重建全部新增统计。}在项目根目录运行下列命令，可核验 11 种配置、231 条配对排名和 32 条耗时。
+\begin{quote}\small\begin{verbatim}
+python3 output/paper-v2/scripts/paper_stats.py --check
+\end{verbatim}\end{quote}
+重采样使用 seed 20261027，重复 1,000 次，经验分位数采用线性插值。数据清单、SHA-256、全部 bootstrap 区间和候选原文保存在\path{data/paper-statistics.json}；文献核验记录见\path{data/reference-verification.json}。
+
+\textbf{论文与图形均保留可编译源文件。}正文通过\texttt{main.tex}、\texttt{sections/*.tex}和\texttt{refs.bib}组织，图形为 180 mm 中文矢量 PDF，公式由 LaTeX 原生排版。\texttt{scripts/draw\_figures.py}读取统计快照重绘，\texttt{latexmk -xelatex main.tex}或\texttt{tectonic main.tex}完成编译；源输入保持只读。完整修改与命令回执见\texttt{CHANGES.md}。
+
+\section{主张与证据映射}
+\textbf{每条贡献由具体图表与可重算输入支撑。}表\ref{tab:claims}给出正文主张的唯一主要锚点，历史解释和原始候选保存在相应数据文件。
+\begin{table}[!htbp]\centering\small
+\caption{贡献及关键发现的主要证据锚点。路径相对于项目根目录。}\label{tab:claims}
+\begin{tabularx}{180mm}{p{30mm}p{24mm}Y}\toprule 主张 & 主要图表 & 可复核输入\\\midrule
+引用与编码解耦 & 图\ref{fig:architecture} & \texttt{papers/rag-thesis/data/corpus.csv}及\texttt{evidence-snapshot.json}\\
+完整覆盖净增 2 条 & 表\ref{tab:main}、表\ref{tab:flips} & \texttt{papers/rag-thesis/data/query-ranks-v2.csv}\\
+配对统计与区间 & 表\ref{tab:ci}、图\ref{fig:ci} & 同一逐查询排名；\texttt{paper\_stats.py}\\
+问答来源连续绑定 & 图\ref{fig:state} & \texttt{rag/answer.py}、\texttt{context.py}及生产 JSON\\
+父块与片段相差 1 条 & 图\ref{fig:diagnostics}a & \texttt{reports/rag-stage-two-eight-two-reranking.json}\\
+语言互补 & 表\ref{tab:language} & \texttt{query-ranks-v2.csv}与\texttt{benchmark.csv}\\
+多查询负收益 & 图\ref{fig:diagnostics}b & \texttt{reports/rag-stage-two-eight-multilingual-retrieval.json}\\
+32 问延迟与分阶段占比 & 表\ref{tab:latency}、图\ref{fig:diagnostics}c & \texttt{production-latency-20261026.csv}\\
+三条原始候选机制 & 表\ref{tab:flips}及结果分析 & \texttt{tmp/stage-two-eight-two/original-query-candidates.json}\\
+IOC 过度完整标记 & 结果\ref{sec:completeness}节 & \texttt{reports/rag-production-readiness-20261026.json}与冻结字段清单\\\bottomrule
+\end{tabularx}
+\end{table}

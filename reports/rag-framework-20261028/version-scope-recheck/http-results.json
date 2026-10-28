@@ -1,0 +1,577 @@
+{
+  "execution": "real production HTTP",
+  "benchmark_sha256": "08d19c948a293abab4a0fcf901ffb4bd27b781e1b291c9089b0e79abe14ddaea",
+  "cases": [
+    {
+      "id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "欧洲 XFEL 常规运行的电子束能量为 **17.5 GeV**：直线加速器段给出的正常运行预定能量是 17.5 GeV，光子能量设计也以 17.5 GeV 的电子束运行能量为基准。 [1][2]\n\n最高设计电子束能量为 **20 GeV**：直线加速器可将电子加速到最高 20 GeV，最终束流能量也按 20 GeV 计。 [1][3]\n\n两者区别在于：20 GeV 是直线加速器可达到的能量上限，而 17.5 GeV 是装置正常运行所预定的能量，即常规运行取低于加速器可达上限的能量。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "欧洲 XFEL 常规运行时电子束能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S3.2",
+              "S5.5",
+              "S12.9"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出 17.5 GeV 并说明其为正常运行/运行能量，直接回答。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "欧洲 XFEL 的最高设计电子束能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S3.2",
+              "S9.1"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出 20 GeV 作为加速器可达最高能量与最终束流能量，回答最高设计能量。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "欧洲 XFEL 常规运行电子束能量与最高设计能量之间有何区别？",
+            "supported": true,
+            "span_ids": [
+              "S3.2"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明 20 GeV 为可达上限、17.5 GeV 为正常运行预定能量，明确两者区别。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 57,
+            "page_end": 57,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9988304972648621,
+            "quote": "In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility).",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 2,
+            "source_id": "S5",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 191,
+            "page_end": 191,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:c370c3394d406405d9f25c661ea8362bfa021a3de21cbf68b88c7061abb72085",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9947799444198608,
+            "quote": "The photon energies correspond to an operating energy of the electron beam of 17.5 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 3,
+            "source_id": "S9",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 134,
+            "page_end": 134,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:eede9a97f81a7f37eaca53a31804710a4a4e0bf19a1d9cd8a4f737db92d3905e",
+            "retrieval_rank": 9,
+            "rerank_score": 0.949669361114502,
+            "quote": "The present layout and beam distribution concept of the European XFEL requires only one bunch-by-bunch feedback system for transverse beam stabilisation at the final beam energy of 20 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 17.9900226816535,
+          "rerank_seconds": 1.30287254601717,
+          "generation_seconds": 26.24264957010746,
+          "total_seconds": 45.53554479777813
+        },
+        "request_id": "ef8ef324881e4e469f794eb67da61d55"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 6,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 45.553528383374214
+    },
+    {
+      "id": "no-answer-hard-live-beam-energy",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "证据仅给出 SHINE 电子束的设计/标称能量为 8 GeV（S1、S2 参数表、S3 对比表、S4、S6、S7、S8 均如此），属于设计值而非某一具体时刻的实测值。",
+            "missing": "缺少 2026-10-19 10:00 UTC 这一具体时刻的电子束能量实测记录（如束流诊断/能量测量系统的运行数据），现有文献均为设计参数或装置概述，无法回答该时刻的实际测量值。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.6206811517477036,
+          "rerank_seconds": 0.9146635234355927,
+          "generation_seconds": 4.413998059928417,
+          "total_seconds": 5.949342735111713
+        },
+        "request_id": "27ca0480829a4ccbbd15fe026ea8f9d3"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 21.538851894438267
+    },
+    {
+      "id": "cryo-original",
+      "query": "shine低温系统中，主plc和cpld分别负责什么保护？，两者如何配合",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "各恒温器控制站先用独立的 LADDER 程序实现本地联锁逻辑，每站有三对 DI/DO 信号接入主联锁 PLC；主联锁 PLC 执行更复杂的安全逻辑，并通过电缆与制冷机联锁系统交换联锁信号。 [1][2]\n\n证据未说明 CPLD 承担哪些具体保护或联锁逻辑。可确认的只是：CPLD 是为满足严格时间限制和便于连接而开发的专用模块，含一个光纤口、十六个电口和 LATTICE 芯片，成对使用时可在微秒级双向转换电信号与光信号。 [2]\n\n可确认的分工是：恒温器站本地 LADDER 联锁经三对 DI/DO 接入主联锁 PLC，主联锁 PLC 执行复杂安全逻辑并与制冷机联锁系统交换信号；CPLD 成对用于电/光信号的微秒级双向转换。但证据未给出 CPLD 与主联锁 PLC 在保护链路中的具体配合方式，包括 CPLD 在联锁信号链路中的位置、与主联锁 PLC 的接口关系及触发/传递机制。 [1][2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "在 SHINE 低温系统中，主 PLC 负责哪些保护？",
+            "supported": true,
+            "span_ids": [
+              "S18.6",
+              "S18.7",
+              "S1.1"
+            ],
+            "coverage": "complete",
+            "reason": "正文完整给出主联锁 PLC 的职责：执行更复杂安全逻辑、经电缆与制冷机联锁系统交换联锁信号，并说明各恒温器站本地 LADDER 联锁经三对 DI/DO 汇入主联锁 PLC，覆盖 R1。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "在 SHINE 低温系统中，CPLD 负责哪些保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3"
+            ],
+            "coverage": "complete",
+            "reason": "证据中 CPLD 仅被描述为满足严格时间限制与便于连接的专用信号转换模块，未赋予具体保护逻辑；正文如实说明这一点并给出可确认的模块构成与微秒级双向转换作用，纠正了“CPLD 负责保护”的预设，完整回答 R2。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "在 SHINE 低温系统中，主 PLC 与 CPLD 之间如何配合实现保护？",
+            "supported": true,
+            "span_ids": [
+              "S18.6",
+              "S18.7",
+              "S1.1",
+              "S1.3"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明了可确认的职责衔接（本地 LADDER 联锁→三对 DI/DO→主联锁 PLC→与制冷机联锁系统交换信号；CPLD 用于电/光微秒级双向转换），并明确指出证据未描述 CPLD 与主联锁 PLC 的具体配合方式。用户未要求配置、握手或详细时序，故不额外要求。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S18",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:781973867d477bf9605cce02938626938e15c39bc349dc8d5fbcebe71f54e5ad",
+            "retrieval_rank": 18,
+            "rerank_score": 0.05665242299437523,
+            "quote": "Therefore each cryostat control station adopts a separate LADDER program to implement different interlock logic combining with devices locally first.\n\nEach cryostat control station has three pairs of DI/DO signal connected to master interlock PLC.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          },
+          {
+            "number": 2,
+            "source_id": "S1",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9992445707321167,
+            "quote": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3].",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.9286379925906658,
+          "rerank_seconds": 2.093783512711525,
+          "generation_seconds": 32.64202966913581,
+          "total_seconds": 35.664451174438
+        },
+        "request_id": "ed477dbd4e314ae39844210b009ea61d"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 6,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 35.67923388630152
+    },
+    {
+      "id": "cryo-paraphrase",
+      "query": "SHINE 低温联锁里的主 PLC 和 CPLD 是怎样分工与协同的？",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "主联锁 PLC 执行较复杂的安全逻辑，并通过电缆与制冷机联锁系统交换联锁信号。各低温恒温器控制站先用独立的 LADDER 程序实现各自的联锁逻辑，每站有三对 DI/DO 信号接入主联锁 PLC。 [1][2]\n\nCPLD 是为满足严格时间限制和便于连接而开发的专用模块，具备一个光纤口、十六个电口和 LATTICE 芯片；成对使用时可在微秒级双向转换电信号与光信号。 [1]\n\n可确认的分工是：主联锁 PLC 承担复杂安全逻辑与和制冷机联锁系统的信号交换；CPLD 承担电—光信号的微秒级双向转换与连接。证据未说明 CPLD 在联锁信号链路中的具体位置与职责边界，因此其与主 PLC 的分工无法进一步确证。 [1][2]\n\n可确认的衔接是：各低温恒温器站本地 LADDER 完成联锁逻辑后，经三对 DI/DO 信号接入主联锁 PLC，主 PLC 再经电缆与制冷机联锁系统交互。CPLD 与主 PLC 之间的连接方式、信号流向或交互关系原文未给出，现有证据仅分别描述两者的功能。 [1][2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 低温联锁系统中主 PLC 承担哪些功能与职责？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S16.6",
+              "S16.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文完整覆盖主 PLC 的职责：执行复杂安全逻辑、与制冷机联锁系统经电缆交换信号，并说明其汇总各恒温器站三对 DI/DO 的本地联锁结果。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 低温联锁系统中 CPLD 承担哪些功能与职责？",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3"
+            ],
+            "coverage": "complete",
+            "reason": "正文完整覆盖 CPLD 的职责：为严格时限与易连接而设计的专用模块，成对实现微秒级电—光双向转换，并给出端口与芯片配置。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "SHINE 低温联锁系统中主 PLC 与 CPLD 之间如何分工？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.2",
+              "S1.3",
+              "S16.6",
+              "S16.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出可确证的分工（PLC 逻辑判断与信号交换，CPLD 电—光转换与连接），并明确说明原文未给出 CPLD 在联锁链路中的位置与职责边界，未虚构分工。",
+            "missing": ""
+          },
+          {
+            "id": "R4",
+            "text": "SHINE 低温联锁系统中主 PLC 与 CPLD 之间如何协同工作与交互？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.2",
+              "S1.3",
+              "S16.6",
+              "S16.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明已确证的协同链路（本地 LADDER→DI/DO→主 PLC→电缆与制冷机联锁系统），并指出 CPLD 与主 PLC 的连接方式、信号流向原文未给出，未擅自补充握手/时序等未要求内容。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9995694756507874,
+            "quote": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3].",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          },
+          {
+            "number": 2,
+            "source_id": "S16",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:781973867d477bf9605cce02938626938e15c39bc349dc8d5fbcebe71f54e5ad",
+            "retrieval_rank": 16,
+            "rerank_score": 0.8267118334770203,
+            "quote": "Therefore each cryostat control station adopts a separate LADDER program to implement different interlock logic combining with devices locally first.\n\nEach cryostat control station has three pairs of DI/DO signal connected to master interlock PLC.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.2089276053011417,
+          "rerank_seconds": 1.4009022861719131,
+          "generation_seconds": 39.080650363117456,
+          "total_seconds": 41.69048025459051
+        },
+        "request_id": "be102ef739bc4df38b94168786cb82f3"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 6,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 41.70044728368521
+    },
+    {
+      "id": "cryo-missing-details",
+      "query": "SHINE 低温 CPLD 每个端口的接线表和所有保护阈值是什么？",
+      "http_status": 200,
+      "response": {
+        "status": "partial",
+        "answer": "没有逐端口接线表。可确认的只有端口构成：该专用 CPLD 模块带 1 个光纤端口、16 个电端口和 LATTICE 芯片；一对该模块可实现电信号与光信号的双向转换，时延在微秒级。16 个电端口与 1 个光纤端口各自的信号定义、连接对象及引脚/端子对应关系均未给出。 [1]\n\n没有列出该 CPLD 模块的任何保护阈值（电压、电流、温度、时间等具体数值或判据均未给出）。可确认的只有端口构成与微秒级电光双向转换能力，以及从低温恒温器控制 PLC 输出到主联锁 PLC 的响应约数十毫秒。 [1]\n\n以下内容尚未完整确认：\n- SHINE 低温 CPLD 每个端口的接线表是什么？ 仍缺：缺少逐端口接线表：16 个电端口与 1 个光纤端口各自的信号定义、连接对象及引脚/端子对应关系。\n- SHINE 低温 CPLD 的所有保护阈值是什么？ 仍缺：缺少该 CPLD 模块的全部保护阈值清单（电压、电流、温度、时间等具体数值或判据均未给出）。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 低温 CPLD 每个端口的接线表是什么？",
+            "supported": false,
+            "span_ids": [
+              "S4.2",
+              "S4.3"
+            ],
+            "coverage": "partial",
+            "reason": "具体数据或完整清单的证据缺项尚未补齐，说明未知不能算作已完整提供。",
+            "missing": "缺少逐端口接线表：16 个电端口与 1 个光纤端口各自的信号定义、连接对象及引脚/端子对应关系。"
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 低温 CPLD 的所有保护阈值是什么？",
+            "supported": false,
+            "span_ids": [
+              "S4.2",
+              "S4.3",
+              "S4.5"
+            ],
+            "coverage": "partial",
+            "reason": "具体数据或完整清单的证据缺项尚未补齐，说明未知不能算作已完整提供。",
+            "missing": "缺少该 CPLD 模块的全部保护阈值清单（电压、电流、温度、时间等具体数值或判据均未给出）。"
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S4",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 4,
+            "rerank_score": 0.8670357465744019,
+            "quote": "To ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3].\n\nThe test results show the time from cryostat control PLC output to master interlock PLC’s. Response is about several tens millisecond.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.7619073987007141,
+          "rerank_seconds": 1.8673288598656654,
+          "generation_seconds": 28.808524012565613,
+          "total_seconds": 31.437760271131992
+        },
+        "request_id": "26e1cf3e6a074cdf899c5ad2a14128f7"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 8,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 31.452686190605164
+    },
+    {
+      "id": "xfel-version-scopes",
+      "query": "请对照不同年份文档说明 European XFEL 的常规运行能量与最大能量，保留各自口径。",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "2007 年 TDR（DESY 2006-097）中，常规运行能量为 **17.5 GeV**：原文写明 17.5 GeV 是 XFEL 设施常规运行所预见的能量，并以“nominal electron energy of 17.5 GeV”表述标称电子能量。 [1][2]\n\n依据 《The European X-Ray Free-Electron Laser Technical Design Report》（DESY 2006-097 (2007-07)）:\n2007 年 TDR（DESY 2006-097）中，最大能量为 **20 GeV**：电子在直线加速器中可加速到 up to 20 GeV，直线加速器标称设计能量为 20 GeV。 [1][3][4]\n\n依据 《Standard E-Beam Diagnostics for the European-XFEL》（LINAC2010 TUP095）:\n2010 年 LINAC2010 TUP095 的设计束参数表（Table 1: Design Beam Parameters of E-XFEL）中，Maximum energy 为 **17.5 GeV**。 [5]\n\n依据 《The European X-Ray Free-Electron Laser Technical Design Report》（DESY 2006-097 (2007-07)）:\n2007 年 TDR 的口径是区分加速器设计能力与常规运行：20 GeV 为标称设计能量／可达到的最高能量，17.5 GeV 为常规运行预见的能量。 [1][4][3]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "不同年份的文档中，European XFEL 的常规运行能量分别是多少？",
+            "supported": true,
+            "span_ids": [
+              "S6.2",
+              "S10.2"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出 2007 年 TDR 的常规运行能量 17.5 GeV，并引用 normal operation 与 nominal electron energy 两处依据。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "不同年份的文档中，European XFEL 的最大能量分别是多少？",
+            "supported": true,
+            "span_ids": [
+              "S6.2",
+              "S12.4",
+              "S19.1",
+              "S8.6"
+            ],
+            "coverage": "complete",
+            "reason": "正文分别给出 2007 年 TDR 最大能量 20 GeV（up to 20 GeV / nominal design energy）与 2010 年 LINAC2010 表中 Maximum energy 17.5 GeV，跨版本分开标注。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "各年份文档对 European XFEL 常规运行能量与最大能量所采用的统计口径分别是什么？",
+            "supported": true,
+            "span_ids": [
+              "S6.2",
+              "S19.1",
+              "S12.4",
+              "S8.6"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明 2007 年 TDR 区分设计能力（20 GeV）与常规运行（17.5 GeV），2010 年文档以设计束参数表 Maximum energy 标 17.5 GeV，口径分别保留。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S6",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 57,
+            "page_end": 57,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a",
+            "retrieval_rank": 6,
+            "rerank_score": 0.9740425944328308,
+            "quote": "In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility).",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 2,
+            "source_id": "S10",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 263,
+            "page_end": 263,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:06f5193a1f1894a2fc37c2c7701c173f94ea40fa524ef3ad508991e52bf20a35",
+            "retrieval_rank": 10,
+            "rerank_score": 0.9046505093574524,
+            "quote": "The undulator is not gap tuneable in that its length has been optimised for closed gap and photon energy of 12.4 keV at the nominal electron energy of 17.5 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 3,
+            "source_id": "S12",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 17,
+            "page_end": 17,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:0ffec7e56d4c772607330db1dee4a7704afbb81b3704e7690df2599ceab9b59b",
+            "retrieval_rank": 12,
+            "rerank_score": 0.851952850818634,
+            "quote": "The basic process adopted to generate the x-ray pulses is Self-Amplified Spontaneous Emission (SASE), whereby electron bunches are generated in a high-brightness gun, brought to high energy (up to 20 GeV) through a superconducting linear accelerator (linac), and conveyed to long (up to ~200 m) undulators where the x-rays are generated.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 4,
+            "source_id": "S19",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 65,
+            "page_end": 65,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:a28479a4c17014782d0ce4480528110f45f1eb55e9ec9367c7e80787abb2f78d",
+            "retrieval_rank": 19,
+            "rerank_score": 0.22270016372203827,
+            "quote": "4 XFEL accelerator 4.1 Overview 4.1.1 Introduction The heart of the accelerator complex is the L-band (1.3 GHz) electron linear accelerator (linac) with a nominal design energy of 20 GeV, operating at an accelerating gradient of 23.6 MV/m.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 5,
+            "source_id": "S8",
+            "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+            "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+            "document_version": "LINAC2010 TUP095",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "european-xfel-standard-e-beam-diagnostics-linac2010:57008e67519a847d601128f9574ea963b697b7cc0ce860e8c2c405da1928d101",
+            "retrieval_rank": 8,
+            "rerank_score": 0.9362850189208984,
+            "quote": "Table 1: Design Beam Parameters of E-XFEL Parameter Value Unit Maximum energy 17.5 GeV normalized emittance 1-2 mm mrad bunch charge 0.1-1 nC min. bunch spacing 222 ns max. macro-pulse length 600 μs bunches within macro-pulse 1 - 2700 bunch pattern arbitrary RF repetition rate 10 Hz According to current planning commissioning should start in 2014.",
+            "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.4954378046095371,
+          "rerank_seconds": 1.5298119708895683,
+          "generation_seconds": 21.459659855812788,
+          "total_seconds": 23.484909631311893
+        },
+        "request_id": "1e22bdc2aa924139af8719221842f659"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 23.49450173974037
+    }
+  ],
+  "workers": 2,
+  "summary": {
+    "statuses": {
+      "answered": 4,
+      "insufficient": 1,
+      "partial": 1
+    },
+    "http_errors": 0,
+    "client_errors": 0
+  }
+}

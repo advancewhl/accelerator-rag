@@ -1,0 +1,41 @@
+\section{证据契约驱动的系统}
+\sectionclaim{稳定引用、token 安全表示和逐要求问答共同构成可追溯的数据链。}
+
+\subsection{语料治理与引用身份}
+\textbf{页内分块使来源定位保持稳定。}登记表保存文档 ID、标题、版本、语言和主题；PyMuPDF 提取文本块及坐标，清洗器保守处理重复页边文本、英文断词和双栏顺序。\texttt{pdf-chunks-v3}按段落、句子和空白优先分割，默认上限 1,200 字符、软下限 300 字符，规范块保持页内、无重叠。块 ID 由算法版本、配置、文档与版本、页、序号和文本共同计算 SHA-256。
+
+\textbf{检索准入保留可用正文并隔离主要损坏。}4,537 个规范块中，4,532 个进入检索；排除项为数字或出版代码块 1 个、套话块 1 个和主要含替换字符的块 3 个。损坏排除同时要求替换字符不少于 8 个、占非空白字符不少于 20\%。图\ref{fig:architecture}展示规范身份与模型表示的分离。
+
+\vectfigure{fig01-architecture-cn}{引用与编码解耦使两路模型共享 4,532 个规范父块。E5 和 Qwen3 分别产生 4,746 和 4,532 个片段，原始问题各取前 10 个父块合并后重排。}{fig:architecture}
+
+\subsection{模型专用片段与签名索引}
+\textbf{完整模板计数消除了模型输入超限。}超长父块按 tokenizer 字符偏移分割，片段始终是父文本的精确子串，保留父块 ID 与字符范围。初始正文预算为
+\begin{equation}
+B_m=L_m-H_m-G,\qquad G=16,\qquad O=32,
+\label{eq:budget}
+\end{equation}
+其中\(L_m\)为模型上限，\(H_m\)为标题、前缀及特殊 token 开销，\(G\)为保护余量，\(O\)为重叠 token 数。式\eqref{eq:budget}用于需拆分的输入；完整模板重新计数后才写入向量。已适配的父块直接编码，查询结果按实际命中片段恢复父块：
+\begin{equation}
+s_m(q,c)=\max_{p\in\mathcal P_m^{\rm ret}(c,q)}
+\frac{\bm e_m(q)^{\mathsf T}\bm e_m(p)}{\|\bm e_m(q)\|_2\|\bm e_m(p)\|_2}.
+\label{eq:parent}
+\end{equation}
+式\eqref{eq:parent}取实际搜索返回的子片段集合，保留获胜片段原文及父块映射。
+
+\textbf{索引契约将向量空间兼容性变成启动约束。}签名覆盖权重清单、模型与编码配置、tokenizer、查询与文档模板、维度、序列上限、归一化、距离及片段策略。相同维度的模型也使用独立契约。生产启动全量核验后冻结写入，检索请求复用验证结果；这种生命周期同时保留兼容性检查并降低全库重复扫描开销。
+
+\subsection{异构候选与片段重排}
+\textbf{两路实际命中片段保留了候选互补信息。}E5 与 Qwen3 各返回前 10 个父块，按父块 ID 合并；相同父块的不同获胜片段分别评分，相同文本去重。对照方案使用固定\(k=60\)的 RRF，最终方案使用 Qwen3-Reranker-0.6B 的 yes/no logits：
+\begin{equation}
+s_{\rm RRF}(q,c)=\sum_{m:\,c\in\mathcal C_m(q)}\frac{1}{60+\operatorname{rank}_m(q,c)},\qquad
+s_{\rm rr}(q,p)=\frac{e^{z_{\rm yes}}}{e^{z_{\rm yes}}+e^{z_{\rm no}}}.
+\label{eq:rerank}
+\end{equation}
+式\eqref{eq:rerank}分别提供排名融合分数和候选相关性分数。父块取其实际候选片段的最大重排分数，返回前 5 个完整父块。
+
+\subsection{需求、主张与原文绑定}
+\textbf{显式要求把复合问题的覆盖变成逐项状态。}模型先从原始问题提取 1～6 项事实要求；证据选择为每项绑定请求内 span；综合阶段只接收已支持要求和已验证片段。语义核查逐项审查主张与覆盖，失败后允许基于相同证据重写一次。图\ref{fig:state}给出从问题到最终状态的处理链。
+
+\vectfigure{fig02-grounded-state-cn}{要求、片段、主张与原始 PDF 形成连续的来源链。代码核验身份与数字来源，支持标记经语义核查后用于计算三类状态。}{fig:state}
+
+\textbf{确定性状态与来源解析固定了输出协议。}全部要求支持时返回\texttt{answered}，部分支持返回\texttt{partial}，全部缺失返回\texttt{insufficient}；时间规则处理实时状态缺口。代码将 span 映射为文档、版本、引文与物理页，网页用页内 PDF 查看器定位原文。\texttt{POST /v1/rag/answer}只接收当前问题，共享 GPU 检索加锁，后续生成使用请求内状态。

@@ -1,0 +1,20 @@
+{
+  "key": "monot5",
+  "kind": "doi",
+  "doi": "10.18653/v1/2020.findings-emnlp.63",
+  "title": "Document Ranking with a Pretrained Sequence-to-Sequence Model",
+  "author": [
+    "Rodrigo Nogueira",
+    "Zhiying Jiang",
+    "Ronak Pradeep",
+    "Jimmy Lin"
+  ],
+  "year": 2020,
+  "venue": "Findings of the Association for Computational Linguistics: EMNLP 2020",
+  "volume": "",
+  "number": "",
+  "pages": "708-718",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2020.findings-emnlp.63",
+  "landing_url": "https://doi.org/10.18653/v1/2020.findings-emnlp.63"
+}

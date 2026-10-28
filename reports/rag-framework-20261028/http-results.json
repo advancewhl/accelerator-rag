@@ -1,0 +1,2573 @@
+{
+  "execution": "real production HTTP",
+  "benchmark_sha256": "3994d8ebfd9a05b8f7f5e54ea50e5d71dcee9ecec98141aaf19cfc6cc2fafdb8",
+  "cases": [
+    {
+      "id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "A PP input link processes the linked record before getting a value from the link, and only if the link's Process Passive attribute is PP and the target record's SCAN field is Passive. [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "When does an EPICS PP input link process its target record?",
+            "supported": true,
+            "span_ids": [
+              "S8.5",
+              "S8.6"
+            ],
+            "coverage": "complete",
+            "reason": "The claim covers both the timing (before getting a value from the input link) and the conditions (link PP attribute and target SCAN Passive), directly entailed by S8.5 and S8.6.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S8",
+            "document_id": "epics-documentation-latest-2026-08-18",
+            "document_title": "EPICS Documentation",
+            "document_version": "latest (2026-08-18)",
+            "page_start": 152,
+            "page_end": 152,
+            "chunk_id": "epics-documentation-latest-2026-08-18:79faa9ede0173c79b19e56fdb101c77b2a07093c59baf3a2a2a134105b69a7cf",
+            "retrieval_rank": 8,
+            "rerank_score": 0.9902915358543396,
+            "quote": "Process Passive The Process Passive attribute takes the value NPP (Non-Process Passive) or PP (Process Passive). It determines if the linked record should be processed before getting a value from an input link or after writing a value to an output link.\n\nProcess Passive The Process Passive attribute takes the value NPP (Non-Process Passive) or PP (Process Passive). It determines if the linked record should be processed before getting a value from an input link or after writing a value to an output link. The linked record will be processed only if link’s Process Passive attribute is PP and the target record’s SCAN field is Passive. ò Note",
+            "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 13.402828942984343,
+          "rerank_seconds": 0.7137821763753891,
+          "generation_seconds": 9.971343867480755,
+          "total_seconds": 24.087954986840487
+        },
+        "request_id": "0df3eb863d744488b325b052311d8fe4"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 24.103581003844738
+    },
+    {
+      "id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "According to 《EPICS Application Developer's Guide》（R3.16.2 (2018-10-22)）；《EPICS Documentation》（latest (2026-08-18)）:\nWhen a Channel Access server fails, e.g. its IOC crashes, the client is notified. [1][2]\n\nAccording to 《EPICS Application Developer's Guide》（R3.16.2 (2018-10-22)）；《EPICS Documentation》（latest (2026-08-18)）:\nWhen a server crashes, the client automatically re-establishes communication when the server restarts. [1][2]\n\nAccording to 《EPICS Documentation》（latest (2026-08-18)）:\nThe client library monitors the state of servers on the network and connects or reconnects with the process variable's server as it becomes available; after a channel connects, the application should expect that the channel might disconnect at any time due to network connectivity disruptions or server restarts. [3]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What happens to Channel Access client connections when an IOC server crashes?",
+            "supported": true,
+            "span_ids": [
+              "S1.6",
+              "S2.7"
+            ],
+            "coverage": "complete",
+            "reason": "The answer states that on server failure (IOC crash) the client is notified, directly supported by S1.6/S2.7, addressing the crash-time behavior of client connections.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "What happens to Channel Access client connections when the IOC server restarts after a crash?",
+            "supported": true,
+            "span_ids": [
+              "S1.8",
+              "S2.9",
+              "S10.6",
+              "S10.7"
+            ],
+            "coverage": "complete",
+            "reason": "The answer states the client automatically re-establishes communication when the server restarts (S1.8/S2.9), and adds that the client library monitors and reconnects as the server becomes available and that channels may disconnect due to server restarts (S10.6/S10.7), fully covering restart behavior.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "epics-application-developers-guide-r3-16-2",
+            "document_title": "EPICS Application Developer's Guide",
+            "document_version": "R3.16.2 (2018-10-22)",
+            "page_start": 31,
+            "page_end": 31,
+            "chunk_id": "epics-application-developers-guide-r3-16-2:2360d24c575c8539d66b24a381d26d9705e989fcdf4d8459dd361ea51b8a8203",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9998313784599304,
+            "quote": "When a Channel Access server fails (e.g. its IOC crashes) the client is notiﬁed and when a client fails (e.g. its task crashes) the server is notiﬁed.\n\nWhen a server crashes, the client automatically re-establishes communication when the server restarts.",
+            "document_url": "/v1/rag/documents/epics-application-developers-guide-r3-16-2"
+          },
+          {
+            "number": 2,
+            "source_id": "S2",
+            "document_id": "epics-documentation-latest-2026-08-18",
+            "document_title": "EPICS Documentation",
+            "document_version": "latest (2026-08-18)",
+            "page_start": 63,
+            "page_end": 63,
+            "chunk_id": "epics-documentation-latest-2026-08-18:5ed27b152e619d65d23d7dde439604437d01c5a32afc94d6955004054543c138",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9998313784599304,
+            "quote": "If a Channel Access server fails (e.g. its IOC crashes) the client is notified and when a client fails (e.g. its task crashes) the server is notified.\n\nIf a server crashes, the client automatically re-establishes communication when the server restarts. pvAccess",
+            "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+          },
+          {
+            "number": 3,
+            "source_id": "S10",
+            "document_id": "epics-documentation-latest-2026-08-18",
+            "document_title": "EPICS Documentation",
+            "document_version": "latest (2026-08-18)",
+            "page_start": 378,
+            "page_end": 378,
+            "chunk_id": "epics-documentation-latest-2026-08-18:4069517e431e25fe519601b6140fd6fc5cb88e3ebfd206fe0e848ed6708c8501",
+            "retrieval_rank": 10,
+            "rerank_score": 0.8354835510253906,
+            "quote": "Otherwise, the client library will monitor the state of servers on the network and connect or reconnect with the process variable’s server as it becomes available.\n\nAfter the channel connects the application program can freely perform IO operations through the channel, but should expect that the channel might disconnect at any time due to network connectivity disruptions or server restarts.",
+            "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 15.862237311899662,
+          "rerank_seconds": 0.7513710744678974,
+          "generation_seconds": 16.396368086338043,
+          "total_seconds": 33.0099764727056
+        },
+        "request_id": "8dd13411c80942dca6dfecb3d0cdcf48"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 33.0259063243866
+    },
+    {
+      "id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "Use **caget** to read the temperature:water PV, e.g. `caget temperature:water`. [1]\n\nUse **caput** to write the temperature:water PV, e.g. `caput temperature:water 21`, which prints the Old and New values. [1]\n\nUse **camonitor** to continuously monitor the temperature:water PV, e.g. `camonitor temperature:water`; it reacts when the value is changed from another terminal using caput. [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Which EPICS command-line tool reads the temperature:water PV?",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ],
+            "coverage": "complete",
+            "reason": "caget is identified as the read tool with the exact command shown in S3.1.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "Which EPICS command-line tool writes the temperature:water PV?",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ],
+            "coverage": "complete",
+            "reason": "caput is identified as the write tool with the exact command and Old/New output shown in S3.1.",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "Which EPICS command-line tool continuously monitors the temperature:water PV?",
+            "supported": true,
+            "span_ids": [
+              "S3.2",
+              "S3.3"
+            ],
+            "coverage": "complete",
+            "reason": "camonitor is identified as the continuous monitoring tool, with the command and its reaction to caput changes from another terminal shown in S3.2/S3.3.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "epics-documentation-latest-2026-08-18",
+            "document_title": "EPICS Documentation",
+            "document_version": "latest (2026-08-18)",
+            "page_start": 9,
+            "page_end": 9,
+            "chunk_id": "epics-documentation-latest-2026-08-18:a7cea79623100df414ec81d17f2bc3815c6ee8056a5d45f5f9853372edfe1cf6",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9953904151916504,
+            "quote": "your prompt> caget temperature:water temperature:water 0 your prompt> caget temperature:water.DESC temperature:water.DESC Water temperature in the fish tank your prompt> caput temperature:water 21 Old : temperature:water 0 New : temperature:water 21 your prompt> caput temperature:water 24 Old : temperature:water 21 New : temperature:water 24 your prompt> caget temperature:water temperature:water 24 ... etc.\n\nNow open yet another terminal (nr. 3) and try camonitor as camonitor temperature:water First, have a look at what happens when you change the temperature:water value from terminal nr. 2 using caput.\n\nNow open yet another terminal (nr. 3) and try camonitor as camonitor temperature:water First, have a look at what happens when you change the temperature:water value from terminal nr. 2 using caput. Then, try to change the value by some tiny amounts, like 15.500001, 15.500002, 15.500003...",
+            "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.3376157991588116,
+          "rerank_seconds": 1.3475720807909966,
+          "generation_seconds": 13.467519901692867,
+          "total_seconds": 16.152707781642675
+        },
+        "request_id": "38c226926727476b9183ebebbb6bc72d"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 19.499680496752262
+    },
+    {
+      "id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "The European XFEL main linac is an L-band linac operating at **1.3 GHz**. [1]\n\nThe European XFEL main linac has a **nominal design energy of 20 GeV**. [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What RF frequency is used by the European XFEL main linac?",
+            "supported": true,
+            "span_ids": [
+              "S1.1"
+            ],
+            "coverage": "complete",
+            "reason": "S1.1 gives L-band (1.3 GHz) for the linac, fully answering the RF frequency question.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "What nominal design energy is used by the European XFEL main linac?",
+            "supported": true,
+            "span_ids": [
+              "S1.1"
+            ],
+            "coverage": "complete",
+            "reason": "S1.1 gives nominal design energy of 20 GeV, fully answering the energy question.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 65,
+            "page_end": 65,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:a28479a4c17014782d0ce4480528110f45f1eb55e9ec9367c7e80787abb2f78d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9995694756507874,
+            "quote": "4 XFEL accelerator 4.1 Overview 4.1.1 Introduction The heart of the accelerator complex is the L-band (1.3 GHz) electron linear accelerator (linac) with a nominal design energy of 20 GeV, operating at an accelerating gradient of 23.6 MV/m.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 8.633586920797825,
+          "rerank_seconds": 0.35292239859700203,
+          "generation_seconds": 10.338267628103495,
+          "total_seconds": 19.32477694749832
+        },
+        "request_id": "3539bbf8ac2f4062aef104729a983be3"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 19.332545284181833
+    },
+    {
+      "id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "欧洲 XFEL 常规运行的电子束能量为 **17.5 GeV**：直线加速器设计中 17.5 GeV 是 XFEL 装置常规运行预定的能量，光子能量与 SASE 1 的衍射参数等也以 17.5 GeV 作为运行能量给出。 [1][2][3]\n\n最高设计电子束能量为 **20 GeV**：直线加速器可将电子加速到最高 20 GeV，该值也被称为最终束流能量。 [1][4]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "欧洲 XFEL 常规运行时电子束能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S3.2",
+              "S5.5",
+              "S12.9"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出 17.5 GeV 并说明其为常规运行预定能量，引用 S3.2/S5.5/S12.9 支撑。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "欧洲 XFEL 的最高设计电子束能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S3.2",
+              "S9.1"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出最高 20 GeV，并说明为加速器可达上限/最终束流能量。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "欧洲 XFEL 常规运行电子束能量与最高设计能量之间有何区别？",
+            "supported": true,
+            "span_ids": [
+              "S3.2"
+            ],
+            "coverage": "complete",
+            "reason": "S3.2 同句给出 20 GeV 上限与 17.5 GeV 常规运行值，正文已说明常规运行低于最高能量（约 2.5 GeV），区别完整。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 57,
+            "page_end": 57,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9988304972648621,
+            "quote": "In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility).",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 2,
+            "source_id": "S5",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 191,
+            "page_end": 191,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:c370c3394d406405d9f25c661ea8362bfa021a3de21cbf68b88c7061abb72085",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9947799444198608,
+            "quote": "The photon energies correspond to an operating energy of the electron beam of 17.5 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 3,
+            "source_id": "S12",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 196,
+            "page_end": 196,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:011f024dd93e1531f20107af772e7de62ca2926550347d84dbc3bc2d932f96e9",
+            "retrieval_rank": 12,
+            "rerank_score": 0.8807970285415649,
+            "quote": "At the operating energy of the European XFEL of 17.5 GeV, the value of the diffraction parameter for SASE 1 is about 120, and the degree of transverse coherence of the radiation is about 80%.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 4,
+            "source_id": "S9",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 134,
+            "page_end": 134,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:eede9a97f81a7f37eaca53a31804710a4a4e0bf19a1d9cd8a4f737db92d3905e",
+            "retrieval_rank": 9,
+            "rerank_score": 0.949669361114502,
+            "quote": "The present layout and beam distribution concept of the European XFEL requires only one bunch-by-bunch feedback system for transverse beam stabilisation at the final beam energy of 20 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.5592420734465122,
+          "rerank_seconds": 1.3472970873117447,
+          "generation_seconds": 15.590962138026953,
+          "total_seconds": 17.49750129878521
+        },
+        "request_id": "22d2186b11d741cd8a1dd01cfb64371e"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 17.50890014693141
+    },
+    {
+      "id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "According to 《The European XFEL Undulator Commissioning Spectrometer》（Rev B, Ver 2 (2011-06-08)）:\nThe K-monochromator (commissioning spectrometer) works mainly with spontaneous radiation and selects a narrow bandwidth of the x-ray photon beam in order to tune the undulator segments; this process, photon beam-based alignment, minimizes the difference in the undulator parameter K between segments and optimizes the phase between segments. [1]\n\nAccording to 《X-Ray Optics and Beam Transport》（XFEL.EU TR-2012-006 (2012-12)）:\nThe K monochromators are silicon channel-cuts used to calibrate the gap (K value) of individual undulator segments; because the measurement method requires seeing a cone of the spontaneous radiation, a large beam aperture is desired for these devices. [2]\n\nAccording to 《The European XFEL Undulator Commissioning Spectrometer》（Rev B, Ver 2 (2011-06-08)）:\nThe photon energy can be scanned by scanning the electron energy or the monochromator while keeping the gap fixed. [3]\n\nAccording to 《The European XFEL Undulator Commissioning Spectrometer》（Rev B, Ver 2 (2011-06-08)）:\nSpectral measurements of spontaneous or FEL radiation (averaged) are made by scanning the electron energy (fast) or by changing the crystal orientation (wide range). [4]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "How does a K-monochromator select radiation for tuning undulator segments?",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.2",
+              "S3.2",
+              "S3.3",
+              "S2.5",
+              "S16.1"
+            ],
+            "coverage": "complete",
+            "reason": "The answer explains the selection mechanism: the K-monochromator (silicon channel-cut crystals) works with spontaneous radiation and selects a narrow bandwidth of the x-ray photon beam to tune undulator segments, calibrating the gap/K value of individual segments; the process (photon beam-based alignment) minimizes K differences and optimizes phase between segments. It also covers how energy is scanned (electron energy or monochromator/crystal orientation with gap fixed) and the large-aperture requirement for seeing the spontaneous radiation cone. All key facts are directly entailed by the cited spans.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+            "document_title": "The European XFEL Undulator Commissioning Spectrometer",
+            "document_version": "Rev B, Ver 2 (2011-06-08)",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011:3d9cff81b154e116e2b45c608f54d696a9594d653cd3ae8b86626dff067a206a",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9998602271080017,
+            "quote": "The commissioning spectrometer, also known as K-monochromator, is mainly used with spontaneous radiation and selects a narrow bandwidth of the x-ray photon beam in order to tune the undulator segments.\n\nThe commissioning spectrometer, also known as K-monochromator, is mainly used with spontaneous radiation and selects a narrow bandwidth of the x-ray photon beam in order to tune the undulator segments. This process is called photon beam-based alignment and will minimize the difference in the undulator parameters K between undulator segments and optimize the phase between segments.",
+            "document_url": "/v1/rag/documents/european-xfel-undulator-commissioning-spectrometer-cdr-2011"
+          },
+          {
+            "number": 2,
+            "source_id": "S3",
+            "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+            "document_title": "X-Ray Optics and Beam Transport",
+            "document_version": "XFEL.EU TR-2012-006 (2012-12)",
+            "page_start": 131,
+            "page_end": 131,
+            "chunk_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012:2f303ab57beb122e36500026400ff7f426a75dd54788d8e5842c0d4e6715fe67",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9988304972648621,
+            "quote": "The K monochromators are silicon channel-cuts that are used to calibrate the gap (K value) of individual undulator segments.\n\nSince the measurement method requires seeing a cone of the spontaneous radiation, a large beam aperture is desired for these devices.",
+            "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+          },
+          {
+            "number": 3,
+            "source_id": "S2",
+            "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+            "document_title": "The European XFEL Undulator Commissioning Spectrometer",
+            "document_version": "Rev B, Ver 2 (2011-06-08)",
+            "page_start": 8,
+            "page_end": 8,
+            "chunk_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011:919dbd0678f590c98f5ada00ed1243d42570b4cd96c732621526650432e275a0",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9989677667617798,
+            "quote": "The photon energy can be scanned by scanning the electron energy or the monochromator while keeping the gap fixed.",
+            "document_url": "/v1/rag/documents/european-xfel-undulator-commissioning-spectrometer-cdr-2011"
+          },
+          {
+            "number": 4,
+            "source_id": "S16",
+            "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+            "document_title": "The European XFEL Undulator Commissioning Spectrometer",
+            "document_version": "Rev B, Ver 2 (2011-06-08)",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011:75b6811cc3df2c1942910c3bfd2ca1d50709bab6d58284cb156b7e7c2a97c504",
+            "retrieval_rank": 16,
+            "rerank_score": 0.007577241398394108,
+            "quote": "d) spectral measurements of spontaneous or FEL radiation (averaged) by scanning the electron energy (fast) or by changing the crystal orientation (wide range) e) trajectory adjustment: spatial evaluation of higher harmonics of the spontaneous radiation, which have a smaller divergence than the fundamental",
+            "document_url": "/v1/rag/documents/european-xfel-undulator-commissioning-spectrometer-cdr-2011"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.3372168615460396,
+          "rerank_seconds": 0.6697041317820549,
+          "generation_seconds": 19.690460182726383,
+          "total_seconds": 20.697381176054478
+        },
+        "request_id": "8c433a7fa1164d46a5d666abf984bd15"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 20.705586221069098
+    },
+    {
+      "id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "The SASE3 offset mirror grazing-incidence angle range was changed from 9–25 mrad to 6–20 mrad. The main reason is the smaller wavefront distortion coming from shape errors of the mirrors. [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+            "supported": true,
+            "span_ids": [
+              "S2.1",
+              "S2.2"
+            ],
+            "coverage": "complete",
+            "reason": "The answer gives the change (9–25 mrad to 6–20 mrad) and the main reason (smaller wavefront distortion from mirror shape errors), directly supported by S2.1 and S2.2.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+            "document_title": "X-Ray Optics and Beam Transport",
+            "document_version": "XFEL.EU TR-2012-006 (2012-12)",
+            "page_start": 8,
+            "page_end": 8,
+            "chunk_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012:9a66a3cf2e8db6a52918f1de36e836b9584c3f4f4980413b63b29ac4f7a419da",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999595582485199,
+            "quote": "December 2012 XFEL.EU TR-2012-006 8 of 164 TDR: X-Ray Optics and Beam Transport 4 As discussed in the introduction, the concept of the soft X-ray monochromator was modified and will be presented later in a dedicated section. 5 The range of grazing-incidence angles at the SASE3 offset mirrors was changed from 9–25 mrad to 6–20 mrad.\n\nThe main reason is the smaller wavefront distortion coming from shape errors of the mirrors.",
+            "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.25494053959846497,
+          "rerank_seconds": 0.48217982053756714,
+          "generation_seconds": 12.305322393774986,
+          "total_seconds": 13.042442753911018
+        },
+        "request_id": "65d8352ba7084669a849d8224e618b49"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 13.048944346606731
+    },
+    {
+      "id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "The vertical in-line geometry makes the monochromatized beam equally available to all three SASE3 ports/branch beamlines; with the pre-mirrors retracted, those ports can instead use the non-monochromatized (pink) beam. [1][2]\n\nIn the vertical geometry the monochromator is independent of the focusing properties and heat load effects of the offset mirrors, which would otherwise influence the resolution. [1]\n\nThe previous design was in the horizontal geometry and more optimized towards higher energy resolution, while the new design is focused more on a faster time response. [2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+            "supported": true,
+            "span_ids": [
+              "S1.5",
+              "S1.6",
+              "S1.7",
+              "S2.4",
+              "S2.5"
+            ],
+            "coverage": "complete",
+            "reason": "The answer explains the reasons for the vertical in-line geometry: (1) it makes the monochromatized beam equally available to all three SASE3 ports/branch beamlines (S1.6, S2.5); (2) in vertical geometry the monochromator is independent of offset-mirror focusing properties and heat load effects that would otherwise affect resolution (S1.7); and (3) the design shift from horizontal geometry (higher energy resolution) toward faster time response (S2.4). All key facts are directly entailed by the cited spans and the question is fully answered.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+            "document_title": "X-Ray Optics and Beam Transport",
+            "document_version": "XFEL.EU TR-2012-006 (2012-12)",
+            "page_start": 43,
+            "page_end": 43,
+            "chunk_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012:f80b625a32c4d7d85831163aed5cc834738280ee825053bf80b74d3a892f4b4d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9995694756507874,
+            "quote": "In this way, all three SASE3 ports can use the monochromatized beam or—with the pre-mirrors retracted—the non-monochromatized beam (pink beam).\n\nAnother change is the implementation of an in-line design in the vertical plane.\n\nIn the vertical geometry, the monochromator is independent of the focusing properties and heat load effects of the offset mirrors, which would otherwise influence the resolution.",
+            "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+          },
+          {
+            "number": 2,
+            "source_id": "S2",
+            "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+            "document_title": "X-Ray Optics and Beam Transport",
+            "document_version": "XFEL.EU TR-2012-006 (2012-12)",
+            "page_start": 5,
+            "page_end": 5,
+            "chunk_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012:5af849fe4715abccdff144d8b08a568395bc54fbbbc8e64b936b8cc59e8db405",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999541699886322,
+            "quote": "The vertical in-line geometry makes a monochromatic beam now equally available to all three branch beamlines at SASE3.\n\nWhile the previous design was in the horizontal geometry and more optimized towards higher energy resolution, the new design is now focused more on a faster time response.",
+            "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.2510339841246605,
+          "rerank_seconds": 0.562394954264164,
+          "generation_seconds": 13.19290280342102,
+          "total_seconds": 14.006331741809845
+        },
+        "request_id": "97930f53d9b040e0a13a203e3e885374"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 14.013093713670969
+    },
+    {
+      "id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "Standard position measurements use **button-type BPMs**: the standard BPMs are of the button type, and button BPMs are the standard BPMs in E-XFEL, providing moderate resolution. [1][2]\n\nHigh-precision position measurements use **cavity BPMs** of different types: high-precision cavity BPMs with a 10 mm beam pipe in the undulator intersections, and further high-precision (cavity) monitors with a 40.5 mm beam pipe diameter for critical sections such as the vicinity of the bunch compressor chicanes, the collimation and distribution section, and after the undulators. [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Which BPM pickup types provide standard position measurements at European XFEL?",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3",
+              "S5.1"
+            ],
+            "coverage": "complete",
+            "reason": "Answer identifies button-type BPMs as the standard BPMs providing moderate-resolution position measurements, supported by S1.2, S1.3, S5.1.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "Which BPM pickup types provide high-precision position measurements at European XFEL?",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.4",
+              "S1.6",
+              "S1.7"
+            ],
+            "coverage": "complete",
+            "reason": "Answer identifies cavity BPMs (different types) as the high-precision monitors, including 10 mm beam pipe cavity BPMs in undulator intersections and 40.5 mm beam pipe cavity monitors for critical sections, supported by S1.2, S1.4, S1.6, S1.7.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+            "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+            "document_version": "LINAC2010 TUP095",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "european-xfel-standard-e-beam-diagnostics-linac2010:ca586d4bb17b2f3b046c3ff7df9f0a5f4e983cd3f7185207b5c9e30543aef05e",
+            "retrieval_rank": 1,
+            "rerank_score": 0.999704122543335,
+            "quote": "As listed in Table 2, there will be standard BPMs with moderate and precision BPMs with high resolution.\n\nThe standard BPMs will be of the button type.\n\nPrecision monitors will be different cavity BPM types.\n\nHigh precision cavity BPMs with a 10 mm beam pipe will be integrated in the undulator intersections.\n\nFurther high precision (cavity) monitors with a 40.5 mm beam pipe diameter will be used for critical sections in the machine, like the vicinity of the bunch compressor chicanes, the collimation and distribution section, as well as after the undulators.",
+            "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+          },
+          {
+            "number": 2,
+            "source_id": "S5",
+            "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+            "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+            "document_version": "LINAC2010 TUP095",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "european-xfel-standard-e-beam-diagnostics-linac2010:0df8b81289a610d0fbcf7f8b40a9e248e311ecd3cbe8fd1449010957547d8edb",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9959298968315125,
+            "quote": "Button BPMs will be the standard BPMs in E-XFEL.",
+            "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.3714897185564041,
+          "rerank_seconds": 0.8849643841385841,
+          "generation_seconds": 14.595426980406046,
+          "total_seconds": 15.851881083101034
+        },
+        "request_id": "14901f524d0a4affaa6b9281730aae27"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 17.64278383553028
+    },
+    {
+      "id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "The lifecycle runs from generation to storage to use: scripting codes embedded in the IOC startup script automatically push the server's address, the IOC installation path and all records maintained by the IOC to the application as soon as the IOC starts up, and these are then stored in the database. A MySQL-backed application runs periodically and takes data from run-time databases via Channel Access and pvAccess. The database is a general storage container for the properties and real-time values of servers, IOCs, EPICS records and PVs. With this necessary information, all active IOCs and PVs can be accessed, and a web application renders servers, IOCs and PVs data in MySQL on the web to give an overall running status of the control system. [1][2]\n\nIOC information is registered and collected automatically: scripting codes embedded in the IOC startup script push the server's address, the IOC installation path and all records maintained by the IOC to the application as soon as the IOC starts up. The program then parses the text file for the installation path, IP address, epics ca server port, epics ca repeater port and lists of the record for an IOC. The IOC related information is stored to the ioc table, while the record related information is inserted into the record table. [1][3]\n\nPV information is collected two ways: the import service imports initial information such as record types, field name lists and field types into the relational database from a spreadsheet, and PV service fetches PVs from EPICS run-time databases via Channel Access and pvAccess while also retrieving server running information such as available free memory and CPU load, then saves all the data into the database. The values of fields, the so-called PVs, are stored in the field_value table. [2][4]\n\nThe database is a general storage container for the properties and real-time values of servers, IOCs, EPICS records and PVs. The values of fields, the so-called PVs, are stored in the field_value table. [2][4]\n\nA web application renders servers, IOCs and PVs data in MySQL on the web to give an overall running status of the control system. The IOC panel displays not only the running information of the IOC but also all the records included in the IOC, and the record panel displays all the fields' information. [1][5]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "How are IOC and PV information managed in SHINE, covering the full lifecycle from generation or collection through storage to use?",
+            "supported": true,
+            "span_ids": [
+              "S4.5",
+              "S4.4",
+              "S4.6",
+              "S4.7",
+              "S9.2"
+            ],
+            "coverage": "complete",
+            "reason": "Claim 0 covers generation/collection (startup-script push, periodic CA/pvAccess fetch), storage (DB as general container), and use (access active IOCs/PVs, web rendering). Full lifecycle addressed.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "How is IOC information registered and collected in SHINE?",
+            "supported": true,
+            "span_ids": [
+              "S4.5",
+              "S5.2",
+              "S5.4"
+            ],
+            "coverage": "complete",
+            "reason": "Claim 1 covers registration/collection of IOC info: automatic push at startup, parsing of text file fields, and storage into ioc/record tables.",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "How is PV information registered and collected in SHINE?",
+            "supported": true,
+            "span_ids": [
+              "S9.3",
+              "S9.4",
+              "S9.6",
+              "S15.2"
+            ],
+            "coverage": "complete",
+            "reason": "Claim 2 covers PV collection via import service (initial info) and PV service (fetching PVs via CA/pvAccess), plus storage in field_value table.",
+            "missing": ""
+          },
+          {
+            "id": "R4",
+            "text": "Where and how is IOC and PV information stored in SHINE?",
+            "supported": true,
+            "span_ids": [
+              "S9.2",
+              "S15.2"
+            ],
+            "coverage": "complete",
+            "reason": "Claim 3 states DB is general storage container for servers/IOCs/records/PVs and PVs stored in field_value table. Answers where and how stored.",
+            "missing": ""
+          },
+          {
+            "id": "R5",
+            "text": "How is IOC and PV information presented or made available for use in SHINE?",
+            "supported": true,
+            "span_ids": [
+              "S4.7",
+              "S2.1",
+              "S2.3"
+            ],
+            "coverage": "complete",
+            "reason": "Claim 4 covers web rendering of servers/IOCs/PVs data and the IOC and record panels displaying running info, records, and fields' information.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S4",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:6b532252b1d9b5d12ff2e3846095924490c1864b4f7f864b57d511bf95da5bd2",
+            "retrieval_rank": 4,
+            "rerank_score": 0.9991441369056702,
+            "quote": "We embed scripting codes into the IOC startup script to realize that as soon as the IOC starts up, the information of the server’s address, the IOC installation path, and all the records maintained by the IOC will be automatically pushed to the application and then stored in the database.\n\nOne application backed by MySQL is designed, running periodi-cally to interact with EPICS system where to take data from run-time databases via Channel Access and pvAccess.\n\nWith this necessary information, we could access all the active IOCs and PVs.\n\nAnother web application is designed to render servers, IOCs and PVs data in MySQL on the web to give us an overall running status of the control system.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 2,
+            "source_id": "S9",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:05aa96b5b26bfd6d0f4d87026ad1cab08e601e88fd24b542639ee2769c362092",
+            "retrieval_rank": 9,
+            "rerank_score": 0.9956685900688171,
+            "quote": "The database is a general storage container for the properties and real-time values of servers, IOCs, EPICS records and PVs.\n\nThe import service aims to import the initial information such as record types, field name lists and field types into the relational database from a spreadsheet.\n\nPV service fetches PVs from EPICS run-time databases via Channel Access and pvAccess.\n\nAt the same time, it retrieves the running information of servers such as the available free memory, CPU load, etc. Then it saves all the data into the database.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 3,
+            "source_id": "S5",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:17819871a1b1110faacc64017ebd546186cc0ecaf846d5b5fdf796d6e39c100a",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9986749887466431,
+            "quote": "Second, the program parses the text file for the information of the installation path, IP address, epics ca server port, epics ca repeater port and lists of the record for an IOC.\n\nThe IOC related information is stored to ioc table, while the record related information is inserted into record table. epicsEnvSet(\"PVINFOFILE\", \"/home/iocusr/pvinfo/${IOCNAME}.pvinfo\") system \"echo IOCName:${IOCNAME} > ${PVINFOFILE} \" system \"echo path:${TOP} >> ${PVINFOFILE}\" system \"echo -n Date: >> ${PVINFOFILE}\" date >> ${PVINFOFILE} system \"echo env_params: >>${PVINFOFILE}\" epicsPrtEnvParams >> ${PVINFOFILE} system \"echo record: >> ${PVINFOFILE}\" dbl >> ${PVINFOFILE} Figure 6: Part of Scripts.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 4,
+            "source_id": "S15",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 2,
+            "page_end": 2,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:4a09fa0004903fa3d4f4549812b78981805e6109ad2956af4a1aea71cc0ca100",
+            "retrieval_rank": 15,
+            "rerank_score": 0.970687747001648,
+            "quote": "The values of fields, the so-called PVs are stored in field_value table.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 5,
+            "source_id": "S2",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:1932c96141925c86a65dfa6e099ba4ccedb9d73bc4a8de6a17d5d405d2544981",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999541699886322,
+            "quote": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC.\n\nThe record panel shown in Figure 9 displays all the fields’ information.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.1054617315530777,
+          "rerank_seconds": 2.2940008006989956,
+          "generation_seconds": 55.680831123143435,
+          "total_seconds": 59.08029365539551
+        },
+        "request_id": "745d506d7cdb40e39f3050613b914461"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 6,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 59.101436004042625
+    },
+    {
+      "id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "IOC 启动脚本中嵌入脚本代码，IOC 一启动即自动向应用推送服务器地址、IOC 安装路径以及该 IOC 维护的所有记录，随后存入数据库。 [1]\n\n启动 shell（st.cmd）中嵌入脚本，用于获取 IOC 的安装路径、启动时间、记录列表等信息。 [2]\n\n程序解析文本文件，得到该 IOC 的安装路径、IP 地址、epics ca server port、epics ca repeater port 和记录列表。 [3]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+            "supported": true,
+            "span_ids": [
+              "S1.5",
+              "S9.3",
+              "S12.2"
+            ],
+            "coverage": "complete",
+            "reason": "答案覆盖了摘要与正文给出的全部信息项：服务器地址/IP 地址、IOC 安装路径、IOC 维护的所有记录（记录列表）、启动时间、epics ca server port、epics ca repeater port，并说明启动脚本嵌入脚本自动推送、程序解析文本文件等机制，完整回答 IOC 启动后向管理系统提交哪些信息。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:6b532252b1d9b5d12ff2e3846095924490c1864b4f7f864b57d511bf95da5bd2",
+            "retrieval_rank": 1,
+            "rerank_score": 0.999512255191803,
+            "quote": "We embed scripting codes into the IOC startup script to realize that as soon as the IOC starts up, the information of the server’s address, the IOC installation path, and all the records maintained by the IOC will be automatically pushed to the application and then stored in the database.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 2,
+            "source_id": "S9",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 2,
+            "page_end": 2,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:cdb4a73a10acf985b22603c61315537abad1221be890ead9d73ed16c180e4355",
+            "retrieval_rank": 9,
+            "rerank_score": 0.946596622467041,
+            "quote": "First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 3,
+            "source_id": "S12",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:17819871a1b1110faacc64017ebd546186cc0ecaf846d5b5fdf796d6e39c100a",
+            "retrieval_rank": 12,
+            "rerank_score": 0.859663724899292,
+            "quote": "Second, the program parses the text file for the information of the installation path, IP address, epics ca server port, epics ca repeater port and lists of the record for an IOC.",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.24225468561053276,
+          "rerank_seconds": 0.760052066296339,
+          "generation_seconds": 15.119004223495722,
+          "total_seconds": 16.121310975402594
+        },
+        "request_id": "2dac5da61b6840fe8081d7853331c5bd"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 16.128561560064554
+    },
+    {
+      "id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "单节点响应时间的设计指标为 **10 µs**；实测平均值为 328.81 ns，优于该指标。 [1]\n\n节点间响应时间的设计要求为 **100 µs**；实测多站点响应时间平均值在 1 m 电缆连接下为 903.32 ns，在 800 m 电缆连接下为 5.33 µs，均满足要求。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 快联锁对单节点的响应时间有什么要求？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出单节点设计指标10 µs，并附实测328.81 ns作为佐证，完整回答单节点响应时间要求。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 快联锁对节点间的响应时间有什么要求？",
+            "supported": true,
+            "span_ids": [
+              "S3.3"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出节点间设计要求100 µs，并列出1 m与800 m电缆两种实测值，完整回答节点间响应时间要求。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 7,
+            "page_end": 7,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:d2ab5cd0a91201b20562f80d3ce16cbeacef90e16d40a6f457108cf507b3efac",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9998204708099365,
+            "quote": "于春蕾等： SHINE加速器快联锁系统设计与开发 图7 SHINE联锁子站现场图 Fig.7 The sub-station site photographs of interlock system 图8 电子枪段的联锁界面截图 Fig.8 Snapshot of the interface of interlock system for electron gun 5.2 响应时间测试 在单节点快联锁系统响应测试中，随机选择1 路快联锁模块的输入通道作为测试通道，另外一个 测试通道为节点经过联锁逻辑运算后的输出信号， 采用示波器测量输入信号上升沿和输出信号下降沿 之间的相对延时，测量计数不低于10 000次，测试结 果显示单节点响应时间平均值为328.81 ns，优于单 节点响应时间10 µs的设计指标，示波器测试结果如 图9所示。\n\n结果表明，采用1 m 电缆连接的 多站点响应时间平均值为903.32 ns，使用800 m 电 缆连接的多站点响应时间平均值为5.33 µs，满足节 点间响应时间100 µs的设计要求。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.3818555437028408,
+          "rerank_seconds": 1.0619344674050808,
+          "generation_seconds": 12.719865303486586,
+          "total_seconds": 14.163655314594507
+        },
+        "request_id": "d5805aaebd76477192ab85b2e3c81df8"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 14.170830763876438
+    },
+    {
+      "id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "FPIO 模块内置的 FPGA 使用的是 Xilinx 公司的 **Spartan6 XC6SLX25** 系列芯片。 [1]\n\nSHINE 联锁系统选用 **verilog HDL** 语言进行相关功能开发，即在硬件描述语言基础上实现联锁系统自行定义的控制逻辑开发。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片？",
+            "supported": true,
+            "span_ids": [
+              "S2.2"
+            ],
+            "coverage": "complete",
+            "reason": "S2.2 直接给出芯片厂商与型号：Xilinx Spartan6 XC6SLX25 系列，完整回答芯片问题。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "横河 FPIO 快联锁模块的 FPGA 开发使用哪种开发语言？",
+            "supported": true,
+            "span_ids": [
+              "S2.5"
+            ],
+            "coverage": "complete",
+            "reason": "S2.5 明确 SHINE 联锁系统选用 verilog HDL 语言进行功能开发，完整回答开发语言问题。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:3989f77d1ed901e922429b49a72751dc4b71b50fb0267e5c7a8fe005090a5120",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999480664730072,
+            "quote": "FPIO 模块内置的FPGA 使 用的是Xilinx 公司的Spartan6 XC6SLX25 系列芯 片，其开发和设计流程遵循FPGA开发的通用流程。\n\n在此 基础上，使用硬件描述性语言可以实现联锁系统自 行定义的控制逻辑开发，SHINE 联锁系统选用 verilog HDL语言进行相关功能开发。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.3521043062210083,
+          "rerank_seconds": 1.0289898924529552,
+          "generation_seconds": 11.673754941672087,
+          "total_seconds": 13.05484914034605
+        },
+        "request_id": "38990c30e1e84f28a4fd0fe207c25949"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 13.061924640089273
+    },
+    {
+      "id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "The SHINE control system is divided into four layers to ensure performance and scalability: the operator interface layer, the middle layer, the device control layer and the data acquisition layer. [1]\n\nThe operator interface layer provides a GUI, CLI and high-level API to operators, engineers and physicists. [1]\n\nThe middle layer consists of compute, storage and network devices. [2]\n\nThe device control layer handles facility-wide input and output device control, such as magnet power supply, vacuum gauge and stepper motor control, and also hosts the machine protection and timing system. [2]\n\nThe data acquisition layer is designed for high-speed image and stream data acquisition, processing and storage. [2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "How are the functional layers of the SHINE control system separated?",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3",
+              "S3.1",
+              "S3.4",
+              "S3.5",
+              "S3.7"
+            ],
+            "coverage": "complete",
+            "reason": "The answer covers all four layers named in S1.2 and gives each layer's role: operator interface layer (S1.3), middle layer (S3.1), device control layer (S3.4, S3.5), data acquisition layer (S3.7). All coverage items are addressed with directly entailed facts.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-control-system-status-icalepcs2019",
+            "document_title": "Status of the SHINE Control System",
+            "document_version": "ICALEPCS2019 WEPHA167",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-control-system-status-icalepcs2019:f79189e6eca2f8c7b31f8b61b01a7cec9e5f60c1573d880ba71c7b9bd1fb5269",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9996849298477173,
+            "quote": "EPICS is a set of open source software tools, libraries and applications developed collaboratively and used worldwide to create distributed soft real-time control systems for scientific instruments such as particle accelerators, telescopes and other large-scale scientific ex-periments. ___________________________________________ † yanyingbing@zjlab.org.cn ARCHITECTURE As shown in Fig. 1, the control system can be divided into four layers to ensure the performance and scalability, which are operator interface layer, middle layer, device control layer and data acquisition layer.\n\nThe operator interface layer offers graphical user interface (GUI), command line interface (CLI) and high-level application programming interface (API) to the operators, engineers and physicists.",
+            "document_url": "/v1/rag/documents/shine-control-system-status-icalepcs2019"
+          },
+          {
+            "number": 2,
+            "source_id": "S3",
+            "document_id": "shine-control-system-status-icalepcs2019",
+            "document_title": "Status of the SHINE Control System",
+            "document_version": "ICALEPCS2019 WEPHA167",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-control-system-status-icalepcs2019:a3b55aa246c55e377da937ebe851a460b3f0b1f44f4185d57e007f3fe52d5da5",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9940889477729797,
+            "quote": "The middle layer consists of compute, storage and network devices.\n\nThe device control layer is responsible for the facility-wide input and output device control, such as magnet power supply control, vacuum gauge control, stepper motor control and so on.\n\nThe machine protection and timing system will be also implemented in this layer.\n\nThe data acquisition layer is designed for the high speed image and stream data acquisition, processing and storage.",
+            "document_url": "/v1/rag/documents/shine-control-system-status-icalepcs2019"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.36239926517009735,
+          "rerank_seconds": 0.6332785375416279,
+          "generation_seconds": 19.42802169173956,
+          "total_seconds": 20.423699494451284
+        },
+        "request_id": "ed2c35e020db4f709d2134b83997c934"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 20.43055722862482
+    },
+    {
+      "id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "PLCs carry most of the control logic and the PID cycle; the low-level control logic and loops for the different operational modes are written in LADDER or SCL and reside in the PLC. [1][2]\n\nLoops running on the PLCs must work continuously and cannot tolerate even momentary interruptions, whereas a short interruption can be tolerated in the IOC; therefore non-critical controls such as cryostat operational modes are implemented in the IOC with State Notation Language (SNL), which allows IOC reboot for maintenance and modification while the PLC keeps the values of all inputs and outputs when IOC–PLC communication is broken for a while. [2]\n\nThe EPICS PID record is used in the IOC, allowing easy adjustment of loop constants and loop parameters and providing the digital enabling interface for software protection of the cryogenic system. [2]\n\nAt the device level, components such as sensors, actuators and measurement devices are interfaced to local PLCs with touch panel through different types of signal transition. [1]\n\nSoft IOCs running the EPICS runtime database accomplish signal collection from the PLC and convert the signals to Process Variables (PV) under the EPICS Channel Access (CA) protocol. [1]\n\nCommunication between PLCs and IOCs is implemented by the S7nodave EPICS device support driver resident on the IOC, which just specifies the memory address in the PLC and uses the ISO-TCP protocol supported by most S7 PLCs to exchange data. [3]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "How do PLCs and soft IOCs divide control responsibilities in the SHINE cryogenic system?",
+            "supported": true,
+            "span_ids": [
+              "S1.5",
+              "S2.2",
+              "S2.4",
+              "S2.5",
+              "S2.6",
+              "S2.7"
+            ],
+            "coverage": "complete",
+            "reason": "Claims 0-2 cover PLC side (most control logic, PID cycle, LADDER/SCL low-level loops, continuous operation) and IOC side (SNL non-critical controls, EPICS PID record, reboot tolerance, PLC holding I/O values). Division of control responsibilities is fully explained.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "How do PLCs and soft IOCs divide PV acquisition responsibilities in the SHINE cryogenic system?",
+            "supported": true,
+            "span_ids": [
+              "S1.4",
+              "S1.6",
+              "S9.3",
+              "S9.4"
+            ],
+            "coverage": "complete",
+            "reason": "Claims 3-5 cover device-level interfacing to local PLCs, soft IOC signal collection from PLC and PV conversion under CA, and the S7nodave/ISO-TCP communication path. PV acquisition division is fully explained.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-cryogenic-control-system-2021:b140b52b1b1c29d82fc85c090e3ede87819a3dd9b44182ce3f54e415e439a5d9",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9997835159301758,
+            "quote": "At the middle layer, PLC will implement most of control logic and PID cycle.\n\nAt the device level, the various components, for example, sensors, actuators and measurement devices are interfaced to local PLCs with touch panel through different types of signal transition.\n\nSoft IOCs running EPICS runtime database accomplish signal collection from PLC, and convert them to Process Variables (PV) under the rule of EPICS Channel Access (CA) protocol.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          },
+          {
+            "number": 2,
+            "source_id": "S2",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:415e5ea60d6f8ff88f5539331fc794aca302aa98c9df755100ed6151301841d9",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9990302920341492,
+            "quote": "During the different operational modes, the low level control logic and loops are written in LADDER or SCL resident in PLC.\n\nGenerally the loops running on the PLCs must work continuously, even momentary interruptions can’t be tolerated whereas a short inter-ruption can be tolerated in IOC.\n\nThus for those non critical controls, such as cryostats operational modes will be implemented by State Notation Language (SNL).\n\nWith this, IOC reboot is allowed for maintenance and modification, PLC will keep the value of all inputs and outputs when the IOC and PLC communication is broken for a while.\n\nThe EPICS PID record will be used in IOC, which not only allows easy adjustment of the loop constants and changing the loop parameters, but also provides the digital enabling interface to realize the software protection of the cryogenic system.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          },
+          {
+            "number": 3,
+            "source_id": "S9",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 5,
+            "page_end": 5,
+            "chunk_id": "shine-cryogenic-control-system-2021:1413f9f76757ede06ed88e441e08125e6d428db6df0661e6694ddf83dddacf01",
+            "retrieval_rank": 9,
+            "rerank_score": 0.9669140577316284,
+            "quote": "S7nodave EPICS device support driver resident on IOC is used to implement communication.\n\nUnlike other EPICS device supports for the S7 PLCs, this driver program just specifies the memory address in the PLC and the device support uses the ISO-TCP protocol supported by most S7 PLCs in order to exchange data. \u0001 interface 3 between sub PLCs and other accelerator control devices.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.5887521542608738,
+          "rerank_seconds": 0.7461977489292622,
+          "generation_seconds": 24.057715695351362,
+          "total_seconds": 25.392665598541498
+        },
+        "request_id": "05b4c7038ad44c1b8572798921edf335"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 25.853203896433115
+    },
+    {
+      "id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "主联锁 PLC 执行较复杂的安全逻辑，并通过电线与制冷机联锁系统交换联锁信号。各恒温器控制站先本地采用独立 LADDER 程序实现各自的联锁逻辑，每站有三对 DI/DO 信号接入主联锁 PLC；设计策略是在制冷机停机与设备安全之间取得平衡。 [1][2]\n\n证据只支持 CPLD 的信号转换作用：为满足严格时间限制和便于连接，开发了带一个光纤口、十六个电口和 LATTICE 芯片的专用 CPLD 模块，一对模块可在微秒级双向转换电信号与光信号。CPLD 本身是否执行低温设备保护逻辑或输出保护动作，原文未说明。 [1]\n\n可确认的分工是：恒温器控制站本地用 LADDER 程序实现联锁逻辑并经三对 DI/DO 接入主联锁 PLC，主联锁 PLC 执行较复杂安全逻辑并与制冷机联锁系统交换信号，CPLD 负责微秒级电光信号双向转换。但 CPLD 与主联锁 PLC 之间的具体协作关系——CPLD 接在哪个环节、联锁信号经其转换后如何进入主联锁 PLC 并触发保护——原文未给出，具体接线无法确认。 [1][2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 低温测试装置如何通过主联锁 PLC 实现低温设备保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S4.5",
+              "S4.6",
+              "S4.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文完整覆盖主联锁 PLC 的保护实现路径：执行较复杂安全逻辑、与制冷机联锁系统交换信号、各恒温器站本地 LADDER 联锁并经三对 DI/DO 接入主联锁 PLC，以及停机与设备安全平衡的设计策略，均有原文直接依据。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 低温测试装置如何通过 CPLD 实现低温设备保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3"
+            ],
+            "coverage": "complete",
+            "reason": "问题预设 CPLD 实现低温设备保护，但证据仅支持其微秒级电光信号双向转换功能；正文依据证据纠正前提并说明原文未说明 CPLD 执行保护逻辑，符合按证据解释真实作用的要求，未额外增加未要求的验收项。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "SHINE 低温测试装置中主联锁 PLC 与 CPLD 之间如何协作实现低温设备保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.2",
+              "S1.3",
+              "S4.6",
+              "S4.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文分别说明恒温器站、主联锁 PLC 与 CPLD 的职责，并明确指出原文未给出 CPLD 与主联锁 PLC 的具体衔接环节和触发路径，未以时延参数替代分工说明，也未凭功能推断拓扑；对协作问题给出了有依据的职责衔接与证据边界。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9996200203895569,
+            "quote": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3].",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          },
+          {
+            "number": 2,
+            "source_id": "S4",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:781973867d477bf9605cce02938626938e15c39bc349dc8d5fbcebe71f54e5ad",
+            "retrieval_rank": 4,
+            "rerank_score": 0.9956685900688171,
+            "quote": "The interlock system design strategy is to find the balance between refrigerator shutdown and device safety.\n\nTherefore each cryostat control station adopts a separate LADDER program to implement different interlock logic combining with devices locally first.\n\nEach cryostat control station has three pairs of DI/DO signal connected to master interlock PLC.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.9104374945163727,
+          "rerank_seconds": 2.048989251255989,
+          "generation_seconds": 35.07256519794464,
+          "total_seconds": 38.031991943717
+        },
+        "request_id": "fc5f19e359a34c7e829efc7048d17087"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 6,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 38.04698234423995
+    },
+    {
+      "id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "WRTD's trigger repetition rate is limited by network bandwidth and maximum acceptable latency requirements, and although the beam-synchronous trigger could theoretically be distributed via WRTD, SHINE's max repetition frequency is too high. [1]\n\nHandling that rate requires 10 Gigabit White Rabbit switches, but there is no commercial product yet. [1]\n\nThe standard White Rabbit network operates at a 125/62.5 MHz clock, while SHINE's repetition frequency is 1.003086 MHz, so new technical routes are needed. [2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+            "supported": true,
+            "span_ids": [
+              "S2.6",
+              "S2.7",
+              "S2.8",
+              "S1.3",
+              "S1.6"
+            ],
+            "coverage": "complete",
+            "reason": "The answer explains: WRTD trigger repetition rate is limited by network bandwidth and maximum acceptable latency (S2.6); SHINE's max repetition frequency is too high for WRTD (S2.7); 10 Gigabit WR switches would be required but no commercial product exists (S2.8); and standard WR's 125/62.5 MHz clock vs SHINE's 1.003086 MHz repetition frequency necessitates new technical routes (S1.3, S1.6). All key facts and the causal chain are covered.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+            "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+            "document_version": "IPAC2022 THIYGD1",
+            "page_start": 2,
+            "page_end": 2,
+            "chunk_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022:5aa688cbe36ec0b60520b1a45ec473e83ca2459c86144db73ed08a2ef17eab53",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9997219443321228,
+            "quote": "The number of trigger sources in the system and the trigger repetition rate is limited by the network bandwidth and maximum acceptable latency requirements[4].\n\nThe beam-synchronous trigger signal could theoretically be distributed via WRTD, but the max repetition frequency of SHINE is too high.\n\nThe 10 Gigabit White Rabbit switches are required, but there is no commercial product yet.",
+            "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+          },
+          {
+            "number": 2,
+            "source_id": "S1",
+            "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+            "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+            "document_version": "IPAC2022 THIYGD1",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022:044f7bc2b3e46bebdd43195cac2d05a60087e6df478e1a3f889082ae9933217e",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9997695088386536,
+            "quote": "The standard White Rabbit network operates at 125/62.5 MHz clock.\n\nBut the repetition frequency is 1.003086 MHz, we need to find the new technical routes.",
+            "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.25061290338635445,
+          "rerank_seconds": 0.44141288846731186,
+          "generation_seconds": 19.041783776134253,
+          "total_seconds": 19.73380956798792
+        },
+        "request_id": "1576eec176854f9b9fc0cefdbb006cf7"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 5,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 19.74051756411791
+    },
+    {
+      "id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "For beam-synchronous trigger distribution on Prototype II, the jitter between the slave node output and the external reference signal is less than **20 ps (RMS)**, and the jitter between outputs from different slave nodes is less than **10 ps (RMS)**. [1]\n\nFor random-event trigger distribution on Prototype II, the jitter between the slave node output and the external reference signal is less than **35 ps (RMS)**. [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What beam-synchronous trigger jitter was measured for SHINE timing Prototype II?",
+            "supported": true,
+            "span_ids": [
+              "S2.7",
+              "S2.8"
+            ],
+            "coverage": "complete",
+            "reason": "Answer gives both beam-synchronous jitter figures (<20 ps RMS vs external reference, <10 ps RMS between slave nodes) as stated in S2.7/S2.8, attributed to Prototype II via the Fig. 11 context.",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "What random-event trigger jitter was measured for SHINE timing Prototype II?",
+            "supported": true,
+            "span_ids": [
+              "S2.9"
+            ],
+            "coverage": "complete",
+            "reason": "Answer gives the random-event trigger jitter (<35 ps RMS vs external reference) as stated in S2.9, attributed to Prototype II.",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+            "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+            "document_version": "IPAC2022 THIYGD1",
+            "page_start": 5,
+            "page_end": 5,
+            "chunk_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022:adb5de8c979b387a905cea6e11dfe193f44004f74377c7349640d3d63e5b2445",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999595582485199,
+            "quote": "For the beam-synchronous trigger signal distribution, the jitter between the output of slave node and the external reference signal is less than 20ps (RMS).\n\nThe jitter between the outputs from different slave nodes is less than 10ps (RMS).\n\nFor the random-event trigger signal distribution, the jitter between the output of slave node and the external reference signal is less than 35ps (RMS).",
+            "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.3873284161090851,
+          "rerank_seconds": 0.7745230942964554,
+          "generation_seconds": 13.591958153992891,
+          "total_seconds": 14.753809664398432
+        },
+        "request_id": "7c361e9608d44edd980c034a2ba8eaff"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 14.760731633752584
+    },
+    {
+      "id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "慢联锁关键信号响应时间：站内 \\(\\leq 20\\,\\mathrm{ms}\\)。 [1]\n\n慢联锁关键信号响应时间：站间 \\(\\leq 100\\,\\mathrm{ms}\\)。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 控制系统设计中慢联锁的站内响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S5.1"
+            ],
+            "coverage": "complete",
+            "reason": "S5.1 直接给出慢联锁关键信号站内响应时间≤20ms，完整回答站内指标。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 控制系统设计中慢联锁的站间响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S5.1"
+            ],
+            "coverage": "complete",
+            "reason": "S5.1 直接给出慢联锁关键信号站间响应时间≤100ms，完整回答站间指标。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S5",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 21,
+            "page_end": 21,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:4e92201c2cf375a954b2860baf67a725b258f56b1a36a01b061e46d2775928dc",
+            "retrieval_rank": 5,
+            "rerank_score": 0.999595582485199,
+            "quote": "联锁系统  快联锁 + 慢联锁；主站 + 从站，分层设计 快联锁关键信号响应时间： 站内≤10us，站间≤100us 慢联锁关键信号响应时间： 站内≤20ms，站间≤100ms",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.37933263182640076,
+          "rerank_seconds": 1.0684301666915417,
+          "generation_seconds": 11.26622935384512,
+          "total_seconds": 12.713992152363062
+        },
+        "request_id": "f878010c753446708baba78945cfa49c"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 12.720822405070066
+    },
+    {
+      "id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "BC1 需要尽早压缩束团长度以克服加速过程中横向尾场对电子束的影响；但若离注入器太近、能量太低，空间电荷效应对亮度的影响和束流不稳定性都会增大。综合权衡后，BC1 处束流能量选在 **270 MeV**。 [1]\n\nBC2 位置主要考虑相干同步辐射（CSR）对电子束发射度的破坏，以及束流能量、能散和到达时间稳定性的优化；据此 BC2 选在 L2 段 18 个模组之后，电子束能量约 **2.1 GeV**。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "为什么 SHINE 的第一级磁压缩布置在 270 MeV 位置？",
+            "supported": true,
+            "span_ids": [
+              "S1.6",
+              "S1.7",
+              "S1.8",
+              "S1.9"
+            ],
+            "coverage": "complete",
+            "reason": "正文完整给出 BC1 布置在 270MeV 的双向权衡理由（尽早压缩克服横向尾场 vs 太近则空间电荷效应与不稳定性增大）及最终综合选择，与 S1.7–S1.9 一致。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "为什么 SHINE 的第二级磁压缩布置在约 2.1 GeV 位置？",
+            "supported": true,
+            "span_ids": [
+              "S1.10",
+              "S1.11",
+              "S1.12"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出 BC2 位置选择的考虑因素（CSR 对发射度破坏、能量/能散/到达时间稳定性优化）及最终位置与能量约 2.1GeV，与 S1.10、S1.12 一致。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 61,
+            "page_end": 61,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:485d8b33ff6ed2e347fa8cba06c82d98aeec1523072c4601be8da25fc12826a3",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9998416304588318,
+            "quote": "图3.3.3.1-2 电子束的纵向相空间和流强分布 (a) 注入器出口；(b) BC1 出口；(c) BC2 出口；(d) L3 出口 两级磁压缩位置的选择基于束流稳定性的优化及束团集体效应对束流亮度 和品质的影响。\n\n第一级磁压缩BC1 通常距离注入器比较近，电子束能量比较低， 束团也比较长，需要尽早压缩束团长度以克服加速过程中横向尾场对电子束的影 响。\n\n但相反，如果第一级磁压缩距离注入器太近，电子束能量太低，空间电荷效 应对束流的亮度影响越大，同时束流的不稳定性也随之增加。\n\n因此综合考虑各种 效应以后，将BC1 处的束流能量选在270MeV。\n\nBC2 位置的选择主要考虑到相 干同步辐射效应（CSR）对电子束发射度的破坏，束流能量、能散和到达时间的 稳定性的优化。\n\n图3.3.3.1-3 给出了第二级磁压缩束流能量选在不同位置时的束流 稳定性结果。\n\n目前BC2 选择在L2 段18 个模组之后，电子束能量约为2.1GeV。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.6630828864872456,
+          "rerank_seconds": 1.0723625272512436,
+          "generation_seconds": 16.500457737594843,
+          "total_seconds": 19.235903151333332
+        },
+        "request_id": "c29233011ac24e4c869eac6f3d84aa14"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 19.578485529869795
+    },
+    {
+      "id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "answerable": true,
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "主加速器基于**超导连续波**工作模式，采用三级加速、两级压缩的结构。 [1][2]\n\n主加速器将电子束团能量提高到 **8 GeV**，即从注入器出口约 100 MeV 提高到 8 GeV。 [1][3]\n\n第三个加速段 L3 由 54 个模组组成，将电子束能量由 2.1 GeV 加速至最终的 8 GeV。 [2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 初步设计中的主加速器采用什么工作模式？",
+            "supported": true,
+            "span_ids": [
+              "S5.6",
+              "S7.4"
+            ],
+            "coverage": "complete",
+            "reason": "正文明确回答主加速器采用超导连续波工作模式（并补充三级加速、两级压缩结构），有 S5.6、S7.4 直接支撑。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 初步设计中的主加速器最终把电子加速到多少能量？",
+            "supported": true,
+            "span_ids": [
+              "S5.6",
+              "S7.17",
+              "S2.2"
+            ],
+            "coverage": "complete",
+            "reason": "正文明确最终加速能量为 8 GeV，并给出从约 100 MeV 到 8 GeV 的起点终点，S5.6、S2.2、S7.17 均支持。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S5",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 5,
+            "page_end": 5,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:095426ab08b58bfdcceaa51ec91802bb07664ebfca5806e519f73bad7b7b5384",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9883127212524414,
+            "quote": "主加速 器基于超导连续波工作模式，采用三级加速、两级压缩的结构，将电子束团能量 提高到8 GeV；同时在保持横向发射度的情况下，将电子束长度从几皮秒压缩到 几十飞秒，峰值流强提升到1.5 kA 以上。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          },
+          {
+            "number": 2,
+            "source_id": "S7",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 60,
+            "page_end": 60,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:cf8f273a1807979a26bbeb8f961f70b0886235053ba0f7b80ee3989f17712b7b",
+            "retrieval_rank": 7,
+            "rerank_score": 0.977022647857666,
+            "quote": "硬X 射线自由电子激光装置基于超导连续波工作模式，其主加 速器采用三级加速、两级压缩的结构设计，如图3.4.3.1-1 所示。\n\n主 加速器第三个加速段L3 由54 个模组组成，将电子束的能量由2.1GeV 加速至最 终的8GeV。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          },
+          {
+            "number": 3,
+            "source_id": "S2",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 59,
+            "page_end": 59,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:5b41bd7b2775af04f235849ab045b68eec206ed441535409dc83bb395c1937f9",
+            "retrieval_rank": 2,
+            "rerank_score": 0.9975274205207825,
+            "quote": "主加速器 3.1 主加速器物理 主加速器的作用是将注入器产生电子束团的能量从100MeV 左右提高到 8GeV；同时通过束团压缩系统将电子束的长度从几个皮秒压缩到几十个飞秒。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.37938009947538376,
+          "rerank_seconds": 1.1498548835515976,
+          "generation_seconds": 15.521266411989927,
+          "total_seconds": 17.05050139501691
+        },
+        "request_id": "9229d824b4e44600866f0b614be63405"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 17.058236338198185
+    },
+    {
+      "id": "no-answer-finance",
+      "query": "What was NVIDIA quarterly revenue in fiscal 2026 Q4?",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "The available documents do not establish the requested information. Try specifying the equipment, document version or a more concrete question.\n\nMissing evidence:\n- 缺少 NVIDIA 公司 fiscal 2026 Q4 的季度营收数值（及其来源财报/新闻稿）。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What was NVIDIA's quarterly revenue in fiscal 2026 Q4?",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "所有候选证据均来自 XFEL 技术设计报告（人员编制表、晶体冷却参数表、作者名单、目录）、EPICS 文档（安装步骤、模块列表、API 目录）以及 SHINE 控制系统论文，没有任何一条提及 NVIDIA 公司或其财年季度营收数据。",
+            "missing": "缺少 NVIDIA 公司 fiscal 2026 Q4 的季度营收数值（及其来源财报/新闻稿）。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.6054410748183727,
+          "rerank_seconds": 2.51398815959692,
+          "generation_seconds": 11.780302699655294,
+          "total_seconds": 14.899731934070587
+        },
+        "request_id": "4a4f4dacb2364683be64a24e46b5aa2f"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 14.911305345594883
+    },
+    {
+      "id": "no-answer-recipe",
+      "query": "如何制作四川麻婆豆腐？请给出食材和烹饪步骤。",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库未找到足以确认所问事实的资料。请补充设备名称、文档版本或更具体的问题。\n\n仍缺少以下依据：\n- 缺少四川麻婆豆腐的食材清单（如豆腐、牛肉末/猪肉末、豆瓣酱、花椒、辣椒、蒜苗等）。\n- 缺少四川麻婆豆腐的烹饪步骤（如豆腐切块焯水、炒香豆瓣酱与肉末、烧制勾芡、撒花椒面等）。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "制作四川麻婆豆腐需要哪些食材？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "所有候选证据均为 EPICS 控制系统文档、加速器/XFEL 技术设计报告、SHINE 控制系统讨论等，内容涉及记录类型、pvAccess 编码、libCom 库、作者名单等，没有任何关于麻婆豆腐食材的内容。",
+            "missing": "缺少四川麻婆豆腐的食材清单（如豆腐、牛肉末/猪肉末、豆瓣酱、花椒、辣椒、蒜苗等）。"
+          },
+          {
+            "id": "R2",
+            "text": "四川麻婆豆腐的烹饪步骤是什么？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "候选证据中无任何烹饪步骤描述；S1/S17 为 EPICS 记录字段示例，S2 为 pvAccess 结构编码，S6/S12 为控制系统与人员讨论，均与麻婆豆腐烹饪无关。",
+            "missing": "缺少四川麻婆豆腐的烹饪步骤（如豆腐切块焯水、炒香豆瓣酱与肉末、烧制勾芡、撒花椒面等）。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 1.7490559704601765,
+          "rerank_seconds": 3.3938197419047356,
+          "generation_seconds": 16.54063008353114,
+          "total_seconds": 21.683505795896053
+        },
+        "request_id": "d498fe1e8bfe4312a5e4fb5af5dc9eff"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 23.47687679901719
+    },
+    {
+      "id": "no-answer-token",
+      "query": "zxqv9999unlistedcalibrationartifact",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "The available documents do not establish the requested information. Try specifying the equipment, document version or a more concrete question.\n\nMissing evidence:\n- 缺少任何提及或定义“zxqv9999unlistedcalibrationartifact”的正文证据。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "zxqv9999unlistedcalibrationartifact 是什么？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "所有候选证据均为 XFEL 技术设计报告的作者名单、目录页、参考文献，以及 EPICS 文档的模块列表、调试命令、记录处理说明和控制系统分层描述，均未出现或解释“zxqv9999unlistedcalibrationartifact”这一术语，无法回答其含义。",
+            "missing": "缺少任何提及或定义“zxqv9999unlistedcalibrationartifact”的正文证据。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.5916021503508091,
+          "rerank_seconds": 2.3217764236032963,
+          "generation_seconds": 11.50772712379694,
+          "total_seconds": 14.421105697751045
+        },
+        "request_id": "2b34e45d0b634b6db380d8bb92638a07"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 14.437637455761433
+    },
+    {
+      "id": "no-answer-hard-live-pv",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 的 temperature:water PV 实时读数是多少？",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 在 2026-10-19 10:00 UTC 的 temperature:water PV 实时读数是多少？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "证据中出现的 temperature:water 只是 EPICS 文档中的示例 PV（鱼缸水温），其读数为示例值 0/21/24，与 SHINE 无关；没有任何来源给出 SHINE 在 2026-10-19 10:00 UTC 该 PV 的实时读数。",
+            "missing": "缺少 SHINE 系统中 temperature:water PV 在 2026-10-19 10:00 UTC 的实际实时读数（任何来源均未提供该时刻的数值或历史归档数据）。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.23675242811441422,
+          "rerank_seconds": 0.8016309402883053,
+          "generation_seconds": 7.789440784603357,
+          "total_seconds": 8.827824153006077
+        },
+        "request_id": "02a1b4fd61c64e6b84752594cc0d460d"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 8.833783343434334
+    },
+    {
+      "id": "no-answer-hard-live-ioc-count",
+      "query": "How many SHINE IOCs are online at 10:00 UTC on 19 October 2026?",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "This library contains design and technical documents and cannot establish live or time-specific operating data. An Agent with live data access would be needed.",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "How many SHINE IOCs are online at 10:00 UTC on 19 October 2026?",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "证据只能说明 SHINE 的 IOC 规模为“数百个”（hundreds of IOCs），且信息管理系统可访问所有处于活动状态的 IOC、显示 IOC 运行状态；但没有任何来源给出 2026 年 10 月 19 日 10:00 UTC 这一具体时刻的在线 IOC 数量。",
+            "missing": "缺少 2026-10-19 10:00 UTC 这一具体时间点的在线 IOC 数量数据；现有文献仅给出“数百个”的总体规模描述，且 SHINE 当时仍在建设中，无法据此确定该时刻的在线数量。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.2403062842786312,
+          "rerank_seconds": 0.6563389413058758,
+          "generation_seconds": 8.545161470770836,
+          "total_seconds": 9.441806696355343
+        },
+        "request_id": "9a6e9318f6e148c5854738ae2063adb4"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 9.447723481804132
+    },
+    {
+      "id": "no-answer-hard-live-interlock",
+      "query": "SHINE 快联锁在 2026-10-19 10:00 UTC 的在线许可状态是什么？",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 快联锁在 2026-10-19 10:00 UTC 的在线许可状态是什么？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "证据仅说明快联锁系统已投入 SHINE 注入器在线运行、功能完善运行稳定，并基于 EPICS 实现远程控制；但没有任何来源给出 2026-10-19 10:00 UTC 这一具体时刻的在线许可（license）状态记录。",
+            "missing": "缺少 2026-10-19 10:00 UTC 时刻 SHINE 快联锁系统的在线许可状态记录（如许可是否有效、许可类型、许可到期时间等）；文献为 2024 年发表，未涉及该时刻的许可状态。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.23606718331575394,
+          "rerank_seconds": 0.8814583085477352,
+          "generation_seconds": 6.365043066442013,
+          "total_seconds": 7.482568558305502
+        },
+        "request_id": "437965c3614046c3a4b3471b359d8c44"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 7.488258648663759
+    },
+    {
+      "id": "no-answer-hard-live-cryo",
+      "query": "What is the measured SHINE helium refrigerator outlet pressure at 10:00 UTC on 19 October 2026?",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "This library contains design and technical documents and cannot establish live or time-specific operating data. An Agent with live data access would be needed.",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What is the measured SHINE helium refrigerator outlet pressure at 10:00 UTC on 19 October 2026?",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "所有证据均未提供 SHINE 氦制冷机在 2026 年 10 月 19 日 10:00 UTC 的实测出口压力。S3 给出的是 XFEL 制冷机设计参数（如 2K 负载出口 1.1 bar、LP3 0.5–0.9 bar），属设计值而非 SHINE 实测值；S5 仅为 SHINE 控制系统 I/O 信号数量统计，无压力数值。",
+            "missing": "缺少 SHINE 氦制冷机在指定时刻（2026-10-19 10:00 UTC）的实测出口压力数据；现有证据只有 XFEL 设计参数和 SHINE 控制系统信号统计，均不能回答该实测值。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.24896595254540443,
+          "rerank_seconds": 0.7064956314861774,
+          "generation_seconds": 6.317608878016472,
+          "total_seconds": 7.273070462048054
+        },
+        "request_id": "0638d93956ed4fe48f45cdbf128b7db2"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 7.279605116695166
+    },
+    {
+      "id": "no-answer-hard-deployed-firmware",
+      "query": "What exact firmware build SHA was installed on the SHINE White Rabbit master on 19 October 2026?",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "This library contains design and technical documents and cannot establish live or time-specific operating data. An Agent with live data access would be needed.",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What exact firmware build SHA was installed on the SHINE White Rabbit master on 19 October 2026?",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "所有证据均为 SHINE White Rabbit 定时系统的架构、原型与参数描述（IPAC2022 论文及控制系统文档），没有任何关于固件构建 SHA 或 2026 年 10 月 19 日安装记录的内容。",
+            "missing": "缺少 SHINE White Rabbit 主节点在 2026-10-19 安装的固件构建 SHA 的具体记录（无任何固件版本/SHA 或安装日期信息）。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.2579636611044407,
+          "rerank_seconds": 0.7320774421095848,
+          "generation_seconds": 4.412112209945917,
+          "total_seconds": 5.402153313159943
+        },
+        "request_id": "8f35faa33eeb458a87cc3b128a864650"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 6.414888821542263
+    },
+    {
+      "id": "no-answer-hard-current-ioc-ip",
+      "query": "SHINE IOC 在 2026-10-19 10:00 UTC 使用的实时 server IP 完整清单是什么？",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE IOC 在 2026-10-19 10:00 UTC 使用的实时 server IP 完整清单是什么？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "证据仅说明系统会在 IOC 启动时把服务器地址（IP 地址）推送到应用并存入数据库，服务器信息面板也包含 IP 地址字段；但所有文献均未给出任何具体 IP 地址，更没有 2026-10-19 10:00 UTC 这一时刻的实时 IP 清单。",
+            "missing": "缺少 SHINE IOC 的具体 server IP 地址清单，以及 2026-10-19 10:00 UTC 这一时刻的实时快照数据（文献为 2022 年会议论文，无该时间点数据）。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.27331042289733887,
+          "rerank_seconds": 0.7693140469491482,
+          "generation_seconds": 6.307778485119343,
+          "total_seconds": 7.35040295496583
+        },
+        "request_id": "0139ece78e0a49119e0a7d84c6d05adb"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 7.360236246138811
+    },
+    {
+      "id": "no-answer-hard-live-bpm-calibration",
+      "query": "What measured BPM calibration constant was approved at SHINE on 19 October 2026?",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "This library contains design and technical documents and cannot establish live or time-specific operating data. An Agent with live data access would be needed.",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "What measured BPM calibration constant was approved at SHINE on 19 October 2026?",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "所有证据均未提及任何 BPM 标定常数（calibration constant），也没有 2026 年 10 月 19 日批准记录。SHINE 相关文献仅涉及定时系统、联锁系统、低温系统及 BPM 类型/分辨率设计指标，无实测标定常数及批准日期。",
+            "missing": "缺少 SHINE 在 2026 年 10 月 19 日批准的 BPM 实测标定常数的具体数值及批准记录。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.2410663366317749,
+          "rerank_seconds": 0.7801984287798405,
+          "generation_seconds": 5.865830697119236,
+          "total_seconds": 6.887095462530851
+        },
+        "request_id": "715623727fce4a97824e686fa0618bae"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 7.162510074675083
+    },
+    {
+      "id": "no-answer-hard-live-beam-energy",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？",
+      "answerable": false,
+      "http_status": 200,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？",
+            "supported": false,
+            "span_ids": [],
+            "coverage": "none",
+            "reason": "证据仅给出 SHINE 电子束的设计/标称能量为 8 GeV（S1、S2 参数表、S3 对比表、S4、S6、S7、S8 均如此），属于设计值，并非 2026-10-19 10:00 UTC 的实际测量值。",
+            "missing": "缺少 2026-10-19 10:00 UTC 这一具体时刻的电子束能量实测记录（运行日志/束流诊断测量数据），现有文献只有设计值 8 GeV，无法回答“实际测量”值。"
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.2390926368534565,
+          "rerank_seconds": 0.7589920423924923,
+          "generation_seconds": 6.879427220672369,
+          "total_seconds": 7.877511899918318
+        },
+        "request_id": "c26969b9179740cca27ef846017bea5e"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 2,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 7.8851478807628155
+    },
+    {
+      "id": "cryo-original",
+      "query": "shine低温系统中，主plc和cpld分别负责什么保护？，两者如何配合",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "主联锁 PLC 执行较复杂的安全逻辑，并通过电缆与制冷机联锁系统交换联锁信号。 [1]\n\nCPLD 是为满足严格时间限制和便于连接而开发的专用模块，含一个光纤口、十六个电口和 LATTICE 芯片；成对使用时可在微秒级双向转换电信号与光信号。证据未说明 CPLD 本身承担的保护对象、触发条件或保护动作。 [1]\n\n可确认的分工是：主联锁 PLC 执行复杂安全逻辑并与制冷机联锁系统交换联锁信号，CPLD 负责电-光信号的微秒级双向转换；从低温恒温器控制 PLC 输出到主联锁 PLC 的响应约数十毫秒。两者在保护流程中的具体配合方式（谁触发谁、信号路径与动作顺序）证据未给出。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "在 SHINE 低温系统中，主 PLC 负责哪些保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.1"
+            ],
+            "coverage": "complete",
+            "reason": "S1.1 直接说明主联锁 PLC 执行较复杂的安全逻辑并与制冷机联锁系统通过电缆交换联锁信号，已完整回答主 PLC 的保护职责。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "在 SHINE 低温系统中，CPLD 负责哪些保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3"
+            ],
+            "coverage": "complete",
+            "reason": "证据中 CPLD 仅被描述为满足严格时间限制与便于连接的专用模块，用于电-光信号微秒级双向转换；答案如实说明其不承担（或未被证实承担）保护逻辑，并指出保护对象、触发条件、动作均无证据。这纠正了问题预设，属完整回答。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "在 SHINE 低温系统中，主 PLC 与 CPLD 之间如何配合实现保护？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.3",
+              "S1.5"
+            ],
+            "coverage": "complete",
+            "reason": "答案给出有依据的职责衔接：主 PLC 执行复杂安全逻辑并交换联锁信号，CPLD 承担电-光微秒级双向转换，并给出恒温器控制 PLC 到主联锁 PLC 的响应时延；同时明确具体配合机制（触发方向、信号路径、动作顺序）证据未给出，未擅自增加握手/时序等验收要求。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9992445707321167,
+            "quote": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3].\n\nThe test results show the time from cryostat control PLC output to master interlock PLC’s. Response is about several tens millisecond.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.1770190484821796,
+          "rerank_seconds": 2.1393710672855377,
+          "generation_seconds": 39.52566687762737,
+          "total_seconds": 42.84205699339509
+        },
+        "request_id": "7b797a11faaa4ce9a4428ec32fb3a2f7"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 6,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 42.85542901605368
+    },
+    {
+      "id": "cryo-paraphrase",
+      "query": "SHINE 低温联锁里的主 PLC 和 CPLD 是怎样分工与协同的？",
+      "http_status": 200,
+      "response": {
+        "status": "answered",
+        "answer": "主联锁 PLC 执行较复杂的安全逻辑，并通过电缆与制冷机联锁系统交换联锁信号。各低温恒温器控制站先在本地用独立 LADDER 程序实现各自的联锁逻辑，再以三对 DI/DO 信号接入主联锁 PLC。 [1][2]\n\nCPLD 是为满足严格时间限制和便于连接而开发的专用模块，带一个光纤口、十六个电口和 LATTICE 芯片；成对使用时可在电信号与光信号之间双向转换，转换在微秒量级。 [1]\n\n分工上，主联锁 PLC 负责执行较复杂的安全逻辑并与制冷机联锁系统交换联锁信号；CPLD 模块负责电—光信号的双向转换（微秒级），用于满足严格时间限制和简化连接。各低温恒温器站的本地 LADDER 逻辑先做本地判断，再经三对 DI/DO 接入主联锁 PLC。 [1][2]\n\n协同上，各低温恒温器控制站以三对 DI/DO 信号接入主联锁 PLC，主联锁 PLC 执行复杂安全逻辑并通过电缆与制冷机联锁系统交换信号；CPLD 模块成对使用，在电口与光口之间双向转换信号，实现微秒级传输。证据只给出两者的功能分工与各自连接，未给出 CPLD 位于主 PLC 与制冷机联锁系统之间的具体接线。 [1][2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 低温联锁系统中主 PLC 承担哪些功能与职责？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S16.6",
+              "S16.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明主联锁 PLC 执行较复杂安全逻辑、通过电缆与制冷机联锁系统交换联锁信号，并汇总各低温恒温器站经三对 DI/DO 接入的本地 LADDER 联锁结果，覆盖其功能与职责。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 低温联锁系统中 CPLD 承担哪些功能与职责？",
+            "supported": true,
+            "span_ids": [
+              "S1.2",
+              "S1.3"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明 CPLD 为满足严格时间限制与便于连接而开发的专用模块，含一个光纤口、十六个电口、LATTICE 芯片，成对使用实现电—光信号微秒级双向转换，覆盖其功能与职责。",
+            "missing": ""
+          },
+          {
+            "id": "R3",
+            "text": "SHINE 低温联锁系统中主 PLC 与 CPLD 之间如何分工？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.2",
+              "S1.3",
+              "S16.6",
+              "S16.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文分别给出主 PLC（复杂安全逻辑、与制冷机联锁系统交换信号）与 CPLD（电—光双向转换、微秒级、满足时间限制与连接便利）的职责，并说明本地 LADDER 判断后经 DI/DO 接入主 PLC，分工说明完整。",
+            "missing": ""
+          },
+          {
+            "id": "R4",
+            "text": "SHINE 低温联锁系统中主 PLC 与 CPLD 之间如何协同工作与交互？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S1.2",
+              "S1.3",
+              "S16.7"
+            ],
+            "coverage": "complete",
+            "reason": "正文说明各站以三对 DI/DO 接入主 PLC、主 PLC 执行复杂逻辑并与制冷机联锁系统交换信号、CPLD 成对在电口与光口间微秒级双向转换，并明确证据未给出 CPLD 位于主 PLC 与制冷机联锁系统之间的具体接线，职责衔接有依据且未擅自增加握手/时序要求。",
+            "missing": ""
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9995694756507874,
+            "quote": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.\n\nTo ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3].",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          },
+          {
+            "number": 2,
+            "source_id": "S16",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:781973867d477bf9605cce02938626938e15c39bc349dc8d5fbcebe71f54e5ad",
+            "retrieval_rank": 16,
+            "rerank_score": 0.8267118334770203,
+            "quote": "Therefore each cryostat control station adopts a separate LADDER program to implement different interlock logic combining with devices locally first.\n\nEach cryostat control station has three pairs of DI/DO signal connected to master interlock PLC.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.5926840305328369,
+          "rerank_seconds": 1.4030314981937408,
+          "generation_seconds": 31.24057175964117,
+          "total_seconds": 33.23628728836775
+        },
+        "request_id": "5206cec8418341a9adf9f2807d2a95bf"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 1,
+        "selected_round": 1,
+        "calls": 4,
+        "budgets_respected": true,
+        "supplemented": false
+      },
+      "wall_seconds": 33.24632331728935
+    },
+    {
+      "id": "cryo-missing-details",
+      "query": "SHINE 低温 CPLD 每个端口的接线表和所有保护阈值是什么？",
+      "http_status": 200,
+      "response": {
+        "status": "partial",
+        "answer": "接线表给不出：证据只说明该专用 CPLD 模块有 1 个光纤端口、16 个电端口和 LATTICE 芯片，没有逐端口的编号与所接信号/设备对应关系。 [1]\n\n保护阈值给不出：证据中没有任何阈值数值或对应保护条件。 [1]\n\n以下内容尚未完整确认：\n- SHINE 低温 CPLD 每个端口的接线表是什么？ 仍缺：缺少 SHINE 低温 CPLD 每个端口的具体接线表（各端口编号与所接信号/设备的对应关系）。\n- SHINE 低温 CPLD 的所有保护阈值是什么？ 仍缺：缺少 SHINE 低温 CPLD 的所有保护阈值（具体阈值数值及对应保护条件）。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 低温 CPLD 每个端口的接线表是什么？",
+            "supported": false,
+            "span_ids": [
+              "S4.2"
+            ],
+            "coverage": "partial",
+            "reason": "具体数据或完整清单的证据缺项尚未补齐，说明未知不能算作已完整提供。",
+            "missing": "缺少 SHINE 低温 CPLD 每个端口的具体接线表（各端口编号与所接信号/设备的对应关系）。"
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 低温 CPLD 的所有保护阈值是什么？",
+            "supported": false,
+            "span_ids": [
+              "S4.2"
+            ],
+            "coverage": "partial",
+            "reason": "具体数据或完整清单的证据缺项尚未补齐，说明未知不能算作已完整提供。",
+            "missing": "缺少 SHINE 低温 CPLD 的所有保护阈值（具体阈值数值及对应保护条件）。"
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S4",
+            "document_id": "shine-cryogenic-control-system-2021",
+            "document_title": "The Cryogenic Control System of SHINE",
+            "document_version": "EPJ Techniques and Instrumentation (2021)",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+            "retrieval_rank": 4,
+            "rerank_score": 0.8670357465744019,
+            "quote": "To ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed.",
+            "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.8906950615346432,
+          "rerank_seconds": 1.6303695440292358,
+          "generation_seconds": 33.86143787205219,
+          "total_seconds": 36.38250247761607
+        },
+        "request_id": "649beb06bef54bc5bbacd465266d074b"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 8,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 36.39438655972481
+    },
+    {
+      "id": "xfel-version-scopes",
+      "query": "请对照不同年份文档说明 European XFEL 的常规运行能量与最大能量，保留各自口径。",
+      "http_status": 200,
+      "response": {
+        "status": "partial",
+        "answer": "2007 年 TDR（DESY 2006-097）中，European XFEL 的常规运行能量为 **17.5 GeV**：原文称 17.5 GeV 是 XFEL Facility 常规运行预定的能量，表 5.1.1 的光子能量对应电子束运行能量 17.5 GeV，SASE 1 的标称电子能量亦为 17.5 GeV。 [1][2][3]\n\n2007 年 TDR 中，直线加速器可把电子加速到最高 **20 GeV**。 [1]\n\n2007 年 TDR 的口径是区分“可加速到的最高能量 20 GeV”与“常规运行 17.5 GeV”，两者在同一句中并列给出，不可合并为单一数值。 [1]\n\n以下内容尚未完整确认：\n- 不同年份的文档中，European XFEL 的最大能量分别是多少？ 仍缺：Missing list items: 2007年TDR：梯度提升后最大束流能量24 GeV, 2007年TDR：下游束线部件按最大能量25 GeV设计, 2010年LINAC2010论文：最大能量17.5 GeV\n- 各年份文档对 European XFEL 常规运行能量与最大能量所采用的表述口径分别是什么，如何保留各自口径？ 仍缺：Missing list items: 2007年TDR口径：23.6 MV/m、20 GeV为指定设计值, 2007年TDR口径：24 GeV为梯度提升后的最大束流能量（有条件）, 2007年TDR口径：25 GeV为下游部件设计上限, 2010年论文口径：17.5 GeV直接标为设计束流参数中的最大能量",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "不同年份的文档中，European XFEL 的常规运行能量分别是多少？",
+            "supported": true,
+            "span_ids": [
+              "S6.2",
+              "S12.5",
+              "S11.2"
+            ],
+            "coverage": "complete",
+            "reason": "正文给出2007年TDR的常规运行能量17.5 GeV，并附三处原文依据（S6.2、S12.5、S11.2），口径为'常规运行/运行/标称'能量，符合要求。",
+            "missing": ""
+          },
+          {
+            "id": "R2",
+            "text": "不同年份的文档中，European XFEL 的最大能量分别是多少？",
+            "supported": false,
+            "span_ids": [
+              "S6.2"
+            ],
+            "coverage": "partial",
+            "reason": "具体数据或完整清单的证据缺项尚未补齐，说明未知不能算作已完整提供。",
+            "missing": "Missing list items: 2007年TDR：梯度提升后最大束流能量24 GeV, 2007年TDR：下游束线部件按最大能量25 GeV设计, 2010年LINAC2010论文：最大能量17.5 GeV"
+          },
+          {
+            "id": "R3",
+            "text": "各年份文档对 European XFEL 常规运行能量与最大能量所采用的表述口径分别是什么，如何保留各自口径？",
+            "supported": false,
+            "span_ids": [
+              "S6.2"
+            ],
+            "coverage": "partial",
+            "reason": "具体数据或完整清单的证据缺项尚未补齐，说明未知不能算作已完整提供。",
+            "missing": "Missing list items: 2007年TDR口径：23.6 MV/m、20 GeV为指定设计值, 2007年TDR口径：24 GeV为梯度提升后的最大束流能量（有条件）, 2007年TDR口径：25 GeV为下游部件设计上限, 2010年论文口径：17.5 GeV直接标为设计束流参数中的最大能量"
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S6",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 57,
+            "page_end": 57,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a",
+            "retrieval_rank": 6,
+            "rerank_score": 0.9783847332000732,
+            "quote": "In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility).",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 2,
+            "source_id": "S12",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 191,
+            "page_end": 191,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:c370c3394d406405d9f25c661ea8362bfa021a3de21cbf68b88c7061abb72085",
+            "retrieval_rank": 12,
+            "rerank_score": 0.851952850818634,
+            "quote": "The photon energies correspond to an operating energy of the electron beam of 17.5 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 3,
+            "source_id": "S11",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 263,
+            "page_end": 263,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:06f5193a1f1894a2fc37c2c7701c173f94ea40fa524ef3ad508991e52bf20a35",
+            "retrieval_rank": 11,
+            "rerank_score": 0.9099070429801941,
+            "quote": "The undulator is not gap tuneable in that its length has been optimised for closed gap and photon energy of 12.4 keV at the nominal electron energy of 17.5 GeV.",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.0744251608848572,
+          "rerank_seconds": 2.7861759960651398,
+          "generation_seconds": 55.987713165581226,
+          "total_seconds": 59.84831432253122
+        },
+        "request_id": "6b2f1398adf24ef7b4e529a36dce1639"
+      },
+      "status_consistent": true,
+      "trace_summary": {
+        "rounds": 2,
+        "selected_round": 2,
+        "calls": 8,
+        "budgets_respected": true,
+        "supplemented": true
+      },
+      "wall_seconds": 59.86324552819133
+    }
+  ],
+  "workers": 2,
+  "summary": {
+    "statuses": {
+      "answered": 23,
+      "insufficient": 11,
+      "partial": 2
+    },
+    "http_errors": 0,
+    "client_errors": 0
+  }
+}

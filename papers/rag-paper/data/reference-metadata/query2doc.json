@@ -1,0 +1,16 @@
+{
+  "key": "query2doc",
+  "kind": "arxiv",
+  "arxiv": "2303.07678",
+  "doi": "10.48550/arXiv.2303.07678",
+  "title": "Query2doc: Query Expansion with Large Language Models",
+  "author": [
+    "Wang, Liang",
+    "Yang, Nan",
+    "Wei, Furu"
+  ],
+  "year": 2023,
+  "venue": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+  "source_url": "https://arxiv.org/abs/2303.07678",
+  "landing_url": "https://arxiv.org/abs/2303.07678"
+}

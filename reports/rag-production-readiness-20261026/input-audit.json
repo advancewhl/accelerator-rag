@@ -1,0 +1,9 @@
+{
+  "selection_calls": 33,
+  "canonical_parents_verified": 165,
+  "synthesis_calls": 32,
+  "requirement_calls": 42,
+  "single_system": true,
+  "question_only_requirements": true,
+  "synthesis_verified_only": true
+}

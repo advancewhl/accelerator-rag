@@ -213,16 +213,21 @@ class DenseRetriever:
         }
 
     def search(self, query, top_k=3):
+        hits, trace, limits = self.search_with_trace(query, top_k)
+        self.last_passage_trace, self.last_candidate_limits = trace, limits
+        return hits
+
+    def search_with_trace(self, query, top_k=3):
         if not query.strip() or type(top_k) is not int or top_k <= 0:
             raise ValueError("invalid search query/top_k")
         self._vector_store.verify_contract()
         vector = self._embedder.embed_query(query)
         total = self._vector_store.point_count()
-        self.last_candidate_limits = []
+        candidate_limits = []
         best = {}
         limit = min(total, top_k * self.oversample_factor)
         while limit:
-            self.last_candidate_limits.append(limit)
+            candidate_limits.append(limit)
             hits = self._vector_store.search_passages(vector, limit)
             best = {}
             for hit in hits:
@@ -237,18 +242,22 @@ class DenseRetriever:
         ranked = sorted(
             best.values(), key=lambda h: (-h.score, h.passage.parent_chunk_id)
         )[:top_k]
-        self.last_passage_trace = [
+        trace = [
             {
                 "parent_chunk_id": h.passage.parent_chunk_id,
                 "passage_id": h.passage.passage_id,
                 "passage_ordinal": h.passage.passage_ordinal,
                 "passage_excerpt": h.passage.text,
                 "passage_score": h.score,
-                "candidate_limits": self.last_candidate_limits,
+                "candidate_limits": candidate_limits,
             }
             for h in ranked
         ]
-        return [
-            RetrievalResult(i, h.score, h.passage.parent, "qdrant")
-            for i, h in enumerate(ranked, 1)
-        ]
+        return (
+            [
+                RetrievalResult(i, h.score, h.passage.parent, "qdrant")
+                for i, h in enumerate(ranked, 1)
+            ],
+            trace,
+            candidate_limits,
+        )

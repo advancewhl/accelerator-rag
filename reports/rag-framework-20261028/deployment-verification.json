@@ -1,0 +1,107 @@
+[
+  {
+    "path": "src/accelerator_rag/rag/__init__.py",
+    "expected_sha256": "67ef28ed86af48a5f8fb33d63bba86cee02b33aa20979f8f519d44e81d622aab",
+    "local_sha256": "67ef28ed86af48a5f8fb33d63bba86cee02b33aa20979f8f519d44e81d622aab",
+    "remote_sha256": "67ef28ed86af48a5f8fb33d63bba86cee02b33aa20979f8f519d44e81d622aab",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/context.py",
+    "expected_sha256": "19ca37e3489c10fb81738fd4fcef7a373b6765ee23a323ab75e925a03e643cea",
+    "local_sha256": "19ca37e3489c10fb81738fd4fcef7a373b6765ee23a323ab75e925a03e643cea",
+    "remote_sha256": "19ca37e3489c10fb81738fd4fcef7a373b6765ee23a323ab75e925a03e643cea",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/retrieval.py",
+    "expected_sha256": "0623bd8b784b5c79ad720c9d9c3ca4f26dd3f963073c6f9d66e10a864854a034",
+    "local_sha256": "0623bd8b784b5c79ad720c9d9c3ca4f26dd3f963073c6f9d66e10a864854a034",
+    "remote_sha256": "0623bd8b784b5c79ad720c9d9c3ca4f26dd3f963073c6f9d66e10a864854a034",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/service.py",
+    "expected_sha256": "233241e6e2cfa1ba768f7dddaf01cf69f6badae808780a86cf9d4eaa97c73d26",
+    "local_sha256": "233241e6e2cfa1ba768f7dddaf01cf69f6badae808780a86cf9d4eaa97c73d26",
+    "remote_sha256": "233241e6e2cfa1ba768f7dddaf01cf69f6badae808780a86cf9d4eaa97c73d26",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/workflow.py",
+    "expected_sha256": "e4c15702956a88e5ab3de48bcd9f26bf21680f9809d011e30a2274a3748bb687",
+    "local_sha256": "e4c15702956a88e5ab3de48bcd9f26bf21680f9809d011e30a2274a3748bb687",
+    "remote_sha256": "e4c15702956a88e5ab3de48bcd9f26bf21680f9809d011e30a2274a3748bb687",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/catalog.py",
+    "expected_sha256": "044299731d23febaaff773df1840fe23b9494fcf40a02246f9af1f3a92674e6d",
+    "local_sha256": "044299731d23febaaff773df1840fe23b9494fcf40a02246f9af1f3a92674e6d",
+    "remote_sha256": "044299731d23febaaff773df1840fe23b9494fcf40a02246f9af1f3a92674e6d",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/evidence.py",
+    "expected_sha256": "18f4b244f2a006c820add665e15d1d6e16a7a02b6c2e75110694d30f2e7909d8",
+    "local_sha256": "18f4b244f2a006c820add665e15d1d6e16a7a02b6c2e75110694d30f2e7909d8",
+    "remote_sha256": "18f4b244f2a006c820add665e15d1d6e16a7a02b6c2e75110694d30f2e7909d8",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/__main__.py",
+    "expected_sha256": "b7687e75220a06ea21e2b959b89d120b228d39b4901c6299a74cf055238ba79d",
+    "local_sha256": "b7687e75220a06ea21e2b959b89d120b228d39b4901c6299a74cf055238ba79d",
+    "remote_sha256": "b7687e75220a06ea21e2b959b89d120b228d39b4901c6299a74cf055238ba79d",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/api.py",
+    "expected_sha256": "0696f7c30a8cb6bf4cb199c16ed3cdceff0819b1c3b381a1d7bf7519663a171e",
+    "local_sha256": "0696f7c30a8cb6bf4cb199c16ed3cdceff0819b1c3b381a1d7bf7519663a171e",
+    "remote_sha256": "0696f7c30a8cb6bf4cb199c16ed3cdceff0819b1c3b381a1d7bf7519663a171e",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/answer.py",
+    "expected_sha256": "0495acab10a614365917fa5d13830fe1ec137e43f75622c0560af86dde0a6c9b",
+    "local_sha256": "0495acab10a614365917fa5d13830fe1ec137e43f75622c0560af86dde0a6c9b",
+    "remote_sha256": "0495acab10a614365917fa5d13830fe1ec137e43f75622c0560af86dde0a6c9b",
+    "matches": true
+  },
+  {
+    "path": "src/accelerator_rag/rag/runtime.py",
+    "expected_sha256": "8767980517f6e59abeaf985dd98b741e7b0bd99744110777c6abdd3fa934836b",
+    "local_sha256": "8767980517f6e59abeaf985dd98b741e7b0bd99744110777c6abdd3fa934836b",
+    "remote_sha256": "8767980517f6e59abeaf985dd98b741e7b0bd99744110777c6abdd3fa934836b",
+    "matches": true
+  },
+  {
+    "path": "config/rag-production.json",
+    "expected_sha256": "ba35ed183a407fef9aaf36d4ec53fd4ee3aa29f27643251e89fc77396be6f5e0",
+    "local_sha256": "ba35ed183a407fef9aaf36d4ec53fd4ee3aa29f27643251e89fc77396be6f5e0",
+    "remote_sha256": "ba35ed183a407fef9aaf36d4ec53fd4ee3aa29f27643251e89fc77396be6f5e0",
+    "matches": true
+  },
+  {
+    "path": "deploy/rag-requirements.txt",
+    "expected_sha256": "beecf42853addc3a0b88071b5fd65de1d945188e1948c67022d58fc09cd8499a",
+    "local_sha256": "beecf42853addc3a0b88071b5fd65de1d945188e1948c67022d58fc09cd8499a",
+    "remote_sha256": "beecf42853addc3a0b88071b5fd65de1d945188e1948c67022d58fc09cd8499a",
+    "matches": true
+  },
+  {
+    "path": "docs/architecture/rag-evidence-workflow.md",
+    "expected_sha256": "d8296e30453940ce2cf8a68a53f5e573dc82ece7bee9cfd05add0b7481d9b0b5",
+    "local_sha256": "d8296e30453940ce2cf8a68a53f5e573dc82ece7bee9cfd05add0b7481d9b0b5",
+    "remote_sha256": "d8296e30453940ce2cf8a68a53f5e573dc82ece7bee9cfd05add0b7481d9b0b5",
+    "matches": true
+  },
+  {
+    "path": "docs/runbooks/rag-production.md",
+    "expected_sha256": "90f617bfef81ab50d2c462ff4f59d3cb02e7350137870195b0297d7ec39cbd7a",
+    "local_sha256": "90f617bfef81ab50d2c462ff4f59d3cb02e7350137870195b0297d7ec39cbd7a",
+    "remote_sha256": "90f617bfef81ab50d2c462ff4f59d3cb02e7350137870195b0297d7ec39cbd7a",
+    "matches": true
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "key": "ais",
+  "kind": "doi",
+  "doi": "10.1162/coli_a_00486",
+  "title": "Measuring Attribution in Natural Language Generation Models",
+  "author": [
+    "Hannah Rashkin",
+    "Vitaly Nikolaev",
+    "Matthew Lamm",
+    "Lora Aroyo",
+    "Michael Collins",
+    "Dipanjan Das",
+    "Slav Petrov",
+    "Gaurav Singh Tomar",
+    "Iulia Turc",
+    "David Reitter"
+  ],
+  "year": 2023,
+  "venue": "Computational Linguistics",
+  "volume": "49",
+  "number": "4",
+  "pages": "777-840",
+  "type": "journal-article",
+  "source_url": "https://api.crossref.org/works/10.1162%2Fcoli_a_00486",
+  "landing_url": "https://doi.org/10.1162/coli_a_00486"
+}

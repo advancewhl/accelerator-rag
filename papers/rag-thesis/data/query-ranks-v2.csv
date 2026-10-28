@@ -1,0 +1,232 @@
+﻿method,query_id,query,language,language_relation,first_complete_rank,groups_at_5,required_groups
+BM25,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,1,2,2
+BM25,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+BM25,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,3,3,3
+BM25,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,3,2,2
+BM25,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,,0,1
+BM25,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+BM25,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+BM25,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+BM25,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+BM25,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,,1,3
+BM25,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,0,2
+BM25,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,1,1,1
+BM25,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+BM25,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,,2,5
+BM25,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,1,1,1
+BM25,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,0,3
+BM25,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,1,1,1
+BM25,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,2,1,1
+BM25,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,2,1,1
+BM25,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,1,1,1
+BM25,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,1,1,1
+BGE-small-zh,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,,0,2
+BGE-small-zh,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+BGE-small-zh,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,,0,3
+BGE-small-zh,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,,0,2
+BGE-small-zh,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,,0,1
+BGE-small-zh,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,3,1,1
+BGE-small-zh,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,,0,1
+BGE-small-zh,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,,0,1
+BGE-small-zh,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+BGE-small-zh,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,,1,3
+BGE-small-zh,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,0,2
+BGE-small-zh,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,1,1,1
+BGE-small-zh,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+BGE-small-zh,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,5,5,5
+BGE-small-zh,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,4,1,1
+BGE-small-zh,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,0,3
+BGE-small-zh,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,4,1,1
+BGE-small-zh,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,,0,1
+BGE-small-zh,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,1,1,1
+BGE-small-zh,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,,0,1
+BGE-small-zh,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1
+BGE-base-zh,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,5,2,2
+BGE-base-zh,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,,0,1
+BGE-base-zh,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,2,3,3
+BGE-base-zh,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,,1,2
+BGE-base-zh,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,,0,1
+BGE-base-zh,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+BGE-base-zh,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,2,1,1
+BGE-base-zh,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,,0,1
+BGE-base-zh,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+BGE-base-zh,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,3,3,3
+BGE-base-zh,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+BGE-base-zh,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,1,1,1
+BGE-base-zh,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+BGE-base-zh,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,4,5,5
+BGE-base-zh,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,4,1,1
+BGE-base-zh,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,2,3
+BGE-base-zh,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,3,1,1
+BGE-base-zh,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,,0,1
+BGE-base-zh,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,3,1,1
+BGE-base-zh,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,3,1,1
+BGE-base-zh,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1
+E5,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,1,2,2
+E5,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+E5,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,2,3,3
+E5,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,2,2,2
+E5,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,,0,1
+E5,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+E5,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+E5,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+E5,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,2,1,1
+E5,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,4,3,3
+E5,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,0,2
+E5,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,3,1,1
+E5,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+E5,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,4,5,5
+E5,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,1,1,1
+E5,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,0,3
+E5,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,2,1,1
+E5,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,2,1,1
+E5,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,1,1,1
+E5,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,4,1,1
+E5,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,1,1,1
+BGE-M3,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,5,2,2
+BGE-M3,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+BGE-M3,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,3,3,3
+BGE-M3,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,1,2,2
+BGE-M3,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,,0,1
+BGE-M3,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+BGE-M3,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+BGE-M3,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+BGE-M3,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,2,1,1
+BGE-M3,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,3,3,3
+BGE-M3,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+BGE-M3,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,2,1,1
+BGE-M3,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+BGE-M3,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,3,5,5
+BGE-M3,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,2,1,1
+BGE-M3,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,2,3
+BGE-M3,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,1,1,1
+BGE-M3,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,2,1,1
+BGE-M3,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,1,1,1
+BGE-M3,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,,0,1
+BGE-M3,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1
+Qwen3,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,,1,2
+Qwen3,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+Qwen3,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,4,3,3
+Qwen3,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,5,2,2
+Qwen3,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,2,1,1
+Qwen3,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+Qwen3,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+Qwen3,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+Qwen3,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+Qwen3,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,2,3,3
+Qwen3,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+Qwen3,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,2,1,1
+Qwen3,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+Qwen3,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,,2,5
+Qwen3,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,2,1,1
+Qwen3,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,5,3,3
+Qwen3,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,3,1,1
+Qwen3,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,4,1,1
+Qwen3,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,1,1,1
+Qwen3,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,1,1,1
+Qwen3,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1
+Language router,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,1,2,2
+Language router,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+Language router,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,2,3,3
+Language router,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,2,2,2
+Language router,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,2,1,1
+Language router,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+Language router,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+Language router,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+Language router,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,2,1,1
+Language router,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,4,3,3
+Language router,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+Language router,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,2,1,1
+Language router,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+Language router,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,4,5,5
+Language router,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,1,1,1
+Language router,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,5,3,3
+Language router,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,2,1,1
+Language router,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,2,1,1
+Language router,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,1,1,1
+Language router,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,1,1,1
+Language router,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1
+Dual RRF,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,5,2,2
+Dual RRF,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+Dual RRF,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,1,3,3
+Dual RRF,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,2,2,2
+Dual RRF,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,3,1,1
+Dual RRF,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+Dual RRF,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+Dual RRF,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+Dual RRF,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+Dual RRF,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,2,3,3
+Dual RRF,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+Dual RRF,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,4,1,1
+Dual RRF,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+Dual RRF,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,3,5,5
+Dual RRF,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,2,1,1
+Dual RRF,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,2,3
+Dual RRF,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,2,1,1
+Dual RRF,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,3,1,1
+Dual RRF,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,1,1,1
+Dual RRF,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,1,1,1
+Dual RRF,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,5,1,1
+Dual + reranker,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,4,2,2
+Dual + reranker,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+Dual + reranker,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,2,3,3
+Dual + reranker,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,1,2,2
+Dual + reranker,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,3,1,1
+Dual + reranker,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+Dual + reranker,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,2,1,1
+Dual + reranker,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+Dual + reranker,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+Dual + reranker,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,4,3,3
+Dual + reranker,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+Dual + reranker,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,2,1,1
+Dual + reranker,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+Dual + reranker,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,3,5,5
+Dual + reranker,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,1,1,1
+Dual + reranker,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,3,3,3
+Dual + reranker,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,2,1,1
+Dual + reranker,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,2,1,1
+Dual + reranker,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,4,1,1
+Dual + reranker,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,1,1,1
+Dual + reranker,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,1,1,1
+E5 + multi-query,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,1,2,2
+E5 + multi-query,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+E5 + multi-query,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,1,3,3
+E5 + multi-query,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,2,2,2
+E5 + multi-query,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,,0,1
+E5 + multi-query,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+E5 + multi-query,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+E5 + multi-query,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+E5 + multi-query,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+E5 + multi-query,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,4,3,3
+E5 + multi-query,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+E5 + multi-query,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,4,1,1
+E5 + multi-query,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+E5 + multi-query,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,3,5,5
+E5 + multi-query,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,1,1,1
+E5 + multi-query,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,,2,3
+E5 + multi-query,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,2,1,1
+E5 + multi-query,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,2,1,1
+E5 + multi-query,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,,0,1
+E5 + multi-query,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,,0,1
+E5 + multi-query,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1
+Qwen3 + multi-query,epics-pp,When does an EPICS PP input link process its target record?,en,same_language,,1,2
+Qwen3 + multi-query,epics-reconnect,What happens to Channel Access client connections when an IOC server crashes and restarts?,en,same_language,1,1,1
+Qwen3 + multi-query,epics-cli,"Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",en,same_language,3,3,3
+Qwen3 + multi-query,xfel-rf,What RF frequency and nominal design energy are used by the European XFEL main linac?,en,same_language,5,2,2
+Qwen3 + multi-query,xfel-normal-energy,欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？,zh,cross_language,3,1,1
+Qwen3 + multi-query,undulator-tuning,How does a K-monochromator select radiation for tuning undulator segments?,en,same_language,1,1,1
+Qwen3 + multi-query,xfel-mirror-angle,Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?,en,same_language,1,1,1
+Qwen3 + multi-query,xfel-soft-mono,Why did the soft X-ray monochromator change to a vertical in-line geometry?,en,same_language,1,1,1
+Qwen3 + multi-query,xfel-bpm-types,Which BPM pickup types provide standard and high-precision position measurements at European XFEL?,en,same_language,1,1,1
+Qwen3 + multi-query,shine-ioc-management,How are IOC and PV information managed in SHINE?,en,same_language,1,3,3
+Qwen3 + multi-query,shine-ioc-startup,SHINE 中 IOC 启动后会向管理系统提交哪些信息？,zh,cross_language,,1,2
+Qwen3 + multi-query,interlock-latency,SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？,zh,same_language,2,1,1
+Qwen3 + multi-query,interlock-platform,横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？,zh,same_language,2,2,2
+Qwen3 + multi-query,shine-control-layers,How are the functional layers of the SHINE control system separated?,en,same_language,,2,5
+Qwen3 + multi-query,cryo-integration,How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?,en,same_language,3,1,1
+Qwen3 + multi-query,cryo-interlock,SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？,zh,cross_language,4,3,3
+Qwen3 + multi-query,timing-wrtd,Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?,en,same_language,3,1,1
+Qwen3 + multi-query,timing-jitter,What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?,en,same_language,5,1,1
+Qwen3 + multi-query,control-slow-interlock,SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？,zh,same_language,5,1,1
+Qwen3 + multi-query,shine-compressors,为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？,zh,same_language,1,1,1
+Qwen3 + multi-query,shine-main-linac,SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？,zh,same_language,,0,1

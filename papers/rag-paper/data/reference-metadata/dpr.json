@@ -1,0 +1,24 @@
+{
+  "key": "dpr",
+  "kind": "doi",
+  "doi": "10.18653/v1/2020.emnlp-main.550",
+  "title": "Dense Passage Retrieval for Open-Domain Question Answering",
+  "author": [
+    "Vladimir Karpukhin",
+    "Barlas Oguz",
+    "Sewon Min",
+    "Patrick Lewis",
+    "Ledell Wu",
+    "Sergey Edunov",
+    "Danqi Chen",
+    "Wen-tau Yih"
+  ],
+  "year": 2020,
+  "venue": "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+  "volume": "",
+  "number": "",
+  "pages": "6769-6781",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2020.emnlp-main.550",
+  "landing_url": "https://doi.org/10.18653/v1/2020.emnlp-main.550"
+}

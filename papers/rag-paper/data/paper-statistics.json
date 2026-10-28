@@ -1,0 +1,959 @@
+{
+  "annotation": {
+    "added_alternatives": 39,
+    "added_per_query": {
+      "control-slow-interlock": 0,
+      "cryo-integration": 0,
+      "cryo-interlock": 0,
+      "epics-cli": 2,
+      "epics-pp": 9,
+      "epics-reconnect": 1,
+      "interlock-latency": 1,
+      "interlock-platform": 0,
+      "shine-compressors": 0,
+      "shine-control-layers": 0,
+      "shine-ioc-management": 2,
+      "shine-ioc-startup": 1,
+      "shine-main-linac": 2,
+      "timing-jitter": 0,
+      "timing-wrtd": 0,
+      "undulator-tuning": 0,
+      "xfel-bpm-types": 1,
+      "xfel-mirror-angle": 0,
+      "xfel-normal-energy": 2,
+      "xfel-rf": 17,
+      "xfel-soft-mono": 1
+    },
+    "audited_queries": 21,
+    "changed_queries": 11,
+    "documents_per_query": 13,
+    "new_alternatives": 76,
+    "old_alternatives": 37
+  },
+  "bootstrap_replicates": 1000,
+  "bootstrap_unit": "paired query",
+  "complementarity": {
+    "E5_only": {
+      "n": 3,
+      "query_ids": [
+        "epics-pp",
+        "shine-control-layers",
+        "shine-main-linac"
+      ]
+    },
+    "Qwen3_only": {
+      "n": 2,
+      "query_ids": [
+        "xfel-normal-energy",
+        "cryo-interlock"
+      ]
+    },
+    "both_hit": {
+      "n": 15,
+      "query_ids": [
+        "epics-reconnect",
+        "epics-cli",
+        "xfel-rf",
+        "undulator-tuning",
+        "xfel-mirror-angle",
+        "xfel-soft-mono",
+        "xfel-bpm-types",
+        "shine-ioc-management",
+        "interlock-latency",
+        "interlock-platform",
+        "cryo-integration",
+        "timing-wrtd",
+        "timing-jitter",
+        "control-slow-interlock",
+        "shine-compressors"
+      ]
+    },
+    "both_miss": {
+      "n": 1,
+      "query_ids": [
+        "shine-ioc-startup"
+      ]
+    }
+  },
+  "corpus_groups": {
+    "EPICS": {
+      "canonical_chunks": 1919,
+      "documents": 2,
+      "eligible_chunks": 1918,
+      "pages": 809
+    },
+    "European XFEL": {
+      "canonical_chunks": 2019,
+      "documents": 4,
+      "eligible_chunks": 2019,
+      "pages": 834
+    },
+    "SHINE": {
+      "canonical_chunks": 599,
+      "documents": 7,
+      "eligible_chunks": 595,
+      "pages": 535
+    }
+  },
+  "coverage": {
+    "candidate_parent": 20,
+    "final_parent": 20.0,
+    "final_winning_passage": 19,
+    "n": 21,
+    "scored_passage": 19
+  },
+  "failures": {
+    "cryo-interlock": {
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "excerpt": "Each cryostat control station has\nthree pairs of DI/DO signal connected to master interlock PLC.",
+              "page": 6
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "excerpt": "Master interlock PLC\nwill execute more complicated safe logic and exchange interlock signals",
+              "page": 6
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-cryogenic-control-system-2021",
+              "excerpt": "a dedicated Complex Programmable Logic Device (CPLD) module with one fiber\nport, sixteen electric ports and LATTICE chip is developed. With one pair of this mod-\nule, electric and optical signal can be converted bidirectional in microsecond level [3].",
+              "page": 6
+            }
+          ]
+        }
+      ],
+      "models": {
+        "E5": {
+          "candidate_depth": 10,
+          "complete_in_candidates": false,
+          "groups_at_5": 0,
+          "matched_candidate_ranks_by_group": [
+            [],
+            [],
+            []
+          ],
+          "required_groups": 3,
+          "top3": [
+            {
+              "canonical_text": "核 技 术 2024, 47: 120203\n\nand the system have been put into online operation for SHINE injector. The response time test results meet the\n\nSHINE operation requirements, and remote control of the system has been implemented based on the EPICS.\n\nKey words Fast interlock, FPGA, Data transmission, FL-net, Response time\n\n上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置\n\n［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV\n\n［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。 SHINE 目前设计有三条波荡器束线，从注入器至波\n\n荡器末端装置长度约为2 km\n\n［4］，SHINE 装置的总体 示意图如图1所示。加速器联锁系统可以在故障发 生时对加速器的关键设备提供及时有效的保护，避 免机器损坏\n\n［5］。同时，联锁系统还需要将报警信息 上传至上层控制系统，提醒操作人员进行相应的操 作和处理，并提供机器状态指示、历史记录查询等 功能\n\n［6］。\n\n由于上海硬X射线自由电子激光装置具有高重\n\n复频率、高稳定性等特点，联锁系统单节点响应时间 应小于10 µs，节点间的响应时间应小于100 µs。传\n\n统基于可编程逻辑控制器（Programmable Logic Controller，PLC）的联锁系统响应时间仅在毫秒量\n\n级\n\n［7］，因此，快联锁系统需要采用基于现场可编程门\n\n阵列（Field Programmable Gate Array，FPGA）的技术\n\n路线\n\n［8］。为区别于快联锁系统，基于传统PLC IO模\n\n块的联锁系统称为慢联锁系统。其次，SHINE 装置\n\n的总长度达到3 100 m，联锁系统的站点数量、信号\n\n数量和种类以及地理分布范围都随之扩大，联锁站\n\n点预计达到100个。如何实现大规模系统架构下特\n\n殊信号的传输和共享，也是联锁系统设计中需要解\n\n决和考虑的问题。基于以上需求，SHINE 需搭建一\n\n套基于FPGA+PLC的联锁系统，并且对站点间的信 号交互，包含机器的运行模式进行设计与开发。\n\n1 快联锁结构和开发环境",
+              "chunk_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b",
+              "cosine_score": 0.8932681991098551,
+              "document": "SHINE 加速器快联锁系统设计与开发",
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 2,
+              "passage_excerpt": "核 技 术 2024, 47: 120203\n\nand the system have been put into online operation for SHINE injector. The response time test results meet the\n\nSHINE operation requirements, and remote control of the system has been implemented based on the EPICS.\n\nKey words Fast interlock, FPGA, Data transmission, FL-net, Response time\n\n上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置\n\n［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV\n\n［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。 SHINE 目前设计有三条波荡器束线，从注入器至波\n\n荡器末端装置长度约为2 km\n\n［4］，SHINE 装置的总体 示意图如图1所示。加速器联锁系统可以在故障发 生时对加速器的关键设备提供及时有效的保护，避 免机器损坏\n\n［5］。同时，联锁系统还需要将报警信息 上传至上层控制系统，提醒操作人员进行相应的操 作和处理，并提供机器状态指示、历史记录查询等 功能\n\n［6］。\n\n由于上海硬X射线自由电子激光装置具有高重\n\n复频率、高稳定性等特点，联锁系统单节点响应时间 应小于10 µs，节点间的响应时间应小于100 µs。传\n\n统基于可编程逻辑控制器（Programmable Logic Controller，PLC）的联锁系统响应时间仅在毫秒量\n\n级\n\n［7］，因此，快联锁系统需要采用基于现场可编程门\n\n阵列（Field Programmable Gate Array，FPGA）的技术\n\n路线\n\n［8］。为区别于快联锁系统，基于传统PLC IO模\n\n块的联锁系统称为慢联锁系统。其次，SHINE 装置\n\n的总长度达到3 100 m，联锁系统的站点数量、信号\n\n数量和种类以及地理分布范围都随之扩大，联锁站",
+              "passage_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b:p:3088e5456f3ffdc72576b3f7579cddcbf20d5b4718de4b098b1a6eebd7b6e186",
+              "rank": 1
+            },
+            {
+              "canonical_text": "核 技 术 2024, 47: 120203\n\n对PLC 地址寄存器的访问。基于快慢联锁之间数 据通讯程序的开发，EPICS 远程控制系统可以获取 整个联锁系统包含基于FPGA的快联锁系统的任意 相关数据，实现联锁系统的远程监测与控制。 SHINE 控制系统的界面选用PyDM（Python Display Manager）进行设计与开发，可结合Archiver Appliance和CSS Alarm等多种上层应用软件获取联 锁系统的数据信息。\n\n3 系统设计与结构\n\nSHINE 联锁系统信号量庞大且地理分布广，因\n\n此系统整体采用“主站+综合站+子站”分层的结构 设计。每个站点都由快联锁和慢联锁两套系统组 成，联锁信号的获取和传输不依赖于软件，均采用电 缆连接\n\n［10］。联锁主站用来收集和控制总体级联锁信 号，包括激光光闸的控制、定时触发的允许信号、高 重频的允许信号以及辐射安全联锁信号等。除此之 外，主站还需综合处理和判断各站点发来的综合信 号，实现停束控制、模式控制、中控语音报警、大屏机 器状态显示等一系列功能，如图4所示。\n\n图4 联锁站点间结构和信号交互 Fig.4 Structure and signal interaction between intergrated stations of interlock system\n\n每个加速器段依据需求设立1~2 个综合站点， 对各子站联锁状态和停束信息等信号进行收集和判 断，通过综合站点实现信号的综合和精简，可大大减 少主站处理信号的数量和降低系统的复杂度。\n\n分布在加速器各处的子站位于联锁系统下层， 用来收集和处理本加速器段相关的联锁信号，包含 调制器信号、工艺系统相关信号、真空系统信号（包 含绝热真空、束流真空、耦合器真空的预警/报警以 及泵电源报警信息等）、阀门控制（插板阀和快阀）、\n\n准直器报警信号、束测系统（包含丝扫描、profile、 BPM 和束损报警信号）、相关电源系统报警信息 等\n\n［11］。本地相关的联锁逻辑判断和输出全部在子站 内处理和执行，并且将本段的信号状态进行综合，最 终上传至联锁主站，由主站结合加速器相关调试需 求和保护逻辑进行进一步的上层处理。\n\n在子站接入的各系统联锁输入信号中，对联锁 响应速率要求高、需要快速踢束的信号接入快联锁 系统，例如束测系统的SBPM、CBPM、Cold-BPM、束",
+              "chunk_id": "shine-accelerator-fast-interlock-2024:aae02c59d825aff4aeea7aba93cbe89b3f572cde5688850c012d93e8a027a748",
+              "cosine_score": 0.8879559335620807,
+              "document": "SHINE 加速器快联锁系统设计与开发",
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 4,
+              "passage_excerpt": "核 技 术 2024, 47: 120203\n\n对PLC 地址寄存器的访问。基于快慢联锁之间数 据通讯程序的开发，EPICS 远程控制系统可以获取 整个联锁系统包含基于FPGA的快联锁系统的任意 相关数据，实现联锁系统的远程监测与控制。 SHINE 控制系统的界面选用PyDM（Python Display Manager）进行设计与开发，可结合Archiver Appliance和CSS Alarm等多种上层应用软件获取联 锁系统的数据信息。\n\n3 系统设计与结构\n\nSHINE 联锁系统信号量庞大且地理分布广，因\n\n此系统整体采用“主站+综合站+子站”分层的结构 设计。每个站点都由快联锁和慢联锁两套系统组 成，联锁信号的获取和传输不依赖于软件，均采用电 缆连接\n\n［10］。联锁主站用来收集和控制总体级联锁信 号，包括激光光闸的控制、定时触发的允许信号、高 重频的允许信号以及辐射安全联锁信号等。除此之 外，主站还需综合处理和判断各站点发来的综合信 号，实现停束控制、模式控制、中控语音报警、大屏机 器状态显示等一系列功能，如图4所示。\n\n图4 联锁站点间结构和信号交互 Fig.4 Structure and signal interaction between intergrated stations of interlock system\n\n每个加速器段依据需求设立1~2 个综合站点， 对各子站联锁状态和停束信息等信号进行收集和判 断，通过综合站点实现信号的综合和精简，可大大减 少主站处理信号的数量和降低系统的复杂度。",
+              "passage_id": "shine-accelerator-fast-interlock-2024:aae02c59d825aff4aeea7aba93cbe89b3f572cde5688850c012d93e8a027a748:p:7f6d47b52192f46e08985bbcb1f13e319e6fd036a90c745b82432801d3c74e1b",
+              "rank": 2
+            },
+            {
+              "canonical_text": "于春蕾等： SHINE加速器快联锁系统设计与开发\n\nover Ethernet for networked control system[C]. 2012\n\nInternational Conference on Systems and Informatics\n\n(ICSAI2012). May 19-20, 2012, Yantai, China. IEEE,\n\n2012: 1621–1625. DOI: 10.1109/ICSAI.2012.6223351.\n\n14 于春蕾, 陈建锋, 张莹, 等. 上海光源储存环机器保护系\n\n统升级[J]. 原子能科学技术, 2020, 54(3): 571–576.\n\nDOI: 10.7538/yzk.2019.youxian.0345.\n\nYU Chunlei, CHEN Jianfeng, ZHANG Ying, et al.\n\nUpgrade of machine protection system in Shanghai\n\nsynchrotron radiation facility storage ring[J]. Atomic\n\nEnergy Science and Technology, 2020, 54(3): 571–576.\n\nDOI: 10.7538/yzk.2019.youxian.0345.\n\n15 Rivers M. Modbus[EB/OL]. [2023-06-03]. https://epics-modbus.readthedocs.io/en/latest/#modbus-data-types.",
+              "chunk_id": "shine-accelerator-fast-interlock-2024:ae04095dfd876f0d7d347ee1e1e867b2fec36c6bffbb5c118731167fefa2b129",
+              "cosine_score": 0.8838110728571182,
+              "document": "SHINE 加速器快联锁系统设计与开发",
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 9,
+              "passage_excerpt": "于春蕾等： SHINE加速器快联锁系统设计与开发\n\nover Ethernet for networked control system[C]. 2012\n\nInternational Conference on Systems and Informatics\n\n(ICSAI2012). May 19-20, 2012, Yantai, China. IEEE,\n\n2012: 1621–1625. DOI: 10.1109/ICSAI.2012.6223351.\n\n14 于春蕾, 陈建锋, 张莹, 等. 上海光源储存环机器保护系\n\n统升级[J]. 原子能科学技术, 2020, 54(3): 571–576.\n\nDOI: 10.7538/yzk.2019.youxian.0345.\n\nYU Chunlei, CHEN Jianfeng, ZHANG Ying, et al.\n\nUpgrade of machine protection system in Shanghai\n\nsynchrotron radiation facility storage ring[J]. Atomic\n\nEnergy Science and Technology, 2020, 54(3): 571–576.\n\nDOI: 10.7538/yzk.2019.youxian.0345.\n\n15 Rivers M. Modbus[EB/OL]. [2023-06-03]. https://epics-modbus.readthedocs.io/en/latest/#modbus-data-types.",
+              "passage_id": "shine-accelerator-fast-interlock-2024:ae04095dfd876f0d7d347ee1e1e867b2fec36c6bffbb5c118731167fefa2b129:p:c2c8367b2749f218b10d97da24216ed75ce545ab497fab46fc3951acc17eccaa",
+              "rank": 3
+            }
+          ]
+        },
+        "Qwen3": {
+          "candidate_depth": 10,
+          "complete_in_candidates": true,
+          "groups_at_5": 3,
+          "matched_candidate_ranks_by_group": [
+            [
+              5
+            ],
+            [
+              1
+            ],
+            [
+              1
+            ]
+          ],
+          "required_groups": 3,
+          "top3": [
+            {
+              "canonical_text": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire. To ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3]. The test results show the time from cryostat control PLC output to master interlock PLC’s. Response is about several tens millisecond. Certainly, there are more interlock conditions will be tested, modified and verified during commissioning stage later.",
+              "chunk_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d",
+              "cosine_score": 0.7172410509233321,
+              "document": "The Cryogenic Control System of SHINE",
+              "document_id": "shine-cryogenic-control-system-2021",
+              "page": 6,
+              "passage_excerpt": "Master interlock PLC will execute more complicated safe logic and exchange interlock signals with refrigerator interlock system by electric wire. To ensure strict time limitation and easy connec-tion, a dedicated Complex Programmable Logic Device (CPLD) module with one fiber port, sixteen electric ports and LATTICE chip is developed. With one pair of this module, electric and optical signal can be converted bidirectional in microsecond level [3]. The test results show the time from cryostat control PLC output to master interlock PLC’s. Response is about several tens millisecond. Certainly, there are more interlock conditions will be tested, modified and verified during commissioning stage later.",
+              "passage_id": "shine-cryogenic-control-system-2021:ddacec98352d4a3364b0ed059ee45daccd318912026ba96e0e2849bf8bc6de8d:p:3e652f7a29a73d3653b00cc5a9c7e2e78477c917106b59352ba8eff6a51a32ba",
+              "rank": 1
+            },
+            {
+              "canonical_text": "Process control The SHINE cryogenic system has several operational modes including cool-down, nor-mal operation, warm-up and quench recovery. During the different operational modes, the low level control logic and loops are written in LADDER or SCL resident in PLC. While in TFCS, especially cryostat controls, the control logic and loops often need to be modified during the test stage. Generally the loops running on the PLCs must work continuously, even momentary interruptions can’t be tolerated whereas a short inter-ruption can be tolerated in IOC. Thus for those non critical controls, such as cryostats operational modes will be implemented by State Notation Language (SNL). With this, IOC reboot is allowed for maintenance and modification, PLC will keep the value of all inputs and outputs when the IOC and PLC communication is broken for a while. The EPICS PID record will be used in IOC, which not only allows easy adjustment of the loop constants and changing the loop parameters, but also provides the digital enabling interface to realize the software protection of the cryogenic system.",
+              "chunk_id": "shine-cryogenic-control-system-2021:415e5ea60d6f8ff88f5539331fc794aca302aa98c9df755100ed6151301841d9",
+              "cosine_score": 0.6972778136510573,
+              "document": "The Cryogenic Control System of SHINE",
+              "document_id": "shine-cryogenic-control-system-2021",
+              "page": 6,
+              "passage_excerpt": "Process control The SHINE cryogenic system has several operational modes including cool-down, nor-mal operation, warm-up and quench recovery. During the different operational modes, the low level control logic and loops are written in LADDER or SCL resident in PLC. While in TFCS, especially cryostat controls, the control logic and loops often need to be modified during the test stage. Generally the loops running on the PLCs must work continuously, even momentary interruptions can’t be tolerated whereas a short inter-ruption can be tolerated in IOC. Thus for those non critical controls, such as cryostats operational modes will be implemented by State Notation Language (SNL). With this, IOC reboot is allowed for maintenance and modification, PLC will keep the value of all inputs and outputs when the IOC and PLC communication is broken for a while. The EPICS PID record will be used in IOC, which not only allows easy adjustment of the loop constants and changing the loop parameters, but also provides the digital enabling interface to realize the software protection of the cryogenic system.",
+              "passage_id": "shine-cryogenic-control-system-2021:415e5ea60d6f8ff88f5539331fc794aca302aa98c9df755100ed6151301841d9:p:881ebb9b9da97b2241da0cda614dce564ccb90d74071bd6aabab891def5ae98f",
+              "rank": 2
+            },
+            {
+              "canonical_text": "核 技 术 2024, 47: 120203\n\nand the system have been put into online operation for SHINE injector. The response time test results meet the\n\nSHINE operation requirements, and remote control of the system has been implemented based on the EPICS.\n\nKey words Fast interlock, FPGA, Data transmission, FL-net, Response time\n\n上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置\n\n［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV\n\n［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。 SHINE 目前设计有三条波荡器束线，从注入器至波\n\n荡器末端装置长度约为2 km\n\n［4］，SHINE 装置的总体 示意图如图1所示。加速器联锁系统可以在故障发 生时对加速器的关键设备提供及时有效的保护，避 免机器损坏\n\n［5］。同时，联锁系统还需要将报警信息 上传至上层控制系统，提醒操作人员进行相应的操 作和处理，并提供机器状态指示、历史记录查询等 功能\n\n［6］。\n\n由于上海硬X射线自由电子激光装置具有高重\n\n复频率、高稳定性等特点，联锁系统单节点响应时间 应小于10 µs，节点间的响应时间应小于100 µs。传\n\n统基于可编程逻辑控制器（Programmable Logic Controller，PLC）的联锁系统响应时间仅在毫秒量\n\n级\n\n［7］，因此，快联锁系统需要采用基于现场可编程门\n\n阵列（Field Programmable Gate Array，FPGA）的技术\n\n路线\n\n［8］。为区别于快联锁系统，基于传统PLC IO模\n\n块的联锁系统称为慢联锁系统。其次，SHINE 装置\n\n的总长度达到3 100 m，联锁系统的站点数量、信号\n\n数量和种类以及地理分布范围都随之扩大，联锁站\n\n点预计达到100个。如何实现大规模系统架构下特\n\n殊信号的传输和共享，也是联锁系统设计中需要解\n\n决和考虑的问题。基于以上需求，SHINE 需搭建一\n\n套基于FPGA+PLC的联锁系统，并且对站点间的信 号交互，包含机器的运行模式进行设计与开发。\n\n1 快联锁结构和开发环境",
+              "chunk_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b",
+              "cosine_score": 0.6787592317639158,
+              "document": "SHINE 加速器快联锁系统设计与开发",
+              "document_id": "shine-accelerator-fast-interlock-2024",
+              "page": 2,
+              "passage_excerpt": "核 技 术 2024, 47: 120203\n\nand the system have been put into online operation for SHINE injector. The response time test results meet the\n\nSHINE operation requirements, and remote control of the system has been implemented based on the EPICS.\n\nKey words Fast interlock, FPGA, Data transmission, FL-net, Response time\n\n上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置\n\n［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV\n\n［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。 SHINE 目前设计有三条波荡器束线，从注入器至波\n\n荡器末端装置长度约为2 km\n\n［4］，SHINE 装置的总体 示意图如图1所示。加速器联锁系统可以在故障发 生时对加速器的关键设备提供及时有效的保护，避 免机器损坏\n\n［5］。同时，联锁系统还需要将报警信息 上传至上层控制系统，提醒操作人员进行相应的操 作和处理，并提供机器状态指示、历史记录查询等 功能\n\n［6］。\n\n由于上海硬X射线自由电子激光装置具有高重\n\n复频率、高稳定性等特点，联锁系统单节点响应时间 应小于10 µs，节点间的响应时间应小于100 µs。传\n\n统基于可编程逻辑控制器（Programmable Logic Controller，PLC）的联锁系统响应时间仅在毫秒量\n\n级\n\n［7］，因此，快联锁系统需要采用基于现场可编程门\n\n阵列（Field Programmable Gate Array，FPGA）的技术\n\n路线\n\n［8］。为区别于快联锁系统，基于传统PLC IO模\n\n块的联锁系统称为慢联锁系统。其次，SHINE 装置\n\n的总长度达到3 100 m，联锁系统的站点数量、信号\n\n数量和种类以及地理分布范围都随之扩大，联锁站\n\n点预计达到100个。如何实现大规模系统架构下特\n\n殊信号的传输和共享，也是联锁系统设计中需要解\n\n决和考虑的问题。基于以上需求，SHINE 需搭建一\n\n套基于FPGA+PLC的联锁系统，并且对站点间的信 号交互，包含机器的运行模式进行设计与开发。\n\n1 快联锁结构和开发环境",
+              "passage_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b:p:7819e841d634860542cac6dc3912922b8cbfb5e27d0ba55679f8a60680f41724",
+              "rank": 3
+            }
+          ]
+        }
+      },
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "reranked_first_complete_rank": 3
+    },
+    "shine-ioc-startup": {
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "excerpt": "the installation path, the startup time, \nthe record lists, and so on.",
+              "page": 2
+            },
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "excerpt": "The IOC panel as shown in Figure 8 will display not only \nthe running information of the IOC, but also all the records \nincluded in the IOC. The information of the IOC includes \nthe installation path, the startup time, epics ca server port, \nepics ca repeater port, running status,",
+              "page": 3
+            }
+          ]
+        },
+        {
+          "alternatives": [
+            {
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "excerpt": "IP address, epics ca server \nport,  epics ca repeater port and lists of the record for an \nIOC.",
+              "page": 3
+            }
+          ]
+        }
+      ],
+      "models": {
+        "E5": {
+          "candidate_depth": 10,
+          "complete_in_candidates": false,
+          "groups_at_5": 0,
+          "matched_candidate_ranks_by_group": [
+            [],
+            []
+          ],
+          "required_groups": 2,
+          "top3": [
+            {
+              "canonical_text": "通道信息管理\n\n 完成通道信息管理软件核心模块开发\n\n 将控制系统中的IOC信息、Record信息纳入数据库管理\n\n 所有IOC的静态信息（地址、端口、...），状态信息（连接、...）\n\n 所有Record的名称、类型、域定义情况，以及访问权限、合法性等\n\n软件著作权登记 数据库设计",
+              "chunk_id": "shine-accelerator-control-system-design-presentation:7fea3c0866c750c74466235f789309d88896e2ac489d7f5bbaeaea5ad97b5996",
+              "cosine_score": 0.8869227957987444,
+              "document": "SHINE 加速器控制系统设计与开发",
+              "document_id": "shine-accelerator-control-system-design-presentation",
+              "page": 28,
+              "passage_excerpt": "通道信息管理\n\n 完成通道信息管理软件核心模块开发\n\n 将控制系统中的IOC信息、Record信息纳入数据库管理\n\n 所有IOC的静态信息（地址、端口、...），状态信息（连接、...）\n\n 所有Record的名称、类型、域定义情况，以及访问权限、合法性等\n\n软件著作权登记 数据库设计",
+              "passage_id": "shine-accelerator-control-system-design-presentation:7fea3c0866c750c74466235f789309d88896e2ac489d7f5bbaeaea5ad97b5996:p:0646a34307f529bc7de02f7d93761e174d98857c7eaf5fccc6460588aaba27b3",
+              "rank": 1
+            },
+            {
+              "canonical_text": "CSS是否是最合适的用户界面？\n\n全局网络环境下，一个IOC对应多少台设备最合理？\n\n虚拟化可以整合硬件资源，提高控制系统可靠性和稳定性；\n\nIOC虚拟化占比多少最合适？\n\n控制系统存储容量多少最合理？\n\n是否需要异地容灾备份？\n\n控制系统是否需要持续集成 (Continue Integrate)？",
+              "chunk_id": "shine-accelerator-control-system-design-presentation:79ceee5073b226d43b0d5d38f53e6bc5ae29c1a4a73ef219021e3def271bdfe9",
+              "cosine_score": 0.8839212436885486,
+              "document": "SHINE 加速器控制系统设计与开发",
+              "document_id": "shine-accelerator-control-system-design-presentation",
+              "page": 10,
+              "passage_excerpt": "CSS是否是最合适的用户界面？\n\n全局网络环境下，一个IOC对应多少台设备最合理？\n\n虚拟化可以整合硬件资源，提高控制系统可靠性和稳定性；\n\nIOC虚拟化占比多少最合适？\n\n控制系统存储容量多少最合理？\n\n是否需要异地容灾备份？\n\n控制系统是否需要持续集成 (Continue Integrate)？",
+              "passage_id": "shine-accelerator-control-system-design-presentation:79ceee5073b226d43b0d5d38f53e6bc5ae29c1a4a73ef219021e3def271bdfe9:p:2366c9ab442c1dad6570a9455ba4abc8f9af56d9b6eb61325286af8f2da12666",
+              "rank": 2
+            },
+            {
+              "canonical_text": "波形数据采集\n\n 分布式数据采集、集中式数据处理和存储\n\n 事件触发模式下高速数据的全局锁存机制\n\n 束流参数相关分析、机器故障诊断等功能\n\n数据结构定义\n\n锁存机制设计\n\n数据处理与检索\n\n· · ·\n\n通用LXI设备资源管理",
+              "chunk_id": "shine-accelerator-control-system-design-presentation:c974bab1b4639369581c694e815a965edb4c260986cad2d5d5a0210c6e1b2229",
+              "cosine_score": 0.8747109111257417,
+              "document": "SHINE 加速器控制系统设计与开发",
+              "document_id": "shine-accelerator-control-system-design-presentation",
+              "page": 19,
+              "passage_excerpt": "波形数据采集\n\n 分布式数据采集、集中式数据处理和存储\n\n 事件触发模式下高速数据的全局锁存机制\n\n 束流参数相关分析、机器故障诊断等功能\n\n数据结构定义\n\n锁存机制设计\n\n数据处理与检索\n\n· · ·\n\n通用LXI设备资源管理",
+              "passage_id": "shine-accelerator-control-system-design-presentation:c974bab1b4639369581c694e815a965edb4c260986cad2d5d5a0210c6e1b2229:p:319456297a53065e801a6362775d9eee028219078ed10442d1f32c0c61e89c36",
+              "rank": 3
+            }
+          ]
+        },
+        "Qwen3": {
+          "candidate_depth": 10,
+          "complete_in_candidates": false,
+          "groups_at_5": 1,
+          "matched_candidate_ranks_by_group": [
+            [
+              1,
+              3
+            ],
+            []
+          ],
+          "required_groups": 2,
+          "top3": [
+            {
+              "canonical_text": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC. The information of the IOC includes the installation path, the startup time, epics ca server port, epics ca repeater port, running status, the number of con-nected and unconnected records. The record panel shown in Figure 9 displays all the fields’ information.\n\nFigure 8: Display interface of the IOC.\n\nFigure 9: Display interface of the record.\n\nCONCLUSION We succeed in developing EPICS IOC and PVs information management system for SHINE. MySQL database is utilized to store all the information, of which the running data from the control system is fetched via PSI CA interfaces and the running states of servers are obtained via SSH protocol. The web service allows web pages to render for the information in MySQL database. The system has been operating stably for more than one year in the cryomodule test facility for SHINE [6]. With this system, we can easily and fully grasp the holistic control system operation.",
+              "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:1932c96141925c86a65dfa6e099ba4ccedb9d73bc4a8de6a17d5d405d2544981",
+              "cosine_score": 0.7035611676107767,
+              "document": "EPICS IOC and PVs Information Management System for SHINE",
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 3,
+              "passage_excerpt": "The IOC panel as shown in Figure 8 will display not only the running information of the IOC, but also all the records included in the IOC. The information of the IOC includes the installation path, the startup time, epics ca server port, epics ca repeater port, running status, the number of con-nected and unconnected records. The record panel shown in Figure 9 displays all the fields’ information.\n\nFigure 8: Display interface of the IOC.\n\nFigure 9: Display interface of the record.\n\nCONCLUSION We succeed in developing EPICS IOC and PVs information management system for SHINE. MySQL database is utilized to store all the information, of which the running data from the control system is fetched via PSI CA interfaces and the running states of servers are obtained via SSH protocol. The web service allows web pages to render for the information in MySQL database. The system has been operating stably for more than one year in the cryomodule test facility for SHINE [6]. With this system, we can easily and fully grasp the holistic control system operation.",
+              "passage_id": "shine-epics-ioc-pv-information-management-pcapac2022:1932c96141925c86a65dfa6e099ba4ccedb9d73bc4a8de6a17d5d405d2544981:p:854ef5c05e4d11abba6cc004a845e45cc74aa9171913a060b845892d70d69b93",
+              "rank": 1
+            },
+            {
+              "canonical_text": "Abstract\n\nFor Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE), EPICS is adopted as standard to build the complex control system which involves hundreds of IOCs and millions of records. Most of IOCs run in in-dustrial control computers as soft IOC. However, with the large amount of PVs, the need has emerged to develop re-mote tools to monitor all the channels and IOCs. One application backed by MySQL is designed, running periodi-cally to interact with EPICS system where to take data from run-time databases via Channel Access and pvAccess. We embed scripting codes into the IOC startup script to realize that as soon as the IOC starts up, the information of the server’s address, the IOC installation path, and all the records maintained by the IOC will be automatically pushed to the application and then stored in the database. With this necessary information, we could access all the active IOCs and PVs. Another web application is designed to render servers, IOCs and PVs data in MySQL on the web to give us an overall running status of the control system.",
+              "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:6b532252b1d9b5d12ff2e3846095924490c1864b4f7f864b57d511bf95da5bd2",
+              "cosine_score": 0.6934800602292704,
+              "document": "EPICS IOC and PVs Information Management System for SHINE",
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 1,
+              "passage_excerpt": "Abstract\n\nFor Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE), EPICS is adopted as standard to build the complex control system which involves hundreds of IOCs and millions of records. Most of IOCs run in in-dustrial control computers as soft IOC. However, with the large amount of PVs, the need has emerged to develop re-mote tools to monitor all the channels and IOCs. One application backed by MySQL is designed, running periodi-cally to interact with EPICS system where to take data from run-time databases via Channel Access and pvAccess. We embed scripting codes into the IOC startup script to realize that as soon as the IOC starts up, the information of the server’s address, the IOC installation path, and all the records maintained by the IOC will be automatically pushed to the application and then stored in the database. With this necessary information, we could access all the active IOCs and PVs. Another web application is designed to render servers, IOCs and PVs data in MySQL on the web to give us an overall running status of the control system.",
+              "passage_id": "shine-epics-ioc-pv-information-management-pcapac2022:6b532252b1d9b5d12ff2e3846095924490c1864b4f7f864b57d511bf95da5bd2:p:0f09e671f144324660fa1e8e24ebf352c4b0abf862c52380c697e67ff79f88ea",
+              "rank": 2
+            },
+            {
+              "canonical_text": "Figure 5: PV Service Architecture. To be specific, the operation process of PV Service is divided into three stages: register, scanning and updating. First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on. All the information is automatically written to a text file, which is then delivered to the\n\n108 Data Acquisition and Data Storage, Data Analysis",
+              "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:cdb4a73a10acf985b22603c61315537abad1221be890ead9d73ed16c180e4355",
+              "cosine_score": 0.6713617765674578,
+              "document": "EPICS IOC and PVs Information Management System for SHINE",
+              "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+              "page": 2,
+              "passage_excerpt": "Figure 5: PV Service Architecture. To be specific, the operation process of PV Service is divided into three stages: register, scanning and updating. First of all, necessary scripts (Figure 6) are embedded into the startup shell (st.cmd) in order to obtain the information of the IOC, such as the installation path, the startup time, the record lists, and so on. All the information is automatically written to a text file, which is then delivered to the\n\n108 Data Acquisition and Data Storage, Data Analysis",
+              "passage_id": "shine-epics-ioc-pv-information-management-pcapac2022:cdb4a73a10acf985b22603c61315537abad1221be890ead9d73ed16c180e4355:p:2c94a33351acebf69d2653a27205b09e3e8d5751ecee1a735ebbb5a8fb1067d0",
+              "rank": 3
+            }
+          ]
+        }
+      },
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "reranked_first_complete_rank": 0
+    },
+    "xfel-normal-energy": {
+      "evidence_groups": [
+        {
+          "alternatives": [
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "excerpt": "energies of up to 20 GeV\n(17.5 GeV is the energy foreseen for the standard mode of operation of the XFEL facility).",
+              "page": 21
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "excerpt": "energies of up to 20 GeV\n(17.5 GeV is the energy foreseen for normal operation of the XFEL Facility).",
+              "page": 57
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "excerpt": "The beam\nenergy required for 0.1 nm photon wavelength in the SASE 1 and SASE 2 beamlines is\n17.5 GeV. The linac design energy of 20 GeV thus already includes the potential to reach\na lower wavelength of about 0.08 nm.",
+              "page": 67
+            },
+            {
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "excerpt": "Energy for 0.1nm wavelength (maximum design energy)\n17.5 GeV (20 GeV)",
+              "page": 68
+            }
+          ]
+        }
+      ],
+      "models": {
+        "E5": {
+          "candidate_depth": 10,
+          "complete_in_candidates": false,
+          "groups_at_5": 0,
+          "matched_candidate_ranks_by_group": [
+            []
+          ],
+          "required_groups": 1,
+          "top3": [
+            {
+              "canonical_text": "3. 主加速器\n\n3.1 主加速器物理\n\n主加速器的作用是将注入器产生电子束团的能量从100MeV 左右提高到\n\n8GeV；同时通过束团压缩系统将电子束的长度从几个皮秒压缩到几十个飞秒。\n\n在对电子束的加速和压缩的过程中，在保证电子束团的品质不发生明显下降的同\n\n时，还要保证电子束的轨道、能量、流强和到达时间等参数的稳定性，以满足电\n\n子束在波荡器中辐射的要求。硬X 射线自由电子激光装置对主加速器出口的束\n\n流参数要求如表3.3.3.1-1 所示：\n\n表3.3.3.1-1 SCLF 主加速器的主要性能指标\n\n名称 数值\n\n电子束能量（GeV） 8\n\n切片能散（RMS） <0.01%\n\n归一化切片发射度（mm-mrad） 0.2-0.7\n\n电荷量（pC） 10-300\n\n最高重复频率（MHz） 1\n\n峰值流强（A） 500-3000\n\n束团长度（μm，rms） 8\n\n3.1.1 布局\n\n自从LCLS 装置于2009 年实现0.15nm 硬X 射线自由电子激光的出光并达\n\n到饱和起，在其后的几年中，世界上X 射线自由电子激光装置获得了极大的发\n\n展。日本的SACLA、韩国的PAL-FEL 都先后实现了硬X 射线自由电子激光的\n\n饱和出光。意大利FERMI@ELETTRA 装置则基于Seeded FEL 工作模式实现了\n\n软X 射线自由电子激光的出光及用户实验。此外，我国的X 射线自由电子激光\n\n试验装置SCLF 和瑞士的Swiss-FEL 也进入了安装调试阶段。\n\n除了基于常温加速结构的自由电子激光装置，基于超导高频技术的高重复频\n\n率自由电子激光由于其明显的性能优势越来越受到科学界的重视。德国DESY\n\n在基于超导技术的X 射线自由电子激光装置研究上一直走在世界的前列，\n\nFLASH 即为基于超导宏脉冲模式的软X 射线自由电子激光装置，而经过了近十\n\n年研制和发展，由十几个国家联合研制的European XFEL 装置已于2017 年5 月",
+              "chunk_id": "shine-accelerator-preliminary-design-report-2017:5b41bd7b2775af04f235849ab045b68eec206ed441535409dc83bb395c1937f9",
+              "cosine_score": 0.8795909298075808,
+              "document": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 59,
+              "passage_excerpt": "3. 主加速器\n\n3.1 主加速器物理\n\n主加速器的作用是将注入器产生电子束团的能量从100MeV 左右提高到\n\n8GeV；同时通过束团压缩系统将电子束的长度从几个皮秒压缩到几十个飞秒。\n\n在对电子束的加速和压缩的过程中，在保证电子束团的品质不发生明显下降的同\n\n时，还要保证电子束的轨道、能量、流强和到达时间等参数的稳定性，以满足电\n\n子束在波荡器中辐射的要求。硬X 射线自由电子激光装置对主加速器出口的束\n\n流参数要求如表3.3.3.1-1 所示：\n\n表3.3.3.1-1 SCLF 主加速器的主要性能指标\n\n名称 数值\n\n电子束能量（GeV） 8\n\n切片能散（RMS） <0.01%\n\n归一化切片发射度（mm-mrad） 0.2-0.7\n\n电荷量（pC） 10-300\n\n最高重复频率（MHz） 1\n\n峰值流强（A） 500-3000\n\n束团长度（μm，rms） 8\n\n3.1.1 布局\n\n自从LCLS 装置于2009 年实现0.15nm 硬X 射线自由电子激光的出光并达\n\n到饱和起，在其后的几年中，世界上X 射线自由电子激光装置获得了极大的发\n\n展。日本的SACLA、韩国的PAL-FEL 都先后实现了硬X 射线自由电子激光的\n\n饱和出光。意大利FERMI@ELETTRA 装置则基于Seeded FEL 工作模式实现了\n\n软X 射线自由电子激光的出光及用户实验。此外，我国的X 射线自由电子激光\n\n试验装置SCLF 和瑞士的Swiss-FEL 也进入了安装调试阶段。\n\n除了基于常温加速结构的自由电子激光装置，基于超导高频技术的高重复频\n\n率自由电子激光由于其明显的性能优势越来越受到科学界的重视。德国DESY\n\n在基于超导技术的X 射线自由电子激光装置研究上一直走在世界的前列，",
+              "passage_id": "shine-accelerator-preliminary-design-report-2017:5b41bd7b2775af04f235849ab045b68eec206ed441535409dc83bb395c1937f9:p:ffb90ead66d07c0a6dc61b66c73c7fa52f0db8af4a279da46c743ee67223071f",
+              "rank": 1
+            },
+            {
+              "canonical_text": "位置的剩余磁场要小于0.5μT，即5 mG，式中R0=3.6 nΩ/μT，R1=0.75×10-2\n\nnΩ/μT/mT。\n\n����= ��+ ��������\n\n超导腔的最佳耦合度与束流强度相关，一般设计使建立腔压所需的功率最小。\n\n当加速梯度Eacc=16MV/m、Q0=2.7×1010，峰值麦克风效应引起的频率失谐为δf=10\n\nHz 时，利用下式可以求出最佳耦合度βopt=656，进而得到此时耦合器的外部品质\n\n因数为Qe=4.12×107。\n\n����= [ �+ ����(�/�)\n\n��\n\n�\n\n+ �����\n\n��\n\n�\n\n]�/�\n\n��= ��/����\n\n（2）3.9GHz 超导腔\n\nSCLF 将安装16 支3.9GHz 超导腔，在2K 工作下，加速梯度14MV/m、\n\nQ0=2.0×109。根据European XFEL 3.9GHz 超导腔的经验，模拟显示在3992MHz\n\n处存在着偶极子高次模，该模式电磁场集中于主耦合器、末单元和束管区域；在\n\n加工和化学表面处理后，实际测量显示频率会下移几十MHz 至3900MHz 附近，\n\n造成HOM notch 调节的困难。为了增加最低频率的偶极子高次模与加速模式的\n\n距离，与LCLS-II 只改变束管不同，SCLF 3.9GHz 腔的末单元被重新设计并直接\n\n连接至直径为38mm 的束管。图3.3.3.2-4 给出了SCLF 3.9GHz 末单元结构示意\n\n图，并将其与内单元及European XFEL 和LCLS-II 的末单元结构作比较。图\n\n3.3.3.2-5 给出了SCLF 3.9GHz 离加速模式最近的偶极子高次模电场分布示意图。\n\n图3.3.3.2-4 SCLF 3.9GHz 腔末单元结构示意图（其中EC 指末单元EndCell）",
+              "chunk_id": "shine-accelerator-preliminary-design-report-2017:236a227e1101bfab2e32bdc135b766a9c399c3ad8332d18038ab99ffad8b0418",
+              "cosine_score": 0.8784611198752685,
+              "document": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 83,
+              "passage_excerpt": "位置的剩余磁场要小于0.5μT，即5 mG，式中R0=3.6 nΩ/μT，R1=0.75×10-2\n\nnΩ/μT/mT。\n\n����= ��+ ��������\n\n超导腔的最佳耦合度与束流强度相关，一般设计使建立腔压所需的功率最小。\n\n当加速梯度Eacc=16MV/m、Q0=2.7×1010，峰值麦克风效应引起的频率失谐为δf=10\n\nHz 时，利用下式可以求出最佳耦合度βopt=656，进而得到此时耦合器的外部品质\n\n因数为Qe=4.12×107。\n\n����= [ �+ ����(�/�)\n\n��\n\n�\n\n+ �����\n\n��\n\n�\n\n]�/�\n\n��= ��/����\n\n（2）3.9GHz 超导腔\n\nSCLF 将安装16 支3.9GHz 超导腔，在2K 工作下，加速梯度14MV/m、\n\nQ0=2.0×109。根据European XFEL 3.9GHz 超导腔的经验，模拟显示在3992MHz\n\n处存在着偶极子高次模，该模式电磁场集中于主耦合器、末单元和束管区域；在\n\n加工和化学表面处理后，实际测量显示频率会下移几十MHz 至3900MHz 附近，\n\n造成HOM notch 调节的困难。为了增加最低频率的偶极子高次模与加速模式的\n\n距离，与LCLS-II 只改变束管不同，SCLF 3.9GHz 腔的末单元被重新设计并直接\n\n连接至直径为38mm 的束管。图3.3.3.2-4 给出了SCLF 3.9GHz 末单元结构示意\n\n图，并将其与内单元及European XFEL 和LCLS-II 的末单元结构作比较。图\n\n3.3.3.2-5 给出了SCLF 3.9GHz 离加速模式最近的偶极子高次模电场分布示意图。\n\n图3.3.3.2-4 SCLF 3.9GHz 腔末单元结构示意图（其中EC 指末单元EndCell）",
+              "passage_id": "shine-accelerator-preliminary-design-report-2017:236a227e1101bfab2e32bdc135b766a9c399c3ad8332d18038ab99ffad8b0418:p:a3222e9c479f06b4f329d888a8509fccf5f7a91ff57561d7f8d6612ab622a199",
+              "rank": 2
+            },
+            {
+              "canonical_text": "图3.3.4.1-35 FEL 辐射性能随着波荡器LATTICE 结构的变化。(a)12.4keV；(b)25keV。\n\n4.1.5.2 电子束团参数灵敏性分析\n\nFEL 输出性能完全取决于电子束团品质，图3.3.4.1-36 扫描了FEL-I 中\n\n12.4keV 辐射的饱和功率以及增益长度随着电子束团参数的变化情况。可以看出，\n\n电子束发射度和峰值流强在一定程度上可以相互补偿，这也为直线加速器的性能\n\n指标带来一定的灵活性。\n\n图3.3.4.1-36 FEL-I 辐射12.4keV 性能随着电子束团参数的变化\n\n除此之外，电子束团能从目前1.5kA 提升到3.0kA，抑或从100pC 增加到\n\n200pC，将会对SCLF 输出性能提升有很大的帮助。图3.3.4.1-37 给出了FEL-I\n\n在Self-seeding 模式12.4keV 光子能量的增益曲线。如果波荡器在合适位置引入\n\n1.8×10-4/m 的渐变，可以将FEL 脉冲能量从240μJ 提高到693μJ。",
+              "chunk_id": "shine-accelerator-preliminary-design-report-2017:015b678ae3eeb30da6f3b8e67ff8a8c678589c9b3cdda22a13400caa5f6b67e9",
+              "cosine_score": 0.876423796422597,
+              "document": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+              "document_id": "shine-accelerator-preliminary-design-report-2017",
+              "page": 188,
+              "passage_excerpt": "图3.3.4.1-35 FEL 辐射性能随着波荡器LATTICE 结构的变化。(a)12.4keV；(b)25keV。\n\n4.1.5.2 电子束团参数灵敏性分析\n\nFEL 输出性能完全取决于电子束团品质，图3.3.4.1-36 扫描了FEL-I 中\n\n12.4keV 辐射的饱和功率以及增益长度随着电子束团参数的变化情况。可以看出，\n\n电子束发射度和峰值流强在一定程度上可以相互补偿，这也为直线加速器的性能\n\n指标带来一定的灵活性。\n\n图3.3.4.1-36 FEL-I 辐射12.4keV 性能随着电子束团参数的变化\n\n除此之外，电子束团能从目前1.5kA 提升到3.0kA，抑或从100pC 增加到\n\n200pC，将会对SCLF 输出性能提升有很大的帮助。图3.3.4.1-37 给出了FEL-I\n\n在Self-seeding 模式12.4keV 光子能量的增益曲线。如果波荡器在合适位置引入\n\n1.8×10-4/m 的渐变，可以将FEL 脉冲能量从240μJ 提高到693μJ。",
+              "passage_id": "shine-accelerator-preliminary-design-report-2017:015b678ae3eeb30da6f3b8e67ff8a8c678589c9b3cdda22a13400caa5f6b67e9:p:bb3ddda5c1bb895319d85da2277566c057b4f01a0dde23820617a5b0ad763544",
+              "rank": 3
+            }
+          ]
+        },
+        "Qwen3": {
+          "candidate_depth": 10,
+          "complete_in_candidates": true,
+          "groups_at_5": 1,
+          "matched_candidate_ranks_by_group": [
+            [
+              2
+            ]
+          ],
+          "required_groups": 1,
+          "top3": [
+            {
+              "canonical_text": "Up to the present time (summer 2006), the maximum beam energy is limited at approximately 730 MeV, since only five TESLA Modules are installed yet, with some cavities limited in gradient.\n\nThe new tunnel built to house the additional accelerator modules, the collimator, and the undulator sections, has a circular cross section to mimic the tunnel for a future linear collider and for the X-Ray Free-Electron Laser (XFEL).\n\nTable 2.3.1 shows a few key parameters of FLASH. It is obvious that, in spite of a factor of 1,000 difference in wavelength, the respective requirements on the electron beam invariants for the FLASH and the XFEL do not differ very much.",
+              "chunk_id": "european-xfel-full-technical-design-report-2007:007889670af2bac9b9c1295535a28003a6f2efa81396cfdd2c450fd84100b3d7",
+              "cosine_score": 0.6971383919703321,
+              "document": "The European X-Ray Free-Electron Laser Technical Design Report",
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 44,
+              "passage_excerpt": "Up to the present time (summer 2006), the maximum beam energy is limited at approximately 730 MeV, since only five TESLA Modules are installed yet, with some cavities limited in gradient.\n\nThe new tunnel built to house the additional accelerator modules, the collimator, and the undulator sections, has a circular cross section to mimic the tunnel for a future linear collider and for the X-Ray Free-Electron Laser (XFEL).\n\nTable 2.3.1 shows a few key parameters of FLASH. It is obvious that, in spite of a factor of 1,000 difference in wavelength, the respective requirements on the electron beam invariants for the FLASH and the XFEL do not differ very much.",
+              "passage_id": "european-xfel-full-technical-design-report-2007:007889670af2bac9b9c1295535a28003a6f2efa81396cfdd2c450fd84100b3d7:p:0b78b5ed055d1274cd171150e32934639b7482116b46c3200eeae7b4c7b35206",
+              "rank": 1
+            },
+            {
+              "canonical_text": "The basic functions of the main components are schematically described in the following: In the injector, electron bunches are extracted from a solid cathode by a laser beam, focused and accelerated by an electron radio frequency (RF) gun and directed towards the linac with an exit energy of 120 MeV. In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility). At the end of the linac, the individual electron bunches are channelled down one or the other of two electron beamlines by the beam distribution system (Figure 3.1.2).",
+              "chunk_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a",
+              "cosine_score": 0.693409545266914,
+              "document": "The European X-Ray Free-Electron Laser Technical Design Report",
+              "document_id": "european-xfel-full-technical-design-report-2007",
+              "page": 57,
+              "passage_excerpt": "The basic functions of the main components are schematically described in the following: In the injector, electron bunches are extracted from a solid cathode by a laser beam, focused and accelerated by an electron radio frequency (RF) gun and directed towards the linac with an exit energy of 120 MeV. In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility). At the end of the linac, the individual electron bunches are channelled down one or the other of two electron beamlines by the beam distribution system (Figure 3.1.2).",
+              "passage_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a:p:96f728c6d3b0c1015f02f7a56df821e21768b563d514f6d8492a40e1523af55d",
+              "rank": 2
+            },
+            {
+              "canonical_text": "Abstract The European XFEL is a 4th generation synchrotron radiation source, under construction in Hamburg [1,2]. Based on different Free-Electron Laser and spontaneous sources, driven by a 17.5 GeV superconducting accelerator, it will be able to provide several user stations with photons simultaneously. High average and high peak brilliance can be produced due to the superconducting technology. Flexible bunch pattern will allow for optimum tuning to the experiments demands. This paper will present the current planning of the electron beam diagnostics; give an overview of the entire system, as well as details of the main diagnostic systems.\n\nINTRODUCTION The European XFEL (E-XFEL) is an international X-ray FEL user facility close to DESY. It is constructed and will be operated by a limited liability company with shareholders from currently 12 counties. DESY acts as the host laboratory and leads the accelerator consortium, that is in charge for the construction of the accelerator.",
+              "chunk_id": "european-xfel-standard-e-beam-diagnostics-linac2010:d98e748b56b1911014625fbe7b72ab1e1810aed7521376c2444638edfdd5b648",
+              "cosine_score": 0.6861794636204205,
+              "document": "Standard E-Beam Diagnostics for the European-XFEL",
+              "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+              "page": 1,
+              "passage_excerpt": "Abstract The European XFEL is a 4th generation synchrotron radiation source, under construction in Hamburg [1,2]. Based on different Free-Electron Laser and spontaneous sources, driven by a 17.5 GeV superconducting accelerator, it will be able to provide several user stations with photons simultaneously. High average and high peak brilliance can be produced due to the superconducting technology. Flexible bunch pattern will allow for optimum tuning to the experiments demands. This paper will present the current planning of the electron beam diagnostics; give an overview of the entire system, as well as details of the main diagnostic systems.\n\nINTRODUCTION The European XFEL (E-XFEL) is an international X-ray FEL user facility close to DESY. It is constructed and will be operated by a limited liability company with shareholders from currently 12 counties. DESY acts as the host laboratory and leads the accelerator consortium, that is in charge for the construction of the accelerator.",
+              "passage_id": "european-xfel-standard-e-beam-diagnostics-linac2010:d98e748b56b1911014625fbe7b72ab1e1810aed7521376c2444638edfdd5b648:p:d9b4662e08239fede544b4d2500d56783ee251c891b5f32d58c96bd02b96230a",
+              "rank": 3
+            }
+          ]
+        }
+      },
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "reranked_first_complete_rank": 3
+    }
+  },
+  "historical": [
+    {
+      "Hit@5": "0.7142857142857143",
+      "MRR@5": "0.5198412698412699",
+      "condition": "v1",
+      "experiment": "annotation-only rejudgment",
+      "method": "BM25"
+    },
+    {
+      "Hit@5": "0.7619047619047619",
+      "MRR@5": "0.6269841269841271",
+      "condition": "v2",
+      "experiment": "annotation-only rejudgment",
+      "method": "BM25"
+    },
+    {
+      "Hit@5": "0.42857142857142855",
+      "MRR@5": "0.20396825396825397",
+      "condition": "v1",
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-small-zh-v1.5"
+    },
+    {
+      "Hit@5": "0.42857142857142855",
+      "MRR@5": "0.2634920634920635",
+      "condition": "v2",
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-small-zh-v1.5"
+    },
+    {
+      "Hit@5": "0.7619047619047619",
+      "MRR@5": "0.47777777777777775",
+      "condition": "v1",
+      "experiment": "annotation-only rejudgment",
+      "method": "intfloat/multilingual-e5-base"
+    },
+    {
+      "Hit@5": "0.8571428571428571",
+      "MRR@5": "0.5753968253968254",
+      "condition": "v2",
+      "experiment": "annotation-only rejudgment",
+      "method": "intfloat/multilingual-e5-base"
+    },
+    {
+      "Hit@5": "0.6190476190476191",
+      "MRR@5": "0.27539682539682536",
+      "condition": "v1",
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-base-zh-v1.5"
+    },
+    {
+      "Hit@5": "0.6190476190476191",
+      "MRR@5": "0.31111111111111106",
+      "condition": "v2",
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-base-zh-v1.5"
+    },
+    {
+      "Hit@5": "0.38095238095238093",
+      "MRR@5": "0.18015873015873016",
+      "condition": "direct",
+      "experiment": "passage A/B (v1 labels)",
+      "method": "BGE-small-zh"
+    },
+    {
+      "Hit@5": "0.42857142857142855",
+      "MRR@5": "0.20396825396825397",
+      "condition": "passage",
+      "experiment": "passage A/B (v1 labels)",
+      "method": "BGE-small-zh"
+    }
+  ],
+  "input_sha256": {
+    "data/evaluation/retrieval_baseline.json": "f5578371bca4589e8b2011ac4fbea2c17dbef57ab24b811f9247d92954f3ac65",
+    "papers/rag-thesis/README.md": "b219f90710d535ac2a549ea2e30926dc418f9795ce618cf926d58493b7c6790b",
+    "papers/rag-thesis/data/benchmark.csv": "fe8fb567151e7a297dc8a0404ec97a000a4f08ed644f97339427ae6da3e5d7f5",
+    "papers/rag-thesis/data/corpus.csv": "8417127e5e92707ccf726340e94971dbb4a9ab630a84762fed076709c210f546",
+    "papers/rag-thesis/data/evidence-snapshot.json": "bc219fe3edae30312e9d0177e3fc38825f6b6716c64a63779310f1179c3cc3ce",
+    "papers/rag-thesis/data/historical-ablations.csv": "80316e5d4966f59df5d0b0d7f2c96fb327f12261c2690bfc923c0a18816cbf41",
+    "papers/rag-thesis/data/production-latency-20261026.csv": "1ca7c7f9211e007dbfd42c35177f827ce7855a4eb6e8e23d44f3138fa36fa8c2",
+    "papers/rag-thesis/data/query-ranks-v2.csv": "2929c4edd590a9fad101569d19a168d7f6cfd82828f35d9228a48293cfbfc814",
+    "papers/rag-thesis/data/retrieval-metrics-v2.csv": "7bb9873db107d52866b261bbaa86d6f2a5605744c58a850ce23ba4429f572eb1",
+    "papers/rag-thesis/data/source-manifest.json": "c7f9e6a9ee6cef8b9cdee8a7e1c542c3f92df8444d549a9272461b4fac54ea6b",
+    "papers/rag-thesis/equations/all-formulas.latex": "6b347bbaa9bf1e3cb0fac638cc23111d1bef576e38ac785ecc0f172c1bcb21fc",
+    "papers/rag-thesis/equations/eq-01.tex": "273c227bb0921a221304c26c79f8e2f79d84bb375e0ddd6fe999b46168ce5214",
+    "papers/rag-thesis/equations/eq-02.tex": "e10bc83bca19ac49d27d930118ec7ae9ac42f2b06198563190c43a37abf1eaef",
+    "papers/rag-thesis/equations/eq-03.tex": "a45a59053347bb96811eff3678ddf0450cf042422b71cc4020967dd0648179ea",
+    "papers/rag-thesis/equations/eq-04.tex": "9a051fec92a0c4b5a6dc46f85b9146e20a85485cc2dd96b6ee63b30ad146a569",
+    "papers/rag-thesis/equations/eq-05.tex": "263dfa6d5e52b1b17836d4baa4c1c914436e061311630fa96e34aedcd781292b",
+    "papers/rag-thesis/equations/eq-06.tex": "72a4fafdfd5c772f4c355b97d94f89f297a20c624ca9d18e531bc70a5271659d",
+    "papers/rag-thesis/equations/eq-07.tex": "9a66846e3f7d57dc8e22bd82d4d5e0ca10a00b1ded05a356be11dbc59ba982ef",
+    "papers/rag-thesis/equations/eq-08.tex": "e55042521a94f17132be6ec3b4187ebf0f62446b45247c3d12671acd049edd04",
+    "papers/rag-thesis/equations/eq-09.tex": "221e236c3ca99d591b0178748d3d068741bade8b4cd00c12b4c7579d448807e6",
+    "papers/rag-thesis/equations/formula-manifest.json": "4e761c5047af4de6356093c3b38a5da77de3ea06755caf6dc10a2048c157ec05",
+    "papers/rag-thesis/equations/inline-3369cbb783ca.tex": "588bd53b306a49142e8aec4ffe4d7776995e63a6f6ad29ef55ce04253f3d1eca",
+    "papers/rag-thesis/equations/inline-6085358b496d.tex": "718216e7774c2cce792a40913c6fc1ac3ef6bdf97101a3b204d403a287f338ef",
+    "papers/rag-thesis/equations/inline-d1caac7e93d3.tex": "5d10c54490913185c716cde40b283c2c3b5c677275437fe5fe1a3aa5a9157ad2",
+    "papers/rag-thesis/figures/fig01-rag-architecture.pdf": "e18487ccf770d9c477f78d8603b719b50176588ee5a44080d07feef777337768",
+    "papers/rag-thesis/figures/fig01-rag-architecture.png": "90394f02349c64edd16b55d3dc93d447df2e2745fca15ea3d69943d2e7faa0f2",
+    "papers/rag-thesis/figures/fig01-rag-architecture.svg": "1e3ac20c6674ef36e8a1b5a81c0048cd9927e4a80243a2158f31c71531ff9bf3",
+    "papers/rag-thesis/figures/fig02-corpus-composition.pdf": "3167ef86ea14b79f180a5a1b225b3f1f382b57cc59662f0deea5211bd58f27d4",
+    "papers/rag-thesis/figures/fig02-corpus-composition.png": "882f4175e15dd46e0c9d6599a358cc2b7476a818c9e74091c4eb29d6a709a5b9",
+    "papers/rag-thesis/figures/fig02-corpus-composition.svg": "0e52c891f892fd9465deefff3dd5734955b3a543faa1948f98c68876f870c8ce",
+    "papers/rag-thesis/figures/fig03-retrieval-comparison.pdf": "4116fa547b322cbb59899934ab052182cfd8104a9f984101dfe74b5056dc7ea6",
+    "papers/rag-thesis/figures/fig03-retrieval-comparison.png": "ca549d42d54ff079b412e4772b0b152868fd208b607d2bfef6b898d18dda4090",
+    "papers/rag-thesis/figures/fig03-retrieval-comparison.svg": "fd2057a210574d08b75bb61780ae752014a1d4663c218de4393aa9842fcf97b3",
+    "papers/rag-thesis/figures/fig04-query-rank-matrix.pdf": "ee312ebd1ea8ee0c1d48d63aee26503eec060200e88f5e8f68aaaa99851dbb9e",
+    "papers/rag-thesis/figures/fig04-query-rank-matrix.png": "24f29984deb91ab6ff3f706b6b29cbfe7ac567fcaeee1f04be176d16f2f67019",
+    "papers/rag-thesis/figures/fig04-query-rank-matrix.svg": "7aed89900cffff75ccfe89d7aff2ac835e36600f0eaffd6c8682499bc94b319d",
+    "papers/rag-thesis/figures/fig05-controls-and-negative-results.pdf": "fdc853b1a7a38a4ab765f00f6dd9e35c89265c8dba5583ae9b7359ab822e43bc",
+    "papers/rag-thesis/figures/fig05-controls-and-negative-results.png": "c42e44aebc699fc0c293cfc3da6dae9ff98db82e07dfb31c7ae59a7152dc50fd",
+    "papers/rag-thesis/figures/fig05-controls-and-negative-results.svg": "ef7dbd25a184a498d1b47c5dd4bf2d386caeb01683e89b6f408eef2033d4e040",
+    "papers/rag-thesis/figures/fig06-evidence-layer-gap.pdf": "dd318df8842be251b436165d4387e452d18b0867a2658463ee6229a880fcd4f8",
+    "papers/rag-thesis/figures/fig06-evidence-layer-gap.png": "90733eef2ffd86a9b2545f6dc490eca92f0a788cdd212c7a920153145cad456e",
+    "papers/rag-thesis/figures/fig06-evidence-layer-gap.svg": "7ff966a82d9ce4b081354da8d8ee1c295f6da7665d2f505340c5b7a9e057fa9e",
+    "papers/rag-thesis/figures/fig07-grounded-generation-contract.pdf": "8381f5693fa9ce022955c9922558217b6f59b57ce971c4737c550a61f0540560",
+    "papers/rag-thesis/figures/fig07-grounded-generation-contract.png": "07fc3b71a25f3f0dc95ac5acc01b502c81257460ae72529b5a0bc6a77554b904",
+    "papers/rag-thesis/figures/fig07-grounded-generation-contract.svg": "2a5b0425bec93cbe9386d8736324569031cc5cc4a763b7b3b2e402f248afa385",
+    "papers/rag-thesis/figures/fig08-production-validation.pdf": "d2652bcd2196ca567af52c9c25159b8ed672be3389a50043976047a81af4181f",
+    "papers/rag-thesis/figures/fig08-production-validation.png": "f7aeb24a75fd03b92bb86b75b14d613881b163d6de64195468849c1a04c1ddce",
+    "papers/rag-thesis/figures/fig08-production-validation.svg": "3d8d2fd70cac7081d8869bdb086be20c100482c7c486ae88562a6a4a2c7ca674",
+    "papers/rag-thesis/figures/figure-receipts.json": "2ac2ab457685c25a1a61eef049b7bc25dc1d4594dce8a0de6d3bef71d10619e1",
+    "papers/rag-thesis/figures/overview.png": "cf7b5d2761b40390df5bd844943bf46312512073e1e2e325fa323c0cf5f340b6",
+    "papers/rag-thesis/qa/validation.json": "4fe4f9ecbad15eb85fe3f3ba9a520f5e2e4e89b2faa1559a6acda398713bf0cb",
+    "papers/rag-thesis/rag-chapter.md": "83dffd1de4bf80da68c79ff2882cce3c02fe3823e84d4ae29a76d2f33aa9e0fa",
+    "reports/rag-production-readiness-20261026.json": "df922c2c73b542edf95c2e64bc026984b2659c09c69769f4e319044fa531818c",
+    "reports/rag-stage-two-eight-multilingual-retrieval.json": "a13ff15aa5ab81ed16bc4eb85cc0cecabe4669b26fb6ce10257d2d00c56da929",
+    "reports/rag-stage-two-eight-two-reranking.json": "fab2d55589eb860162bd8e42779c62c4b68a71a2c4151f84e6b197ce951aae15",
+    "reports/rag-stage-two-seven-embedding-comparison.json": "1c4ef2d9d9b4d4725f602becd21858643fff7ec318ae73f8fca2e3e89bb14752",
+    "tmp/stage-two-eight-two/original-query-candidates.json": "e7e83cf835f7b87a45d374923920ea802ed1da2c678946957e55bfb28fedc317"
+  },
+  "internal_review": {
+    "answered": 20,
+    "audited_counterexample": "shine-ioc-startup",
+    "criterion": "Frozen v2 field inventory; one identified counterexample, not a blind-review prevalence estimate.",
+    "missing_fields": [
+      "启动时间",
+      "CA server端口",
+      "CA repeater端口"
+    ],
+    "observed_overcomplete_count": 1,
+    "observed_overcomplete_lower_bound": 0.05,
+    "requirements": 33,
+    "stored_answer": "在 SHINE 中，通过在 IOC 启动脚本中嵌入脚本代码，IOC 一旦启动，就会自动将服务器地址、IOC 安装路径以及该 IOC 维护的所有记录（records）信息推送到应用程序，并存入数据库。 [1]",
+    "supported": 32
+  },
+  "language": {
+    "cross_language": {
+      "methods": {
+        "BM25": {
+          "Hit@5": 0.0,
+          "hits": 0
+        },
+        "Dual + reranker": {
+          "Hit@5": 0.6666666666666666,
+          "hits": 2
+        },
+        "E5": {
+          "Hit@5": 0.0,
+          "hits": 0
+        },
+        "Qwen3": {
+          "Hit@5": 0.6666666666666666,
+          "hits": 2
+        }
+      },
+      "n": 3
+    },
+    "en": {
+      "methods": {
+        "BM25": {
+          "Hit@5": 0.8461538461538461,
+          "hits": 11
+        },
+        "Dual + reranker": {
+          "Hit@5": 1.0,
+          "hits": 13
+        },
+        "E5": {
+          "Hit@5": 1.0,
+          "hits": 13
+        },
+        "Qwen3": {
+          "Hit@5": 0.8461538461538461,
+          "hits": 11
+        }
+      },
+      "n": 13
+    },
+    "zh": {
+      "methods": {
+        "BM25": {
+          "Hit@5": 0.625,
+          "hits": 5
+        },
+        "Dual + reranker": {
+          "Hit@5": 0.875,
+          "hits": 7
+        },
+        "E5": {
+          "Hit@5": 0.625,
+          "hits": 5
+        },
+        "Qwen3": {
+          "Hit@5": 0.75,
+          "hits": 6
+        }
+      },
+      "n": 8
+    }
+  },
+  "latency": {
+    "all": {
+      "component_means": {
+        "generation_seconds": 2.1830979272490367,
+        "rerank_seconds": 0.22604936722200364,
+        "retrieval_seconds": 0.10321506776381284,
+        "total_seconds": 2.512911149999127
+      },
+      "component_shares": {
+        "generation_seconds": 0.8687525331923476,
+        "orchestration": 0.0002183872534744502,
+        "rerank_seconds": 0.08995517697554972,
+        "retrieval_seconds": 0.04107390257862826
+      },
+      "max": 5.0560234151780605,
+      "mean": 2.512911149999127,
+      "n": 32,
+      "p50": 2.923524871468544,
+      "p95": 4.1517408901825545
+    },
+    "answerable": {
+      "component_means": {
+        "generation_seconds": 3.02824102537263,
+        "rerank_seconds": 0.19457691074127242,
+        "retrieval_seconds": 0.1138359262120156,
+        "total_seconds": 3.337195810817537
+      },
+      "component_shares": {
+        "generation_seconds": 0.9074208398430118,
+        "orchestration": 0.00016239637178672162,
+        "rerank_seconds": 0.058305512104069646,
+        "retrieval_seconds": 0.03411125168113177
+      },
+      "max": 5.0560234151780605,
+      "mean": 3.337195810817537,
+      "n": 21,
+      "p50": 3.1780171170830727,
+      "p95": 4.390894807875156
+    },
+    "negative": {
+      "component_means": {
+        "generation_seconds": 0.5696429217403586,
+        "rerank_seconds": 0.28613314777612686,
+        "retrieval_seconds": 0.08293888345360756,
+        "total_seconds": 0.9392767975276167
+      },
+      "component_shares": {
+        "generation_seconds": 0.6064697043936187,
+        "orchestration": 0.0005981671845857184,
+        "rerank_seconds": 0.30463133820540683,
+        "retrieval_seconds": 0.08830079021638877
+      },
+      "max": 1.3860534504055977,
+      "mean": 0.9392767975276167,
+      "n": 11,
+      "p50": 0.849976971745491,
+      "p95": 1.3065026346594095
+    }
+  },
+  "methods": {
+    "BGE-M3": {
+      "Hit@1": 0.3333333333333333,
+      "Hit@3": 0.7142857142857143,
+      "Hit@5": 0.7619047619047619,
+      "MRR@5": 0.5095238095238095,
+      "hit_count": 16,
+      "n": 21
+    },
+    "BGE-base-zh": {
+      "Hit@1": 0.14285714285714285,
+      "Hit@3": 0.47619047619047616,
+      "Hit@5": 0.6190476190476191,
+      "MRR@5": 0.31111111111111106,
+      "hit_count": 13,
+      "n": 21
+    },
+    "BGE-small-zh": {
+      "Hit@1": 0.19047619047619047,
+      "Hit@3": 0.2857142857142857,
+      "Hit@5": 0.42857142857142855,
+      "MRR@5": 0.2634920634920635,
+      "hit_count": 9,
+      "n": 21
+    },
+    "BM25": {
+      "Hit@1": 0.5238095238095238,
+      "Hit@3": 0.7619047619047619,
+      "Hit@5": 0.7619047619047619,
+      "MRR@5": 0.626984126984127,
+      "hit_ci95": [
+        0.5714285714285714,
+        0.9523809523809523
+      ],
+      "hit_count": 16,
+      "mrr_ci95": [
+        0.4444444444444445,
+        0.8095238095238095
+      ],
+      "n": 21
+    },
+    "Dual + reranker": {
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.8095238095238095,
+      "Hit@5": 0.9523809523809523,
+      "MRR@5": 0.6071428571428571,
+      "hit_ci95": [
+        0.8571428571428571,
+        1.0
+      ],
+      "hit_count": 20,
+      "mrr_ci95": [
+        0.4722222222222222,
+        0.75
+      ],
+      "n": 21
+    },
+    "Dual RRF": {
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.7619047619047619,
+      "Hit@5": 0.9047619047619048,
+      "MRR@5": 0.5785714285714286,
+      "hit_count": 19,
+      "n": 21
+    },
+    "E5": {
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.7142857142857143,
+      "Hit@5": 0.8571428571428571,
+      "MRR@5": 0.5753968253968254,
+      "hit_ci95": [
+        0.6666666666666666,
+        1.0
+      ],
+      "hit_count": 18,
+      "mrr_ci95": [
+        0.4125992063492063,
+        0.7301587301587302
+      ],
+      "n": 21
+    },
+    "E5 + multi-query": {
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.6190476190476191,
+      "Hit@5": 0.7142857142857143,
+      "MRR@5": 0.5158730158730158,
+      "hit_count": 15,
+      "n": 21
+    },
+    "Language router": {
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.7619047619047619,
+      "Hit@5": 0.9047619047619048,
+      "MRR@5": 0.6047619047619047,
+      "hit_count": 19,
+      "n": 21
+    },
+    "Qwen3": {
+      "Hit@1": 0.3333333333333333,
+      "Hit@3": 0.6190476190476191,
+      "Hit@5": 0.8095238095238095,
+      "MRR@5": 0.5111111111111112,
+      "hit_ci95": [
+        0.6190476190476191,
+        0.9523809523809523
+      ],
+      "hit_count": 17,
+      "mrr_ci95": [
+        0.34359126984126986,
+        0.6825793650793649
+      ],
+      "n": 21
+    },
+    "Qwen3 + multi-query": {
+      "Hit@1": 0.3333333333333333,
+      "Hit@3": 0.6190476190476191,
+      "Hit@5": 0.8095238095238095,
+      "MRR@5": 0.48492063492063486,
+      "hit_count": 17,
+      "n": 21
+    }
+  },
+  "multi_query_cost": {
+    "E5": {
+      "answerable_call_multiplier": 3.2857142857142856,
+      "answerable_calls": 69,
+      "call_multiplier": 2.84375,
+      "calls_per_query_distribution": {
+        "1": 1,
+        "2": 11,
+        "3": 12,
+        "4": 8
+      },
+      "hit_delta": -0.1428571428571428,
+      "matched_single_latency_seconds": null,
+      "measured_evaluation_seconds": 111.567865377001,
+      "measured_evaluation_seconds_per_query": 3.486495793031281,
+      "mrr_delta": -0.059523809523809534,
+      "multi_query_calls": 91,
+      "original_calls": 32,
+      "planning_time_seconds": null,
+      "queries_all": 32,
+      "queries_answerable": 21
+    },
+    "Qwen3": {
+      "answerable_call_multiplier": 3.2857142857142856,
+      "answerable_calls": 69,
+      "call_multiplier": 2.84375,
+      "calls_per_query_distribution": {
+        "1": 1,
+        "2": 11,
+        "3": 12,
+        "4": 8
+      },
+      "hit_delta": 0.0,
+      "matched_single_latency_seconds": null,
+      "measured_evaluation_seconds": 138.44584249600302,
+      "measured_evaluation_seconds_per_query": 4.3264325780000945,
+      "mrr_delta": -0.02619047619047632,
+      "multi_query_calls": 91,
+      "original_calls": 32,
+      "planning_time_seconds": null,
+      "queries_all": 32,
+      "queries_answerable": 21
+    }
+  },
+  "old_pairwise_scope": {
+    "models": [
+      "BAAI/bge-small-zh-v1.5",
+      "intfloat/multilingual-e5-base",
+      "BAAI/bge-base-zh-v1.5"
+    ],
+    "note": "Stage 2.7 has no Qwen3 reranker. E5-vs-reranker pairing uses frozen v2 CSV, not earlier model pairwise counts."
+  },
+  "paired": {
+    "both_hit": 18,
+    "both_miss": 1,
+    "discordant": 2,
+    "gain_query_ids": [
+      "xfel-normal-energy",
+      "cryo-interlock"
+    ],
+    "hit_difference": 0.09523809523809523,
+    "hit_difference_ci95": [
+      0.0,
+      0.23809523809523808
+    ],
+    "loss_query_ids": [],
+    "mcnemar_exact_two_sided_p": 0.5,
+    "mrr_difference": 0.03174603174603175,
+    "mrr_difference_ci95": [
+      -0.13095238095238096,
+      0.18660714285714278
+    ],
+    "n": 21
+  },
+  "quantile_method": "linear",
+  "seed": 20261027,
+  "traceability": {
+    "documents": 13,
+    "eligible_chunks": 4532,
+    "pages": 2178
+  }
+}

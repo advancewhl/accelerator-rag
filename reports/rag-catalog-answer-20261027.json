@@ -1,0 +1,539 @@
+{
+  "catalog": {
+    "document_count": 13,
+    "indexed_section_count": 4532,
+    "documents": [
+      {
+        "document_id": "epics-application-developers-guide-r3-16-2",
+        "document_title": "EPICS Application Developer's Guide",
+        "versions": [
+          "R3.16.2 (2018-10-22)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "epics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 847,
+        "page_count": 354,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/epics-application-developers-guide-r3-16-2"
+      },
+      {
+        "document_id": "epics-documentation-latest-2026-08-18",
+        "document_title": "EPICS Documentation",
+        "versions": [
+          "latest (2026-08-18)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "epics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 1071,
+        "page_count": 455,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+      },
+      {
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+        "versions": [
+          "DESY 2006-097 (2007-07)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "accelerator_design"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 1730,
+        "page_count": 646,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+      },
+      {
+        "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+        "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+        "versions": [
+          "LINAC2010 TUP095"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "electron_beam_diagnostics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 13,
+        "page_count": 3,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+      },
+      {
+        "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+        "document_title": "The European XFEL Undulator Commissioning Spectrometer",
+        "versions": [
+          "Rev B, Ver 2 (2011-06-08)"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "photon_diagnostics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 41,
+        "page_count": 21,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-undulator-commissioning-spectrometer-cdr-2011"
+      },
+      {
+        "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+        "document_title": "X-Ray Optics and Beam Transport",
+        "versions": [
+          "XFEL.EU TR-2012-006 (2012-12)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "beam_transport"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 235,
+        "page_count": 164,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+      },
+      {
+        "document_id": "shine-accelerator-control-system-design-presentation",
+        "document_title": "SHINE 加速器控制系统设计与开发",
+        "versions": [
+          "unknown"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "control_architecture"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 33,
+        "page_count": 34,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+      },
+      {
+        "document_id": "shine-accelerator-fast-interlock-2024",
+        "document_title": "SHINE 加速器快联锁系统设计与开发",
+        "versions": [
+          "核技术 47(12):120203 (2024-12)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "interlock"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 18,
+        "page_count": 9,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+      },
+      {
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+        "versions": [
+          "初步设计报告 (2017-12-26)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "accelerator_design"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 477,
+        "page_count": 472,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+      },
+      {
+        "document_id": "shine-control-system-status-icalepcs2019",
+        "document_title": "Status of the SHINE Control System",
+        "versions": [
+          "ICALEPCS2019 WEPHA167"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "control_architecture"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 15,
+        "page_count": 4,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-control-system-status-icalepcs2019"
+      },
+      {
+        "document_id": "shine-cryogenic-control-system-2021",
+        "document_title": "The Cryogenic Control System of SHINE",
+        "versions": [
+          "EPJ Techniques and Instrumentation (2021)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "cryogenics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 22,
+        "page_count": 8,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+      },
+      {
+        "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+        "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+        "versions": [
+          "PCaPAC2022 FRO21"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "ioc"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 13,
+        "page_count": 3,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+      },
+      {
+        "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+        "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+        "versions": [
+          "IPAC2022 THIYGD1"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "timing"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 17,
+        "page_count": 5,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "http_status": 200,
+      "wall_seconds": 8.46,
+      "response": {
+        "status": "answered",
+        "answer": "主加速器基于超导连续波工作模式，采用三级加速、两级压缩的结构设计。 [1]\n\n电子束经第三个加速段L3（54 个模组）由2.1GeV 加速至最终的**8GeV**。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 初步设计中的主加速器采用什么工作模式？",
+            "supported": true,
+            "span_ids": [
+              "S1.4"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 初步设计中的主加速器最终把电子加速到多少能量？",
+            "supported": true,
+            "span_ids": [
+              "S1.17"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 60,
+            "page_end": 60,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:cf8f273a1807979a26bbeb8f961f70b0886235053ba0f7b80ee3989f17712b7b",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9997388124465942,
+            "quote": "硬X 射线自由电子激光装置基于超导连续波工作模式，其主加 速器采用三级加速、两级压缩的结构设计，如图3.4.3.1-1 所示。\n\n主 加速器第三个加速段L3 由54 个模组组成，将电子束的能量由2.1GeV 加速至最 终的8GeV。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.5902924947440624,
+          "rerank_seconds": 0.49705276638269424,
+          "generation_seconds": 7.284790471196175,
+          "total_seconds": 8.373363722115755
+        }
+      }
+    },
+    {
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "http_status": 200,
+      "wall_seconds": 5.821,
+      "response": {
+        "status": "answered",
+        "answer": "慢联锁关键信号响应时间：站内 \\(\\leq 20\\,\\mathrm{ms}\\)。 [1]\n\n慢联锁关键信号响应时间：站间 \\(\\leq 100\\,\\mathrm{ms}\\)。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 控制系统设计中慢联锁的站内响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 控制系统设计中慢联锁的站间响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 21,
+            "page_end": 21,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:4e92201c2cf375a954b2860baf67a725b258f56b1a36a01b061e46d2775928dc",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9996200203895569,
+            "quote": "联锁系统  快联锁 + 慢联锁；主站 + 从站，分层设计 快联锁关键信号响应时间： 站内≤10us，站间≤100us 慢联锁关键信号响应时间： 站内≤20ms，站间≤100ms",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.08918268606066704,
+          "rerank_seconds": 0.3180086798965931,
+          "generation_seconds": 5.403898689895868,
+          "total_seconds": 5.81156512722373
+        }
+      }
+    },
+    {
+      "query": "请分别说明 SHINE 的主加速器模式、最终能量，以及此刻在线的 IOC 数量。",
+      "http_status": 200,
+      "wall_seconds": 5.536,
+      "response": {
+        "status": "partial",
+        "answer": "依据 《SHINE 加速器控制系统设计与开发》（文档未标明版本）；《EPICS IOC and PVs Information Management System for SHINE》（PCaPAC2022 FRO21）；《SHINE 加速器快联锁系统设计与开发》（核技术 47(12):120203 (2024-12)）:\nSHINE 的电子能量为 **8 GeV**。 [1][2][3]\n\n当前资料未能确认：\n- SHINE 的主加速器模式是什么？\n- 此刻在线的 IOC 数量是多少？",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 的主加速器模式是什么？",
+            "supported": false,
+            "span_ids": []
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 的最终能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S3.3",
+              "S5.3"
+            ]
+          },
+          {
+            "id": "R3",
+            "text": "此刻在线的 IOC 数量是多少？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:028145fdcf7f3c6b61a4f50c060f8cf74bff6a85e1b0e1b1d9ae736b70167520",
+            "retrieval_rank": 1,
+            "rerank_score": 0.979667603969574,
+            "quote": " Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE) e-beam : 8 GeV Photon energy : 0.4 ～25 keV Pulse duration : 1～100 fs Repetition : 1 MHz Total length : 3.1 km Underground ~ 29 m SHINE",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          },
+          {
+            "number": 2,
+            "source_id": "S3",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:dbbe5b3ca2a4ae4ff7f7debebe9fc61aa28441bfff953e06bf43c18deaa03696",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9740425944328308,
+            "quote": "SHINE will utilize a photocathode electron gun combined with the superconducting Linac to produce 8 GeV FEL quality electron beams up to 1 MHz repetition rate [1].",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 3,
+            "source_id": "S5",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 2,
+            "page_end": 2,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9603611826896667,
+            "quote": "Key words Fast interlock, FPGA, Data transmission, FL-net, Response time 上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置 ［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV ［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.08118326216936111,
+          "rerank_seconds": 0.2762332782149315,
+          "generation_seconds": 5.167760491371155,
+          "total_seconds": 5.525660768151283
+        }
+      }
+    },
+    {
+      "query": "请对照不同年份文档说明 European XFEL 的常规运行能量与最大能量，保留各自口径。",
+      "http_status": 200,
+      "wall_seconds": 7.181,
+      "response": {
+        "status": "answered",
+        "answer": "2007 年技术设计报告的口径：**17.5 GeV** 是 XFEL 装置常规运行（normal operation）预定的能量。 [1]\n\n依据 《The European X-Ray Free-Electron Laser Technical Design Report》（DESY 2006-097 (2007-07)）:\n2007 年技术设计报告的口径：直线加速器可将电子加速到最高 **20 GeV**。 [1]\n\n依据 《Standard E-Beam Diagnostics for the European-XFEL》（LINAC2010 TUP095）:\n2010 年 LINAC2010 文档的设计束流参数表中，最大能量（Maximum energy）列为 **17.5 GeV**。 [2]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "请对照不同年份的文档，说明 European XFEL 的常规运行能量是多少，并保留各文档各自的表述口径？",
+            "supported": true,
+            "span_ids": [
+              "S4.2"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "请对照不同年份的文档，说明 European XFEL 的最大能量是多少，并保留各文档各自的表述口径？",
+            "supported": true,
+            "span_ids": [
+              "S4.2",
+              "S5.6"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S4",
+            "document_id": "european-xfel-full-technical-design-report-2007",
+            "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+            "document_version": "DESY 2006-097 (2007-07)",
+            "page_start": 57,
+            "page_end": 57,
+            "chunk_id": "european-xfel-full-technical-design-report-2007:66fe8f7d369d58380b218e11f28e1a1c7b82b7b4dc63112857884404967fed2a",
+            "retrieval_rank": 4,
+            "rerank_score": 0.977022647857666,
+            "quote": "In the linac, consisting of a 1.6 km long sequence of superconducting accelerating modules, magnets for beam steering and focusing, and diagnostic equipment, the electrons can be accelerated to energies of up to 20 GeV (17.5 GeV is the energy foreseen for normal operation of the XFEL Facility).",
+            "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+          },
+          {
+            "number": 2,
+            "source_id": "S5",
+            "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+            "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+            "document_version": "LINAC2010 TUP095",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "european-xfel-standard-e-beam-diagnostics-linac2010:57008e67519a847d601128f9574ea963b697b7cc0ce860e8c2c405da1928d101",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9362850189208984,
+            "quote": "Table 1: Design Beam Parameters of E-XFEL Parameter Value Unit Maximum energy 17.5 GeV normalized emittance 1-2 mm mrad bunch charge 0.1-1 nC min. bunch spacing 222 ns max. macro-pulse length 600 μs bunches within macro-pulse 1 - 2700 bunch pattern arbitrary RF repetition rate 10 Hz According to current planning commissioning should start in 2014.",
+            "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.09963710978627205,
+          "rerank_seconds": 0.29320934787392616,
+          "generation_seconds": 6.77869563549757,
+          "total_seconds": 7.171983007341623
+        }
+      }
+    },
+    {
+      "query": "现在 SHINE 低温系统出口压力的实时读数是多少？",
+      "http_status": 200,
+      "wall_seconds": 1.212,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "现在 SHINE 低温系统出口压力的实时读数是多少？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.07521054893732071,
+          "rerank_seconds": 0.2981969900429249,
+          "generation_seconds": 0.8262543044984341,
+          "total_seconds": 1.2000680342316628
+        }
+      }
+    }
+  ]
+}

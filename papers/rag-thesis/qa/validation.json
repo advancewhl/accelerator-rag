@@ -1,0 +1,202 @@
+{
+  "as_of": "2026-10-27",
+  "pdf_pages": 25,
+  "source_files_sha256_unchanged": 59,
+  "independent_metric_recomputation": {
+    "independently_rejudged_methods": 11,
+    "answerable_rankings_checked": 231,
+    "production_cases_checked": 32,
+    "production_state_recomputed": true,
+    "latency_means_recomputed": true
+  },
+  "printed_method_rows_checked": 11,
+  "math": {
+    "display_equations": 9,
+    "inline_formulas": 3,
+    "latex_parser": "local KaTeX; strict=error",
+    "syntax": "passed",
+    "renderer": "Matplotlib MathText; LaTeX subset; 600 dpi"
+  },
+  "figures": {
+    "count": 8,
+    "width_mm": 180,
+    "formats": [
+      "svg",
+      "pdf",
+      "png"
+    ],
+    "png_dpi": 600,
+    "editable_svg_text": true,
+    "pdf_font_type": 42
+  },
+  "pdf_text_bounds": "passed; all text blocks inside page boundaries",
+  "pdf_missing_glyphs": 0,
+  "visual_review": {
+    "status": "passed",
+    "renderer": "system /usr/bin/pdftoppm",
+    "render_dpi": 100,
+    "pdf_pages_reviewed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "figure_count_reviewed": 8,
+    "formula_count_reviewed": 9,
+    "grayscale_review": "direct labels and digits retained; inspected grayscale overview",
+    "notes": "Final exported PDF rendered with system Poppler. Reviewed all page contact sheets, enlarged formula sheet, table and contents pages, and the updated latency figure. No clipping or overlapping text observed."
+  },
+  "limits": [
+    "Historical data only; no new inference, deployment inspection, or independent answer blind review.",
+    "IOC-startup completeness inconsistency retained in manuscript."
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "text_characters": 968,
+      "images": 0
+    },
+    {
+      "page": 2,
+      "text_characters": 215,
+      "images": 0
+    },
+    {
+      "page": 3,
+      "text_characters": 1462,
+      "images": 0
+    },
+    {
+      "page": 4,
+      "text_characters": 482,
+      "images": 1
+    },
+    {
+      "page": 5,
+      "text_characters": 1112,
+      "images": 0
+    },
+    {
+      "page": 6,
+      "text_characters": 734,
+      "images": 1
+    },
+    {
+      "page": 7,
+      "text_characters": 1318,
+      "images": 4
+    },
+    {
+      "page": 8,
+      "text_characters": 1233,
+      "images": 1
+    },
+    {
+      "page": 9,
+      "text_characters": 1096,
+      "images": 5
+    },
+    {
+      "page": 10,
+      "text_characters": 1196,
+      "images": 0
+    },
+    {
+      "page": 11,
+      "text_characters": 809,
+      "images": 1
+    },
+    {
+      "page": 12,
+      "text_characters": 778,
+      "images": 1
+    },
+    {
+      "page": 13,
+      "text_characters": 1010,
+      "images": 2
+    },
+    {
+      "page": 14,
+      "text_characters": 1092,
+      "images": 1
+    },
+    {
+      "page": 15,
+      "text_characters": 991,
+      "images": 1
+    },
+    {
+      "page": 16,
+      "text_characters": 1037,
+      "images": 1
+    },
+    {
+      "page": 17,
+      "text_characters": 1373,
+      "images": 0
+    },
+    {
+      "page": 18,
+      "text_characters": 1078,
+      "images": 0
+    },
+    {
+      "page": 19,
+      "text_characters": 865,
+      "images": 1
+    },
+    {
+      "page": 20,
+      "text_characters": 1534,
+      "images": 0
+    },
+    {
+      "page": 21,
+      "text_characters": 1529,
+      "images": 0
+    },
+    {
+      "page": 22,
+      "text_characters": 1602,
+      "images": 0
+    },
+    {
+      "page": 23,
+      "text_characters": 1053,
+      "images": 0
+    },
+    {
+      "page": 24,
+      "text_characters": 1096,
+      "images": 0
+    },
+    {
+      "page": 25,
+      "text_characters": 669,
+      "images": 0
+    }
+  ],
+  "pdf_sha256": "4f6242931938acbea4227a72d225e08b66cf9a39c610497af31cac9656f09366"
+}

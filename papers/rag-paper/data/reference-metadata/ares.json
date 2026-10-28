@@ -1,0 +1,20 @@
+{
+  "key": "ares",
+  "kind": "doi",
+  "doi": "10.18653/v1/2024.naacl-long.20",
+  "title": "ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems",
+  "author": [
+    "Jon Saad-Falcon",
+    "Omar Khattab",
+    "Christopher Potts",
+    "Matei Zaharia"
+  ],
+  "year": 2024,
+  "venue": "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+  "volume": "",
+  "number": "",
+  "pages": "338-354",
+  "type": "proceedings-article",
+  "source_url": "https://api.crossref.org/works/10.18653%2Fv1%2F2024.naacl-long.20",
+  "landing_url": "https://doi.org/10.18653/v1/2024.naacl-long.20"
+}

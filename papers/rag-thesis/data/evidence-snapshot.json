@@ -1,0 +1,5149 @@
+{
+  "as_of": "2026-10-27",
+  "scope": "Local historical evidence; no new inference or live deployment checks",
+  "corpus": [
+    {
+      "document_id": "epics-application-developers-guide-r3-16-2",
+      "title": "EPICS Application Developer's Guide",
+      "version": "R3.16.2 (2018-10-22)",
+      "language": "en",
+      "category": "control_system",
+      "pages": 354,
+      "canonical_chunks": 848,
+      "eligible_chunks": 847
+    },
+    {
+      "document_id": "epics-documentation-latest-2026-08-18",
+      "title": "EPICS Documentation",
+      "version": "latest (2026-08-18)",
+      "language": "en",
+      "category": "control_system",
+      "pages": 455,
+      "canonical_chunks": 1071,
+      "eligible_chunks": 1071
+    },
+    {
+      "document_id": "european-xfel-full-technical-design-report-2007",
+      "title": "The European X-Ray Free-Electron Laser Technical Design Report",
+      "version": "DESY 2006-097 (2007-07)",
+      "language": "en",
+      "category": "accelerator_physics",
+      "pages": 646,
+      "canonical_chunks": 1730,
+      "eligible_chunks": 1730
+    },
+    {
+      "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+      "title": "The European XFEL Undulator Commissioning Spectrometer",
+      "version": "Rev B, Ver 2 (2011-06-08)",
+      "language": "en",
+      "category": "beam_diagnostics",
+      "pages": 21,
+      "canonical_chunks": 41,
+      "eligible_chunks": 41
+    },
+    {
+      "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+      "title": "X-Ray Optics and Beam Transport",
+      "version": "XFEL.EU TR-2012-006 (2012-12)",
+      "language": "en",
+      "category": "accelerator_physics",
+      "pages": 164,
+      "canonical_chunks": 235,
+      "eligible_chunks": 235
+    },
+    {
+      "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+      "title": "Standard E-Beam Diagnostics for the European-XFEL",
+      "version": "LINAC2010 TUP095",
+      "language": "en",
+      "category": "beam_diagnostics",
+      "pages": 3,
+      "canonical_chunks": 13,
+      "eligible_chunks": 13
+    },
+    {
+      "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "title": "EPICS IOC and PVs Information Management System for SHINE",
+      "version": "PCaPAC2022 FRO21",
+      "language": "en",
+      "category": "control_system",
+      "pages": 3,
+      "canonical_chunks": 13,
+      "eligible_chunks": 13
+    },
+    {
+      "document_id": "shine-accelerator-fast-interlock-2024",
+      "title": "SHINE 加速器快联锁系统设计与开发",
+      "version": "核技术 47(12):120203 (2024-12)",
+      "language": "zh",
+      "category": "control_system",
+      "pages": 9,
+      "canonical_chunks": 18,
+      "eligible_chunks": 18
+    },
+    {
+      "document_id": "shine-control-system-status-icalepcs2019",
+      "title": "Status of the SHINE Control System",
+      "version": "ICALEPCS2019 WEPHA167",
+      "language": "en",
+      "category": "control_system",
+      "pages": 4,
+      "canonical_chunks": 15,
+      "eligible_chunks": 15
+    },
+    {
+      "document_id": "shine-cryogenic-control-system-2021",
+      "title": "The Cryogenic Control System of SHINE",
+      "version": "EPJ Techniques and Instrumentation (2021)",
+      "language": "en",
+      "category": "control_system",
+      "pages": 8,
+      "canonical_chunks": 22,
+      "eligible_chunks": 22
+    },
+    {
+      "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+      "title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+      "version": "IPAC2022 THIYGD1",
+      "language": "en",
+      "category": "control_system",
+      "pages": 5,
+      "canonical_chunks": 17,
+      "eligible_chunks": 17
+    },
+    {
+      "document_id": "shine-accelerator-control-system-design-presentation",
+      "title": "SHINE 加速器控制系统设计与开发",
+      "version": "unknown",
+      "language": "zh",
+      "category": "control_system",
+      "pages": 34,
+      "canonical_chunks": 34,
+      "eligible_chunks": 33
+    },
+    {
+      "document_id": "shine-accelerator-preliminary-design-report-2017",
+      "title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+      "version": "初步设计报告 (2017-12-26)",
+      "language": "zh",
+      "category": "accelerator_physics",
+      "pages": 472,
+      "canonical_chunks": 480,
+      "eligible_chunks": 477
+    }
+  ],
+  "overview": {
+    "registered_documents": 13,
+    "successfully_ingested_documents": 13,
+    "total_pages": 2178,
+    "total_chunks": 4537,
+    "total_chunk_chars": 3755174
+  },
+  "eligibility": {
+    "config": {
+      "replacement_ratio": 0.2,
+      "minimum_replacements": 8
+    },
+    "total_chunks": 4537,
+    "eligible_chunks": 4532,
+    "ineligible_chunks": 5,
+    "ineligible_by_reason": {
+      "number_or_running_code_only": 1,
+      "boilerplate_only": 1,
+      "mostly_replacement_chars": 3
+    },
+    "per_document_ineligible": {
+      "epics-application-developers-guide-r3-16-2": 1,
+      "shine-accelerator-control-system-design-presentation": 1,
+      "shine-accelerator-preliminary-design-report-2017": 3
+    },
+    "examples": [
+      {
+        "chunk_id": "epics-application-developers-guide-r3-16-2:83952420e3325ba044ceac4be733ac659d90591227e5934991a794f1eb9c9ee1",
+        "document_id": "epics-application-developers-guide-r3-16-2",
+        "page": 2,
+        "text": "2",
+        "eligible": false,
+        "reasons": [
+          "number_or_running_code_only"
+        ],
+        "effective_characters": 1,
+        "effective_tokens": 1,
+        "replacement_ratio": 0.0
+      },
+      {
+        "chunk_id": "shine-accelerator-control-system-design-presentation:3bbcf79edceead55ba4ebb0cc291b2f6f3a4243f699a87b882fa5d02566647b4",
+        "document_id": "shine-accelerator-control-system-design-presentation",
+        "page": 34,
+        "text": "谢 谢",
+        "eligible": false,
+        "reasons": [
+          "boilerplate_only"
+        ],
+        "effective_characters": 2,
+        "effective_tokens": 2,
+        "replacement_ratio": 0.0
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:2119956386059a9909003e07de59e3a5401a2bb3b6f29432d66c690cd54e776b",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "page": 308,
+        "text": "图3.3.6.1-30 束流倾角入射示意图\n\n对整个腔体长度进行积分，得到束流倾角入射时在腔体内激发的信号如下所\n\n示：\n\n��= A\n\n−�\n\n2\n\n� 2 ����� න �−\n\n�+ � �����\n\n2� �����+ � �����\n\n��\n\n�\n\n=\n\n�����\n\n� �−\n\n�\n\n2� −�\n\n2\n\n� 2 � ׬ �−\n\n� �����\n\n2� ��������\n\n��\n\n�����+ ��������\n\n��\n\n����� dz\n\n当条件2   时，即腔体谐振信号周期远小于衰减时间常数时，积分项内当z\n\n从-L/2 到L/2，�\n\n�\n\n−�����\n\n2�项结果均近似为1，因此可简化成：\n\n��≈\n\n�����\n\n� �−\n\n�\n\n2� −�\n\n2\n\n� 2 � ׬ ��������\n\n��\n\n����� dz\n\n= �����\n\n� �−�\n\n2������ 2�2���2� �2 ��� �� 2�����−������ � ��� �� 2�����\n\n由此可知，当束流倾角从腔体中心入射时，激励信号的相位与位置偏移信号\n\n在相位上相差90°，令 p v v  即为倾角为θ时的等效束流偏移量，仿真结果如\n\n图3.3.6.1-31 所示：",
+        "eligible": false,
+        "reasons": [
+          "mostly_replacement_chars"
+        ],
+        "effective_characters": 195,
+        "effective_tokens": 184,
+        "replacement_ratio": 0.40389294403892945
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:9f2ae54d8aa5a8d641ea3cc6ca033c924a41bde166fe3c6b20ef8ebbff264dea",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "page": 310,
+        "text": "��= A �−������−�\n\n2�������� �\n\n图3.3.6.1-33 束流倾角入射示意图\n\n对整个腔体长度L 进行积分，得到：\n\n��= A\n\n−�\n\n2\n\n� 2 ����� න �−\n\n�+ � �����\n\n2� �����+ � �����\n\n��\n\n�\n\n= �����\n\n� �−�\n\n2������ 2�2���2� �2 ��� �� 2�����−������ � ��� �� 2�����\n\n−�����\n\n�\n\n2����� � ��� �� 2������−� 2������\n\n从公式中可知此种情况下分解成了两部分，第一部分和公式（7）相同，等\n\n效成束流按倾角θ经过腔体中心的结果。第二项对比公式（4），可等效看成在经\n\n过腔体过程中偏离电中心距离为：\n\n�= �����\n\n�\n\n2����� � ��� �� 2�����\n\n当腔体参数以及倾角θ确定时，等效偏移量与m 成正比，第一项、第二项\n\n的影响分别如图3.3.6.1-34、3.3.6.1-35 所示，两项和的影响如图3.3.6.1-36 所示：",
+        "eligible": false,
+        "reasons": [
+          "mostly_replacement_chars"
+        ],
+        "effective_characters": 190,
+        "effective_tokens": 175,
+        "replacement_ratio": 0.38917525773195877
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:f82b231d3421be698e7f2b56a0199e8a7bedc5d6db1f664bda04d9d1abb0d3ee",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "page": 312,
+        "text": "倾角带来的影响。模型可如图3.3.6.1-37 所示并假设束团呈高斯分布：\n\n图3.3.6.1-37 束团自身倾角入射模型\n\n设束团长度为 z ，束团电荷量为q ，束团自身倾角为，等效结果可视为\n\n将束团分割成一组组带电量为dq 的电子沿z 轴分布，则每组电子的位置偏移量\n\n为�tan �假设束团呈高斯分布，则有：\n\n��= q\n\n2π�� �\n\n−�2\n\n2��2��\n\n结合此前公式，则有：\n\n���= ω\n\n2 � ����\n\n( �\n\n�)0�\n\n−�2��2\n\n�2 �tan (�)\n\n�0\n\n�−�\n\n2�sin ωt ��\n\n= �tan (�)\n\n2��� ��\n\n−�2\n\n2��2�−� 2�sin ωt ��\n\n积分得：\n\n��= �tan (�)\n\n2��� −∞\n\n+∞\n\n��\n\n−�2\n\n2��2�− �−�\n\n� 2� sin ω �−�\n\n� �� න\n\n= �tan (�)\n\n2��� �−�\n\n2�\n\n−��\n\n+��\n\n��\n\n−�2\n\n2��2�−� 2��sin ω �−� � �� න\n\n≈�ωσ�\n\n2����\n\n2��� �−�\n\n2������\n\n由此可知，当束团自身存在倾角时，激励信号的相位与位置偏移信号在相位\n\n上也相差90°，令 p v v  即束团倾角为α时的等效束流偏移量，仿真结果如图\n\n3.3.6.1-38 所示：",
+        "eligible": false,
+        "reasons": [
+          "mostly_replacement_chars"
+        ],
+        "effective_characters": 273,
+        "effective_tokens": 233,
+        "replacement_ratio": 0.25164113785557984
+      }
+    ]
+  },
+  "metrics_v2": [
+    {
+      "method": "BM25",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.5238095238095238,
+      "Hit@3": 0.7619047619047619,
+      "Hit@5": 0.7619047619047619,
+      "MRR@5": 0.626984126984127,
+      "complete_at_5": 16
+    },
+    {
+      "method": "BGE-small-zh",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.19047619047619047,
+      "Hit@3": 0.2857142857142857,
+      "Hit@5": 0.42857142857142855,
+      "MRR@5": 0.2634920634920635,
+      "complete_at_5": 9
+    },
+    {
+      "method": "BGE-base-zh",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.14285714285714285,
+      "Hit@3": 0.47619047619047616,
+      "Hit@5": 0.6190476190476191,
+      "MRR@5": 0.3111111111111111,
+      "complete_at_5": 13
+    },
+    {
+      "method": "E5",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.7142857142857143,
+      "Hit@5": 0.8571428571428571,
+      "MRR@5": 0.5753968253968255,
+      "complete_at_5": 18
+    },
+    {
+      "method": "BGE-M3",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.3333333333333333,
+      "Hit@3": 0.7142857142857143,
+      "Hit@5": 0.7619047619047619,
+      "MRR@5": 0.5095238095238095,
+      "complete_at_5": 16
+    },
+    {
+      "method": "Qwen3",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.3333333333333333,
+      "Hit@3": 0.6190476190476191,
+      "Hit@5": 0.8095238095238095,
+      "MRR@5": 0.5111111111111111,
+      "complete_at_5": 17
+    },
+    {
+      "method": "Language router",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.7619047619047619,
+      "Hit@5": 0.9047619047619048,
+      "MRR@5": 0.6047619047619047,
+      "complete_at_5": 19
+    },
+    {
+      "method": "Dual RRF",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.7619047619047619,
+      "Hit@5": 0.9047619047619048,
+      "MRR@5": 0.5785714285714286,
+      "complete_at_5": 19
+    },
+    {
+      "method": "Dual + reranker",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.8095238095238095,
+      "Hit@5": 0.9523809523809523,
+      "MRR@5": 0.6071428571428571,
+      "complete_at_5": 20
+    },
+    {
+      "method": "E5 + multi-query",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.6190476190476191,
+      "Hit@5": 0.7142857142857143,
+      "MRR@5": 0.5158730158730159,
+      "complete_at_5": 15
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "judgment_revision": "evidence-contract-v2",
+      "n": 21,
+      "Hit@1": 0.3333333333333333,
+      "Hit@3": 0.6190476190476191,
+      "Hit@5": 0.8095238095238095,
+      "MRR@5": 0.4849206349206349,
+      "complete_at_5": 17
+    }
+  ],
+  "ranks_v2": [
+    {
+      "method": "BM25",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BM25",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "BM25",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BM25",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 3
+    },
+    {
+      "method": "BM25",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 2
+    },
+    {
+      "method": "BM25",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BM25",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 5
+    },
+    {
+      "method": "BM25",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 3
+    },
+    {
+      "method": "BM25",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BM25",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-small-zh",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-base-zh",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "E5",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "E5",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "E5",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "E5",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 2
+    },
+    {
+      "method": "E5",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "E5",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "E5",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 3
+    },
+    {
+      "method": "E5",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 3
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "BGE-M3",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 5
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Language router",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Language router",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Language router",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Language router",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Language router",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Language router",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "Language router",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Language router",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Language router",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 3
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual RRF",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Dual + reranker",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 5,
+      "required_groups": 5
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 3
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "E5 + multi-query",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": null,
+      "groups_at_5": 1,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 2,
+      "groups_at_5": 2,
+      "required_groups": 2
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 2,
+      "required_groups": 5
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "language": "zh",
+      "language_relation": "cross_language",
+      "first_complete_rank": 4,
+      "groups_at_5": 3,
+      "required_groups": 3
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 3,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "language": "en",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 5,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": 1,
+      "groups_at_5": 1,
+      "required_groups": 1
+    },
+    {
+      "method": "Qwen3 + multi-query",
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "language": "zh",
+      "language_relation": "same_language",
+      "first_complete_rank": null,
+      "groups_at_5": 0,
+      "required_groups": 1
+    }
+  ],
+  "historical_ablations": [
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "BM25",
+      "condition": "v1",
+      "Hit@5": 0.7142857142857143,
+      "MRR@5": 0.5198412698412699
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "BM25",
+      "condition": "v2",
+      "Hit@5": 0.7619047619047619,
+      "MRR@5": 0.6269841269841271
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-small-zh-v1.5",
+      "condition": "v1",
+      "Hit@5": 0.42857142857142855,
+      "MRR@5": 0.20396825396825397
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-small-zh-v1.5",
+      "condition": "v2",
+      "Hit@5": 0.42857142857142855,
+      "MRR@5": 0.2634920634920635
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "intfloat/multilingual-e5-base",
+      "condition": "v1",
+      "Hit@5": 0.7619047619047619,
+      "MRR@5": 0.47777777777777775
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "intfloat/multilingual-e5-base",
+      "condition": "v2",
+      "Hit@5": 0.8571428571428571,
+      "MRR@5": 0.5753968253968254
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-base-zh-v1.5",
+      "condition": "v1",
+      "Hit@5": 0.6190476190476191,
+      "MRR@5": 0.27539682539682536
+    },
+    {
+      "experiment": "annotation-only rejudgment",
+      "method": "BAAI/bge-base-zh-v1.5",
+      "condition": "v2",
+      "Hit@5": 0.6190476190476191,
+      "MRR@5": 0.31111111111111106
+    },
+    {
+      "experiment": "passage A/B (v1 labels)",
+      "method": "BGE-small-zh",
+      "condition": "direct",
+      "Hit@5": 0.38095238095238093,
+      "MRR@5": 0.18015873015873016
+    },
+    {
+      "experiment": "passage A/B (v1 labels)",
+      "method": "BGE-small-zh",
+      "condition": "passage",
+      "Hit@5": 0.42857142857142855,
+      "MRR@5": 0.20396825396825397
+    }
+  ],
+  "passage": {
+    "algorithm": "dense-passages-v1",
+    "contract": {
+      "algorithm": "dense-passages-v1",
+      "config": {
+        "max_tokens": null,
+        "guard_tokens": 16,
+        "overlap_tokens": 32
+      },
+      "tokenizer": {
+        "model": "BAAI/bge-small-zh-v1.5",
+        "max_seq_length": 512,
+        "tokenizer_sha256": "838bba27a9e5bbcbb7bed0b25535c69d88b63768857dda2ab13d015c4a98591f",
+        "do_lower_case": true,
+        "template": "document_title + \"\\n\" + passage.text"
+      },
+      "effective_max_tokens": 512
+    },
+    "contract_id": "1041a9bee3f5fcffa7dd72f0ae62a59a2e39b9aca6c72450087f4e5e87733595",
+    "model_max_seq_length": 512,
+    "eligible_parent_chunks": 4532,
+    "embedding_passages": 4950,
+    "parents_with_1_passage": 4156,
+    "parents_split": 376,
+    "average_passages_per_parent": 1.0922330097087378,
+    "passages_per_parent": {
+      "count": 4532,
+      "min": 1,
+      "max": 4,
+      "mean": 1.0922330097087378,
+      "p10": 1.0,
+      "p25": 1.0,
+      "median": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "p95": 2.0
+    },
+    "passage_token_length": {
+      "count": 4950,
+      "min": 8,
+      "max": 512,
+      "mean": 315.5387878787879,
+      "p10": 149.0,
+      "p25": 232.0,
+      "median": 334.0,
+      "p75": 399.0,
+      "p90": 463.0,
+      "p95": 483.0
+    },
+    "passages_exceeding_limit": 0,
+    "all_passage_inputs_within_model_limit": true,
+    "guard_policy": "Already-fitting parent inputs remain unchanged; split windows reserve guard_tokens in the complete title+body+specials template.",
+    "by_document": {
+      "epics-application-developers-guide-r3-16-2": {
+        "parents": 847,
+        "passages": 858
+      },
+      "epics-documentation-latest-2026-08-18": {
+        "parents": 1071,
+        "passages": 1086
+      },
+      "european-xfel-full-technical-design-report-2007": {
+        "parents": 1730,
+        "passages": 1780
+      },
+      "european-xfel-standard-e-beam-diagnostics-linac2010": {
+        "parents": 13,
+        "passages": 13
+      },
+      "european-xfel-undulator-commissioning-spectrometer-cdr-2011": {
+        "parents": 41,
+        "passages": 41
+      },
+      "european-xfel-x-ray-optics-beam-transport-tdr-2012": {
+        "parents": 235,
+        "passages": 246
+      },
+      "shine-accelerator-control-system-design-presentation": {
+        "parents": 33,
+        "passages": 33
+      },
+      "shine-accelerator-fast-interlock-2024": {
+        "parents": 18,
+        "passages": 27
+      },
+      "shine-accelerator-preliminary-design-report-2017": {
+        "parents": 477,
+        "passages": 799
+      },
+      "shine-control-system-status-icalepcs2019": {
+        "parents": 15,
+        "passages": 15
+      },
+      "shine-cryogenic-control-system-2021": {
+        "parents": 22,
+        "passages": 22
+      },
+      "shine-epics-ioc-pv-information-management-pcapac2022": {
+        "parents": 13,
+        "passages": 13
+      },
+      "shine-white-rabbit-beam-synchronous-timing-ipac2022": {
+        "parents": 17,
+        "passages": 17
+      }
+    }
+  },
+  "input_audit": {
+    "model_max_seq_length": 512,
+    "total_chunks": 4532,
+    "chunks_exceeding_limit": 376,
+    "percentage_exceeding_limit": 8.296557811120918,
+    "token_length_distribution": {
+      "count": 4532,
+      "min": 8,
+      "max": 1193,
+      "mean": 339.421226831421,
+      "p10": 158.0,
+      "p25": 243.0,
+      "median": 339.0,
+      "p75": 401.0,
+      "p90": 481.9000000000001,
+      "p95": 619.0
+    },
+    "input_template": "document_title + \"\\n\" + chunk.text",
+    "special_tokens_included": true,
+    "by_language": {
+      "en": {
+        "total_chunks": 4004,
+        "chunks_exceeding_limit": 76,
+        "percentage_exceeding_limit": 1.898101898101898,
+        "token_length_distribution": {
+          "count": 4004,
+          "min": 8,
+          "max": 1029,
+          "mean": 311.495004995005,
+          "p10": 156.0,
+          "p25": 234.0,
+          "median": 328.0,
+          "p75": 386.0,
+          "p90": 424.0,
+          "p95": 453.0
+        }
+      },
+      "zh": {
+        "total_chunks": 528,
+        "chunks_exceeding_limit": 300,
+        "percentage_exceeding_limit": 56.81818181818182,
+        "token_length_distribution": {
+          "count": 528,
+          "min": 28,
+          "max": 1193,
+          "mean": 551.1950757575758,
+          "p10": 238.70000000000005,
+          "p25": 399.5,
+          "median": 551.0,
+          "p75": 708.5,
+          "p90": 849.3,
+          "p95": 921.9499999999999
+        }
+      }
+    },
+    "by_document": {
+      "epics-application-developers-guide-r3-16-2": {
+        "total_chunks": 847,
+        "chunks_exceeding_limit": 11,
+        "percentage_exceeding_limit": 1.2987012987012987,
+        "token_length_distribution": {
+          "count": 847,
+          "min": 14,
+          "max": 591,
+          "mean": 310.827626918536,
+          "p10": 151.60000000000002,
+          "p25": 244.0,
+          "median": 332.0,
+          "p75": 384.5,
+          "p90": 419.79999999999995,
+          "p95": 449.69999999999993
+        }
+      },
+      "epics-documentation-latest-2026-08-18": {
+        "total_chunks": 1071,
+        "chunks_exceeding_limit": 15,
+        "percentage_exceeding_limit": 1.4005602240896358,
+        "token_length_distribution": {
+          "count": 1071,
+          "min": 8,
+          "max": 785,
+          "mean": 300.47058823529414,
+          "p10": 143.0,
+          "p25": 218.0,
+          "median": 320.0,
+          "p75": 375.0,
+          "p90": 411.0,
+          "p95": 439.5
+        }
+      },
+      "european-xfel-full-technical-design-report-2007": {
+        "total_chunks": 1730,
+        "chunks_exceeding_limit": 43,
+        "percentage_exceeding_limit": 2.485549132947977,
+        "token_length_distribution": {
+          "count": 1730,
+          "min": 45,
+          "max": 1029,
+          "mean": 323.428323699422,
+          "p10": 178.9,
+          "p25": 246.0,
+          "median": 333.5,
+          "p75": 394.0,
+          "p90": 432.0,
+          "p95": 460.54999999999995
+        }
+      },
+      "european-xfel-standard-e-beam-diagnostics-linac2010": {
+        "total_chunks": 13,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 13,
+          "min": 231,
+          "max": 433,
+          "mean": 349.53846153846155,
+          "p10": 246.4,
+          "p25": 306.0,
+          "median": 366.0,
+          "p75": 405.0,
+          "p90": 419.2,
+          "p95": 426.4
+        }
+      },
+      "european-xfel-undulator-commissioning-spectrometer-cdr-2011": {
+        "total_chunks": 41,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 41,
+          "min": 49,
+          "max": 442,
+          "mean": 299.8780487804878,
+          "p10": 129.0,
+          "p25": 165.0,
+          "median": 363.0,
+          "p75": 402.0,
+          "p90": 416.0,
+          "p95": 430.0
+        }
+      },
+      "european-xfel-x-ray-optics-beam-transport-tdr-2012": {
+        "total_chunks": 235,
+        "chunks_exceeding_limit": 7,
+        "percentage_exceeding_limit": 2.978723404255319,
+        "token_length_distribution": {
+          "count": 235,
+          "min": 46,
+          "max": 998,
+          "mean": 279.91063829787237,
+          "p10": 72.0,
+          "p25": 134.5,
+          "median": 306.0,
+          "p75": 397.0,
+          "p90": 427.0,
+          "p95": 477.6999999999998
+        }
+      },
+      "shine-accelerator-control-system-design-presentation": {
+        "total_chunks": 33,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 33,
+          "min": 49,
+          "max": 304,
+          "mean": 146.12121212121212,
+          "p10": 72.4,
+          "p25": 102.0,
+          "median": 142.0,
+          "p75": 179.0,
+          "p90": 216.4,
+          "p95": 255.79999999999995
+        }
+      },
+      "shine-accelerator-fast-interlock-2024": {
+        "total_chunks": 18,
+        "chunks_exceeding_limit": 9,
+        "percentage_exceeding_limit": 50.0,
+        "token_length_distribution": {
+          "count": 18,
+          "min": 146,
+          "max": 832,
+          "mean": 505.6111111111111,
+          "p10": 264.40000000000003,
+          "p25": 328.25,
+          "median": 480.0,
+          "p75": 698.0,
+          "p90": 779.0,
+          "p95": 828.6
+        }
+      },
+      "shine-accelerator-preliminary-design-report-2017": {
+        "total_chunks": 477,
+        "chunks_exceeding_limit": 291,
+        "percentage_exceeding_limit": 61.0062893081761,
+        "token_length_distribution": {
+          "count": 477,
+          "min": 28,
+          "max": 1193,
+          "mean": 580.9392033542977,
+          "p10": 316.40000000000003,
+          "p25": 444.0,
+          "median": 569.0,
+          "p75": 725.0,
+          "p90": 863.2,
+          "p95": 926.4
+        }
+      },
+      "shine-control-system-status-icalepcs2019": {
+        "total_chunks": 15,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 15,
+          "min": 103,
+          "max": 391,
+          "mean": 294.53333333333336,
+          "p10": 225.2,
+          "p25": 243.5,
+          "median": 298.0,
+          "p75": 352.5,
+          "p90": 373.59999999999997,
+          "p95": 387.5
+        }
+      },
+      "shine-cryogenic-control-system-2021": {
+        "total_chunks": 22,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 22,
+          "min": 109,
+          "max": 389,
+          "mean": 281.8181818181818,
+          "p10": 187.8,
+          "p25": 242.5,
+          "median": 288.0,
+          "p75": 334.0,
+          "p90": 362.9,
+          "p95": 365.85
+        }
+      },
+      "shine-epics-ioc-pv-information-management-pcapac2022": {
+        "total_chunks": 13,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 13,
+          "min": 136,
+          "max": 420,
+          "mean": 299.84615384615387,
+          "p10": 188.0,
+          "p25": 253.0,
+          "median": 310.0,
+          "p75": 364.0,
+          "p90": 412.0,
+          "p95": 418.8
+        }
+      },
+      "shine-white-rabbit-beam-synchronous-timing-ipac2022": {
+        "total_chunks": 17,
+        "chunks_exceeding_limit": 0,
+        "percentage_exceeding_limit": 0.0,
+        "token_length_distribution": {
+          "count": 17,
+          "min": 170,
+          "max": 430,
+          "mean": 322.70588235294116,
+          "p10": 222.8,
+          "p25": 280.0,
+          "median": 338.0,
+          "p75": 381.0,
+          "p90": 406.40000000000003,
+          "p95": 426.0
+        }
+      }
+    },
+    "worst_examples": [
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:6e251109ac6ee8d2fc408437dcac42659de59087508ca43e997b24a96dcadd8a",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 3,
+        "token_count": 1193,
+        "would_truncate": true,
+        "truncated_token_count": 681,
+        "truncation_ratio": 0.5708298407376362
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:a6b79c125757f570efcdbe4e588d21e7b0ffa55897114028d81f23f7ce938668",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 3,
+        "token_count": 1188,
+        "would_truncate": true,
+        "truncated_token_count": 676,
+        "truncation_ratio": 0.569023569023569
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:c24c2c3bf0a30c3329ecce491456d896dd00a0e92f4cc398e2013d5ab8594342",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 3,
+        "token_count": 1174,
+        "would_truncate": true,
+        "truncated_token_count": 662,
+        "truncation_ratio": 0.5638841567291312
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:2a0d825267f3533a4459cbf30a33c91a6b959b232e6708247bcb9433cfff4dfc",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 417,
+        "token_count": 1070,
+        "would_truncate": true,
+        "truncated_token_count": 558,
+        "truncation_ratio": 0.5214953271028038
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:2255eb3ca045e67ed7bbb0f140fadee8c01f16d92a4e0deb47ce59862afb5ea2",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 467,
+        "token_count": 1037,
+        "would_truncate": true,
+        "truncated_token_count": 525,
+        "truncation_ratio": 0.506268081002893
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:e258d014ab5ce1c685a1fa35a7388c4d63f68a446843fc0238dae13a3a0301df",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 30,
+        "token_count": 1031,
+        "would_truncate": true,
+        "truncated_token_count": 519,
+        "truncation_ratio": 0.5033947623666344
+      },
+      {
+        "chunk_id": "european-xfel-full-technical-design-report-2007:d65e0a6703e3c4f8f68d9bf4d6213e48e0fea703ecdf72ba4a74e89cf9b320a2",
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "language": "en",
+        "page": 3,
+        "token_count": 1029,
+        "would_truncate": true,
+        "truncated_token_count": 517,
+        "truncation_ratio": 0.5024295432458697
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:a74b8be0de8cb157f65a091724afb1776907a54ad0cd67f368acad39125bba5a",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 91,
+        "token_count": 1025,
+        "would_truncate": true,
+        "truncated_token_count": 513,
+        "truncation_ratio": 0.5004878048780488
+      },
+      {
+        "chunk_id": "european-xfel-full-technical-design-report-2007:86d1be203091acdd3dbbf7a6904e23874092d6fdbfec0754924cd4af6810235b",
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "language": "en",
+        "page": 4,
+        "token_count": 1023,
+        "would_truncate": true,
+        "truncated_token_count": 511,
+        "truncation_ratio": 0.4995112414467253
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:beb268b0c027406e26fb286a698ec1c4ba449ea3da492489301d65f9f82f747c",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 470,
+        "token_count": 1016,
+        "would_truncate": true,
+        "truncated_token_count": 504,
+        "truncation_ratio": 0.49606299212598426
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:bd09538f9d198dd4e1bd698b05af44693827296d411cd3bf3db45253ba70fb6c",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 441,
+        "token_count": 1008,
+        "would_truncate": true,
+        "truncated_token_count": 496,
+        "truncation_ratio": 0.49206349206349204
+      },
+      {
+        "chunk_id": "european-xfel-full-technical-design-report-2007:7e00f5caf5678d12a8071f1c6b0b3c15c0126e48b2e79fa6f86a1dada9ea0e6b",
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "language": "en",
+        "page": 5,
+        "token_count": 1002,
+        "would_truncate": true,
+        "truncated_token_count": 490,
+        "truncation_ratio": 0.48902195608782434
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:017a27f5fe60626900697bdd524b1555e93f1a2d6412a670248f43e0e60208d4",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 99,
+        "token_count": 1002,
+        "would_truncate": true,
+        "truncated_token_count": 490,
+        "truncation_ratio": 0.48902195608782434
+      },
+      {
+        "chunk_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012:8183ef46e215ce1b6c61de0543f82749e5fe721246cfcb215601d2c6d0900f50",
+        "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+        "language": "en",
+        "page": 3,
+        "token_count": 998,
+        "would_truncate": true,
+        "truncated_token_count": 486,
+        "truncation_ratio": 0.48697394789579157
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:08c37ed5e923b9d3b2830c669877044871e2957db09ad2573b98d1b0869f2b23",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 392,
+        "token_count": 996,
+        "would_truncate": true,
+        "truncated_token_count": 484,
+        "truncation_ratio": 0.4859437751004016
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:7d63c9bac942094d94e39a58f2da12ab0ec73393db50b6c9b984085fe92ed037",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 190,
+        "token_count": 989,
+        "would_truncate": true,
+        "truncated_token_count": 477,
+        "truncation_ratio": 0.48230535894843274
+      },
+      {
+        "chunk_id": "european-xfel-full-technical-design-report-2007:7a90ae3b437915fb0b2ba8ba1767676caad03cbd11b33ce4f930a5a0a43e6677",
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "language": "en",
+        "page": 4,
+        "token_count": 987,
+        "would_truncate": true,
+        "truncated_token_count": 475,
+        "truncation_ratio": 0.48125633232016213
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:985bb2d6cc6ef1f9bf79def6d8182378db9665e135edc26661eb1709770024b0",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 404,
+        "token_count": 987,
+        "would_truncate": true,
+        "truncated_token_count": 475,
+        "truncation_ratio": 0.48125633232016213
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:f120b471561628212f00dd0ffc4b7ee83a8d5826be55cad6d87899f98d7036ed",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 110,
+        "token_count": 976,
+        "would_truncate": true,
+        "truncated_token_count": 464,
+        "truncation_ratio": 0.47540983606557374
+      },
+      {
+        "chunk_id": "shine-accelerator-preliminary-design-report-2017:ba784b2d81bb125cbf690b410c70652706e56235733207353d43abb4f953471f",
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "language": "zh",
+        "page": 375,
+        "token_count": 972,
+        "would_truncate": true,
+        "truncated_token_count": 460,
+        "truncation_ratio": 0.4732510288065844
+      }
+    ]
+  },
+  "audit_summary": {
+    "audited_queries": 21,
+    "documents_per_query": 13,
+    "changed_queries": 11,
+    "old_alternatives": 37,
+    "added_alternatives": 39,
+    "new_alternatives": 76,
+    "added_per_query": {
+      "epics-pp": 9,
+      "epics-reconnect": 1,
+      "epics-cli": 2,
+      "xfel-rf": 17,
+      "xfel-normal-energy": 2,
+      "undulator-tuning": 0,
+      "xfel-mirror-angle": 0,
+      "xfel-soft-mono": 1,
+      "xfel-bpm-types": 1,
+      "shine-ioc-management": 2,
+      "shine-ioc-startup": 1,
+      "interlock-latency": 1,
+      "interlock-platform": 0,
+      "shine-control-layers": 0,
+      "cryo-integration": 0,
+      "cryo-interlock": 0,
+      "timing-wrtd": 0,
+      "timing-jitter": 0,
+      "control-slow-interlock": 0,
+      "shine-compressors": 0,
+      "shine-main-linac": 2
+    }
+  },
+  "benchmark": [
+    {
+      "query_id": "epics-pp",
+      "query": "When does an EPICS PP input link process its target record?",
+      "answerable": true,
+      "language": "en",
+      "category": "epics",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 2
+    },
+    {
+      "query_id": "epics-reconnect",
+      "query": "What happens to Channel Access client connections when an IOC server crashes and restarts?",
+      "answerable": true,
+      "language": "en",
+      "category": "epics",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "epics-cli",
+      "query": "Which EPICS command-line tools read, write and continuously monitor the temperature:water PV?",
+      "answerable": true,
+      "language": "en",
+      "category": "pv",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 3
+    },
+    {
+      "query_id": "xfel-rf",
+      "query": "What RF frequency and nominal design energy are used by the European XFEL main linac?",
+      "answerable": true,
+      "language": "en",
+      "category": "accelerator_design",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 2
+    },
+    {
+      "query_id": "xfel-normal-energy",
+      "query": "欧洲 XFEL 常规运行时电子束能量是多少，与最高设计能量有何区别？",
+      "answerable": true,
+      "language": "zh",
+      "category": "accelerator_design",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "undulator-tuning",
+      "query": "How does a K-monochromator select radiation for tuning undulator segments?",
+      "answerable": true,
+      "language": "en",
+      "category": "photon_diagnostics",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "xfel-mirror-angle",
+      "query": "Why was the grazing-incidence angle range of the SASE3 offset mirrors reduced?",
+      "answerable": true,
+      "language": "en",
+      "category": "beam_transport",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "xfel-soft-mono",
+      "query": "Why did the soft X-ray monochromator change to a vertical in-line geometry?",
+      "answerable": true,
+      "language": "en",
+      "category": "beam_transport",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "xfel-bpm-types",
+      "query": "Which BPM pickup types provide standard and high-precision position measurements at European XFEL?",
+      "answerable": true,
+      "language": "en",
+      "category": "beam_diagnostics",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "shine-ioc-management",
+      "query": "How are IOC and PV information managed in SHINE?",
+      "answerable": true,
+      "language": "en",
+      "category": "ioc",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 3
+    },
+    {
+      "query_id": "shine-ioc-startup",
+      "query": "SHINE 中 IOC 启动后会向管理系统提交哪些信息？",
+      "answerable": true,
+      "language": "zh",
+      "category": "ioc",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 2
+    },
+    {
+      "query_id": "interlock-latency",
+      "query": "SHINE 快联锁对单节点和节点间的响应时间分别有什么要求？",
+      "answerable": true,
+      "language": "zh",
+      "category": "interlock",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "interlock-platform",
+      "query": "横河 FPIO 快联锁模块使用哪种 FPGA 芯片和开发语言？",
+      "answerable": true,
+      "language": "zh",
+      "category": "interlock",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 2
+    },
+    {
+      "query_id": "shine-control-layers",
+      "query": "How are the functional layers of the SHINE control system separated?",
+      "answerable": true,
+      "language": "en",
+      "category": "control_architecture",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 5
+    },
+    {
+      "query_id": "cryo-integration",
+      "query": "How do PLCs and soft IOCs divide control and PV acquisition in the SHINE cryogenic system?",
+      "answerable": true,
+      "language": "en",
+      "category": "cryogenics",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "cryo-interlock",
+      "query": "SHINE 低温测试装置如何通过主联锁 PLC 和 CPLD 实现低温设备保护？",
+      "answerable": true,
+      "language": "zh",
+      "category": "cryogenics",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 3
+    },
+    {
+      "query_id": "timing-wrtd",
+      "query": "Why is standard White Rabbit Trigger Distribution insufficient for the SHINE beam-synchronous trigger rate?",
+      "answerable": true,
+      "language": "en",
+      "category": "timing",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "timing-jitter",
+      "query": "What beam-synchronous and random-event trigger jitter was measured for SHINE timing Prototype II?",
+      "answerable": true,
+      "language": "en",
+      "category": "timing",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "control-slow-interlock",
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "answerable": true,
+      "language": "zh",
+      "category": "interlock",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "shine-compressors",
+      "query": "为什么 SHINE 的两级磁压缩分别布置在 270 MeV 和约 2.1 GeV 位置？",
+      "answerable": true,
+      "language": "zh",
+      "category": "accelerator_design",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "shine-main-linac",
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "answerable": true,
+      "language": "zh",
+      "category": "accelerator_design",
+      "negative_type": "",
+      "judgment_mode": "all",
+      "evidence_groups": 1
+    },
+    {
+      "query_id": "no-answer-finance",
+      "query": "What was NVIDIA quarterly revenue in fiscal 2026 Q4?",
+      "answerable": false,
+      "language": "en",
+      "category": "out_of_corpus",
+      "negative_type": "obvious",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-recipe",
+      "query": "如何制作四川麻婆豆腐？请给出食材和烹饪步骤。",
+      "answerable": false,
+      "language": "zh",
+      "category": "out_of_corpus",
+      "negative_type": "obvious",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-token",
+      "query": "zxqv9999unlistedcalibrationartifact",
+      "answerable": false,
+      "language": "en",
+      "category": "out_of_corpus",
+      "negative_type": "obvious",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-live-pv",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 的 temperature:water PV 实时读数是多少？",
+      "answerable": false,
+      "language": "zh",
+      "category": "epics",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-live-ioc-count",
+      "query": "How many SHINE IOCs are online at 10:00 UTC on 19 October 2026?",
+      "answerable": false,
+      "language": "en",
+      "category": "ioc",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-live-interlock",
+      "query": "SHINE 快联锁在 2026-10-19 10:00 UTC 的在线许可状态是什么？",
+      "answerable": false,
+      "language": "zh",
+      "category": "interlock",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-live-cryo",
+      "query": "What is the measured SHINE helium refrigerator outlet pressure at 10:00 UTC on 19 October 2026?",
+      "answerable": false,
+      "language": "en",
+      "category": "cryogenics",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-deployed-firmware",
+      "query": "What exact firmware build SHA was installed on the SHINE White Rabbit master on 19 October 2026?",
+      "answerable": false,
+      "language": "en",
+      "category": "timing",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-current-ioc-ip",
+      "query": "SHINE IOC 在 2026-10-19 10:00 UTC 使用的实时 server IP 完整清单是什么？",
+      "answerable": false,
+      "language": "zh",
+      "category": "ioc",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-live-bpm-calibration",
+      "query": "What measured BPM calibration constant was approved at SHINE on 19 October 2026?",
+      "answerable": false,
+      "language": "en",
+      "category": "beam_diagnostics",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    },
+    {
+      "query_id": "no-answer-hard-live-beam-energy",
+      "query": "SHINE 在 2026-10-19 10:00 UTC 实际测量的电子束能量是多少？",
+      "answerable": false,
+      "language": "zh",
+      "category": "accelerator_design",
+      "negative_type": "hard_domain",
+      "judgment_mode": "all",
+      "evidence_groups": 0
+    }
+  ],
+  "model_passages": {
+    "BAAI/bge-small-zh-v1.5": 4950,
+    "intfloat/multilingual-e5-base": 4746,
+    "BAAI/bge-base-zh-v1.5": 4952
+  },
+  "candidate_coverage": {
+    "canonical_parent_complete_count": 20,
+    "actual_retrieved_passage_complete_count": 19,
+    "count": 21,
+    "cases": [
+      {
+        "query_id": "epics-pp",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2
+          ],
+          "required_groups": 2,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2
+          ],
+          "required_groups": 2,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "epics-reconnect",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "epics-cli",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2,
+            3
+          ],
+          "required_groups": 3,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2,
+            3
+          ],
+          "required_groups": 3,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "xfel-rf",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2
+          ],
+          "required_groups": 2,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2
+          ],
+          "required_groups": 2,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "xfel-normal-energy",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "undulator-tuning",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "xfel-mirror-angle",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "xfel-soft-mono",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "xfel-bpm-types",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "shine-ioc-management",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2,
+            3
+          ],
+          "required_groups": 3,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2,
+            3
+          ],
+          "required_groups": 3,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "shine-ioc-startup",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 2,
+          "complete": false
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 2,
+          "complete": false
+        }
+      },
+      {
+        "query_id": "interlock-latency",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "interlock-platform",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2
+          ],
+          "required_groups": 2,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2
+          ],
+          "required_groups": 2,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "shine-control-layers",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "required_groups": 5,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "required_groups": 5,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "cryo-integration",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "cryo-interlock",
+        "canonical_parent": {
+          "groups": [
+            1,
+            2,
+            3
+          ],
+          "required_groups": 3,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1,
+            2,
+            3
+          ],
+          "required_groups": 3,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "timing-wrtd",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "timing-jitter",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "control-slow-interlock",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "shine-compressors",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        }
+      },
+      {
+        "query_id": "shine-main-linac",
+        "canonical_parent": {
+          "groups": [
+            1
+          ],
+          "required_groups": 1,
+          "complete": true
+        },
+        "actual_retrieved_passages": {
+          "groups": [],
+          "required_groups": 1,
+          "complete": false
+        }
+      }
+    ]
+  },
+  "winning_coverage": {
+    "description": "Diagnostic only; does not replace the frozen canonical-parent metric",
+    "complete_count": 19,
+    "count": 21,
+    "cases": [
+      {
+        "query_id": "epics-pp",
+        "groups": [
+          1,
+          2
+        ],
+        "required_groups": 2,
+        "complete": true
+      },
+      {
+        "query_id": "epics-reconnect",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "epics-cli",
+        "groups": [
+          1,
+          2,
+          3
+        ],
+        "required_groups": 3,
+        "complete": true
+      },
+      {
+        "query_id": "xfel-rf",
+        "groups": [
+          1,
+          2
+        ],
+        "required_groups": 2,
+        "complete": true
+      },
+      {
+        "query_id": "xfel-normal-energy",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "undulator-tuning",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "xfel-mirror-angle",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "xfel-soft-mono",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "xfel-bpm-types",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "shine-ioc-management",
+        "groups": [
+          1,
+          2,
+          3
+        ],
+        "required_groups": 3,
+        "complete": true
+      },
+      {
+        "query_id": "shine-ioc-startup",
+        "groups": [
+          1
+        ],
+        "required_groups": 2,
+        "complete": false
+      },
+      {
+        "query_id": "interlock-latency",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "interlock-platform",
+        "groups": [
+          1,
+          2
+        ],
+        "required_groups": 2,
+        "complete": true
+      },
+      {
+        "query_id": "shine-control-layers",
+        "groups": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "required_groups": 5,
+        "complete": true
+      },
+      {
+        "query_id": "cryo-integration",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "cryo-interlock",
+        "groups": [
+          1,
+          2,
+          3
+        ],
+        "required_groups": 3,
+        "complete": true
+      },
+      {
+        "query_id": "timing-wrtd",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "timing-jitter",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "control-slow-interlock",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "shine-compressors",
+        "groups": [
+          1
+        ],
+        "required_groups": 1,
+        "complete": true
+      },
+      {
+        "query_id": "shine-main-linac",
+        "groups": [],
+        "required_groups": 1,
+        "complete": false
+      }
+    ]
+  },
+  "rerank_cpu_timing": {
+    "model_load_seconds": 1.2586090250115376,
+    "total_rerank_seconds": 801.8274005910789,
+    "evaluation_wall_seconds": 801.8667328850133,
+    "cpu_threads": 6,
+    "average_candidate_parents": 16.25,
+    "average_candidate_passages": 16.78125,
+    "scored_pairs": 537,
+    "max_observed_pair_tokens": 839,
+    "truncated_pairs": 0
+  },
+  "latency": [
+    {
+      "query_id": "epics-pp",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.8843914195895195,
+      "rerank_seconds": 0.19311053305864334,
+      "generation_seconds": 2.1616526879370213,
+      "total_seconds": 3.2404169030487537
+    },
+    {
+      "query_id": "epics-reconnect",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.07906941697001457,
+      "rerank_seconds": 0.2023601345717907,
+      "generation_seconds": 2.598466072231531,
+      "total_seconds": 2.8804207257926464
+    },
+    {
+      "query_id": "epics-cli",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.08351344615221024,
+      "rerank_seconds": 0.2749176323413849,
+      "generation_seconds": 3.4482540376484394,
+      "total_seconds": 3.807257041335106
+    },
+    {
+      "query_id": "xfel-rf",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.08443766832351685,
+      "rerank_seconds": 0.1896655634045601,
+      "generation_seconds": 2.8604805506765842,
+      "total_seconds": 3.1350501999258995
+    },
+    {
+      "query_id": "xfel-normal-energy",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.06828205287456512,
+      "rerank_seconds": 0.1317732073366642,
+      "generation_seconds": 3.4027002304792404,
+      "total_seconds": 3.6032549403607845
+    },
+    {
+      "query_id": "undulator-tuning",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.05761325731873512,
+      "rerank_seconds": 0.08875196799635887,
+      "generation_seconds": 2.5467579215765,
+      "total_seconds": 2.6936268359422684
+    },
+    {
+      "query_id": "xfel-mirror-angle",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.056899379938840866,
+      "rerank_seconds": 0.08119865506887436,
+      "generation_seconds": 2.188370693475008,
+      "total_seconds": 2.3269396871328354
+    },
+    {
+      "query_id": "xfel-soft-mono",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.05598459020256996,
+      "rerank_seconds": 0.07802003622055054,
+      "generation_seconds": 3.1660308092832565,
+      "total_seconds": 3.3005587086081505
+    },
+    {
+      "query_id": "xfel-bpm-types",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.0758938416838646,
+      "rerank_seconds": 0.20060095191001892,
+      "generation_seconds": 3.4716513752937317,
+      "total_seconds": 3.748656202107668
+    },
+    {
+      "query_id": "shine-ioc-management",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.08833157643675804,
+      "rerank_seconds": 0.21101123839616776,
+      "generation_seconds": 3.5604041889309883,
+      "total_seconds": 3.8602460585534573
+    },
+    {
+      "query_id": "shine-ioc-startup",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.0782768651843071,
+      "rerank_seconds": 0.27081604674458504,
+      "generation_seconds": 2.086584370583296,
+      "total_seconds": 2.436176799237728
+    },
+    {
+      "query_id": "interlock-latency",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.07742166146636009,
+      "rerank_seconds": 0.3071298971772194,
+      "generation_seconds": 2.6141394674777985,
+      "total_seconds": 2.999185211956501
+    },
+    {
+      "query_id": "interlock-platform",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.07971680164337158,
+      "rerank_seconds": 0.28302646800875664,
+      "generation_seconds": 2.7953350469470024,
+      "total_seconds": 3.158677250146866
+    },
+    {
+      "query_id": "shine-control-layers",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.0838823989033699,
+      "rerank_seconds": 0.2127123773097992,
+      "generation_seconds": 3.03158088773489,
+      "total_seconds": 3.3286577127873898
+    },
+    {
+      "query_id": "cryo-integration",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.0663783885538578,
+      "rerank_seconds": 0.08158067986369133,
+      "generation_seconds": 2.7340532019734383,
+      "total_seconds": 2.8824703954160213
+    },
+    {
+      "query_id": "cryo-interlock",
+      "answerable": true,
+      "status": "partial",
+      "retrieval_seconds": 0.06765035539865494,
+      "rerank_seconds": 0.1380697637796402,
+      "generation_seconds": 4.8498125821352005,
+      "total_seconds": 5.0560234151780605
+    },
+    {
+      "query_id": "timing-wrtd",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.06436220183968544,
+      "rerank_seconds": 0.06537844240665436,
+      "generation_seconds": 3.8257947266101837,
+      "total_seconds": 3.956069502979517
+    },
+    {
+      "query_id": "timing-jitter",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.08401479199528694,
+      "rerank_seconds": 0.1901371031999588,
+      "generation_seconds": 2.8592361882328987,
+      "total_seconds": 3.133933164179325
+    },
+    {
+      "query_id": "control-slow-interlock",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.0849616639316082,
+      "rerank_seconds": 0.32086893543601036,
+      "generation_seconds": 2.558183152228594,
+      "total_seconds": 2.9645793475210667
+    },
+    {
+      "query_id": "shine-compressors",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.08585615828633308,
+      "rerank_seconds": 0.2751424163579941,
+      "generation_seconds": 4.0294510796666145,
+      "total_seconds": 4.390894807875156
+    },
+    {
+      "query_id": "shine-main-linac",
+      "answerable": true,
+      "status": "answered",
+      "retrieval_seconds": 0.08361651375889778,
+      "rerank_seconds": 0.2898430749773979,
+      "generation_seconds": 2.8041222617030144,
+      "total_seconds": 3.1780171170830727
+    },
+    {
+      "query_id": "no-answer-finance",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08533301949501038,
+      "rerank_seconds": 0.3463079668581486,
+      "generation_seconds": 0.7946002222597599,
+      "total_seconds": 1.2269518189132214
+    },
+    {
+      "query_id": "no-answer-recipe",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08957086876034737,
+      "rerank_seconds": 0.3412626199424267,
+      "generation_seconds": 0.954777829349041,
+      "total_seconds": 1.3860534504055977
+    },
+    {
+      "query_id": "no-answer-token",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08868627995252609,
+      "rerank_seconds": 0.3365071900188923,
+      "generation_seconds": 0.7989940531551838,
+      "total_seconds": 1.2250708416104317
+    },
+    {
+      "query_id": "no-answer-hard-live-pv",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08942127227783203,
+      "rerank_seconds": 0.2911522388458252,
+      "generation_seconds": 0.48955871164798737,
+      "total_seconds": 0.8706757389008999
+    },
+    {
+      "query_id": "no-answer-hard-live-ioc-count",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08759970590472221,
+      "rerank_seconds": 0.22209453210234642,
+      "generation_seconds": 0.47351958230137825,
+      "total_seconds": 0.7838384695351124
+    },
+    {
+      "query_id": "no-answer-hard-live-interlock",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08110705763101578,
+      "rerank_seconds": 0.32371703907847404,
+      "generation_seconds": 0.4639487601816654,
+      "total_seconds": 0.8694060333073139
+    },
+    {
+      "query_id": "no-answer-hard-live-cryo",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.0774976797401905,
+      "rerank_seconds": 0.2111007571220398,
+      "generation_seconds": 0.44706621021032333,
+      "total_seconds": 0.7361845225095749
+    },
+    {
+      "query_id": "no-answer-hard-deployed-firmware",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.07832997664809227,
+      "rerank_seconds": 0.27253884822130203,
+      "generation_seconds": 0.448518343269825,
+      "total_seconds": 0.7998254373669624
+    },
+    {
+      "query_id": "no-answer-hard-current-ioc-ip",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.07662202790379524,
+      "rerank_seconds": 0.2859172560274601,
+      "generation_seconds": 0.48691751062870026,
+      "total_seconds": 0.849976971745491
+    },
+    {
+      "query_id": "no-answer-hard-live-bpm-calibration",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.08162639662623405,
+      "rerank_seconds": 0.2536311224102974,
+      "generation_seconds": 0.43680407479405403,
+      "total_seconds": 0.7725213579833508
+    },
+    {
+      "query_id": "no-answer-hard-live-beam-energy",
+      "answerable": false,
+      "status": "insufficient",
+      "retrieval_seconds": 0.07653343304991722,
+      "rerank_seconds": 0.26323505491018295,
+      "generation_seconds": 0.47136684134602547,
+      "total_seconds": 0.8115401305258274
+    }
+  ],
+  "production": {
+    "model": "qwen3.8-Flash-Next",
+    "answerable": {
+      "answered": 20,
+      "partial": 1
+    },
+    "negative": {
+      "insufficient": 11
+    },
+    "requirement_coverage": {
+      "supported": 32,
+      "total": 33,
+      "status_mismatch": 0,
+      "known_regressions": "3/3 complete"
+    },
+    "mean_latency_32": {
+      "retrieval_seconds": 0.10321506776381284,
+      "rerank_seconds": 0.22604936722200364,
+      "generation_seconds": 2.1830979272490367,
+      "total_seconds": 2.512911149999127
+    },
+    "mean_latency_answerable": {
+      "retrieval_seconds": 0.1138359262120156,
+      "rerank_seconds": 0.19457691074127242,
+      "generation_seconds": 3.02824102537263,
+      "total_seconds": 3.337195810817537
+    },
+    "median_total_answerable": 3.1780171170830727,
+    "frozen_citations": {
+      "valid": 31,
+      "invalid": 0,
+      "unresolvable": 0
+    }
+  },
+  "stage3": {
+    "standalone_rag": "PARTIAL",
+    "answerable": {
+      "answered": 19,
+      "partial": 2
+    },
+    "negative": {
+      "insufficient": 11
+    },
+    "mean_latency_seconds": {
+      "retrieval_seconds": 1.4607085940660909,
+      "rerank_seconds": 0.1494231935357675,
+      "generation_seconds": 0.3655681876698509,
+      "total_seconds": 1.9762194349896163
+    }
+  },
+  "switch_cases": [
+    {
+      "query": "SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？",
+      "http_status": 200,
+      "wall_seconds": 10.841,
+      "response": {
+        "status": "answered",
+        "answer": "《硬 X 射线自由电子激光装置初步设计报告（加速器分册）》（初步设计报告，2017-12-26）中，主加速器采用三级加速、两级压缩的结构设计，装置基于超导连续波工作模式。 [1]\n\n《硬 X 射线自由电子激光装置初步设计报告（加速器分册）》（初步设计报告，2017-12-26）中，主加速器第三个加速段 L3 由 54 个模组组成，将电子束的能量由 2.1GeV 加速至最终的 8GeV。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 初步设计中的主加速器采用什么工作模式？",
+            "supported": true,
+            "span_ids": [
+              "S1.4"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 初步设计中的主加速器最终把电子加速到多少能量？",
+            "supported": true,
+            "span_ids": [
+              "S1.17"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-preliminary-design-report-2017",
+            "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+            "document_version": "初步设计报告 (2017-12-26)",
+            "page_start": 60,
+            "page_end": 60,
+            "chunk_id": "shine-accelerator-preliminary-design-report-2017:cf8f273a1807979a26bbeb8f961f70b0886235053ba0f7b80ee3989f17712b7b",
+            "retrieval_rank": 1,
+            "rerank_score": 0.9997388124465942,
+            "quote": "硬X 射线自由电子激光装置基于超导连续波工作模式，其主加 速器采用三级加速、两级压缩的结构设计，如图3.4.3.1-1 所示。\n\n主 加速器第三个加速段L3 由54 个模组组成，将电子束的能量由2.1GeV 加速至最 终的8GeV。",
+            "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 1.1915388964116573,
+          "rerank_seconds": 0.5581080131232738,
+          "generation_seconds": 9.080648098140955,
+          "total_seconds": 10.831529881805182
+        }
+      }
+    },
+    {
+      "query": "SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？",
+      "http_status": 200,
+      "wall_seconds": 6.678,
+      "response": {
+        "status": "answered",
+        "answer": "《SHINE 加速器控制系统设计与开发》中，慢联锁关键信号响应时间指标为站内\\(\\leq 20\\,\\mathrm{ms}\\)。 [1]\n\n《SHINE 加速器控制系统设计与开发》中，慢联锁关键信号响应时间指标为站间\\(\\leq 100\\,\\mathrm{ms}\\)。 [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 控制系统设计中慢联锁的站内响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 控制系统设计中慢联锁的站间响应时间指标是什么？",
+            "supported": true,
+            "span_ids": [
+              "S3.1"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S3",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 21,
+            "page_end": 21,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:4e92201c2cf375a954b2860baf67a725b258f56b1a36a01b061e46d2775928dc",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9996200203895569,
+            "quote": "联锁系统  快联锁 + 慢联锁；主站 + 从站，分层设计 快联锁关键信号响应时间： 站内≤10us，站间≤100us 慢联锁关键信号响应时间： 站内≤20ms，站间≤100ms",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.1519007682800293,
+          "rerank_seconds": 0.316203810274601,
+          "generation_seconds": 6.202293820679188,
+          "total_seconds": 6.670882016420364
+        }
+      }
+    },
+    {
+      "query": "请分别说明 SHINE 的主加速器模式、最终能量，以及此刻在线的 IOC 数量。",
+      "http_status": 200,
+      "wall_seconds": 7.108,
+      "response": {
+        "status": "partial",
+        "answer": "依据 《SHINE 加速器控制系统设计与开发》（文档未标明版本）:\nSHINE 的电子束能量为 8 GeV。 [1]\n\n依据 《EPICS IOC and PVs Information Management System for SHINE》（PCaPAC2022 FRO21）:\nSHINE 利用光阴极电子枪结合超导直线加速器产生能量达 8 GeV 的 FEL 品质电子束。 [2]\n\n依据 《SHINE 加速器快联锁系统设计与开发》（核技术 47(12):120203 (2024-12)）:\nSHINE 的电子能量达 8 GeV。 [3]\n\n当前资料未能确认：\n- SHINE 的主加速器模式是什么？\n- 此刻在线的 IOC 数量是多少？",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "SHINE 的主加速器模式是什么？",
+            "supported": false,
+            "span_ids": []
+          },
+          {
+            "id": "R2",
+            "text": "SHINE 的最终能量是多少？",
+            "supported": true,
+            "span_ids": [
+              "S1.1",
+              "S3.3",
+              "S5.3"
+            ]
+          },
+          {
+            "id": "R3",
+            "text": "此刻在线的 IOC 数量是多少？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S1",
+            "document_id": "shine-accelerator-control-system-design-presentation",
+            "document_title": "SHINE 加速器控制系统设计与开发",
+            "document_version": "unknown",
+            "page_start": 6,
+            "page_end": 6,
+            "chunk_id": "shine-accelerator-control-system-design-presentation:028145fdcf7f3c6b61a4f50c060f8cf74bff6a85e1b0e1b1d9ae736b70167520",
+            "retrieval_rank": 1,
+            "rerank_score": 0.979667603969574,
+            "quote": " Shanghai HIgh repetition rate XFEL aNd Extreme light facility (SHINE) e-beam : 8 GeV Photon energy : 0.4 ～25 keV Pulse duration : 1～100 fs Repetition : 1 MHz Total length : 3.1 km Underground ~ 29 m SHINE",
+            "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+          },
+          {
+            "number": 2,
+            "source_id": "S3",
+            "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+            "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+            "document_version": "PCaPAC2022 FRO21",
+            "page_start": 1,
+            "page_end": 1,
+            "chunk_id": "shine-epics-ioc-pv-information-management-pcapac2022:dbbe5b3ca2a4ae4ff7f7debebe9fc61aa28441bfff953e06bf43c18deaa03696",
+            "retrieval_rank": 3,
+            "rerank_score": 0.9740425944328308,
+            "quote": "SHINE will utilize a photocathode electron gun combined with the superconducting Linac to produce 8 GeV FEL quality electron beams up to 1 MHz repetition rate [1].",
+            "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+          },
+          {
+            "number": 3,
+            "source_id": "S5",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 2,
+            "page_end": 2,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:ebd5cee20ea18f316baa2e89475b57b8ed49501badf8ce257719cd5aa532225b",
+            "retrieval_rank": 5,
+            "rerank_score": 0.9603611826896667,
+            "quote": "Key words Fast interlock, FPGA, Data transmission, FL-net, Response time 上海硬X 射线自由电子激光装置（Shanghai HIgh repetitioN rate XFEL and Extreme light facility， SHINE）是一台高重频硬X 射线自由电子激光大科 学装置 ［1］，其产生的X 光脉冲最高重复频率可达 1 MHz ［2］，电子能量达8 GeV ［3］，在物理、化学、材料、 生命科学等诸多领域都有非常广泛和重要的应用。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.0801117829978466,
+          "rerank_seconds": 0.2746685743331909,
+          "generation_seconds": 6.740891151130199,
+          "total_seconds": 7.096159759908915
+        }
+      }
+    },
+    {
+      "query": "Which FPGA and language does the SHINE FPIO use? Answer in English.",
+      "http_status": 200,
+      "wall_seconds": 8.828,
+      "response": {
+        "status": "answered",
+        "answer": "The FPGA built into the SHINE FPIO module uses Xilinx's Spartan6 XC6SLX25 series chip (source: \"SHINE 加速器快联锁系统设计与开发\", 核技术 47(12):120203, 2024-12). [1]\n\nThe SHINE interlock system uses Verilog HDL for the related function development (source: \"SHINE 加速器快联锁系统设计与开发\", 核技术 47(12):120203, 2024-12). [1]",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "Which FPGA does the SHINE FPIO use?",
+            "supported": true,
+            "span_ids": [
+              "S2.2"
+            ]
+          },
+          {
+            "id": "R2",
+            "text": "Which language does the SHINE FPIO use?",
+            "supported": true,
+            "span_ids": [
+              "S2.5"
+            ]
+          }
+        ],
+        "citations": [
+          {
+            "number": 1,
+            "source_id": "S2",
+            "document_id": "shine-accelerator-fast-interlock-2024",
+            "document_title": "SHINE 加速器快联锁系统设计与开发",
+            "document_version": "核技术 47(12):120203 (2024-12)",
+            "page_start": 3,
+            "page_end": 3,
+            "chunk_id": "shine-accelerator-fast-interlock-2024:3989f77d1ed901e922429b49a72751dc4b71b50fb0267e5c7a8fe005090a5120",
+            "retrieval_rank": 2,
+            "rerank_score": 0.999541699886322,
+            "quote": "FPIO 模块内置的FPGA 使 用的是Xilinx 公司的Spartan6 XC6SLX25 系列芯 片，其开发和设计流程遵循FPGA开发的通用流程。\n\n在此 基础上，使用硬件描述性语言可以实现联锁系统自 行定义的控制逻辑开发，SHINE 联锁系统选用 verilog HDL语言进行相关功能开发。",
+            "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+          }
+        ],
+        "latency": {
+          "retrieval_seconds": 0.07819994166493416,
+          "rerank_seconds": 0.302905548363924,
+          "generation_seconds": 8.43816677108407,
+          "total_seconds": 8.81978065147996
+        }
+      }
+    },
+    {
+      "query": "现在 SHINE 低温系统出口压力的实时读数是多少？",
+      "http_status": 200,
+      "wall_seconds": 1.344,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库只包含设计文档和技术资料，无法确认实时或指定时刻的运行数据。后续可通过具备实时数据能力的 Agent 查询运行系统。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "现在 SHINE 低温系统出口压力的实时读数是多少？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.07703825831413269,
+          "rerank_seconds": 0.3001992516219616,
+          "generation_seconds": 0.9588122591376305,
+          "total_seconds": 1.3364622443914413
+        }
+      }
+    },
+    {
+      "query": "上海明天会下雨吗？",
+      "http_status": 200,
+      "wall_seconds": 2.462,
+      "response": {
+        "status": "insufficient",
+        "answer": "当前知识库未找到足以确认所问事实的资料。请补充设备名称、文档版本或更具体的问题。",
+        "requirements": [
+          {
+            "id": "R1",
+            "text": "上海明天会下雨吗？",
+            "supported": false,
+            "span_ids": []
+          }
+        ],
+        "citations": [],
+        "latency": {
+          "retrieval_seconds": 0.28684791550040245,
+          "rerank_seconds": 0.3074014000594616,
+          "generation_seconds": 1.797689989209175,
+          "total_seconds": 2.392253551632166
+        }
+      }
+    }
+  ],
+  "catalog": {
+    "document_count": 13,
+    "indexed_section_count": 4532,
+    "documents": [
+      {
+        "document_id": "epics-application-developers-guide-r3-16-2",
+        "document_title": "EPICS Application Developer's Guide",
+        "versions": [
+          "R3.16.2 (2018-10-22)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "epics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 847,
+        "page_count": 354,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/epics-application-developers-guide-r3-16-2"
+      },
+      {
+        "document_id": "epics-documentation-latest-2026-08-18",
+        "document_title": "EPICS Documentation",
+        "versions": [
+          "latest (2026-08-18)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "epics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 1071,
+        "page_count": 455,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+      },
+      {
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+        "versions": [
+          "DESY 2006-097 (2007-07)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "accelerator_design"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 1730,
+        "page_count": 646,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+      },
+      {
+        "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+        "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+        "versions": [
+          "LINAC2010 TUP095"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "electron_beam_diagnostics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 13,
+        "page_count": 3,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+      },
+      {
+        "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+        "document_title": "The European XFEL Undulator Commissioning Spectrometer",
+        "versions": [
+          "Rev B, Ver 2 (2011-06-08)"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "photon_diagnostics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 41,
+        "page_count": 21,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-undulator-commissioning-spectrometer-cdr-2011"
+      },
+      {
+        "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+        "document_title": "X-Ray Optics and Beam Transport",
+        "versions": [
+          "XFEL.EU TR-2012-006 (2012-12)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "beam_transport"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 235,
+        "page_count": 164,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+      },
+      {
+        "document_id": "shine-accelerator-control-system-design-presentation",
+        "document_title": "SHINE 加速器控制系统设计与开发",
+        "versions": [
+          "unknown"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "control_architecture"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 33,
+        "page_count": 34,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+      },
+      {
+        "document_id": "shine-accelerator-fast-interlock-2024",
+        "document_title": "SHINE 加速器快联锁系统设计与开发",
+        "versions": [
+          "核技术 47(12):120203 (2024-12)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "interlock"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 18,
+        "page_count": 9,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+      },
+      {
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+        "versions": [
+          "初步设计报告 (2017-12-26)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "accelerator_design"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 477,
+        "page_count": 472,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+      },
+      {
+        "document_id": "shine-control-system-status-icalepcs2019",
+        "document_title": "Status of the SHINE Control System",
+        "versions": [
+          "ICALEPCS2019 WEPHA167"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "control_architecture"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 15,
+        "page_count": 4,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-control-system-status-icalepcs2019"
+      },
+      {
+        "document_id": "shine-cryogenic-control-system-2021",
+        "document_title": "The Cryogenic Control System of SHINE",
+        "versions": [
+          "EPJ Techniques and Instrumentation (2021)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "cryogenics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 22,
+        "page_count": 8,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+      },
+      {
+        "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+        "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+        "versions": [
+          "PCaPAC2022 FRO21"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "ioc"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 13,
+        "page_count": 3,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+      },
+      {
+        "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+        "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+        "versions": [
+          "IPAC2022 THIYGD1"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "timing"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 17,
+        "page_count": 5,
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+      }
+    ]
+  },
+  "verification": {
+    "independently_rejudged_methods": 11,
+    "answerable_rankings_checked": 231,
+    "production_cases_checked": 32,
+    "production_state_recomputed": true,
+    "latency_means_recomputed": true
+  }
+}

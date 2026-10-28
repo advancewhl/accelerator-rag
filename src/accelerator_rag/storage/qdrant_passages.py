@@ -23,9 +23,17 @@ class QdrantPassageStore(QdrantCollection):
             raise ValueError("this passage store supports cosine distance only")
         super().__init__(client, collection_name, contract.dimension)
         self.contract = contract
+        self._read_only = False
+
+    def freeze_read_only(self):
+        """Verify once under exclusive local-index ownership, then prohibit writes."""
+        self.verify_contract()
+        self._read_only = True
 
     def verify_contract(self):
         """Full scan: unsigned or mixed collections are rejected before use."""
+        if self._read_only:
+            return
         super().ensure_collection()
         offset = None
         while True:
@@ -50,6 +58,8 @@ class QdrantPassageStore(QdrantCollection):
                 return
 
     def prune_document(self, document_id, current_ids):
+        if self._read_only:
+            raise ValueError("runtime index is immutable")
         self.verify_contract()
         return super().prune_document(document_id, current_ids)
 
@@ -102,6 +112,8 @@ class QdrantPassageStore(QdrantCollection):
             raise ValueError(f"invalid passage payload: {exc}") from exc
 
     def upsert_passages(self, passages, vectors):
+        if self._read_only:
+            raise ValueError("runtime index is immutable")
         array = np.asarray(vectors, dtype=np.float32)
         if (
             not passages

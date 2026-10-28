@@ -1,0 +1,14 @@
+﻿document_id,title,version,language,category,pages,canonical_chunks,eligible_chunks
+epics-application-developers-guide-r3-16-2,EPICS Application Developer's Guide,R3.16.2 (2018-10-22),en,control_system,354,848,847
+epics-documentation-latest-2026-08-18,EPICS Documentation,latest (2026-08-18),en,control_system,455,1071,1071
+european-xfel-full-technical-design-report-2007,The European X-Ray Free-Electron Laser Technical Design Report,DESY 2006-097 (2007-07),en,accelerator_physics,646,1730,1730
+european-xfel-undulator-commissioning-spectrometer-cdr-2011,The European XFEL Undulator Commissioning Spectrometer,"Rev B, Ver 2 (2011-06-08)",en,beam_diagnostics,21,41,41
+european-xfel-x-ray-optics-beam-transport-tdr-2012,X-Ray Optics and Beam Transport,XFEL.EU TR-2012-006 (2012-12),en,accelerator_physics,164,235,235
+european-xfel-standard-e-beam-diagnostics-linac2010,Standard E-Beam Diagnostics for the European-XFEL,LINAC2010 TUP095,en,beam_diagnostics,3,13,13
+shine-epics-ioc-pv-information-management-pcapac2022,EPICS IOC and PVs Information Management System for SHINE,PCaPAC2022 FRO21,en,control_system,3,13,13
+shine-accelerator-fast-interlock-2024,SHINE 加速器快联锁系统设计与开发,核技术 47(12):120203 (2024-12),zh,control_system,9,18,18
+shine-control-system-status-icalepcs2019,Status of the SHINE Control System,ICALEPCS2019 WEPHA167,en,control_system,4,15,15
+shine-cryogenic-control-system-2021,The Cryogenic Control System of SHINE,EPJ Techniques and Instrumentation (2021),en,control_system,8,22,22
+shine-white-rabbit-beam-synchronous-timing-ipac2022,White Rabbit Based Beam-Synchronous Timing Systems for SHINE,IPAC2022 THIYGD1,en,control_system,5,17,17
+shine-accelerator-control-system-design-presentation,SHINE 加速器控制系统设计与开发,unknown,zh,control_system,34,34,33
+shine-accelerator-preliminary-design-report-2017,硬 X 射线自由电子激光装置初步设计报告（加速器分册）,初步设计报告 (2017-12-26),zh,accelerator_physics,472,480,477
