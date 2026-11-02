@@ -1,0 +1,110 @@
+cwd=/home/whloong/projects/accelerator-rag-prab
+python=3.11.15 executable=/home/whloong/miniconda3/envs/accelerator-rag/bin/python
+accelerator_rag.__file__=/home/whloong/projects/accelerator-rag-prab/src/accelerator_rag/__init__.py
+
+==============================================================================
+P1 注册表 schema 与真实 registry 校验（只读）
+==============================================================================
+VALID_DOCUMENT_TYPES = ['docx', 'md', 'pdf', 'pptx', 'txt']
+_DOC_ID_PATTERN      = ^[a-z0-9]+(?:-[a-z0-9]+)*$
+load_registry(data/documents/registry.json) -> 13 条记录，全部通过 __post_init__ 校验
+document_type 分布: {'pdf': 13}
+首条记录: {"doc_id": "epics-application-developers-guide-r3-16-2", "title": "EPICS Application Developer's Guide", "source_path": "data/l0_raw/EPICS/EPICS_Application_Developers_Guide_R3.16.2.pdf", "category": "control_system", "topic": "epics", "document_type": "pdf", "language": "en", "version": "R3.16.2 (2018-10-22)", "status": "active"}
+PASS  registry schema 允许 document_type='md'（集合内注册）
+PASS  真实 registry 当前 13 条全部是 pdf，无 md 记录
+
+==============================================================================
+P2 构造 Markdown 记录：registry 层接受吗？
+==============================================================================
+DocumentRecord(document_type='md', source_path='data/l0_raw/docs/waveform/waveform-overview.md') -> 构造成功
+  doc_id             = waveform-overview-doc
+  document_type      = md
+  category/topic     = beam_diagnostics / waveform
+PASS  registry 元数据层接受 Markdown 登记（topic='waveform' 已存在于 taxonomy）
+  reject 'data/l0_raw/docs/waveform/waveform-overview.pdf': source_path 扩展名必须与 document_type 一致
+  reject '/etc/passwd': source_path 必须是 data/l0_raw 下的安全相对路径
+  reject 'data/l0_raw/../escape.md': source_path 必须是 data/l0_raw 下的安全相对路径
+备注：registry 只校验扩展名与 document_type 一致，不检查文件是否存在（缺失由 inventory 阶段发现）
+
+==============================================================================
+P2b 原地登记真实 docs/waveform/*.md 是否可行？
+==============================================================================
+实际文件: docs/waveform/waveform-storage-dataflow.md exists=True size=30214
+  REJECT docs/waveform/waveform-storage-dataflow.md -> source_path 必须位于 data/l0_raw 下
+  ACCEPT data/l0_raw/waveform/waveform-storage-dataflow.md
+PASS  docs/waveform/*.md 不能原地登记：source_path 必须在 data/l0_raw 下（registry.py:76-77）；即使复制进去，下一步仍被 IngestionService 拒绝
+
+==============================================================================
+P3 构造最小 Markdown 文档并走 IngestionService（关键证据）
+==============================================================================
+临时项目根: reports/phase1-m0-20261029/ingestion-path/tmp-probe（位于本报告目录内，不触碰 data/l0_raw）
+Markdown 文件: data/l0_raw/docs/waveform/waveform-overview.md (162 字节)
+IngestionService(临时根).records -> ['waveform-overview-doc']
+  ingest_document('waveform-overview-doc') 抛出 ValueError: only PDF ingestion is supported
+PASS  IngestionService 明确拒绝非 PDF：only PDF ingestion is supported（src/accelerator_rag/ingestion.py:55-56）
+  ingest_all_registered_pdfs() -> 0 个文档（字段过滤 document_type == 'pdf'）
+PASS  批量入口静默跳过已登记的 Markdown：0 个文档、0 个 chunk、无异常
+
+==============================================================================
+P4 解析层：parse_pdf 对 .md 的行为
+==============================================================================
+  parse_pdf(<.md>) 抛出 ValueError: Expected a PDF file: /home/whloong/projects/accelerator-rag-prab/reports/phase1-m0-20261029/ingestion-path/tmp-probe/data/l0_raw/docs/waveform/waveform-overview.md
+PASS  解析器只接受 PDF 后缀（src/accelerator_rag/corpus/pdf_parser.py:192-193）
+  构造 ParsedPdfDocument 的源码位置: ['src/accelerator_rag/corpus/pdf_parser.py']
+PASS  全仓库仅 pdf_parser 能构造 ParsedPdfDocument：没有 Markdown/HTML/纯文本解析入口
+
+==============================================================================
+P5 正对照：真实 PDF -> parse_pdf -> chunk_pdf；以及切块层是否格式无关
+==============================================================================
+parse_pdf -> page_count=3, warnings=[]
+chunk_pdf -> 2 chunks, algorithm=pdf-chunks-v3
+  page_start=1 page_end=1 chars=87 chunk_id=demo-pdf:b825f8bb46cbcc6ac2c13d5af1b6340e02e8b84e16153f144f092ef67756baae
+  page_start=3 page_end=3 chars=53 chunk_id=demo-pdf:2d7f4135543b991fe6ada8d588126d90a7c184679ec2d7489dfe9a076bf6f436
+PASS  chunk_id 对同一输入确定性复现（sha256 前缀 + 文档 ID）
+PASS  空物理页 2 不产生 chunk，也不会把第 3 页重编号
+
+手工构造 ParsedPdfDocument(markdown) -> chunk_pdf -> 0 chunks
+PASS  切块层只吃清洗后的 block（blocks 为空 -> 0 chunk）：Markdown 正文必须由适配器转成 block 才能进入
+  加上一个 block 后 -> 1 chunks
+  page=1 chars=49 chunk_id=waveform-overview-doc:d7192a47508b98df1da348938170cb3ff8910a78e876a63943f8738416f79cc7 text='# Waveform 采集服务概览\n\nWF 服务以 10 MS/s 采样，单次捕获 4096 点。'
+PASS  chunk_pdf 本身不检查后缀：只要给 ParsedPdfDocument+PdfTextBlock，Markdown 文本可切块（但 chunk_id 仍冠以 pdf-chunks-v3）
+  合成页 height=0 时 chunk_pdf 抛出 ZeroDivisionError: float division by zero
+PASS  Markdown 适配器必须提供非零合成 page.width/height（cleaning.py:127 用 bbox 除以页高），否则清洗阶段崩溃
+
+==============================================================================
+P6 索引契约：canonical SHA-256 与 dense_index_contract_id 语义
+==============================================================================
+canonical_sha256 = sha256(json.dumps(value, sort_keys=True, separators=(',',':'), ensure_ascii=False, allow_nan=False))
+canonical_sha256({b:1,a:[2,3]}) = 2aae3bfa906be39530e7d7a4aa90a7e6d4f29c33e3ac80e1c3b05598c5953c04
+PASS  字典插入顺序不影响 contract 摘要（sort_keys=True）
+PASS  任一字段变化都会改变摘要（不可变身份）
+
+canonical_passage_id 使用不同的序列化：json.dumps(..., sort_keys=True) 默认分隔符（含空格）
+canonical_passage_id(passage_contract) = 2be63c66d58f4edbdd919e8db9330a56ffd832a5c30243a339e781d308b2a4de
+PASS  passage 契约 ID 与 canonical_sha256 不是同一算法（保留 dense-passages-v1 历史标识，src/accelerator_rag/retrieval/index_contract.py:84-86）
+
+DenseIndexContract.from_fingerprint(伪指纹) ->
+  contract_id      = f8b3f058397307a14f6ed696055c2a517cd480d16c27c37bf2c2c794f6c4e5e0
+  passage_algorithm= dense-passages-v1
+  dimension        = 768  distance = cosine  normalize_embeddings = True
+  document_template= document_title + "\n" + passage.text
+PASS  contract_id 为 64 位十六进制，等于 asdict(contract) 的 canonical SHA-256
+PASS  维度变化即产生新 contract_id（换模型/换 passage 必须用新集合）
+
+config/rag-production.json: intfloat/multilingual-e5-base contract_id=ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4 point_count=4746
+  64hex=True  model_path=/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base  index_path=/workspace/tmp/stage-two-eight/e5_reused_signed_index  local_exists=False
+
+config/rag-production.json: Qwen/Qwen3-Embedding-0.6B contract_id=6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823 point_count=4532
+  64hex=True  model_path=/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B  index_path=/workspace/tmp/stage-two-eight/qwen3_embedding_0_6b_fp32/qdrant  local_exists=False
+PASS  两个生产索引的 contract_id 均为 64 位十六进制；本地无模型权重与索引，无法离线重算（只能比对 config 值）
+
+==============================================================================
+P7 corpus_inventory 在本地（无语料）的行为
+==============================================================================
+  build_inventory(accelerator-rag-prab) 抛出 ValueError: raw 目录不存在: /home/whloong/projects/accelerator-rag-prab/data/l0_raw
+PASS  本机无 data/l0_raw：inventory 直接失败，而不是报告 13 份缺失——本地无法做语料级校验
+
+==============================================================================
+汇总
+==============================================================================
+未通过的断言: 0

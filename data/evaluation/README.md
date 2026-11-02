@@ -1,3 +1,9 @@
+# 当前 50 题开发验证
+
+当前入口为 [validity-pilot-v2.md](validity-pilot-v2.md) 和同名 JSON，共 50 题。来源校验、运行命令和人工评分见[协议](../../docs/rag/validity-pilot-50.md)。旧 `seed-questions-v1*.json` 保留历史参考，部分答案和定位在文档重写后失效；不要以旧 `machine_verified` 标签替代本轮复核。
+
+2026 年 10 月 30 日已完成生产 50 题问答，保存全部响应和 trace。见[线上报告](../../reports/validity-pilot-online-20261030/README.md)及[评分裁决清单](../../reports/validity-pilot-online-20261030/rubric-adjudication.md)。本轮不修改旧标签来提高分数，独立人工评分仍待完成。
+
 # Retrieval evidence judgments
 
 `retrieval_baseline.json` 使用 `schema_version: 2`，当前 judgment revision 为 `evidence-contract-v2`。查询集包含 21 条可回答问题、3 条明显负例、8 条领域负例。标注覆盖全部 13 份 PDF，已完成 Stage 2.7.1 的全语料 alternative 审核，仍不保证穷尽所有改写。

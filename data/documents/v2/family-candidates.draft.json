@@ -1,0 +1,1022 @@
+{
+  "schema_version": 2,
+  "generated_on": "2026-11-02",
+  "families": [
+    {
+      "family_id": "accelerator-overall-design",
+      "title": "加速器总体设计（2017 初步设计 / 2024 优化设计 V6 / 控制章节）",
+      "description": "同一装置总体设计的不同代次与章节。仅建立候选关系；V6 是否批准、是否整篇替代 2017 版尚未确认。",
+      "members": [
+        {
+          "kind": "legacy_doc_id",
+          "value": "shine-accelerator-preliminary-design-report-2017",
+          "revision_label": "初步设计报告（加速器分册）2017-12-26（registry version）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+          "revision_label": "优化设计 V6；文件名含“返回通读版本”，批准状态 unknown"
+        },
+        {
+          "kind": "batch_path",
+          "value": "六、加速器控制20240422.docx",
+          "revision_label": "2024-04-22 工程设计报告·加速器控制章（文件名）"
+        }
+      ],
+      "relation": "version_and_scope_candidate",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §4.3 对比 2018 初步设计 8 GeV 与 V6 7.2 GeV；ANALYSIS 附录 A 将 V6 与控制章列为 P0；计划 §6.2 要求梳理“既有初步设计、优化设计 V6、控制章节之间的范围关系”。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-total-control-integration-design",
+      "title": "总控集成系统设计（2022 技术设计 / 评审申请书 / 2024-10 设计报告）",
+      "description": "总控集成系统的技术设计、评审申请与 2024-10 后续设计报告。是否与 2018 初步设计构成同一文档族，需全文与版本记录确认。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/1.总控集成系统技术设计报告.docx",
+          "revision_label": "2022 技术设计（归档文档（20221117）批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/5.总控集成系统研制设备设计评审申请书.docx",
+          "revision_label": "2022 评审申请书（归档批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE Accelerator Control System.docx",
+          "revision_label": "2024-10 总控集成系统设计报告（封面；英文正文）"
+        }
+      ],
+      "relation": "related_design_series",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出 2022 技术设计 15 份，包含总控集成、设备控制、上层应用软件；ANALYSIS §4.1 引用《总控集成系统技术设计报告》按五项功能分层；2024 归档的 SHINE Accelerator Control System 首段显示“总控集成系统设计报告，2024年10月”。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-equipment-control-design",
+      "title": "设备控制系统设计（2018 初步设计 / 2022 技术设计 / 2024 数据交互）",
+      "description": "设备控制子系统的初步设计、技术设计与 OPI/IOC/PLC 数据交互说明。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/12. 设备控制初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/2.设备控制系统技术设计报告.docx",
+          "revision_label": "2022 技术设计（归档批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/6.设备控制研制设备设计评审申请书.docx",
+          "revision_label": "2022 评审申请书（归档批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE OPI、IOC、PLC之间数据交互.docx",
+          "revision_label": "2024 归档·OPI/IOC/PLC 数据交互"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2：2018–2019 初步设计含设备控制；2022 技术设计含设备控制系统；2024 归档含 OPI、IOC、PLC 数据交互。文件名提供同名子系统证据。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-upper-software-design",
+      "title": "上层应用软件设计（2018 初步设计 / 2022 技术设计）",
+      "description": "上层软件/上层应用软件子系统的初步设计、技术设计与评审申请。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/10. 上层软件初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/4.上层应用软件系统技术设计报告.docx",
+          "revision_label": "2022 技术设计（归档批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/8.上层应用软件系统研制设备设计评审申请书.docx",
+          "revision_label": "2022 评审申请书（归档批次）"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2：2018–2019 初步设计含上层软件；2022 技术设计含上层应用软件系统技术设计报告与评审申请书。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-interlock-system-design",
+      "title": "联锁系统设计（2019 初步 / 2022 技术 / 2022 运行模式 / 2024 远程下装与温度联锁）",
+      "description": "机器联锁/快联锁子系统的初步设计、技术设计、运行模式设计及后续专题设计。技术设计是否整篇替代初步设计、快联锁样机是否属于同一族，均待确认。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/23. 联锁系统初步设计报告.docx",
+          "revision_label": "初步设计 2019-10（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/3.联锁系统技术设计报告.docx",
+          "revision_label": "技术设计 2022-07（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/11.联锁系统运行模式设计报告.pdf",
+          "revision_label": "2022 技术设计·运行模式（归档批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/7.联锁研制设备设计评审申请书.docx",
+          "revision_label": "2022 评审申请书（归档批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE快联锁系统远程控制系统搭建及下装测试技术报告20241028.docx",
+          "revision_label": "2024-10-28 远程控制/下装测试（文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE磁铁电源及温度联锁设计报告.docx",
+          "revision_label": "2024 归档·磁铁电源温度联锁"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "high",
+      "evidence": "ANALYSIS §2/§4.1 列出联锁初步设计、技术设计、运行模式设计、快联锁样机与远程下装测试；计划 §6.2 要求建立分系统设计初步/技术/研制总结关系。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-timing-system-design",
+      "title": "定时系统设计（2018 初步/样机 / 2023 监控 / 2024–2025 归档）",
+      "description": "主定时、定时样机、定时网络监控、L1 段定时与诊断平台的历年说明。设计指标与实测口径、样机代次和各归档关系待确认。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/5. 主定时系统初步设计报告.docx",
+          "revision_label": "初步设计 2018-12（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/11. 定时样机设计报告.pdf",
+          "revision_label": "样机设计 2018-07（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/12. 定时样机评审报告.pptx",
+          "revision_label": "样机评审（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目L1段定时系统研制总结.docx",
+          "revision_label": "L1 段研制总结 2025-11（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目SHINE定时系统分析诊断平台设计报告.docx",
+          "revision_label": "2025 归档·诊断平台设计"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目定时EPICS-SNMP模块配置以及IOC建立说明.docx",
+          "revision_label": "2025 归档·EPICS-SNMP/IOC 配置"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE定时系统devSnmp模块配置方法及IOC建立说明20241028.docx",
+          "revision_label": "2024-10-28 devSnmp/IOC 配置（文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE注入器段定时系统安装测试情况总结.docx",
+          "revision_label": "2024 归档·注入器段定时安装测试"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目基于Nagios 的White Rabbit定时网络监控系统设计报告.docx",
+          "revision_label": "2023 归档·Nagios/White Rabbit 监控"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目基于SNMP的定时网络监控系统设计报告.docx",
+          "revision_label": "2023 归档·SNMP 监控"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/基于Nagios 的White Rabbit定时网络监控系统设计报告.docx",
+          "revision_label": "2023 归档根目录·Nagios/White Rabbit 监控（与嵌套目录同名，字符数不同）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/基于SNMP的定时网络监控系统设计报告.docx",
+          "revision_label": "2023 归档根目录·SNMP 监控（与嵌套目录同名，字符数不同）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统节点验收测试报告.docx",
+          "revision_label": "2023 归档·定时节点验收测试"
+        }
+      ],
+      "relation": "version_and_evidence_chain",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出主定时初步设计、定时样机、2023/2024/2025 定时归档；ANALYSIS §4.1 引用定时样机设计指标并与 L1 段研制总结对照。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-control-network-design",
+      "title": "控制网络设计（2018 初步 / 2023 网络配置 / 2024 装置网络）",
+      "description": "控制网络子系统的初步设计、网络配置与后续装置控制网络设计。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/4. 控制网络初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE装置控制网络设计报告.docx",
+          "revision_label": "2024 归档·装置控制网络设计"
+        },
+        {
+          "kind": "batch_path",
+          "value": "OPI及IOC控制器网络配置（2023.0905）.docx",
+          "revision_label": "2023-09-05 网络配置（文件名）"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出控制网络初步设计与 2024 装置控制网络设计报告；文件名显示 OPI/IOC 控制器网络配置。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-data-storage-and-archive",
+      "title": "数据存储与存档（2018 初步 / 2023 设计 / 2024 Archiver / 2025 安全管理）",
+      "description": "数据存储、通道存档、查询软件与 Archiver 的历年设计，以及 2025 年设备运行数据安全管理。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/7. 数据存储初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/8. 通道数据存档初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/米清茹补充材料/网页访问mysql数据库设计.docx",
+          "revision_label": "数据库设计（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+          "revision_label": "2023 归档·数据存储"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存档系统查询软件设计报告.doc",
+          "revision_label": "2023 归档·存档查询软件"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE基于Django的Archiver Appliance.docx",
+          "revision_label": "2024 归档·Django Archiver"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/SHINE加速器设备运行数据的安全管理.docx",
+          "revision_label": "2025 归档·运行数据安全管理"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出数据存储/通道存档初步设计、2023 数据存储与存档查询、2024 Django Archiver、2025 运行数据安全。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-ioc-management",
+      "title": "IOC 管理与安装维护（设计规范 / 管理规范 / 2024–2025 模板、开发、安装）",
+      "description": "IOC 设计规范、管理规范、Git/GitLab 使用说明，以及 2024–2025 年IOC 模板建立、应用开发、设备安装维护和 EPICS 模块安装。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/SHINE IOC 模板建立.docx",
+          "revision_label": "2025 归档·IOC 模板建立"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/SHINE IOC应用开发建立说明.docx",
+          "revision_label": "2025 归档·IOC 应用开发"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/SHINE IOC设备安装维护说明.docx",
+          "revision_label": "2025 归档·IOC 设备安装维护"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/米清茹补充材料/Git及GitLab的使用说明.docx",
+          "revision_label": "Git/GitLab 使用说明（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/米清茹补充材料/IOC设计规范-v1.2.docx",
+          "revision_label": "IOC 设计规范 v1.2（文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "SHINE注入器段IOC管理规范文档（20230908）-陈广花.docx",
+          "revision_label": "IOC 管理规范 2023-09-08（文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE EPICS模块详细安装步骤.docx",
+          "revision_label": "2024 归档·EPICS 模块安装"
+        }
+      ],
+      "relation": "series",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出 2025 IOC 模板/开发/安装维护、米清茹 IOC 设计规范与 GitLab、2023 IOC 管理规范；计划 §6.2 要求梳理 IOC 历年说明关系。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-power-supply-control-design",
+      "title": "电源与功率源控制（2018 初步 / 2024 PDU / 2025 热备电源）",
+      "description": "电源分配单元、电源控制、常规功率源、束流分配及功率源的初步设计，以及 2024 控制系统 PDU 和 2025 热备电源设计。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/13. 电源分配单元初步设计报告.docx",
+          "revision_label": "PDU 初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/16. 电源控制系统初步设计报告.docx",
+          "revision_label": "电源控制初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/20. 常规功率源控制初步设计报告.docx",
+          "revision_label": "常规功率源初步设计 2018-11（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/21. 束流分配及功率源控制初步设计报告.docx",
+          "revision_label": "束流分配及功率源初步设计 2018-10（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/基于SNMP的电源分配单元设计报告.docx",
+          "revision_label": "2025 归档·SNMP PDU 设计"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE控制系统电源分配单元.docx",
+          "revision_label": "2024 归档·控制系统 PDU"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20251119）/2025硬线归档/SHINE 热备电源控制系统设计报告-2025.09.11.docx",
+          "revision_label": "2025-09-11 热备电源（文件名）"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出电源分配单元/电源控制/常规功率源/束流分配初步设计、2024 PDU、2025 热备电源。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-vacuum-control-design",
+      "title": "真空控制设计（2018 初步 / 2018 样机评审 / 2024 注入段总结）",
+      "description": "真空控制子系统的初步设计、样机设计评审与注入段真空控制总结。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/14. 真空控制系统初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/15. 真空控制样机设计评审报告.pptx",
+          "revision_label": "2018–2019 真空样机设计评审"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE直线加速器注入段真空设备控制总结报告.docx",
+          "revision_label": "2024 归档·注入段真空控制总结"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出真空控制初步设计、真空样机评审、2024 注入段真空总结。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-motion-control-design",
+      "title": "运动控制设计（2018 初步 / 2022 四自由度平台远程控制）",
+      "description": "波荡器及段间运动控制、集成电机运动控制与四自由度平台远程控制。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/17. 波荡器及段间运动控制初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/18. 集成电机运动控制初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/10.四自由度运动平台远程控制.docx",
+          "revision_label": "2022 技术设计·四自由度平台远程控制"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出波荡器及段间运动控制、集成电机运动控制初步设计、2022 四自由度平台远程控制。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-alarm-system-design",
+      "title": "报警系统设计（2018 初步 / 2022 安装配置）",
+      "description": "报警系统初步设计与 2022 年报警系统安装配置报告。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/11. 报警系统初步设计报告.docx",
+          "revision_label": "初步设计（2018–2019 批次）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（20221117）/13.报警系统安装配置报告.pdf",
+          "revision_label": "2022 技术设计·报警安装配置"
+        }
+      ],
+      "relation": "version_family",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出报警系统初步设计与 2022 报警系统安装配置报告。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-control-standards-2024",
+      "title": "总控相关标准和规范（2024 合并版 / 5 份单项 / 扫描副本）",
+      "description": "2024 合并版规范、5 份单项规范，以及 1 硬线工程下的两份扫描副本。合并版已由 ANALYSIS 确认完整包含单项规范正文；扫描副本的等价关系待确认。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "SHINE-OP-TL-002 2024 总控相关标准和规范.pdf",
+          "revision_label": "2024 合并版（文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "总控相关标准和规范/EPICS软件版本规范.pdf",
+          "revision_label": "单项规范（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "总控相关标准和规范/PyDM界面设计规范.pdf",
+          "revision_label": "单项规范（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "总控相关标准和规范/数据格式与存储规范.pdf",
+          "revision_label": "单项规范（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "总控相关标准和规范/联锁系统硬件信号接口规范.pdf",
+          "revision_label": "单项规范（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "总控相关标准和规范/设备控制及通讯接口标准规范-xin.pdf",
+          "revision_label": "单项规范（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/25. 联锁系统硬件信号接口规格.pdf",
+          "revision_label": "扫描副本（3 页；与文本版等价待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "1 硬线工程/26. 设备控制及通讯接口标准.pdf",
+          "revision_label": "扫描副本（2 页；与文本版等价待确认）"
+        }
+      ],
+      "relation": "contains_and_equivalent",
+      "confidence": "high",
+      "evidence": "ANALYSIS §4.2 确认 2024 合并版完整包含 5 份单项规范正文；ANALYSIS §3.2 指出 1 硬线工程/25、26 为扫描件且已有文本版；计划 §6.2 要求梳理合并版/单项/扫描副本关系。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-device-naming-rules",
+      "title": "设备与控制信号命名规则（编号表 / 信号 / 机柜 / 命名 / 技术代号）",
+      "description": "系统代号表、控制信号命名规则、机柜命名规则、设备命名规则、技术代号规则及 2023 年专题会纪要。属于相关规范簇，不是同一文档的多个修订。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "SHINE-AC编号.docx",
+          "revision_label": "系统代号表（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "SHINE控制信号命名规则-签发版.pdf",
+          "revision_label": "签发版（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "机柜命名规则.pptx",
+          "revision_label": "机柜命名规则（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "20230613加速器总体设备命名规则专题会纪要.pdf",
+          "revision_label": "2023-06-13 专题会纪要（文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "序号24-SHINE-OP-TL-018- 设备命名规则-R0-20190903.pdf",
+          "revision_label": "SHINE-OP-TL-018 R0（2019-09-03，文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "附件-SHINE-OP-TL-004-2022-SHINE项目技术代号规则-20220926.pdf",
+          "revision_label": "SHINE-OP-TL-004（2022-09-26，文件名）"
+        }
+      ],
+      "relation": "related_normative_cluster",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出 SHINE-AC 编号、控制信号命名规则、机柜命名规则、命名规则专题会纪要、SHINE-OP-TL-018/004；文件名与标准号提供关联证据。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-control-operation-manual-series",
+      "title": "控制系统界面操作手册（第一版 / 第二版 / 第三版 / 归档副本）",
+      "description": "控制系统各功能界面的操作手册合集。第一版、第二版（2023-12）、第三版（2024-11）与 2023/2024 归档副本之间的关系。统一族仅用于候选分组；具体功能是否逐一手册形成独立版本链，待确认。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+          "revision_label": "2024 归档副本（手册代次待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE注入器联锁系统操作说明-归档2410.docx",
+          "revision_label": "2024 归档副本（手册代次待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202410）/SHINE注入段真空控制操作手册.doc",
+          "revision_label": "2024 归档副本（手册代次待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE准直器界面操作手册.docx",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE功率源控制界面操作说明.docx",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE四自由度平台界面操作手册.docx",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE定时界面操作手册.doc",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE恒温机柜界面操作手册.doc",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE数据存档系统web查询软件操作手册.doc",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE温湿度控制界面操作说明.docx",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE激光界面操作手册.doc",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE电源分配器PDU界面操作手册.doc",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE电源控制界面操作说明.docx",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/SHINE联锁界面操作手册.docx",
+          "revision_label": "第一版（目录/CSV 标注；日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第三版（202411）/SHINE注入器段Laser Heater控制界面操作手册.docx",
+          "revision_label": "第三版（2024-11；目录名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第三版（202411）/SHINE注入器段准直器控制界面操作手册.docx",
+          "revision_label": "第三版（2024-11；目录名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第三版（202411）/SHINE注入器段切换平台控制界面操作手册.docx",
+          "revision_label": "第三版（2024-11；目录名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第三版（202411）/SHINE注入器段四自由度平台控制界面操作手册.docx",
+          "revision_label": "第三版（2024-11；目录名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第三版（202411）/SHINE注入器段调谐器控制界面操作手册.docx",
+          "revision_label": "第三版（2024-11；目录名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+          "revision_label": "第三版（2024-11；目录名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目1号井功率源控制界面操作说明.docx",
+          "revision_label": "2023 归档副本（与第一版/第二版关系待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目1号井温湿度控制界面操作说明.docx",
+          "revision_label": "2023 归档副本（与第一版/第二版关系待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目1号井电源控制界面操作说明.docx",
+          "revision_label": "2023 归档副本（与第一版/第二版关系待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "revision_label": "2023 归档副本（与第一版/第二版关系待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc",
+          "revision_label": "2023 归档副本（与第一版/第二版关系待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目联锁系统控制界面操作说明.docx",
+          "revision_label": "2023 归档副本（与第一版/第二版关系待确认）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第二版/1号井电源控制界面操作说明-2023.12.07.docx",
+          "revision_label": "第二版（2023-12；目录名/文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第二版/SHINE定时界面操作手册(20231206).doc",
+          "revision_label": "第二版（2023-12；目录名/文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第二版/SHINE联锁界面操作手册(20231206).docx",
+          "revision_label": "第二版（2023-12；目录名/文件名）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+          "revision_label": "第二版（2023-12；目录名/文件名）"
+        }
+      ],
+      "relation": "series",
+      "confidence": "medium",
+      "evidence": "ANALYSIS §2 列出操作手册 23 份第一/二/三版；ANALYSIS §4.2 指出 3 组操作手册与 2023 归档完全重复；目录名含第一版/第二版（20231206）/第三版（202411）。",
+      "needs_confirmation": true
+    },
+    {
+      "family_id": "shine-prototype-fast-interlock-acceptance",
+      "title": "快联锁样机测试与验收证据链",
+      "description": "快联锁样机的设计、评审、测试大纲、自测、测试报告、研制总结、验收申请、验收书与验收评审。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/8. 快联锁样机设计报告.docx",
+          "revision_label": "样机设计 2018-07（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/9. 快联锁样机评审报告.pptx",
+          "revision_label": "样机设计评审（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/10. 快联锁样机工艺设计评审报告.pptx",
+          "revision_label": "工艺设计评审（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机测试大纲.docx",
+          "revision_label": "测试大纲（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机自测报告.docx",
+          "revision_label": "自测报告 2021-06-12（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机测试报告.pdf",
+          "revision_label": "测试报告（17 页扫描件，未 OCR）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机研制总结报告.docx",
+          "revision_label": "研制总结 2021-06（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机验收申请书.docx",
+          "revision_label": "验收申请书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机验收书.docx",
+          "revision_label": "验收书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机验收评审报告.pdf",
+          "revision_label": "验收评审报告 2021-06-17（封面）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/快联锁样机验收评审报告.pptx",
+          "revision_label": "验收评审报告（演示稿；日期 unknown）"
+        }
+      ],
+      "relation": "evidence_chain",
+      "confidence": "high",
+      "evidence": "ANALYSIS §2 将 3 样机验收描述为测试大纲、自测报告、测试报告、研制总结、验收书、验收评审；文件名显示快联锁同一证据链；ANALYSIS §4.1 引用快联锁设计指标。",
+      "needs_confirmation": false
+    },
+    {
+      "family_id": "shine-prototype-constant-temperature-cabinet-acceptance",
+      "title": "恒温机柜控制样机测试与验收证据链",
+      "description": "恒温机柜控制样机的设计、测试大纲、自测、测试报告、研制总结与验收材料。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜控制设计报告.docx",
+          "revision_label": "设计报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜控制测试大纲.docx",
+          "revision_label": "测试大纲（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜控制自测报告.docx",
+          "revision_label": "自测报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜控制样机测试报告.pdf",
+          "revision_label": "测试报告（7 页扫描件，未 OCR）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜控制研制总结报告.docx",
+          "revision_label": "研制总结（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜样机控制验收申请书.docx",
+          "revision_label": "验收申请书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜样机控制验收书.docx",
+          "revision_label": "验收书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/恒温机柜控制样机验收评审报告.pptx",
+          "revision_label": "验收评审报告（日期 unknown）"
+        }
+      ],
+      "relation": "evidence_chain",
+      "confidence": "high",
+      "evidence": "ANALYSIS §2 将 3 样机验收描述为测试大纲、自测报告、测试报告、研制总结、验收书、验收评审；文件名显示恒温机柜同一证据链。",
+      "needs_confirmation": false
+    },
+    {
+      "family_id": "shine-prototype-control-system-development-environment-acceptance",
+      "title": "控制系统开发环境样机测试与验收证据链",
+      "description": "控制系统开发环境样机的设计、评审、测试、研制总结与验收材料。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/3. 控制系统开发环境样机设计报告.docx",
+          "revision_label": "样机设计（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/4. 控制系统开发环境样机评审报告.pptx",
+          "revision_label": "样机评审（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机测试大纲.docx",
+          "revision_label": "测试大纲（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境自测报告.docx",
+          "revision_label": "自测报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机测试报告.pdf",
+          "revision_label": "测试报告（11 页扫描件，未 OCR）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机研制总结报告.docx",
+          "revision_label": "研制总结（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机验收申请书.docx",
+          "revision_label": "验收申请书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机验收书.docx",
+          "revision_label": "验收书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机验收评审报告.pdf",
+          "revision_label": "验收评审报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/控制系统开发环境样机验收评审报告.pptx",
+          "revision_label": "验收评审报告（演示稿；日期 unknown）"
+        }
+      ],
+      "relation": "evidence_chain",
+      "confidence": "high",
+      "evidence": "ANALYSIS §2 将 3 样机验收描述为测试大纲、自测报告、测试报告、研制总结、验收书、验收评审；文件名显示控制系统开发环境同一证据链。",
+      "needs_confirmation": false
+    },
+    {
+      "family_id": "shine-prototype-vacuum-control-acceptance",
+      "title": "真空设备控制样机测试与验收证据链",
+      "description": "真空设备控制样机的设计评审、测试、研制总结与验收材料。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机设计评审报告.pptx",
+          "revision_label": "设计评审报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机测试大纲.docx",
+          "revision_label": "测试大纲（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机自测报告.docx",
+          "revision_label": "自测报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机测试报告.pdf",
+          "revision_label": "测试报告（12 页扫描件，未 OCR）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机研制总结报告.docx",
+          "revision_label": "研制总结（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机验收申请书.docx",
+          "revision_label": "验收申请书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机验收书.docx",
+          "revision_label": "验收书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/真空设备控制样机验收评审报告.pptx",
+          "revision_label": "验收评审报告（日期 unknown）"
+        }
+      ],
+      "relation": "evidence_chain",
+      "confidence": "high",
+      "evidence": "ANALYSIS §2 将 3 样机验收描述为测试大纲、自测报告、测试报告、研制总结、验收书、验收评审；文件名显示真空设备控制同一证据链。",
+      "needs_confirmation": false
+    },
+    {
+      "family_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance",
+      "title": "高帧率图像采集样机测试与验收证据链",
+      "description": "高帧率图像采集样机的设计、评审、测试、研制总结与验收材料。",
+      "members": [
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/5. 高帧率图像采集处理样机设计报告.docx",
+          "revision_label": "样机设计（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/6. 高频率图像采集处理样机评审报告.pptx",
+          "revision_label": "样机评审（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "2 重大专项/7. 高帧率图像采集处理样机工艺设计评审报告.pptx",
+          "revision_label": "工艺设计评审（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机测试大纲.docx",
+          "revision_label": "测试大纲（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机自测报告.docx",
+          "revision_label": "自测报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机测试报告.pdf",
+          "revision_label": "测试报告（6 页扫描件，未 OCR）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机研制总结报告.docx",
+          "revision_label": "研制总结（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机验收申请书.docx",
+          "revision_label": "验收申请书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机验收书.docx",
+          "revision_label": "验收书（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机验收评审报告.pdf",
+          "revision_label": "验收评审报告（日期 unknown）"
+        },
+        {
+          "kind": "batch_path",
+          "value": "3 样机验收/高帧率图像采集样机验收评审报告.pptx",
+          "revision_label": "验收评审报告（演示稿；日期 unknown）"
+        }
+      ],
+      "relation": "evidence_chain",
+      "confidence": "high",
+      "evidence": "ANALYSIS §2 将 3 样机验收描述为测试大纲、自测报告、测试报告、研制总结、验收书、验收评审；文件名显示高帧率图像采集同一证据链。",
+      "needs_confirmation": false
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "models_endpoint": {
+    "object": "list",
+    "data": [
+      {
+        "id": "ds-1017",
+        "object": "model",
+        "created": 1793321786,
+        "owned_by": "vllm",
+        "root": "/models/DeepSeek-V4.1-Flash-1017-NVFP4",
+        "parent": null,
+        "max_model_len": 1048576,
+        "permission": [
+          {
+            "id": "modelperm-83041f4c48bb0c5b",
+            "object": "model_permission",
+            "created": 1793321786,
+            "allow_create_engine": false,
+            "allow_sampling": true,
+            "allow_logprobs": true,
+            "allow_search_indices": false,
+            "allow_view": true,
+            "allow_fine_tuning": false,
+            "organization": "*",
+            "group": null,
+            "is_blocking": false
+          }
+        ]
+      }
+    ]
+  },
+  "container_name": "ds-1017",
+  "container_id": "fa94fcee0cebb1bd7699b7d233f67b566e2981e575e7c3ae80a5384e2b2d58f8",
+  "image": "sha256:76a9614ed4ed20694914c87e82a0344bd73e1c6e081459a2467175ab903657e4",
+  "image_tag": "vllm/vllm-openai:nightly",
+  "started_at": "2026-10-29T12:25:05.443495551Z",
+  "selected_arguments": {
+    "--served-model-name": "ds-1017",
+    "--tensor-parallel-size": "8",
+    "--gpu-memory-utilization": "0.88",
+    "--max-model-len": "1048576",
+    "--reasoning-parser": "deepseek_v41",
+    "--tool-call-parser": "deepseek_v41",
+    "--enable-auto-tool-choice": true
+  }
+}

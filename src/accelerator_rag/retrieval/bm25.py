@@ -9,6 +9,7 @@ from dataclasses import replace
 import jieba
 
 from accelerator_rag.domain.knowledge import KnowledgeChunk, RetrievalResult
+from accelerator_rag.retrieval.scope import RetrievalScope
 
 # 匹配技术词、PV名、数字和中文文本
 TOKEN_PATTERN = re.compile(
@@ -113,6 +114,7 @@ class BM25Retriever:
         query: str,
         *,
         top_k: int = 3,
+        scope: RetrievalScope | None = None,
     ) -> list[RetrievalResult]:
         if not query.strip():
             raise ValueError("query cannot be empty")
@@ -124,9 +126,14 @@ class BM25Retriever:
 
         results: list[RetrievalResult] = []
 
+        # Eligibility is decided before scoring so an ineligible high-scoring
+        # parent never consumes a top_k slot.  Collection-wide IDF statistics
+        # remain unchanged; only the scored parent set is narrowed.
         for chunk, tokens, document_length in zip(
             self._chunks, self._tokenized_documents, self._document_lengths, strict=True
         ):
+            if scope is not None and not scope.allows(chunk):
+                continue
             score = self._score_document(
                 query_tokens=query_tokens,
                 document_tokens=tokens,

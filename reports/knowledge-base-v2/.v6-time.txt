@@ -1,0 +1,23 @@
+	Command being timed: "/home/whloong/miniconda3/envs/accelerator-rag/bin/python scripts/analyze_kb2_samples.py data/l0_raw/incoming/2026-11-02-shine-control/资料/1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx --output reports/knowledge-base-v2/K2-v6-sample-survey.json"
+	User time (seconds): 6.45
+	System time (seconds): 0.36
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:06.83
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 836600
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 225373
+	Voluntary context switches: 23
+	Involuntary context switches: 358
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 8
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

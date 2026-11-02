@@ -1,0 +1,1552 @@
+{
+  "dataset_revision": "2026-10-29-r1",
+  "note": "Development-only. Parent coverage and quote anchoring are not semantic correctness. Human review remains pending.",
+  "completed_questions": 50,
+  "actual_statuses": {
+    "answered": 46,
+    "partial": 4
+  },
+  "status_matches": 45,
+  "citation_count": 87,
+  "questions_with_valid_citation_anchors": 50,
+  "latency_seconds": {
+    "total": 765.2662357600348,
+    "median": 12.655115464993287,
+    "p95_nearest_rank": 31.00759662600467,
+    "max": 33.54791155701969
+  },
+  "model_calls": 228,
+  "model_token_usage": "not recorded by provider; unavailable",
+  "two_round_questions": 8,
+  "max_selected_parents": 4,
+  "max_selected_context_tokens": 5115,
+  "answerable_retrieval": {
+    "denominator": 45,
+    "first_ranked_complete_at_5": 41,
+    "first_ranked_complete_at_20": 43,
+    "final_selected_complete": 40,
+    "cited_parents_complete": 40
+  },
+  "cases": [
+    {
+      "id": "P50-001",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 9.679936728993198,
+      "model_calls": 4,
+      "model_call_seconds": 7.798255939036608,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 715,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        false,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-002",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 10.08703857799992,
+      "model_calls": 4,
+      "model_call_seconds": 9.328039448708296,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 1148,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-003",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.728238446987234,
+      "model_calls": 4,
+      "model_call_seconds": 11.597820334136486,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 657,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-004",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 13.430758464004612,
+      "model_calls": 4,
+      "model_call_seconds": 12.216099679470062,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 1500,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-005",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 14.836492259986699,
+      "model_calls": 4,
+      "model_call_seconds": 9.004688642919064,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1253,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-006",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 10.996587472996907,
+      "model_calls": 4,
+      "model_call_seconds": 8.73617559298873,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1377,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-007",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 14.313215581001714,
+      "model_calls": 4,
+      "model_call_seconds": 13.448574788868427,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 1671,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-008",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 26.793441540008644,
+      "model_calls": 6,
+      "model_call_seconds": 24.85819323733449,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 2,
+      "selected_context_tokens": 1138,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-009",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 9.889888345991494,
+      "model_calls": 4,
+      "model_call_seconds": 9.1419982239604,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 871,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-010",
+      "category": "pdf_control",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 9.540114686999004,
+      "model_calls": 4,
+      "model_call_seconds": 8.535623874515295,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1575,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-011",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 16.84539751597913,
+      "model_calls": 4,
+      "model_call_seconds": 11.091383796185255,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 2293,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-012",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 20.273743530997308,
+      "model_calls": 4,
+      "model_call_seconds": 15.82772372290492,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 4721,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-013",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.723835532000521,
+      "model_calls": 4,
+      "model_call_seconds": 11.52885003387928,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1264,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-014",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 6.533584754011827,
+      "model_calls": 4,
+      "model_call_seconds": 5.849429909139872,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1264,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-015",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 18.094778653001413,
+      "model_calls": 4,
+      "model_call_seconds": 8.036098167300224,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1432,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-016",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 31.00759662600467,
+      "model_calls": 6,
+      "model_call_seconds": 28.38185003772378,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 2,
+      "selected_context_tokens": 3189,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        false
+      ],
+      "cited_parent_groups": [
+        false
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-017",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 19.36787923699012,
+      "model_calls": 8,
+      "model_call_seconds": 15.722406048327684,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 3412,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-018",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 8.325204410997685,
+      "model_calls": 4,
+      "model_call_seconds": 7.541710682213306,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1432,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-019",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 9.020986950985389,
+      "model_calls": 4,
+      "model_call_seconds": 7.859545607119799,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1264,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-020",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 11.14352711601532,
+      "model_calls": 4,
+      "model_call_seconds": 10.397594697773457,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 4,
+      "selected_context_tokens": 4770,
+      "citation_count": 4,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-021",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.115938699018443,
+      "model_calls": 4,
+      "model_call_seconds": 8.302589423954487,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 2836,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-022",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 8.066028975998051,
+      "model_calls": 4,
+      "model_call_seconds": 7.310682225972414,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1485,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-023",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 8.861461051012157,
+      "model_calls": 4,
+      "model_call_seconds": 8.173046994954348,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1597,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-024",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 7.906511537003098,
+      "model_calls": 4,
+      "model_call_seconds": 7.168046735227108,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1597,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-025",
+      "category": "conditions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.925602962990524,
+      "model_calls": 4,
+      "model_call_seconds": 11.410352651029825,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 3888,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-026",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 9.55132033501286,
+      "model_calls": 4,
+      "model_call_seconds": 8.582719575613737,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1833,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-027",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "partial",
+      "status_matches": false,
+      "wall_seconds": 26.453025738999713,
+      "model_calls": 6,
+      "model_call_seconds": 24.05866266041994,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 2,
+      "selected_context_tokens": 2752,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-028",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 17.405947113991715,
+      "model_calls": 4,
+      "model_call_seconds": 16.684767071157694,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 4347,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-029",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 11.812531634990592,
+      "model_calls": 4,
+      "model_call_seconds": 10.700152762234211,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1833,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-030",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.206092844979139,
+      "model_calls": 4,
+      "model_call_seconds": 11.153784990310669,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 5115,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-031",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.466806684999028,
+      "model_calls": 5,
+      "model_call_seconds": 11.66763375326991,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 3050,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-032",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 20.094169179006713,
+      "model_calls": 4,
+      "model_call_seconds": 18.763230212032795,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 3320,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-033",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 14.718490744009614,
+      "model_calls": 4,
+      "model_call_seconds": 13.653475765138865,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 3,
+      "selected_context_tokens": 3721,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-034",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 33.54791155701969,
+      "model_calls": 6,
+      "model_call_seconds": 31.92427160590887,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 4,
+      "selected_context_tokens": 4954,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-035",
+      "category": "versions",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 19.570773398998426,
+      "model_calls": 4,
+      "model_call_seconds": 18.791605480015278,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 3625,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-036",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 21.81890804399154,
+      "model_calls": 6,
+      "model_call_seconds": 19.912645496428013,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 3508,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-037",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 8.767780376016162,
+      "model_calls": 4,
+      "model_call_seconds": 7.87693777307868,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1982,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-038",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 11.210076952003874,
+      "model_calls": 4,
+      "model_call_seconds": 10.075182259082794,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 2586,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        false,
+        true
+      ],
+      "cited_parent_groups": [
+        false,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        false,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "P50-039",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 9.286105630017119,
+      "model_calls": 4,
+      "model_call_seconds": 8.435380544513464,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1732,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-040",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 21.577653733984334,
+      "model_calls": 4,
+      "model_call_seconds": 19.847372375428677,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 2301,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-041",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.586395397986053,
+      "model_calls": 4,
+      "model_call_seconds": 10.66408046334982,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 2586,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-042",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.217441651009722,
+      "model_calls": 4,
+      "model_call_seconds": 11.04125303402543,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 3428,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        true
+      ],
+      "cited_parent_groups": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-043",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 8.049602850020165,
+      "model_calls": 4,
+      "model_call_seconds": 7.220908988267183,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 816,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true,
+        false
+      ],
+      "cited_parent_groups": [
+        true,
+        false
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        false
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-044",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 12.291805854998529,
+      "model_calls": 4,
+      "model_call_seconds": 11.282615184783936,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 2,
+      "selected_context_tokens": 1089,
+      "citation_count": 2,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        false,
+        true
+      ],
+      "cited_parent_groups": [
+        false,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        false,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        false,
+        true
+      ]
+    },
+    {
+      "id": "P50-045",
+      "category": "diagnosis",
+      "expected_status": "answered",
+      "actual_status": "answered",
+      "status_matches": true,
+      "wall_seconds": 7.347104743006639,
+      "model_calls": 4,
+      "model_call_seconds": 6.612468171864748,
+      "rounds": 1,
+      "selected_round": 1,
+      "selected_parents": 1,
+      "selected_context_tokens": 1289,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        false,
+        true
+      ],
+      "cited_parent_groups": [
+        false,
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true,
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true,
+        true
+      ]
+    },
+    {
+      "id": "P50-046",
+      "category": "limits",
+      "expected_status": "insufficient",
+      "actual_status": "partial",
+      "status_matches": false,
+      "wall_seconds": 28.101908982003806,
+      "model_calls": 8,
+      "model_call_seconds": 25.533470276743174,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 1,
+      "selected_context_tokens": 1982,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-047",
+      "category": "limits",
+      "expected_status": "partial",
+      "actual_status": "answered",
+      "status_matches": false,
+      "wall_seconds": 23.773246624012245,
+      "model_calls": 6,
+      "model_call_seconds": 21.272649757564068,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 3,
+      "selected_context_tokens": 4401,
+      "citation_count": 3,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-048",
+      "category": "limits",
+      "expected_status": "insufficient",
+      "actual_status": "partial",
+      "status_matches": false,
+      "wall_seconds": 16.518746607995126,
+      "model_calls": 7,
+      "model_call_seconds": 14.568628709763288,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 1,
+      "selected_context_tokens": 1485,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-049",
+      "category": "limits",
+      "expected_status": "partial",
+      "actual_status": "answered",
+      "status_matches": false,
+      "wall_seconds": 26.176445905002765,
+      "model_calls": 6,
+      "model_call_seconds": 23.14634596183896,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 1,
+      "selected_context_tokens": 1645,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    },
+    {
+      "id": "P50-050",
+      "category": "limits",
+      "expected_status": "partial",
+      "actual_status": "partial",
+      "status_matches": true,
+      "wall_seconds": 32.20815351800411,
+      "model_calls": 6,
+      "model_call_seconds": 18.8970214612782,
+      "rounds": 2,
+      "selected_round": 2,
+      "selected_parents": 1,
+      "selected_context_tokens": 1833,
+      "citation_count": 1,
+      "all_citation_anchors_valid": true,
+      "final_selected_groups": [
+        true
+      ],
+      "cited_parent_groups": [
+        true
+      ],
+      "first_ranked_groups_at_5": [
+        true
+      ],
+      "first_ranked_groups_at_20": [
+        true
+      ]
+    }
+  ]
+}

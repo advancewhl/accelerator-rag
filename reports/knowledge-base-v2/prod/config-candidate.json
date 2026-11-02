@@ -1,0 +1,36 @@
+{
+  "model_base_url": "http://127.0.0.1:8000/v1",
+  "model_name": "ds-1017",
+  "indexes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "model_path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261102/e5/qdrant",
+      "collection": "knowledge_kb2_prod_20261102_e5",
+      "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4",
+      "point_count": 10608,
+      "device": "cuda:0",
+      "dtype": "float32"
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "model_path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261102/qwen3/qdrant",
+      "collection": "knowledge_kb2_prod_20261102_qwen3",
+      "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823",
+      "point_count": 8431,
+      "device": "cuda:0",
+      "dtype": "float32"
+    }
+  ],
+  "reranker": {
+    "model_path": "/workspace/tmp/stage-two-eight-two/models/Qwen--Qwen3-Reranker-0.6B",
+    "device": "cuda:0",
+    "dtype": "auto",
+    "batch_size": 4
+  },
+  "generation_max_tokens": 4096,
+  "trace_dir": "/workspace/tmp/rag-request-traces",
+  "source_root": "/workspace/data/l0_raw",
+  "release_id": "kb-2.0.0-rc.1"
+}

@@ -18,6 +18,7 @@ from accelerator_rag.retrieval.reranker import Qwen3Reranker
 from accelerator_rag.storage.qdrant_passages import QdrantPassageStore
 from .service import RagService
 from .catalog import DocumentCatalog
+from .release import release_identity_from_config
 from .retrieval import RequirementRetriever
 
 
@@ -64,6 +65,10 @@ class RagRuntime:
         try:
             config = json.loads(Path(config_path).read_text())
             self.config = config
+            # Release identity comes from configuration only; a real manifest
+            # build (checksums, attachment inventory) remains a K3 deliverable.
+            self.release = release_identity_from_config(config)
+            self.release_id = self.release.release_id
             base_url = os.environ.get(
                 "ACCELERATOR_MODEL_BASE_URL",
                 config.get("model_base_url", "http://127.0.0.1:8000/v1"),
@@ -123,10 +128,20 @@ class RagRuntime:
                     previous = canonical_chunks.setdefault(c.chunk_id, c)
                     if previous != c:
                         raise ValueError("canonical evidence differs across indexes")
+                    if c.access_scope == "restricted":
+                        # Restricted material may remain in the retrieval corpus
+                        # for an explicit restricted flow, but must not enter the
+                        # public document registry, catalog or download endpoints.
+                        continue
                     source = Path(c.source_path).resolve()
                     root = Path(config.get("source_root", "data/l0_raw")).resolve()
-                    if source.is_relative_to(root) and source.suffix.lower() == ".pdf":
-                        self.documents[c.document_id] = source
+                    if source.is_relative_to(root):
+                        # The catalog lists every indexed format so Office and
+                        # spreadsheet evidence is visible.  Only PDF/Markdown
+                        # get an original-file reader URL for now; DOCX/PPTX/XLSX
+                        # remain catalogued with reader_available=false.
+                        if source.suffix.lower() in {".pdf", ".md"}:
+                            self.documents[c.document_id] = source
                         self.catalog.add(c, source)
                 if store.point_count() != entry["point_count"]:
                     raise ValueError("frozen index point count mismatch")
@@ -156,6 +171,7 @@ class RagRuntime:
                     reranker.tokenizer.encode(text, add_special_tokens=False)
                 ),
                 trace_dir=config.get("trace_dir"),
+                release_id=self.release_id,
             )
         except BaseException:
             self.resources.close()
@@ -176,8 +192,8 @@ class RagRuntime:
             }:
                 raise ValueError("configured generation model is not served")
 
-    def answer(self, query: str) -> dict:
-        return self.service.answer(query)
+    def answer(self, query: str, scope=None) -> dict:
+        return self.service.answer(query, scope=scope)
 
     def close(self):
         self.resources.close()

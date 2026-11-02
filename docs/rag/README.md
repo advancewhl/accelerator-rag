@@ -1,12 +1,19 @@
 # RAG 文档与文件导航
 
+当前研究与实施主线是 [适用条件与版本有效性计划](../../PRAB_PLAN.md)；[当前里程碑](../roadmap/CURRENT.md) 区分已实现功能与后续工作。
+
 独立 RAG 服务使用 `ds-1017`，执行问题拆解、多路召回、证据选择、生成、核查和有界补检索。通用检索 CLI 与独立问答服务保留各自入口。
 
 ## 按任务查找
 
 | 任务 | 入口 |
 | --- | --- |
+| 检查今日新增文档类型的接入成果与待完善项 | [新格式检查与改进计划](../roadmap/new-document-types-review.md) |
+| 改善工作台与新格式原文阅读 | [工作台与阅读改进计划](../roadmap/workbench-document-reading-plan.md) |
+| 扩充资料类型、管理版本并发布新知识库 | [知识库扩建与上线总体计划](../roadmap/knowledge-base-v2-plan.md) |
 | 查看上次提交后的改动与清理范围 | [相对 4099ce1 的变更说明](changes-since-4099ce1.md) |
+| 查看新 50 题、运行协议与本轮结果 | [题目](../../data/evaluation/validity-pilot-v2.md)、[协议](validity-pilot-50.md)、[报告](../../reports/validity-pilot-20261029/README.md) |
+| 阅读当前 PRAB 研究与实施主线 | [适用条件与版本有效性计划](../../PRAB_PLAN.md) |
 | 理解模块职责 | [RAG 代码目录](../../src/accelerator_rag/rag/README.md) |
 | 理解四阶段闭环 | [证据闭环设计](../architecture/rag-evidence-workflow.md) |
 | 启动、隧道和排障 | [生产运行手册](../runbooks/rag-production.md) |
@@ -40,6 +47,6 @@
 
 ## 提交边界
 
-本次提交包含 RAG 服务、必要共享模型组件、检索运行库、前端、部署、测试、文档、验收及论文源码。Agent、Waveform、MCP 的业务实现和运行配置不属于本次提交。
+当前范围包含 RAG 服务、必要共享模型组件、检索运行库、前端、部署、测试、文档及论文源码。Agent、Waveform、MCP 的业务实现和运行配置不属于本轮。Waveform 文档已完成 Markdown 生产入库，50 题线上结果见[执行报告](../../reports/validity-pilot-online-20261030/README.md)；依赖维护尚待实现。
 
 模型上下文模块只在旧 Agent 预算模块已经加载时提供兼容，不会因导入 RAG 而加载 Agent。模型、索引、原始 PDF、凭据、本地清理恢复包及重复生成物不进入 Git。

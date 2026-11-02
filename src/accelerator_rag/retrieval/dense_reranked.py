@@ -14,18 +14,20 @@ class DenseRerankedRetriever:
         self.candidates = {}
         self.rerank_seconds = 0.0
 
-    def search(self, query: str, *, top_k: int) -> list[RetrievalResult]:
-        hits, trace, candidates = self.search_with_trace(query, top_k=top_k)
+    def search(self, query: str, *, top_k: int, scope=None) -> list[RetrievalResult]:
+        hits, trace, candidates = self.search_with_trace(
+            query, top_k=top_k, scope=scope
+        )
         self.traces[query], self.candidates[query] = trace, candidates
         self.rerank_seconds += candidates["rerank_seconds"]
         return hits
 
-    def search_with_trace(self, query: str, *, top_k: int):
+    def search_with_trace(self, query: str, *, top_k: int, scope=None):
         if type(top_k) is not int or not 1 <= top_k <= 5:
             raise ValueError("reranked retrieval returns one to five parents")
         parents, children = {}, {}
         for model, dense in self.retrievers.items():
-            hits, traces, _ = dense.search_with_trace(query, top_k=10)
+            hits, traces, _ = dense.search_with_trace(query, top_k=10, scope=scope)
             if len(hits) != len(traces):
                 raise ValueError("missing actual retrieved passage trace")
             seen = set()
@@ -36,6 +38,10 @@ class DenseRerankedRetriever:
                         "invalid canonical parent / winning passage alignment"
                     )
                 seen.add(pid)
+                if scope is not None and not scope.allows(hit.chunk):
+                    # The dense stores already filter; never let a disallowed
+                    # parent become a rerank winner if a channel regresses.
+                    continue
                 if pid in parents and parents[pid]["chunk"] != hit.chunk:
                     raise ValueError("parent payload mismatch across models")
                 parent = parents.setdefault(
@@ -60,6 +66,15 @@ class DenseRerankedRetriever:
         ordered = sorted(
             children.values(), key=lambda c: (c["parent_chunk_id"], c["passage_text"])
         )
+        if not ordered and scope is not None:
+            empty = {
+                "parents": [],
+                "passages": [],
+                "parent_count": 0,
+                "passage_count": 0,
+                "rerank_seconds": 0.0,
+            }
+            return [], [], empty
         started = perf_counter()
         scores = self.reranker.score(query, [c["passage_text"] for c in ordered])
         elapsed = perf_counter() - started

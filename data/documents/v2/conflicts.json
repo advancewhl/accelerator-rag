@@ -1,0 +1,91 @@
+{
+  "schema_version": 2,
+  "release_target": "kb-2.0.0",
+  "generated_on": "2026-11-02",
+  "conflicts": [
+    {
+      "topic": "设计能量口径：8 GeV 与 7.2 GeV",
+      "revision_a": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/20. 常规功率源控制初步设计报告.docx",
+      "revision_b": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "ANALYSIS §4.3；inventory.clean.json 的 head 字段：常规功率源控制初步设计报告“概述”称“能量为8GeV”；V6“一、概述”称“能量7.2 GeV”；另见 1 硬线工程/21. 束流分配及功率源控制初步设计报告.docx“概述”称已加速至 8GeV。",
+      "conflict_type": "design_parameter",
+      "applicable_condition": "2018 初步设计代次 vs 2024 优化设计 V6；需确认是否为同一设计基线、V6 是否整篇替代旧设计还是仅更新指标，以及装置运行模式/能量升级条件。",
+      "owner": "待指派",
+      "status": "open",
+      "resolution": "",
+      "revision_a_id": "shine-power-supply-control-design-rev-cad6eb9b",
+      "revision_b_id": "accelerator-overall-design-rev-255d2148",
+      "external_reference": ""
+    },
+    {
+      "topic": "网络安全设计报告封面日期晚于批次日期且审核栏未填写",
+      "revision_a": "data/l0_raw/incoming/2026-11-02-shine-control/资料/硬X射线自由电子激光装置网络安全设计报告.docx",
+      "revision_b": "docs/roadmap/knowledge-base-v2-plan.md",
+      "evidence_location": "计划 §2.3 明确记录封面日期 2026 年 11 月 5 日、审核栏未填写；inventory.clean.json 的 head 字段：网络安全报告封面列编制史武军、吕慧慧、唐小丰，审核、审定、会签栏空白，日期“2026年11月5日”；计划首行编制日期为 2026 年 11 月 2 日。",
+      "conflict_type": "document_metadata",
+      "applicable_condition": "仅封面文字；未读全文；未确认签发流程、生效日期和是否已在现场部署。不能据此断言报告无效，也不能把它当作已批准现行依据。",
+      "owner": "待指派",
+      "status": "needs_source_check",
+      "resolution": "",
+      "revision_a_id": "cybersecurity-subsystem-design-06ac7820-rev",
+      "revision_b_id": "",
+      "external_reference": "docs/roadmap/knowledge-base-v2-plan.md"
+    },
+    {
+      "topic": "V6“返回通读版本”的批准状态与替代范围",
+      "revision_a": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "revision_b": "data/documents/registry.json#shine-accelerator-preliminary-design-report-2017",
+      "evidence_location": "V6 文件名含“返回通读版本”；计划 §2.3 明确保留原版本标签并待确认批准状态；ANALYSIS §4.3 对比 V6 与 2017/2018 设计代次；registry.json 中 2017 初步设计报告 version=初步设计报告 (2017-12-26)，status=reference。",
+      "conflict_type": "approval_status",
+      "applicable_condition": "V6 是否正式批准、替代整篇还是部分章节、生效时间均 unknown；2017 版仅为登记参考，未确认现行。两者不能同权检索。",
+      "owner": "待指派",
+      "status": "needs_source_check",
+      "resolution": "",
+      "revision_a_id": "accelerator-overall-design-rev-255d2148",
+      "revision_b_id": "shine-accelerator-preliminary-design-report-2017",
+      "external_reference": ""
+    },
+    {
+      "topic": "白兔定时设计指标与原型实测口径",
+      "revision_a": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/11. 定时样机设计报告.pdf",
+      "revision_b": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目L1段定时系统研制总结.docx",
+      "evidence_location": "ANALYSIS §4.1 称定时样机设计报告给出时钟精度 1 ns、抖动 <30 ps，属设计指标；inventory.clean.json 的 head：定时样机评审报告列“时钟脉冲信号精度达到1ns，抖动小于30ps”；L1 段研制总结“技术指标”仅写“定时系统时钟脉冲信号抖动小于30ps”。就目前可见摘录/首段而言，三处均未给出原型 II 实测值、测量设备、积分带宽和时间窗口；需读全文确认。",
+      "conflict_type": "design_vs_measured",
+      "applicable_condition": "设计指标 vs 研制总结技术指标 vs 原型实测；需确认样机代次（原型 I/II）、测量点和统计口径后才能回答“实测抖动是多少”。",
+      "owner": "待指派",
+      "status": "needs_source_check",
+      "resolution": "",
+      "revision_a_id": "shine-timing-system-design-rev-2887187d",
+      "revision_b_id": "shine-timing-system-design-rev-453dc071",
+      "external_reference": ""
+    },
+    {
+      "topic": "快联锁响应时间的测量范围（站内/站间、FPGA/PLC）",
+      "revision_a": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/8. 快联锁样机设计报告.docx",
+      "revision_b": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机自测报告.docx",
+      "evidence_location": "ANALYSIS §4.1：设计报告称单节点信号响应 <10 µs、整系统故障响应 <100 µs，FPGA 快保护约 11.8 µs、PLC 约 33 ms；inventory.clean.json 的 head：快联锁样机自测报告称“站点内响应时间小于10 μs、站点间响应时间小于100 μs”；快联锁样机测试报告.pdf 为 17 页扫描件，未 OCR。",
+      "conflict_type": "measurement_scope",
+      "applicable_condition": "站点内 vs 站点间；FPGA vs PLC；设计指标 vs 实测值。需核对测试报告/验收评审报告中的测量通道、触发条件和统计口径。",
+      "owner": "待指派",
+      "status": "needs_source_check",
+      "resolution": "",
+      "revision_a_id": "shine-prototype-fast-interlock-acceptance-rev-887ee55c",
+      "revision_b_id": "shine-prototype-fast-interlock-acceptance-rev-dc14f6ea",
+      "external_reference": ""
+    },
+    {
+      "topic": "准直器操作手册第一版与第三版操作步骤差异",
+      "revision_a": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE准直器界面操作手册.docx",
+      "revision_b": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段准直器控制界面操作手册.docx",
+      "evidence_location": "inventory.clean.json 的 head：第一版列 VER_ORIGIN_VEL/HOR_ORIGIN_VEL、VER_AUTO_DIST/HOR_AUTO_DIST、VER_ENABLE/HOR_ENABLE、VER_ORIGIN/HOR_ORIGIN、VER_AUTO_MV/HOR_AUTO_MV；第三版新增 ALARM_CLEAR、ONEKEY_LOC、VER_LOC/HOR_LOC、VER/HOR HOLE/GAP 等按钮。",
+      "conflict_type": "operation_step",
+      "applicable_condition": "手册代次不同；设备/软件版本与第三版适用范围 unknown；不能默认第三版替代第一版全部步骤，也不能把两版步骤混在同一答案中。",
+      "owner": "待指派",
+      "status": "open",
+      "resolution": "",
+      "revision_a_id": "shine-control-operation-manual-series-rev-c05637cf",
+      "revision_b_id": "shine-control-operation-manual-series-rev-afa68262",
+      "external_reference": ""
+    }
+  ]
+}

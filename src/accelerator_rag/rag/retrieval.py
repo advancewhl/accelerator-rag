@@ -6,6 +6,7 @@ import math
 from time import perf_counter
 
 from accelerator_rag.retrieval.bm25 import BM25Retriever
+from accelerator_rag.retrieval.scope import RetrievalScope
 
 
 class RequirementRetriever:
@@ -20,18 +21,37 @@ class RequirementRetriever:
         self.by_page = defaultdict(list)
         for chunk in self.chunks.values():
             for page in range(chunk.page_start, chunk.page_end + 1):
-                self.by_page[(chunk.document_id, chunk.document_version, page)].append(
-                    chunk
-                )
+                self.by_page[
+                    (
+                        chunk.document_id,
+                        chunk.document_version,
+                        chunk.effective_position_kind,
+                        page,
+                    )
+                ].append(chunk)
 
-    def retrieve(self, query, queries, *, anchors=()):
+    def retrieve(
+        self,
+        query,
+        queries,
+        *,
+        anchors=(),
+        scope: RetrievalScope | None = None,
+    ):
         """Scores are fused by rank; BM25 scores never mix with dense scores."""
         hits, scores, origins, searches = {}, {}, defaultdict(list), []
         rerank_seconds = 0.0
         for text in dict.fromkeys(queries):
-            dense_hits, trace, candidates = self.dense.search_with_trace(text, top_k=5)
+            if scope is None:
+                dense_hits, trace, candidates = self.dense.search_with_trace(
+                    text, top_k=5
+                )
+            else:
+                dense_hits, trace, candidates = self.dense.search_with_trace(
+                    text, top_k=5, scope=scope
+                )
             rerank_seconds += candidates["rerank_seconds"]
-            lexical = self.lexical.search(text, top_k=5)
+            lexical = self.lexical.search(text, top_k=5, scope=scope)
             searches.append(
                 {
                     "query": text,
@@ -41,6 +61,8 @@ class RequirementRetriever:
             )
             for channel, results in (("dense", dense_hits), ("bm25", lexical)):
                 for hit in results:
+                    if scope is not None and not scope.allows(hit.chunk):
+                        continue
                     cid = hit.chunk.chunk_id
                     if cid in hits and hits[cid].chunk != hit.chunk:
                         raise ValueError("inconsistent canonical parent")
@@ -51,12 +73,25 @@ class RequirementRetriever:
                     )
         # A section boundary must not sever the explanation on the same page.
         ranked = sorted(hits, key=lambda cid: (-scores[cid], cid))
-        seed_hits = list(anchors)[:3] + [hits[cid] for cid in ranked[:3]]
+        seed_hits = [
+            anchor
+            for anchor in anchors
+            if scope is None or scope.allows(anchor.chunk)
+        ][:3] + [hits[cid] for cid in ranked[:3]]
         for anchor in seed_hits:
             chunk = anchor.chunk
             for page in range(chunk.page_start, chunk.page_end + 1):
-                neighbors = self.by_page[
-                    (chunk.document_id, chunk.document_version, page)
+                neighbors = [
+                    neighbor
+                    for neighbor in self.by_page[
+                        (
+                            chunk.document_id,
+                            chunk.document_version,
+                            chunk.effective_position_kind,
+                            page,
+                        )
+                    ]
+                    if scope is None or scope.allows(neighbor)
                 ]
                 for neighbor in sorted(neighbors, key=lambda c: c.chunk_id)[:6]:
                     cid = neighbor.chunk_id
@@ -84,6 +119,7 @@ class RequirementRetriever:
             ],
             {
                 "searches": searches,
+                "scope": scope.describe() if scope is not None else None,
                 "candidate_count": len(hits),
                 "ranked": [
                     {"chunk_id": cid, "score": score, "origins": origins[cid]}

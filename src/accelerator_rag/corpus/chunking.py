@@ -4,12 +4,14 @@ import json
 import re
 
 from accelerator_rag.corpus.cleaning import clean_page_texts
+from accelerator_rag.corpus.markdown_parser import clean_markdown_texts
 from accelerator_rag.corpus.pdf_parser import ParsedPdfDocument
 from accelerator_rag.corpus.registry import DocumentRecord
 from accelerator_rag.domain.knowledge import KnowledgeChunk
 
 
 CHUNKING_ALGORITHM = "pdf-chunks-v3"
+MARKDOWN_CHUNKING_ALGORITHM = "md-chunks-v1"
 
 
 @dataclass(frozen=True)
@@ -53,24 +55,28 @@ def _split_page(text: str, config: ChunkingConfig) -> list[str]:
     return pieces
 
 
-def chunk_pdf(
-    parsed: ParsedPdfDocument,
+def _build_chunks(
+    pages: list[tuple[int, str]],
     record: DocumentRecord,
-    config: ChunkingConfig = ChunkingConfig(),
+    config: ChunkingConfig,
+    algorithm: str,
+    revision=None,
 ) -> list[KnowledgeChunk]:
-    """Aggregate consecutive text blocks per physical page, then bounded splitting.
+    """Turn (page_number, text) pairs into canonical parent chunks.
 
-    IDs hash pipeline version, configuration, document/version, page, ordinal and
-    normalized text. Document metadata is carried separately from parser metadata.
+    IDs hash algorithm, configuration, document/version, page, ordinal and text.
+    The PDF path passes `CHUNKING_ALGORITHM` so its existing IDs stay identical.
+    Schema v2 metadata is additive and never enters the frozen chunk identity.
     """
-    if parsed.source_path != record.source_path:
-        raise ValueError("parsed source_path does not match the registry record")
+    position_kind = (
+        "section" if algorithm == MARKDOWN_CHUNKING_ALGORITHM else "pdf_page"
+    )
     chunks = []
-    for page_number, text in clean_page_texts(parsed):
+    for page_number, text in pages:
         for ordinal, piece in enumerate(_split_page(text, config)):
             identity = json.dumps(
                 [
-                    CHUNKING_ALGORITHM,
+                    algorithm,
                     asdict(config),
                     record.doc_id,
                     record.version,
@@ -82,6 +88,27 @@ def chunk_pdf(
                 sort_keys=True,
                 separators=(",", ":"),
             )
+            if revision is None:
+                extra = {
+                    "family_id": record.doc_id,
+                    "revision_label": record.version,
+                    "position_kind": position_kind,
+                    "position_label": f"{position_kind}-{page_number}",
+                }
+            else:
+                extra = {
+                    "family_id": revision.family_id,
+                    "revision_label": revision.revision_label,
+                    "asset_id": revision.original_asset_id,
+                    "document_kind": revision.document_kind,
+                    "evidence_role": revision.evidence_role,
+                    "usage_status": revision.usage_status,
+                    "approval_status": revision.approval_status,
+                    "scope": ";".join(revision.scope),
+                    "position_kind": position_kind,
+                    "position_label": f"{position_kind}-{page_number}",
+                    "access_scope": revision.access_scope,
+                }
             chunks.append(
                 KnowledgeChunk(
                     chunk_id=f"{record.doc_id}:{sha256(identity.encode()).hexdigest()}",
@@ -95,6 +122,44 @@ def chunk_pdf(
                     topic=record.topic,
                     page_start=page_number,
                     page_end=page_number,
+                    **extra,
                 )
             )
     return chunks
+
+
+def chunk_pdf(
+    parsed: ParsedPdfDocument,
+    record: DocumentRecord,
+    config: ChunkingConfig = ChunkingConfig(),
+    *,
+    revision=None,
+) -> list[KnowledgeChunk]:
+    """Aggregate consecutive text blocks per physical page, then bounded splitting.
+
+    Document metadata is carried separately from parser metadata.
+    """
+    if parsed.source_path != record.source_path:
+        raise ValueError("parsed source_path does not match the registry record")
+    return _build_chunks(
+        clean_page_texts(parsed), record, config, CHUNKING_ALGORITHM, revision
+    )
+
+
+def chunk_markdown(
+    parsed: ParsedPdfDocument,
+    record: DocumentRecord,
+    config: ChunkingConfig = ChunkingConfig(),
+    *,
+    revision=None,
+) -> list[KnowledgeChunk]:
+    """Chunk heading sections; `page_start/page_end` mean section index here."""
+    if parsed.source_path != record.source_path:
+        raise ValueError("parsed source_path does not match the registry record")
+    return _build_chunks(
+        clean_markdown_texts(parsed),
+        record,
+        config,
+        MARKDOWN_CHUNKING_ALGORITHM,
+        revision,
+    )

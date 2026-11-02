@@ -34,6 +34,7 @@ def context():
         document_title="Design",
         document_version="2017",
         document_id="design",
+        source_path="data/l0_raw/design.pdf",
         page_start=1,
         page_end=1,
         chunk_id="chunk",

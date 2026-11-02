@@ -48,7 +48,9 @@ def load_corpus():
     assert len(docs) == 13 and len(eligible) == 4532
     assert (
         sha256(
-            json.dumps([asdict(c) for c in eligible], sort_keys=True).encode()
+            json.dumps(
+                [c.legacy_dict() for c in eligible], sort_keys=True
+            ).encode()
         ).hexdigest()
         == HISTORY["canonical_parent_sha256"]
     )

@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "release_id": "kb-2.0.0-rc.1",
+  "build_id": "kb2-prod-20261102",
+  "status": "candidate-incomplete",
+  "created_at": "2026-11-02",
+  "previous_release": "unknown",
+  "registry": "data/documents/v2/registry-v2.json",
+  "registry_sha256": "1b620b2352fb41f91ce62cc6dd3234762d7bb7a300853ef51eb645f91521397a",
+  "source_root": "unknown-local-worktree",
+  "build_dir": "/opt/accelerator-rag-build/kb-2.0.0-rc.1/release/data/knowledge-builds/kb2-prod-20261102",
+  "release_dir": "not-created",
+  "code": {
+    "git_commit": "unknown",
+    "runtime_image": "not-built",
+    "dependencies": "pyproject.toml"
+  },
+  "corpus": {
+    "revision_count": 207,
+    "registry_revision_count": 210,
+    "family_count": 72,
+    "text_index_count": 205,
+    "allow_missing_source": false,
+    "chunked_revisions": 207,
+    "total_chunks": 8622,
+    "eligible_chunks": 8614,
+    "indexable_chunks": 8431,
+    "short_chunks_filtered": 183,
+    "ineligible_chunks": 8,
+    "parse_status_counts": {
+      "parsed": 207
+    }
+  },
+  "contracts": {
+    "schema_version": 2,
+    "chunking_algorithm": "kb2-chunks-v1 (legacy PDF/Markdown keeps v1 IDs)",
+    "scope_policy": "retrieval.scope.RetrievalScope"
+  },
+  "indexes": [],
+  "answer": {
+    "generation_model": "not-selected",
+    "reranker_model": "not-selected",
+    "prompt_version": "not-frozen",
+    "generation_max_tokens": 4096,
+    "max_retrieval_rounds": 2,
+    "max_parents": 5,
+    "max_evidence_tokens": 6000,
+    "default_usage_statuses": [
+      "current",
+      "reference"
+    ]
+  },
+  "incomplete_reasons": [
+    "index construction requires the GPU release environment",
+    "OCR has not been run",
+    "release directory and rollback target are not created",
+    "parse status counts: {\"parsed\": 207}",
+    "selected_revisions=207",
+    "allow_missing_source=False"
+  ],
+  "verification": {},
+  "operations": {
+    "rollback_target": "unknown",
+    "rollback_verified": false
+  }
+}

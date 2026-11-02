@@ -1,0 +1,119 @@
+{
+  "schema_version": 2,
+  "release_id": "kb-2.0.0-rc.1",
+  "build_id": "kb2-prod-20261102",
+  "status": "candidate",
+  "created_at": "2026-11-02",
+  "previous_release": "md-20261030",
+  "registry": "data/documents/v2/registry-v2.json",
+  "registry_sha256": "1b620b2352fb41f91ce62cc6dd3234762d7bb7a300853ef51eb645f91521397a",
+  "source_root": "/workspace/data/l0_raw",
+  "build_dir": "/workspace/data/knowledge-builds/kb2-prod-20261102",
+  "release_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.1",
+  "code": {
+    "git_commit": "0b628447c2a50a848d7f5ce7f6b74d5e46fe57cd",
+    "source_snapshot": "release-source.tar.gz",
+    "runtime_image": "accelerator-rag-runtime:20261026",
+    "python": "3.12.12"
+  },
+  "corpus": {
+    "revision_count": 207,
+    "registry_revision_count": 210,
+    "family_count": 72,
+    "text_index_count": 205,
+    "allow_missing_source": false,
+    "chunked_revisions": 207,
+    "total_chunks": 8622,
+    "eligible_chunks": 8614,
+    "indexable_chunks": 8431,
+    "short_chunks_filtered": 183,
+    "ineligible_chunks": 8,
+    "parse_status_counts": {
+      "parsed": 207
+    }
+  },
+  "contracts": {
+    "schema_version": 2,
+    "chunking_algorithm": "kb2-chunks-v1 (legacy PDF/Markdown keeps v1 IDs)",
+    "scope_policy": "retrieval.scope.RetrievalScope",
+    "parser_profiles": [
+      "pymupdf-blocks-v1",
+      "markdown-sections-v2",
+      "python-docx-v1",
+      "python-pptx-v1",
+      "openpyxl-cells-v1",
+      "doc-converted-docx-v1",
+      "tesseract-pdf-v1"
+    ],
+    "ocr_profile": "tesseract 4.1.1; chi_sim+eng; dpi=250"
+  },
+  "indexes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "model_path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261102/e5/qdrant",
+      "collection": "knowledge_kb2_prod_20261102_e5",
+      "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4",
+      "point_count": 10608,
+      "parent_count": 8431,
+      "device": "cuda:0",
+      "dtype": "float32"
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "model_path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261102/qwen3/qdrant",
+      "collection": "knowledge_kb2_prod_20261102_qwen3",
+      "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823",
+      "point_count": 8431,
+      "parent_count": 8431,
+      "device": "cuda:0",
+      "dtype": "float32"
+    }
+  ],
+  "answer": {
+    "generation_model": "ds-1017",
+    "reranker_model": "Qwen/Qwen3-Reranker-0.6B",
+    "prompt_version": "evidence-contract-v2",
+    "generation_max_tokens": 4096,
+    "max_retrieval_rounds": 2,
+    "max_parents": 5,
+    "max_evidence_tokens": 6000,
+    "default_usage_statuses": [
+      "current",
+      "reference"
+    ]
+  },
+  "verification": {
+    "engineering_report": "reports/kb2-regression-candidate-20261102-v2.json",
+    "semantic_review_owner": "待指派",
+    "performance_baseline": "reports/kb2-regression-candidate-20261102-v2.json",
+    "rollback_drill": "not-run",
+    "k4_report": "reports/K4-production-run.md",
+    "legacy_question_set": "data/evaluation/validity-pilot-v2.json",
+    "new_question_set": "data/evaluation/kb2-question-plan-v1.json",
+    "k5_report": "reports/K5-production-acceptance.md"
+  },
+  "operations": {
+    "runtime_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.1",
+    "mounts": [
+      "/workspace:ro",
+      "/workspace/tmp:rw"
+    ],
+    "port": 8003,
+    "log_dir": "/workspace/tmp",
+    "rollback_target": "md-20261030",
+    "rollback_verified": false,
+    "observed_at": null,
+    "remaining_limitations": [
+      "OCR 需要对关键参数逐页复核",
+      "人工语义评分未完成",
+      "K7 观察期未完成"
+    ]
+  },
+  "incomplete_reasons": [
+    "人工语义评分未完成",
+    "回滚演练尚未执行",
+    "观察期未开始"
+  ]
+}

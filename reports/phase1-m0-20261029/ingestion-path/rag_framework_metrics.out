@@ -1,0 +1,95 @@
+{
+  "dataset": {
+    "questions": 21,
+    "evidence_groups": 35,
+    "source_benchmark_sha256": "f5578371bca4589e8b2011ac4fbea2c17dbef57ab24b811f9247d92954f3ac65",
+    "trace_archive_sha256": "1c6415370c628c5a3d9bc6dbc2b5e5f7142cb5166eb9745a0416f810a03c1d4e",
+    "code_scope": "36-case HTTP run before the final version-scope and numeric-normalization fixes; not a full run of the final code"
+  },
+  "first_round": {
+    "1": {
+      "evidence_groups_recovered": 14,
+      "evidence_groups_total": 35,
+      "micro_group_recall": 0.4,
+      "macro_group_recall": 0.45555555555555555,
+      "complete_questions": 8,
+      "questions": 21
+    },
+    "3": {
+      "evidence_groups_recovered": 29,
+      "evidence_groups_total": 35,
+      "micro_group_recall": 0.8285714285714286,
+      "macro_group_recall": 0.8253968253968254,
+      "complete_questions": 16,
+      "questions": 21
+    },
+    "5": {
+      "evidence_groups_recovered": 33,
+      "evidence_groups_total": 35,
+      "micro_group_recall": 0.9428571428571428,
+      "macro_group_recall": 0.9523809523809523,
+      "complete_questions": 19,
+      "questions": 21
+    },
+    "10": {
+      "evidence_groups_recovered": 34,
+      "evidence_groups_total": 35,
+      "micro_group_recall": 0.9714285714285714,
+      "macro_group_recall": 0.9761904761904762,
+      "complete_questions": 20,
+      "questions": 21
+    },
+    "20": {
+      "evidence_groups_recovered": 35,
+      "evidence_groups_total": 35,
+      "micro_group_recall": 1.0,
+      "macro_group_recall": 1.0,
+      "complete_questions": 21,
+      "questions": 21
+    }
+  },
+  "mrr_first_relevant_at_5": 0.7253968253968254,
+  "mrr_complete_at_5": 0.5706349206349206,
+  "all_round_candidates": {
+    "evidence_groups_recovered": 35,
+    "evidence_groups_total": 35,
+    "micro_group_recall": 1.0,
+    "macro_group_recall": 1.0,
+    "complete_questions": 21,
+    "questions": 21
+  },
+  "selected_subset": {
+    "evidence_groups_recovered": 35,
+    "evidence_groups_total": 35,
+    "micro_group_recall": 1.0,
+    "macro_group_recall": 1.0,
+    "complete_questions": 21,
+    "questions": 21
+  },
+  "quoted": {
+    "evidence_groups_recovered": 30,
+    "evidence_groups_total": 35,
+    "micro_group_recall": 0.8571428571428571,
+    "macro_group_recall": 0.8380952380952381,
+    "complete_questions": 17,
+    "questions": 21
+  },
+  "limitations": [
+    "Recall refers to frozen evidence groups with literal excerpt matching, not exhaustive relevant corpus chunks.",
+    "The benchmark is small and has been used for development; it is not an unseen holdout.",
+    "Selected subset and quotation coverage do not prove answer entailment or completeness."
+  ],
+  "historical_reference": {
+    "path": "reports/rag-stage-two-eight-two-reranking.json",
+    "same_benchmark_verified": true,
+    "metrics": {
+      "count": 21,
+      "Hit@1": 0.38095238095238093,
+      "Hit@3": 0.8095238095238095,
+      "Hit@5": 0.9523809523809523,
+      "MRR@5": 0.6071428571428572,
+      "interpretation": "diagnostic only"
+    },
+    "comparison_limit": "Historical CPU offline run versus production GPU workflow with changed candidate generation and full-parent reranking; not a paired rerun in one environment."
+  }
+}

@@ -1,7 +1,6 @@
 """Stage 2.7 controlled, local-only embedding comparison; download separately."""
 
 import argparse
-from dataclasses import asdict
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -163,7 +162,9 @@ def run(args):
             "chunking_algorithm": CHUNKING_ALGORITHM,
             "judgment_revision": "evidence-contract-v1",
             "canonical_parent_sha256": sha256(
-                json.dumps([asdict(c) for c in eligible], sort_keys=True).encode()
+                json.dumps(
+                    [c.legacy_dict() for c in eligible], sort_keys=True
+                ).encode()
             ).hexdigest(),
             "historical_stage26_report_sha256": sha256(
                 history_path.read_bytes()

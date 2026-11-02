@@ -1,0 +1,46 @@
+[
+  {
+    "doc_id": "waveform-storage-dataflow",
+    "title": "Waveform 存储与数据流技术说明",
+    "source_path": "data/l0_raw/waveform/waveform-storage-dataflow.md",
+    "category": "beam_diagnostics",
+    "topic": "waveform",
+    "document_type": "md",
+    "language": "zh",
+    "version": "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2",
+    "status": "active"
+  },
+  {
+    "doc_id": "waveform-alignment-semantics",
+    "title": "对齐语义、参数与诊断手册",
+    "source_path": "data/l0_raw/waveform/alignment-semantics-and-diagnostics.md",
+    "category": "beam_diagnostics",
+    "topic": "waveform",
+    "document_type": "md",
+    "language": "zh",
+    "version": "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2",
+    "status": "active"
+  },
+  {
+    "doc_id": "waveform-fault-history",
+    "title": "历史故障记录与版本变更说明",
+    "source_path": "data/l0_raw/waveform/fault-history-and-version-changes.md",
+    "category": "beam_diagnostics",
+    "topic": "waveform",
+    "document_type": "md",
+    "language": "zh",
+    "version": "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2",
+    "status": "active"
+  },
+  {
+    "doc_id": "rag-ingestion-verification-rollback",
+    "title": "RAG 知识入库、验证与回滚手册",
+    "source_path": "data/l0_raw/runbooks/rag-ingestion-verification-rollback.md",
+    "category": "beam_diagnostics",
+    "topic": "data_acquisition",
+    "document_type": "md",
+    "language": "zh",
+    "version": "accelerator-rag-prab@0b62844 (2026-10-29); doc-revision=2026-10-29-ingestion-r3",
+    "status": "active"
+  }
+]

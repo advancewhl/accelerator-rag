@@ -1,0 +1,2572 @@
+{
+  "records": [
+    {
+      "revision_id": "epics-application-developers-guide-r3-16-2",
+      "status": "parsed",
+      "source_path": "data/l0_raw/EPICS/EPICS_Application_Developers_Guide_R3.16.2.pdf",
+      "source_format": "pdf",
+      "block_count": 6670,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "epics-documentation-latest-2026-08-18",
+      "status": "parsed",
+      "source_path": "data/l0_raw/EPICS/EPICS_Documentation_latest.pdf",
+      "source_format": "pdf",
+      "block_count": 10051,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "european-xfel-full-technical-design-report-2007",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_European_XFEL/European_XFEL_Full_Technical_Design_Report.pdf",
+      "source_format": "pdf",
+      "block_count": 6015,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_European_XFEL/European_XFEL_Undulator_Commissioning_Spectrometer_CDR.pdf",
+      "source_format": "pdf",
+      "block_count": 348,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_European_XFEL/European_XFEL_X-Ray_Optics_and_Beam_Transport_TDR.pdf",
+      "source_format": "pdf",
+      "block_count": 2790,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_European_XFEL/Standard_E-Beam_Diagnostics_for_European_XFEL.pdf",
+      "source_format": "pdf",
+      "block_count": 78,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/EPICS_IOC_and_PVs_Information_Management_System_for_SHINE_PCaPAC2022.pdf",
+      "source_format": "pdf",
+      "block_count": 61,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-accelerator-fast-interlock-2024",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/SHINE_Accelerator_Fast_Interlock_System_Design_and_Development_CN.pdf",
+      "source_format": "pdf",
+      "block_count": 297,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-system-status-icalepcs2019",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/Status_of_the_SHINE_Control_System_ICALEPCS2019.pdf",
+      "source_format": "pdf",
+      "block_count": 81,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-cryogenic-control-system-2021",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/The_Cryogenic_Control_System_of_SHINE_2021.pdf",
+      "source_format": "pdf",
+      "block_count": 74,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+      "status": "parsed",
+      "source_path": "data/l0_raw/Hard_XFEL_SHINE/White_Rabbit_Based_Beam_Synchronous_Timing_Systems_for_SHINE_IPAC2022.pdf",
+      "source_format": "pdf",
+      "block_count": 97,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-accelerator-control-system-design-presentation",
+      "status": "parsed",
+      "source_path": "data/l0_raw/SHINE加速器控制系统设计与开发.pdf",
+      "source_format": "pdf",
+      "block_count": 305,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-accelerator-preliminary-design-report-2017",
+      "status": "parsed",
+      "source_path": "data/l0_raw/加速器分册(20171226).pdf",
+      "source_format": "pdf",
+      "block_count": 11498,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "waveform-storage-dataflow",
+      "status": "parsed",
+      "source_path": "data/l0_raw/waveform/waveform-storage-dataflow.md",
+      "source_format": "md",
+      "block_count": 66,
+      "position_kinds": [
+        "section"
+      ],
+      "warnings": [],
+      "parser_profile": "markdown-sections-v2"
+    },
+    {
+      "revision_id": "waveform-alignment-semantics",
+      "status": "parsed",
+      "source_path": "data/l0_raw/waveform/alignment-semantics-and-diagnostics.md",
+      "source_format": "md",
+      "block_count": 83,
+      "position_kinds": [
+        "section"
+      ],
+      "warnings": [],
+      "parser_profile": "markdown-sections-v2"
+    },
+    {
+      "revision_id": "waveform-fault-history",
+      "status": "parsed",
+      "source_path": "data/l0_raw/waveform/fault-history-and-version-changes.md",
+      "source_format": "md",
+      "block_count": 96,
+      "position_kinds": [
+        "section"
+      ],
+      "warnings": [],
+      "parser_profile": "markdown-sections-v2"
+    },
+    {
+      "revision_id": "rag-ingestion-verification-rollback",
+      "status": "parsed",
+      "source_path": "data/l0_raw/runbooks/rag-ingestion-verification-rollback.md",
+      "source_format": "md",
+      "block_count": 87,
+      "position_kinds": [
+        "section"
+      ],
+      "warnings": [],
+      "parser_profile": "markdown-sections-v2"
+    },
+    {
+      "revision_id": "accelerator-overall-design-rev-255d2148",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "source_format": "docx",
+      "block_count": 11046,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [
+        "empty_table:paragraph-1036",
+        "empty_table:paragraph-6268",
+        "empty_table:paragraph-6951",
+        "empty_table:paragraph-6953",
+        "empty_table:paragraph-6955",
+        "empty_table:paragraph-6960",
+        "empty_table:paragraph-6962",
+        "empty_table:paragraph-6964"
+      ],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "accelerator-overall-design-rev-206c9b16",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/六、加速器控制20240422.docx",
+      "source_format": "docx",
+      "block_count": 1474,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-ec969fe7",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/SHINE IOC 模板建立.docx",
+      "source_format": "docx",
+      "block_count": 424,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-ff3d788c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/SHINE IOC应用开发建立说明.docx",
+      "source_format": "docx",
+      "block_count": 120,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-1e849ef0",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/SHINE IOC设备安装维护说明.docx",
+      "source_format": "docx",
+      "block_count": 136,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-5d3b56d9",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/SHINE 热备电源控制系统设计报告-2025.09.11.docx",
+      "source_format": "docx",
+      "block_count": 211,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "ioc-installation-maintenance-7bdda0ec-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/《SHINE 2号井OPI环境安装》.docx",
+      "source_format": "docx",
+      "block_count": 122,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "epics-subsystem-design-b1da391e-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/基于LabVIEW与EPICS的方波信号频率应用.docx",
+      "source_format": "docx",
+      "block_count": 27,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-5a85d11d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/基于SNMP的电源分配单元设计报告.docx",
+      "source_format": "docx",
+      "block_count": 94,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [
+        "empty_table:paragraph-62"
+      ],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "laser-subsystem-design-09b41a98-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/激光系统设备控制设计报告.docx",
+      "source_format": "docx",
+      "block_count": 129,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "design-unknown-b147219c-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/王睿归档报告（1）.pdf",
+      "source_format": "pdf",
+      "block_count": 98,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "design-unknown-0fe9f442-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/王睿归档报告（2）.pdf",
+      "source_format": "pdf",
+      "block_count": 133,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-453dc071",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目L1段定时系统研制总结.docx",
+      "source_format": "docx",
+      "block_count": 33,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-81469bb1",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目SHINE定时系统分析诊断平台设计报告.docx",
+      "source_format": "docx",
+      "block_count": 68,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-5407ecef",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/硬X射线自由电子激光装置项目定时EPICS-SNMP模块配置以及IOC建立说明.docx",
+      "source_format": "docx",
+      "block_count": 67,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "control-architecture-structured-list-235f0323-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/硬线项目归档文件移交清单(2025).docx",
+      "source_format": "docx",
+      "block_count": 7,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "design-subsystem-design-224fcb69-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/1. 中央服务器初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 376,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-upper-software-design-rev-5871aba8",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/10. 上层软件初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 40,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-alarm-system-design-rev-024389c8",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/11. 报警系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 67,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-76ee918f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/12. 设备控制初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 175,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [
+        "empty_table:paragraph-180"
+      ],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-c4307138",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/13. 电源分配单元初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 27,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-vacuum-control-design-rev-63cb4220",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/14. 真空控制系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 166,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-vacuum-control-design-rev-cc8e7444",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/15. 真空控制样机设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 59,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "unrecognized_shape_type:slide-6:id=4:name=图示 3"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-0f199d9a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/16. 电源控制系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 69,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-motion-control-design-rev-1dcfbf6f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/17. 波荡器及段间运动控制初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 71,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-motion-control-design-rev-959495ac",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/18. 集成电机运动控制初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 77,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "cryogenics-subsystem-design-d568a7c0-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/19. 模组低温控制初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 54,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "design-subsystem-design-684e6d78-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/2. 控制系统运行环境初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 346,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-cad6eb9b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/20. 常规功率源控制初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 77,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [
+        "empty_table:paragraph-87"
+      ],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-89e7c1c5",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/21. 束流分配及功率源控制初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 54,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "design-subsystem-design-da4c332c-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/22. 温、湿度监测初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 70,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-f5183218",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/23. 联锁系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 267,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "control-architecture-unknown-50d873c0-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/24. 控制需求工作联系单.pdf",
+      "source_format": "pdf",
+      "block_count": 47,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-79dd5344",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/25. 联锁系统硬件信号接口规格.pdf",
+      "source_format": "pdf",
+      "block_count": 3,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-ab895b02",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/26. 设备控制及通讯接口标准.pdf",
+      "source_format": "pdf",
+      "block_count": 2,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "design-subsystem-design-4182b2a4-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/3. 通道访问安全策略初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 98,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-network-design-rev-4faff6e1",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/4. 控制网络初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 35,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-8117756d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/5. 主定时系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 150,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "data-acquisition-subsystem-design-ef330419-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/6. 图像数据采集系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 46,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-c4391960",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/7. 数据存储初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 59,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-c30a8805",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/8. 通道数据存档初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 43,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "data-acquisition-subsystem-design-ff6a0723-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/9. 波形数据采集系统初步设计报告.docx",
+      "source_format": "docx",
+      "block_count": 88,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-cce79def",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/米清茹补充材料/Git及GitLab的使用说明.docx",
+      "source_format": "docx",
+      "block_count": 692,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-355ebaac",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/米清茹补充材料/IOC设计规范-v1.2.docx",
+      "source_format": "docx",
+      "block_count": 181,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-05ee3d50",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/米清茹补充材料/网页访问mysql数据库设计.docx",
+      "source_format": "docx",
+      "block_count": 186,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-network-design-rev-5a573f23",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/OPI及IOC控制器网络配置（2023.0905）.docx",
+      "source_format": "docx",
+      "block_count": 55,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-3c2f41e2",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/SHINE注入器段IOC管理规范文档（20230908）-陈广花.docx",
+      "source_format": "docx",
+      "block_count": 30,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-total-control-integration-design-rev-06757b8b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/1.总控集成系统技术设计报告.docx",
+      "source_format": "docx",
+      "block_count": 372,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-motion-control-design-rev-8a334d2e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/10.四自由度运动平台远程控制.docx",
+      "source_format": "docx",
+      "block_count": 64,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-3ceaf5ce",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/11.联锁系统运行模式设计报告.pdf",
+      "source_format": "pdf",
+      "block_count": 116,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "design-subsystem-design-51995144-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/12.光纤测温系统设计报告.pdf",
+      "source_format": "pdf",
+      "block_count": 163,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-alarm-system-design-rev-b14bf84e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/13.报警系统安装配置报告.pdf",
+      "source_format": "pdf",
+      "block_count": 236,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-2f211afd",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/2.设备控制系统技术设计报告.docx",
+      "source_format": "docx",
+      "block_count": 424,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-c2785a38",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/3.联锁系统技术设计报告.docx",
+      "source_format": "docx",
+      "block_count": 396,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-upper-software-design-rev-1e946f58",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/4.上层应用软件系统技术设计报告.docx",
+      "source_format": "docx",
+      "block_count": 366,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-total-control-integration-design-rev-d7547f73",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/5.总控集成系统研制设备设计评审申请书.docx",
+      "source_format": "docx",
+      "block_count": 12,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-9dd24041",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/6.设备控制研制设备设计评审申请书.docx",
+      "source_format": "docx",
+      "block_count": 12,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-b481f486",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/7.联锁研制设备设计评审申请书.docx",
+      "source_format": "docx",
+      "block_count": 12,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-upper-software-design-rev-a70d5112",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/8.上层应用软件系统研制设备设计评审申请书.docx",
+      "source_format": "docx",
+      "block_count": 12,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "review-review-opinion-3823b7fa-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/9.评审意见-专家签字版.pdf",
+      "source_format": "pdf",
+      "block_count": 1,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "control-architecture-structured-list-c4fbb373-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20221117）/硬线项目归档文件移交清单(控制20221118).docx",
+      "source_format": "docx",
+      "block_count": 7,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-total-control-integration-design-rev-f242bd70",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE Accelerator Control System.docx",
+      "source_format": "docx",
+      "block_count": 164,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-5ebc213a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE EPICS模块详细安装步骤.docx",
+      "source_format": "docx",
+      "block_count": 655,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-27cdd601",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE OPI、IOC、PLC之间数据交互.docx",
+      "source_format": "docx",
+      "block_count": 255,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-3f3a3ed3",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE基于Django的Archiver Appliance.docx",
+      "source_format": "docx",
+      "block_count": 110,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-7da26046",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+      "source_format": "doc",
+      "block_count": 96,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-c2b8d34a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE定时系统devSnmp模块配置方法及IOC建立说明20241028.docx",
+      "source_format": "docx",
+      "block_count": 83,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-7a76323b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE快联锁系统远程控制系统搭建及下装测试技术报告20241028.docx",
+      "source_format": "docx",
+      "block_count": 93,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-9e3fb650",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE控制系统电源分配单元.docx",
+      "source_format": "docx",
+      "block_count": 99,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-298e6f72",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE注入器段定时系统安装测试情况总结.docx",
+      "source_format": "docx",
+      "block_count": 38,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fba058ab",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE注入器联锁系统操作说明-归档2410.docx",
+      "source_format": "docx",
+      "block_count": 112,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-96ebdc19",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE注入段真空控制操作手册.doc",
+      "source_format": "doc",
+      "block_count": 72,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-vacuum-control-design-rev-8bd0c87b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE直线加速器注入段真空设备控制总结报告.docx",
+      "source_format": "docx",
+      "block_count": 152,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-89d6d828",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE磁铁电源及温度联锁设计报告.docx",
+      "source_format": "docx",
+      "block_count": 168,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-network-design-rev-e3c6b63f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/SHINE装置控制网络设计报告.docx",
+      "source_format": "docx",
+      "block_count": 237,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "control-architecture-structured-list-42dbcf51-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202410）/硬线项目归档文件移交清单.docx",
+      "source_format": "docx",
+      "block_count": 7,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-c05637cf",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE准直器界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 5,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-ebbcf97e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE功率源控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 79,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-2536c98d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE四自由度平台界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 6,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-99ecefba",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE定时界面操作手册.doc",
+      "source_format": "doc",
+      "block_count": 37,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-0e94a5e4",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE恒温机柜界面操作手册.doc",
+      "source_format": "doc",
+      "block_count": 14,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fba2ad49",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE数据存档系统archiverDesktop操作手册.doc",
+      "source_format": "doc",
+      "block_count": 55,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-f12c9ad8",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE数据存档系统web查询软件操作手册.doc",
+      "source_format": "doc",
+      "block_count": 47,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-f11c069c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE温湿度控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 18,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-b672c917",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE激光界面操作手册.doc",
+      "source_format": "doc",
+      "block_count": 73,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-24e94d16",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE电源分配器PDU界面操作手册.doc",
+      "source_format": "doc",
+      "block_count": 25,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-e6551458",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE电源控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 26,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-41ba2750",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/SHINE联锁界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 36,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fd679514",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段Laser Heater控制界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 14,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-afa68262",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段准直器控制界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 7,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-b6698e8a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段切换平台控制界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 8,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fd3c0264",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段四自由度平台控制界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 6,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-eb5d6e0e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段调谐器控制界面操作手册.docx",
+      "source_format": "docx",
+      "block_count": 4,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-b9bfd428",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "source_format": "doc",
+      "block_count": 66,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "control-architecture-structured-list-21a3ef6a-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/2023控制系统移交清单签字版-Page-1.pdf",
+      "source_format": "pdf",
+      "block_count": 1,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-6aab6b8c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目1号井功率源控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 79,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-c6fe79d8",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目1号井温湿度控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 18,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fe5144f3",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目1号井电源控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 26,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-02f29c6a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目基于Nagios 的White Rabbit定时网络监控系统设计报告.docx",
+      "source_format": "docx",
+      "block_count": 45,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-475b3a6a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目基于SNMP的定时网络监控系统设计报告.docx",
+      "source_format": "docx",
+      "block_count": 80,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-715c251d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "source_format": "doc",
+      "block_count": 42,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-6d6e357f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统节点验收测试报告.docx",
+      "source_format": "docx",
+      "block_count": 74,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-300f0580",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc",
+      "source_format": "doc",
+      "block_count": 19,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-3e4fff6e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+      "source_format": "doc",
+      "block_count": 108,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-a14b336b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存档系统查询软件设计报告.doc",
+      "source_format": "doc",
+      "block_count": 55,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-a00f759c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目联锁系统控制界面操作说明.docx",
+      "source_format": "docx",
+      "block_count": 42,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-9d5de275",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/基于Nagios 的White Rabbit定时网络监控系统设计报告.docx",
+      "source_format": "docx",
+      "block_count": 38,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-eda64af5",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/基于SNMP的定时网络监控系统设计报告.docx",
+      "source_format": "docx",
+      "block_count": 73,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "design-unknown-4fe07691-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（202310）/硬线归档报告封面.docx",
+      "source_format": "docx",
+      "block_count": 8,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-9aa08d8a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第二版/1号井电源控制界面操作说明-2023.12.07.docx",
+      "source_format": "docx",
+      "block_count": 26,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-73552d9f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第二版/SHINE定时界面操作手册(20231206).doc",
+      "source_format": "doc",
+      "block_count": 44,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-2a16a52e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第二版/SHINE联锁界面操作手册(20231206).docx",
+      "source_format": "docx",
+      "block_count": 45,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-ec081ce3",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+      "source_format": "doc",
+      "block_count": 57,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "doc-converted-docx-v1"
+    },
+    {
+      "revision_id": "review-meeting-record-fffb37b5-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/1. 样机方案与设计评审会议手册.pdf",
+      "source_format": "pdf",
+      "block_count": 166,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-005a9d75",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/10. 快联锁样机工艺设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 91,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "graphic_frame_not_extracted:slide-20:id=4:name=对象 3"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-2887187d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/11. 定时样机设计报告.pdf",
+      "source_format": "pdf",
+      "block_count": 262,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-fcfd3af1",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/12. 定时样机评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 175,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "timing-meeting-record-ec4f85b7-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/13. 定时样机厂商评审(电气通用分总体例会纪要).pdf",
+      "source_format": "pdf",
+      "block_count": 49,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "review-review-opinion-22b0719a-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/14. 一号测试大厅控制系统接口评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 25,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "review-review-opinion-a5d7f741-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/15. 多功能测试平台控制系统工程设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 64,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "review-review-opinion-87f14cc2-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/16. 垂直测试杜瓦控制系统工程设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 73,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "review-review-opinion-dbe8f471-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/17. 水平测试平台控制系统工程设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 83,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "review-review-opinion-b6fb8a08-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/18. 液氦可视化装置控制系统工程设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 66,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "network-interface-specification-9fbf4318-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/19. 一号测试大厅设备控制网络需求.pdf",
+      "source_format": "pdf",
+      "block_count": 6,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "control-architecture-review-opinion-6558bd90-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/21. 液氦可视化装置控制方案确认.pdf",
+      "source_format": "pdf",
+      "block_count": 2,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "control-architecture-review-opinion-cd39daca-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/22. 水平测试平台控制方案确认.pdf",
+      "source_format": "pdf",
+      "block_count": 3,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "control-architecture-review-opinion-e6a9d0d9-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/3. 专家意见反馈表.docx",
+      "source_format": "docx",
+      "block_count": 8,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-18e00a41",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/3. 控制系统开发环境样机设计报告.docx",
+      "source_format": "docx",
+      "block_count": 335,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-a23bdd5e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/4. 控制系统开发环境样机评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 140,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "unrecognized_shape_type:slide-16:id=5:name=画布 8:NotImplementedError",
+        "unrecognized_shape_type:slide-17:id=9:name=画布 5:NotImplementedError"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-cb7a647f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/5. 高帧率图像采集处理样机设计报告.docx",
+      "source_format": "docx",
+      "block_count": 118,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-274f4d70",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/6. 高频率图像采集处理样机评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 190,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "graphic_frame_not_extracted:slide-5:id=3:name=对象 2",
+        "graphic_frame_not_extracted:slide-30:id=3:name=对象 2"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-849da7e8",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/7. 高帧率图像采集处理样机工艺设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 77,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "graphic_frame_not_extracted:slide-7:id=7:name=对象 6",
+        "graphic_frame_not_extracted:slide-8:id=4:name=对象 3",
+        "graphic_frame_not_extracted:slide-10:id=4:name=对象 3",
+        "graphic_frame_not_extracted:slide-11:id=8:name=对象 7"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-887ee55c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/8. 快联锁样机设计报告.docx",
+      "source_format": "docx",
+      "block_count": 129,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-52ddc518",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/2 重大专项/9. 快联锁样机评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 84,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "graphic_frame_not_extracted:slide-15:id=13:name=对象 12",
+        "graphic_frame_not_extracted:slide-19:id=4:name=对象 3"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-a0ac5b09",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机测试大纲.docx",
+      "source_format": "docx",
+      "block_count": 57,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-c60664e0",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机测试报告.pdf",
+      "source_format": "pdf",
+      "block_count": 17,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-b3cfdc93",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机研制总结报告.docx",
+      "source_format": "docx",
+      "block_count": 217,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-dc14f6ea",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机自测报告.docx",
+      "source_format": "docx",
+      "block_count": 73,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-6eeb7a51",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机验收书.docx",
+      "source_format": "docx",
+      "block_count": 17,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-fb983000",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机验收申请书.docx",
+      "source_format": "docx",
+      "block_count": 11,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-eae18b75",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机验收评审报告.pdf",
+      "source_format": "pdf",
+      "block_count": 339,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-65ef5689",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/快联锁样机验收评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 150,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "graphic_frame_not_extracted:slide-18:id=3:name=对象 2",
+        "graphic_frame_not_extracted:slide-18:id=7:name=对象 6",
+        "graphic_frame_not_extracted:slide-20:id=10:name=对象 9",
+        "graphic_frame_not_extracted:slide-29:id=6:name=对象 5",
+        "graphic_frame_not_extracted:slide-29:id=11:name=对象 10",
+        "graphic_frame_not_extracted:slide-32:id=3:name=对象 2",
+        "graphic_frame_not_extracted:slide-34:id=3:name=对象 2"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-57360e44",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜控制样机测试报告.pdf",
+      "source_format": "pdf",
+      "block_count": 7,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-651e9729",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜控制样机验收评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 89,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-7abc5dda",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜控制测试大纲.docx",
+      "source_format": "docx",
+      "block_count": 22,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-a70950eb",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜控制研制总结报告.docx",
+      "source_format": "docx",
+      "block_count": 170,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-11066a8f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜控制自测报告.docx",
+      "source_format": "docx",
+      "block_count": 44,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-8d7a6e9c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜控制设计报告.docx",
+      "source_format": "docx",
+      "block_count": 19,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-8c544d9d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜样机控制验收书.docx",
+      "source_format": "docx",
+      "block_count": 17,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-086e1ab9",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/恒温机柜样机控制验收申请书.docx",
+      "source_format": "docx",
+      "block_count": 11,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-8ff4f605",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机测试大纲.docx",
+      "source_format": "docx",
+      "block_count": 85,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-16bef6dc",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机测试报告.pdf",
+      "source_format": "pdf",
+      "block_count": 11,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-26b859ef",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机研制总结报告.docx",
+      "source_format": "docx",
+      "block_count": 427,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-eb646e98",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机验收书.docx",
+      "source_format": "docx",
+      "block_count": 17,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-e10b2c95",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机验收申请书.docx",
+      "source_format": "docx",
+      "block_count": 11,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-3f6c76ef",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机验收评审报告.pdf",
+      "source_format": "pdf",
+      "block_count": 479,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-aa1b543f",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境样机验收评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 177,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "unrecognized_shape_type:slide-5:id=6:name=内容占位符 3:NotImplementedError",
+        "unrecognized_shape_type:slide-5:id=7:name=内容占位符 4:NotImplementedError",
+        "unrecognized_shape_type:slide-28:id=32:name=画布 5:NotImplementedError"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-0ddc9a9b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/控制系统开发环境自测报告.docx",
+      "source_format": "docx",
+      "block_count": 105,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-d566c87c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机测试大纲.docx",
+      "source_format": "docx",
+      "block_count": 82,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-4ccbbdf9",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机测试报告.pdf",
+      "source_format": "pdf",
+      "block_count": 12,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-797f5569",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机研制总结报告.docx",
+      "source_format": "docx",
+      "block_count": 281,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-9c3b0792",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机自测报告.docx",
+      "source_format": "docx",
+      "block_count": 94,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-c6cbe796",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机设计评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 59,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "unrecognized_shape_type:slide-6:id=4:name=图示 3"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-b8744e0c",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机验收书.docx",
+      "source_format": "docx",
+      "block_count": 17,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-9ee264dd",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机验收申请书.docx",
+      "source_format": "docx",
+      "block_count": 11,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-ecdbd61a",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/真空设备控制样机验收评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 117,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [
+        "unrecognized_shape_type:slide-12:id=4:name=图示 3",
+        "unrecognized_shape_type:slide-13:id=4:name=图示 3"
+      ],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "acceptance-structured-list-cb5ed7c0-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/硬线项目归档文件移交清单(样机).docx",
+      "source_format": "docx",
+      "block_count": 14,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-c6a5b9dd",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机测试大纲.docx",
+      "source_format": "docx",
+      "block_count": 23,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-64817d0b",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机测试报告.pdf",
+      "source_format": "pdf",
+      "block_count": 6,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-e6a12f47",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机研制总结报告.docx",
+      "source_format": "docx",
+      "block_count": 190,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-3e7259b3",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机自测报告.docx",
+      "source_format": "docx",
+      "block_count": 44,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-f248f5c6",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机验收书.docx",
+      "source_format": "docx",
+      "block_count": 17,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-898e4159",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机验收申请书.docx",
+      "source_format": "docx",
+      "block_count": 11,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-f459fb45",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机验收评审报告.pdf",
+      "source_format": "pdf",
+      "block_count": 433,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-806ece99",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/高帧率图像采集样机验收评审报告.pptx",
+      "source_format": "pptx",
+      "block_count": 314,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-a3f4b84d",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/SHINE-OP-TL-002 2024 总控相关标准和规范.pdf",
+      "source_format": "pdf",
+      "block_count": 472,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-809d76b0",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/SHINE-AC编号.docx",
+      "source_format": "docx",
+      "block_count": 1,
+      "position_kinds": [
+        "paragraph"
+      ],
+      "warnings": [],
+      "parser_profile": "python-docx-v1"
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-ec572f07",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/SHINE控制信号命名规则-签发版.pdf",
+      "source_format": "pdf",
+      "block_count": 44,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-2b521f09",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/总控相关标准和规范/EPICS软件版本规范.pdf",
+      "source_format": "pdf",
+      "block_count": 28,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-dd6df538",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/总控相关标准和规范/PyDM界面设计规范.pdf",
+      "source_format": "pdf",
+      "block_count": 132,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-d738fbf9",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/总控相关标准和规范/数据格式与存储规范.pdf",
+      "source_format": "pdf",
+      "block_count": 118,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-302424d8",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/总控相关标准和规范/联锁系统硬件信号接口规范.pdf",
+      "source_format": "pdf",
+      "block_count": 69,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-b270bc6e",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/总控相关标准和规范/设备控制及通讯接口标准规范-xin.pdf",
+      "source_format": "pdf",
+      "block_count": 125,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-5e0aacca",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/机柜命名规则.pptx",
+      "source_format": "pptx",
+      "block_count": 21,
+      "position_kinds": [
+        "slide"
+      ],
+      "warnings": [],
+      "parser_profile": "python-pptx-v1"
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-c5611140",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/20230613加速器总体设备命名规则专题会纪要.pdf",
+      "source_format": "pdf",
+      "block_count": 37,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "standards-standard-specification-78a0894e-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/加速器工艺安装技术规范（PDF）.pdf",
+      "source_format": "pdf",
+      "block_count": 22,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-ed248111",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/序号24-SHINE-OP-TL-018- 设备命名规则-R0-20190903.pdf",
+      "source_format": "pdf",
+      "block_count": 14,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-1ae132e6",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/附件-SHINE-OP-TL-004-2022-SHINE项目技术代号规则-20220926.pdf",
+      "source_format": "pdf",
+      "block_count": 12,
+      "position_kinds": [
+        "pdf_page"
+      ],
+      "warnings": [
+        "no_extractable_text"
+      ],
+      "parser_profile": "pymupdf-blocks-v1"
+    },
+    {
+      "revision_id": "acceptance-structured-list-df2d46d4-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/陈广花补充材料/端子对应表最终版3.8现场改造.xlsx",
+      "source_format": "xlsx",
+      "block_count": 2,
+      "position_kinds": [
+        "cell_range"
+      ],
+      "warnings": [
+        "empty_sheet:Sheet3"
+      ],
+      "parser_profile": "openpyxl-cells-v1"
+    },
+    {
+      "revision_id": "acceptance-structured-list-a5431570-rev",
+      "status": "parsed",
+      "source_path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/陈广花补充材料/补充材料清单.xlsx",
+      "source_format": "xlsx",
+      "block_count": 1,
+      "position_kinds": [
+        "cell_range"
+      ],
+      "warnings": [],
+      "parser_profile": "openpyxl-cells-v1"
+    }
+  ]
+}

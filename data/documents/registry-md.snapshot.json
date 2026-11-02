@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-10-29T12:33:07.110668+00:00",
+  "raw_root": "data/l0_raw/",
+  "documents": [
+    {
+      "doc_id": "waveform-storage-dataflow",
+      "authored_path": "docs/waveform/waveform-storage-dataflow.md",
+      "raw_path": "data/l0_raw/waveform/waveform-storage-dataflow.md",
+      "authored_sha256": "bc0498a8e60dadf2e70aa7f05e5fb40e3dd24edf8f00b9e5aac38bfaf5ca3361",
+      "raw_sha256": "bc0498a8e60dadf2e70aa7f05e5fb40e3dd24edf8f00b9e5aac38bfaf5ca3361",
+      "action": "up-to-date"
+    },
+    {
+      "doc_id": "waveform-alignment-semantics",
+      "authored_path": "docs/waveform/alignment-semantics-and-diagnostics.md",
+      "raw_path": "data/l0_raw/waveform/alignment-semantics-and-diagnostics.md",
+      "authored_sha256": "b77e83455dcd737dc6a8735427c85877806a08c6618759cdea621c3a5c69e248",
+      "raw_sha256": "b77e83455dcd737dc6a8735427c85877806a08c6618759cdea621c3a5c69e248",
+      "action": "up-to-date"
+    },
+    {
+      "doc_id": "waveform-fault-history",
+      "authored_path": "docs/waveform/fault-history-and-version-changes.md",
+      "raw_path": "data/l0_raw/waveform/fault-history-and-version-changes.md",
+      "authored_sha256": "26e83c7600d9fd12f1b7281c161ce65c5dacf9d24e3b71c6821a8637eb0a72de",
+      "raw_sha256": "26e83c7600d9fd12f1b7281c161ce65c5dacf9d24e3b71c6821a8637eb0a72de",
+      "action": "up-to-date"
+    },
+    {
+      "doc_id": "rag-ingestion-verification-rollback",
+      "authored_path": "docs/runbooks/rag-ingestion-verification-rollback.md",
+      "raw_path": "data/l0_raw/runbooks/rag-ingestion-verification-rollback.md",
+      "authored_sha256": "8d9322a9b45cd4fe2ed7db7717be5a024ffc2ed3bacb459879020dc44d5fe384",
+      "raw_sha256": "8d9322a9b45cd4fe2ed7db7717be5a024ffc2ed3bacb459879020dc44d5fe384",
+      "action": "update"
+    }
+  ]
+}

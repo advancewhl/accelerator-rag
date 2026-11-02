@@ -1,0 +1,106 @@
+{
+  "registry": "data/documents/registry-md.json",
+  "documents": [
+    {
+      "document_id": "waveform-storage-dataflow",
+      "source_path": "data/l0_raw/waveform/waveform-storage-dataflow.md",
+      "document_type": "md",
+      "version": "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2",
+      "sections_pages": 7,
+      "chunks": 8,
+      "eligible_chunks": 8,
+      "characters": 6147,
+      "page_numbers_from": 1,
+      "page_numbers_to": 7,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "document_revision",
+        "owner",
+        "verified_date"
+      ]
+    },
+    {
+      "document_id": "waveform-alignment-semantics",
+      "source_path": "data/l0_raw/waveform/alignment-semantics-and-diagnostics.md",
+      "document_type": "md",
+      "version": "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2",
+      "sections_pages": 8,
+      "chunks": 9,
+      "eligible_chunks": 9,
+      "characters": 6647,
+      "page_numbers_from": 1,
+      "page_numbers_to": 8,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "document_revision",
+        "owner",
+        "verified_date"
+      ]
+    },
+    {
+      "document_id": "waveform-fault-history",
+      "source_path": "data/l0_raw/waveform/fault-history-and-version-changes.md",
+      "document_type": "md",
+      "version": "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2",
+      "sections_pages": 9,
+      "chunks": 11,
+      "eligible_chunks": 11,
+      "characters": 8548,
+      "page_numbers_from": 1,
+      "page_numbers_to": 9,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "document_revision",
+        "owner",
+        "verified_date"
+      ]
+    },
+    {
+      "document_id": "rag-ingestion-verification-rollback",
+      "source_path": "data/l0_raw/runbooks/rag-ingestion-verification-rollback.md",
+      "document_type": "md",
+      "version": "accelerator-rag-prab@0b62844 (2026-10-29); doc-revision=2026-10-29-reader-r2",
+      "sections_pages": 9,
+      "chunks": 12,
+      "eligible_chunks": 12,
+      "characters": 9258,
+      "page_numbers_from": 1,
+      "page_numbers_to": 9,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "doc_type",
+        "document_revision",
+        "owner",
+        "title",
+        "verified_date"
+      ]
+    }
+  ],
+  "totals": {
+    "documents": 4,
+    "sections_pages": 33,
+    "chunks": 40,
+    "eligible_chunks": 40,
+    "characters": 30600
+  },
+  "eligibility": {
+    "config": {
+      "replacement_ratio": 0.2,
+      "minimum_replacements": 8
+    },
+    "total_chunks": 40,
+    "eligible_chunks": 40,
+    "ineligible_chunks": 0,
+    "ineligible_by_reason": {},
+    "per_document_ineligible": {}
+  },
+  "page_semantics": "Markdown page_start/page_end are 1-based section indexes, not PDF pages."
+}

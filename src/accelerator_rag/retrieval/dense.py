@@ -104,7 +104,10 @@ class DenseRetriever:
         self, embedder, vector_store, *, passage_builder=None, oversample_factor=4
     ):
         from accelerator_rag.retrieval.passages import PassageBuilder
-        from accelerator_rag.storage.qdrant_passages import QdrantPassageStore
+        from accelerator_rag.storage.qdrant_passages import (
+            QdrantPassageStore,
+            build_scope_filter,
+        )
 
         if not isinstance(vector_store, QdrantPassageStore):
             raise ValueError("DenseRetriever requires QdrantPassageStore")
@@ -124,6 +127,8 @@ class DenseRetriever:
         self.oversample_factor = oversample_factor
         self.last_passage_trace = []
         self.last_candidate_limits = []
+        self.last_scope_trace = None
+        self._scope_filter = build_scope_filter
 
     def index_document(self, document_id, chunks):
         if not document_id.strip() or not chunks:
@@ -212,25 +217,37 @@ class DenseRetriever:
             "unique_parent_count": len(parents),
         }
 
-    def search(self, query, top_k=3):
-        hits, trace, limits = self.search_with_trace(query, top_k)
+    def search(self, query, top_k=3, *, scope=None):
+        hits, trace, limits = self.search_with_trace(query, top_k, scope=scope)
         self.last_passage_trace, self.last_candidate_limits = trace, limits
         return hits
 
-    def search_with_trace(self, query, top_k=3):
+    def search_with_trace(self, query, top_k=3, *, scope=None):
         if not query.strip() or type(top_k) is not int or top_k <= 0:
             raise ValueError("invalid search query/top_k")
         self._vector_store.verify_contract()
         vector = self._embedder.embed_query(query)
-        total = self._vector_store.point_count()
+        query_filter = self._scope_filter(scope)
+        scope_applied = query_filter is not None
+        self.last_scope_trace = {
+            "scope_applied": scope_applied,
+            "scope": scope.describe() if scope is not None else None,
+        }
+        # Candidate limits and max-child aggregation use the eligible passage
+        # pool, never the unfiltered collection size.
+        total = self._vector_store.count_passages(scope=scope)
         candidate_limits = []
         best = {}
         limit = min(total, top_k * self.oversample_factor)
         while limit:
             candidate_limits.append(limit)
-            hits = self._vector_store.search_passages(vector, limit)
+            hits = self._vector_store.search_passages(vector, limit, scope=scope)
             best = {}
             for hit in hits:
+                if scope is not None and not scope.allows(hit.passage.parent):
+                    # Defense in depth: the store filter should already have
+                    # removed it before ranking.
+                    continue
                 key = hit.passage.parent_chunk_id
                 if key in best and best[key].passage.parent != hit.passage.parent:
                     raise ValueError("inconsistent canonical parent payload")
@@ -250,6 +267,8 @@ class DenseRetriever:
                 "passage_excerpt": h.passage.text,
                 "passage_score": h.score,
                 "candidate_limits": candidate_limits,
+                "scope_applied": scope_applied,
+                "scope": scope.describe() if scope is not None else None,
             }
             for h in ranked
         ]

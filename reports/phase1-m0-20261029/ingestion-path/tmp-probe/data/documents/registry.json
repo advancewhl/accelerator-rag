@@ -1,0 +1,13 @@
+[
+  {
+    "doc_id": "waveform-overview-doc",
+    "title": "Waveform 采集服务概览",
+    "source_path": "data/l0_raw/docs/waveform/waveform-overview.md",
+    "category": "beam_diagnostics",
+    "topic": "waveform",
+    "document_type": "md",
+    "language": "zh",
+    "version": "0.1 (2026-10-29)",
+    "status": "draft"
+  }
+]

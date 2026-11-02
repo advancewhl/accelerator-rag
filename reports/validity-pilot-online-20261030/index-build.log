@@ -1,0 +1,54 @@
+{
+  "documents": 4,
+  "chunks": 40,
+  "eligible_chunks": 40,
+  "per_document": {
+    "waveform-storage-dataflow": {
+      "chunks": 8
+    },
+    "waveform-alignment-semantics": {
+      "chunks": 9
+    },
+    "waveform-fault-history": {
+      "chunks": 11
+    },
+    "rag-ingestion-verification-rollback": {
+      "chunks": 12
+    }
+  },
+  "eligibility": {
+    "config": {
+      "replacement_ratio": 0.2,
+      "minimum_replacements": 8
+    },
+    "total_chunks": 40,
+    "eligible_chunks": 40,
+    "ineligible_chunks": 0,
+    "ineligible_by_reason": {},
+    "per_document_ineligible": {}
+  }
+}
+/workspace/src/accelerator_rag/embedding.py:78: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dimension = self._model.get_sentence_embedding_dimension()
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (743 > 512). Running this sequence through the model will result in indexing errors
+/workspace/src/accelerator_rag/embedding.py:78: FutureWarning: The `get_sentence_embedding_dimension` method has been renamed to `get_embedding_dimension`.
+  dimension = self._model.get_sentence_embedding_dimension()
+{
+  "applied": [
+    {
+      "collection": "knowledge_stage27_intfloat__multilingual_e5_base",
+      "index_path": "/workspace/tmp/stage-two-eight/e5_reused_signed_index",
+      "points_before": 4746,
+      "points_after": 4803,
+      "configured_point_count": 4746
+    },
+    {
+      "collection": "knowledge_stage28_qwen3_embedding_0_6b_fp32",
+      "index_path": "/workspace/tmp/stage-two-eight/qwen3_embedding_0_6b_fp32/qdrant",
+      "points_before": 4532,
+      "points_after": 4572,
+      "configured_point_count": 4532
+    }
+  ]
+}
+next: update config point_count values, then restart the standalone RAG container and run the ingestion verification steps

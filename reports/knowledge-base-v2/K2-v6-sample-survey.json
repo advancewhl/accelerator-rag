@@ -1,0 +1,21 @@
+{
+  "kind": "kb2-format-sample-survey",
+  "results": [
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "size_bytes": 310770639,
+      "format": "docx",
+      "status": "ok",
+      "seconds": 6.51,
+      "peak_rss_mb": 817.0,
+      "paragraphs": 11567,
+      "tables": 605,
+      "headings": 1941,
+      "formula_paragraphs": 160,
+      "inline_shapes": 2014,
+      "sections": 13,
+      "chars": 861992,
+      "core_title": ""
+    }
+  ]
+}

@@ -68,11 +68,18 @@ def run_workflow(
     max_rounds=2,
     token_budget=6000,
     audit=None,
+    scope=None,
 ):
     started = perf_counter()
     requirements = extract_requirements(provider, query)
     trace = audit if audit is not None else {}
-    trace.update({"requirements": [r.model_dump() for r in requirements], "rounds": []})
+    trace.update(
+        {
+            "requirements": [r.model_dump() for r in requirements],
+            "rounds": [],
+            "scope": scope.describe() if scope is not None else None,
+        }
+    )
     queries = list(
         dict.fromkeys([query] + [r.search_query or r.question for r in requirements])
     )
@@ -80,8 +87,13 @@ def run_workflow(
     retrieval_seconds = rerank_seconds = 0.0
     for round_index in range(max_rounds):
         retrieval_started = perf_counter()
+        retrieval_kwargs = {"anchors": anchors}
+        if scope is not None:
+            retrieval_kwargs["scope"] = scope
         with lock:
-            hits, retrieval_trace = retriever.retrieve(query, queries, anchors=anchors)
+            hits, retrieval_trace = retriever.retrieve(
+                query, queries, **retrieval_kwargs
+            )
         duration = perf_counter() - retrieval_started
         rerank_seconds += retrieval_trace.get("rerank_seconds", 0)
         retrieval_seconds += max(0, duration - retrieval_trace.get("rerank_seconds", 0))

@@ -1,6 +1,7 @@
 """Requirement coverage, verified evidence, claim synthesis and code-owned citations."""
 
 from datetime import date
+from pathlib import PurePosixPath
 import json
 import re
 from typing import Literal
@@ -569,8 +570,12 @@ def generate(
     for requirement, support in zip(requirements, selection, strict=True):
         if _temporal_gap(requirement.question, context):
             support.supported, support.span_ids = False, []
-    # Keep partial evidence available; coverage and factual entailment differ.
+    # Keep spans attached to unsupported requirements: they may explain why the
+    # evidence is missing.  Numeric validation below still prevents the model
+    # from turning those spans into invented facts.
     verified = {r.id: r for r in selection if r.span_ids}
+    unsupported_ids = {r.id for r in selection if not r.supported}
+    query_numbers = _numbers(query)
     initial_missing = {r.id: r.missing for r in selection}
     initially_complete = {r.id for r in selection if r.supported}
     exact_requirements = {
@@ -691,6 +696,11 @@ def generate(
                     continue
 
                 unexpected_numbers = _numbers(c.text) - _numbers(numeric_evidence)
+                # An unsupported requirement may restate the user's own premise
+                # number in an absence explanation (e.g. "X=100 cannot be
+                # converted"); this is not a new factual number.
+                if c.requirement_ids and set(c.requirement_ids) <= unsupported_ids:
+                    unexpected_numbers -= query_numbers
                 if unexpected_numbers:
                     discarded.append(
                         {
@@ -1012,6 +1022,12 @@ def resolve(answer, context):
     for sid in ordered:
         hit = context.sources[sid]
         c = hit.chunk
+        suffix = PurePosixPath(c.source_path).suffix
+        position_kind = getattr(c, "effective_position_kind", None) or (
+            "section" if suffix in {".md", ".markdown"} else "page"
+        )
+        if position_kind == "pdf_page":
+            position_kind = "page"
         citations.append(
             {
                 "number": numbers[sid],
@@ -1019,13 +1035,20 @@ def resolve(answer, context):
                 "document_id": c.document_id,
                 "document_title": c.document_title,
                 "document_version": c.document_version,
+                "document_format": suffix.lstrip("."),
+                "locator_kind": position_kind,
+                "position_label": getattr(c, "position_label", ""),
                 "page_start": c.page_start,
                 "page_end": c.page_end,
                 "chunk_id": c.chunk_id,
                 "retrieval_rank": hit.rank,
                 "rerank_score": hit.score,
                 "quote": "\n\n".join(answer.quotes[sid]),
-                "document_url": "/v1/rag/documents/" + c.document_id,
+                "document_url": (
+                    "/v1/rag/documents/" + c.document_id
+                    if suffix in {".pdf", ".md", ".markdown"}
+                    else None
+                ),
             }
         )
     return {

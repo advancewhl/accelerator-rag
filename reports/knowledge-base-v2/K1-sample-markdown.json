@@ -1,0 +1,340 @@
+{
+  "kind": "kb2-markdown-contract-sample",
+  "release_target": "kb-2.0.0",
+  "registry": "data/documents/v2/registry-v2.json",
+  "documents": [
+    {
+      "revision_id": "waveform-storage-dataflow",
+      "status": "parsed",
+      "source_path": "data/l0_raw/waveform/waveform-storage-dataflow.md",
+      "source_format": "md",
+      "usage_status": "current",
+      "document_kind": "operation_manual",
+      "position_kinds": [
+        "section"
+      ],
+      "block_count": 66,
+      "block_types": {
+        "code": 2,
+        "heading": 18,
+        "note": 1,
+        "paragraph": 37,
+        "table": 8
+      },
+      "chunking": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 22,
+        "document_count": 1,
+        "total_chars": 5825,
+        "min_chars": 31,
+        "max_chars": 822,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "section": 22
+        },
+        "by_usage_status": {
+          "current": 22
+        }
+      },
+      "chunk_ids_sha256": "ffecb5b846fef9c7109e4e4c28c97c392d9ea5d217aa4781e796e4c3c50addc9",
+      "chunk_previews": [
+        {
+          "chunk_id": "waveform-storage-dataflow:a9f70ee8a5d0b5497213ad63ce909f9d8130cf222d89ab7d35b1b0d7d8aeb12f",
+          "position_kind": "section",
+          "position_label": "section-1-front-matter",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 191,
+          "preview": "---\napplicable_system_version: \"waveform-storage-system@dc50e08 (2026-10-26)\"\nalignment_algo_hash: \"不适用\"\nverified_date: \"2026-10-29\"\ndocument_revision: \"2026-10"
+        },
+        {
+          "chunk_id": "waveform-storage-dataflow:8ac191c49ca9418fae8ab471ae2fdc9f180cc3cb3baf7c828fe57c028c0d6193",
+          "position_kind": "section",
+          "position_label": "section-1",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 201,
+          "preview": "Waveform 存储与数据流技术说明\n\n一次采集完成后，最先需要弄清的是：采到了哪些设备、分成了几段、哪些文件可以一起使用。本文沿着这条线索，说明如何找回数据、识别缺失，以及理解文件中的编号和时间。\n\n本文面向采集操作员、数据分析人员和维护人员。已经找到数据、准备进行多设备分析时，接着阅读[对齐语义、参数与诊断手册]"
+        },
+        {
+          "chunk_id": "waveform-storage-dataflow:a44d0ece337e97fdd3679dfe9cdcf8bf9009cce00c78208b98a11c1f1ce5f8d5",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 279,
+          "preview": "1. 先把一次采集看成“任务、数据段、设备文件”\n\n一次采集请求对应一个任务。任务运行期间可以产生多个数据段；每个数据段中，每台成功采集的 BPM（束流位置监测器）保存一个 HDF5 文件。设备失败时，该段可能只有部分设备的文件。\n\n例如，一个任务选择了 20 台设备，共产生 3 段数据。第一段可能有 20 个文件，第"
+        },
+        {
+          "chunk_id": "waveform-storage-dataflow:f73cefd6502593d9ed38f8bf5bffba844daa10ec8e80b999f5f794a3ba79cb48",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 242,
+          "preview": "你想确定什么 | 使用的标识 | 怎么理解\n--- | --- | ---\n是哪一次采集 | `request_id` | 一次任务的 UUID；查询、状态跟踪和重试使用同一身份\n是任务中的哪一段 | `capture_sequence` | 从 0 开始的段序号；只有和任务 ID 一起使用才有明确含义\n是哪台设备 |"
+        },
+        {
+          "chunk_id": "waveform-storage-dataflow:ff0950e6d9f921c19b8bd48c977c317753978df20167cc5b7db64febb768544d",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 147,
+          "preview": "**定位一份原始波形，要保留任务 ID、段序号和设备 ID。** 日期和时刻适合帮助人查找，但同一天同一秒可能存在不同任务，不能单独充当数据身份。\n\n不同数据段之间可能存在等待、下载或失败造成的间隔。系统按段读取和分析，不自动把多段拼成连续波形。确需跨段研究时，应先确定段间时间关系和汇总方法。"
+        }
+      ]
+    },
+    {
+      "revision_id": "waveform-alignment-semantics",
+      "status": "parsed",
+      "source_path": "data/l0_raw/waveform/alignment-semantics-and-diagnostics.md",
+      "source_format": "md",
+      "usage_status": "current",
+      "document_kind": "operation_manual",
+      "position_kinds": [
+        "section"
+      ],
+      "block_count": 83,
+      "block_types": {
+        "heading": 21,
+        "note": 1,
+        "paragraph": 56,
+        "table": 5
+      },
+      "chunking": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 19,
+        "document_count": 1,
+        "total_chars": 6416,
+        "min_chars": 39,
+        "max_chars": 914,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "section": 19
+        },
+        "by_usage_status": {
+          "current": 19
+        }
+      },
+      "chunk_ids_sha256": "fc342491f286304058fad34b9328942503cf6f0751430fb77415e9815cfe4af6",
+      "chunk_previews": [
+        {
+          "chunk_id": "waveform-alignment-semantics:819a14b1ab7627717ce156c02ab241294351a6f68a75c0129eb949098e5d78ad",
+          "position_kind": "section",
+          "position_label": "section-1-front-matter",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 252,
+          "preview": "---\napplicable_system_version: \"waveform-storage-system@dc50e08 (2026-10-26)\"\nalignment_algo_hash: \"e8db12d72a0ad553130f0823a88b508ab0ec2a6b223fe90ad2b1abd8843d"
+        },
+        {
+          "chunk_id": "waveform-alignment-semantics:af3cdaa4fe5fda309fcfb0d3f21c8e6f3b1a52d96d6c113d04461c6e9987d5eb",
+          "position_kind": "section",
+          "position_label": "section-1",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 215,
+          "preview": "对齐语义、参数与诊断手册\n\n多台 BPM 的文件都有数据，并不意味着可以直接逐点比较。它们可能记录了不同的编号范围，缺少不同的点，或采用不同的编号规则。对齐的作用，是先确定哪些记录可以按相同编号放在一起，再把这些记录交给绘图或分析。\n\n本文帮助你完成一次对齐，判断结果是否适合分析，并在共同点不足时找到下一步检查方向。尚"
+        },
+        {
+          "chunk_id": "waveform-alignment-semantics:fdb08df86c6696214e0afef71656607aa024cced0e1f18409eea99832767eb02",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 106,
+          "preview": "1. 对齐到底做了什么\n\n<a id=\"2.1\"></a>\n\n当前系统以 `bunchID` 的整数值相等作为匹配条件。它不移动波形、不按相近编号凑点，也不根据峰形寻找时间偏移。\n\n以下是用于解释规则的简化示例："
+        },
+        {
+          "chunk_id": "waveform-alignment-semantics:35321b6e225cd739780c58ec0f57ef9419d904aef4e3ba5067b726ecf12cc38b",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 88,
+          "preview": "设备 | 原始 bunchID | 严格对齐后保留\n--- | --- | ---\nA | `2, 4, 6` | `2, 6`\nB | `2, 6, 10` | `2, 6`"
+        },
+        {
+          "chunk_id": "waveform-alignment-semantics:e3ee3482029760ef0dbe04cd69b90cf386eaebd99d91b5ed9b57e7c27aefabd1",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 151,
+          "preview": "输出中，编号 `2` 对应一列，编号 `6` 对应另一列；每台设备的 X、Y 数值跟随原编号进入相应位置。两台设备的步长不同，仍可能有共同编号。\n\n**编号匹配解决的是数据组织问题。** 如果要把同一列解释为同一个物理事件，还需确认设备共享可比较的编号规则。仅凭对齐成功，不能证明设备在物理时间上同步。"
+        }
+      ]
+    },
+    {
+      "revision_id": "waveform-fault-history",
+      "status": "parsed",
+      "source_path": "data/l0_raw/waveform/fault-history-and-version-changes.md",
+      "source_format": "md",
+      "usage_status": "current",
+      "document_kind": "operation_manual",
+      "position_kinds": [
+        "section"
+      ],
+      "block_count": 96,
+      "block_types": {
+        "heading": 21,
+        "note": 1,
+        "paragraph": 71,
+        "table": 3
+      },
+      "chunking": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 8367,
+        "min_chars": 33,
+        "max_chars": 1168,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "section": 14
+        },
+        "by_usage_status": {
+          "current": 14
+        }
+      },
+      "chunk_ids_sha256": "20d0683df87bd8f9bfa8cbd88b45c47e107aa0005988d53df4896f12007a8d0f",
+      "chunk_previews": [
+        {
+          "chunk_id": "waveform-fault-history:ce1e08366fdf8274bfb2376436f45899d53b7a5d39d411de94c5502e7a760b89",
+          "position_kind": "section",
+          "position_label": "section-1-front-matter",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 252,
+          "preview": "---\napplicable_system_version: \"waveform-storage-system@dc50e08 (2026-10-26)\"\nalignment_algo_hash: \"e8db12d72a0ad553130f0823a88b508ab0ec2a6b223fe90ad2b1abd8843d"
+        },
+        {
+          "chunk_id": "waveform-fault-history:e0cf153ed47e22e15e3f93d26fdc1796b2a16809a632c9568009708997d52814",
+          "position_kind": "section",
+          "position_label": "section-1",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 185,
+          "preview": "历史故障记录与版本变更说明\n\n遇到采集失败、共同点骤减或时间显示异常时，先用本文寻找相似现象，再回到自己的任务记录检查条件。相似现象可能来自不同环节，不能直接套用历史案例的结论。\n\n本文按使用中遇到的问题组织案例，保留原有 `case-01` 至 `case-12` 编号，便于追溯。记录中既有现场事件，也有代码行为和仍"
+        },
+        {
+          "chunk_id": "waveform-fault-history:cbb4d66e63e48f4f9e6033feb9e6058d9fbe3368faa27231dbcfd03947b08489",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 546,
+          "preview": "1. 从你看到的现象开始\n\n当前现象 | 先看哪条记录 | 先取什么证据\n--- | --- | ---\n设备都有数据，严格对齐后点数极少 | [case-07](#case-07)、[case-01](#case-01) | 同段原始编号、设备名单和逐台比较结果\n时长显示不合理，或频谱解释对不上 | [case-06"
+        },
+        {
+          "chunk_id": "waveform-fault-history:6cfdd3b937d478b3f519431dede6bdba113417e71c17a94947dc130d374b04ed",
+          "position_kind": "section",
+          "position_label": "section-3",
+          "page_start": 3,
+          "page_end": 3,
+          "chars": 203,
+          "preview": "2. 数据齐全，为什么共同点会很少\n\n<a id=\"case-07\"></a>\n\ncase-07：25 台设备各有 20000 点，严格共同点只剩 288–621 个\n\n**现场发生了什么。** 2026-10-12 的任务 `22833275-5e77-41c5-b703-f306accde164` 记录频率为 50"
+        },
+        {
+          "chunk_id": "waveform-fault-history:ead38ae3ae523365e93cced37fc6f3c8b7a96b0ea2588df13404b7efc593dc48",
+          "position_kind": "section",
+          "position_label": "section-3",
+          "page_start": 3,
+          "page_end": 3,
+          "chars": 259,
+          "preview": "段序号 | 25 台共同点 | 相对单台 20000 点的保留率 | 当前分析器推算跨度 | 诊断中排除目标设备后的共同点\n--- | --- | --- | --- | ---\n0 | 422 | 2.11% | 0.842 s | 19570\n1 | 621 | 3.11% | 1.240 s | 19528\n2 "
+        }
+      ]
+    },
+    {
+      "revision_id": "rag-ingestion-verification-rollback",
+      "status": "parsed",
+      "source_path": "data/l0_raw/runbooks/rag-ingestion-verification-rollback.md",
+      "source_format": "md",
+      "usage_status": "current",
+      "document_kind": "operation_manual",
+      "position_kinds": [
+        "section"
+      ],
+      "block_count": 87,
+      "block_types": {
+        "code": 9,
+        "heading": 22,
+        "note": 1,
+        "paragraph": 48,
+        "table": 7
+      },
+      "chunking": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 23,
+        "document_count": 1,
+        "total_chars": 9238,
+        "min_chars": 80,
+        "max_chars": 1181,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "section": 23
+        },
+        "by_usage_status": {
+          "current": 23
+        }
+      },
+      "chunk_ids_sha256": "6d9c0289faadd5c540295f086a6db023c4721b060794864f1893e531dc33938c",
+      "chunk_previews": [
+        {
+          "chunk_id": "rag-ingestion-verification-rollback:ecec28c48b72e9dcaf4b34437198ba75d91fcce754eb49ae167231a6aebf18b2",
+          "position_kind": "section",
+          "position_label": "section-1-front-matter",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 237,
+          "preview": "---\ntitle: \"RAG 知识入库、验证与回滚手册\"\ndoc_type: \"runbook\"\napplicable_system_version: \"M0 0b62844；含 2026-10-29 工作区 Markdown 入库实现\"\nalignment_algo_hash: \"不适用\"\nverified_dat"
+        },
+        {
+          "chunk_id": "rag-ingestion-verification-rollback:7ffcb442ce1e041827f88ce70d254a52629a01986b1cfe45fc96c5f10eff44ca",
+          "position_kind": "section",
+          "position_label": "section-1",
+          "page_start": 1,
+          "page_end": 1,
+          "chars": 226,
+          "preview": "RAG 知识入库、验证与回滚手册\n\n本文帮助维护人员把一份新文档或修订稿加入 RAG，并确认使用者能够检索到正确版本、打开原文和核对答案。流程分为准备文档、检查解析、构建候选索引、验证结果、切换服务；失败时恢复上一组可用文件与索引。\n\n截至本次核验，工作区已实现 PDF 和 Markdown 的解析与入库路径。2026"
+        },
+        {
+          "chunk_id": "rag-ingestion-verification-rollback:b42c30b62d05d5a1b7d5a1b4b057c47cd8f132e3d282e08e940b4776adc1c929",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 254,
+          "preview": "1. 先判断你做到哪一步了\n\n当前状态 | 已完成什么 | 还要做什么\n--- | --- | ---\n文档保存在 `docs/` | 内容可以阅读和审阅 | 登记版本，生成入库用原文快照\n解析和切块通过 | 程序能处理该文件 | 抽查内容，再构建候选索引\n向量已写入候选索引 | 检索数据已准备 | 核对两路索引、配置"
+        },
+        {
+          "chunk_id": "rag-ingestion-verification-rollback:fa44a49537145712bd0e0a437247fc253ca2c4d175177cb301089de6c07f3306",
+          "position_kind": "section",
+          "position_label": "section-2",
+          "page_start": 2,
+          "page_end": 2,
+          "chars": 80,
+          "preview": "入库的完成标准是：目标内容能检索到，引用能回到对应版本的原文，答案能被原文支持。HTTP 200、文档数量和 `answered` 标签分别只能证明其中一部分。"
+        },
+        {
+          "chunk_id": "rag-ingestion-verification-rollback:098d05523fdcdc664ab6271ec1c213526050600ff6c415f42e7e8d6b133ea2d0",
+          "position_kind": "section",
+          "position_label": "section-3",
+          "page_start": 3,
+          "page_end": 3,
+          "chars": 525,
+          "preview": "2. 准备文档：先让人读得懂，再交给系统\n\n2.1 一份文档要解决一个明确任务\n\n先说明读者是谁、要完成什么、适用于哪个系统版本。正文按操作或理解顺序展开；源码定位、审计过程和历史讨论放在附录或独立记录中。\n\n修订时尤其要检查三个问题：参数是否带适用条件，历史行为是否标明版本，推断是否被写成事实。不要为了提高题集命中率"
+        }
+      ]
+    }
+  ],
+  "parsed_documents": 4,
+  "total_chunks": 78,
+  "unique_chunk_ids": 78
+}

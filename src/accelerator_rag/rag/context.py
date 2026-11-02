@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass, field
 import json
+from pathlib import PurePosixPath
 import re
 
 from accelerator_rag.domain.knowledge import RetrievalResult
@@ -65,11 +66,21 @@ class EvidenceContextBuilder:
                 span_id = f"{sid}.{len(segments) + 1}"
                 spans[span_id] = (sid, text)
                 segments.append({"span_id": span_id, "text": text})
+            suffix = PurePosixPath(hit.chunk.source_path).suffix
+            locator_kind = getattr(
+                hit.chunk, "effective_position_kind", None
+            ) or ("section" if suffix in {".md", ".markdown"} else "page")
+            if locator_kind == "pdf_page":
+                locator_kind = "page"
             records.append(
                 {
                     "source_id": sid,
                     "document_title": hit.chunk.document_title,
                     "document_version": hit.chunk.document_version,
+                    "locator_kind": locator_kind,
+                    "position_label": getattr(
+                        hit.chunk, "position_label", ""
+                    ),
                     "page_start": hit.chunk.page_start,
                     "page_end": hit.chunk.page_end,
                     "text": hit.chunk.text,

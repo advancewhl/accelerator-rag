@@ -1,0 +1,62 @@
+{
+  "generated_on": "2026-11-02",
+  "batch_id": "2026-11-02-shine-control",
+  "legacy_revisions": 17,
+  "new_revisions": 193,
+  "total_revisions": 210,
+  "dispositions": 235,
+  "families": 74,
+  "family_candidates": 21,
+  "family_candidates_used": [
+    "accelerator-overall-design",
+    "shine-alarm-system-design",
+    "shine-control-network-design",
+    "shine-control-operation-manual-series",
+    "shine-control-standards-2024",
+    "shine-data-storage-and-archive",
+    "shine-device-naming-rules",
+    "shine-equipment-control-design",
+    "shine-interlock-system-design",
+    "shine-ioc-management",
+    "shine-motion-control-design",
+    "shine-power-supply-control-design",
+    "shine-prototype-constant-temperature-cabinet-acceptance",
+    "shine-prototype-control-system-development-environment-acceptance",
+    "shine-prototype-fast-interlock-acceptance",
+    "shine-prototype-high-frame-rate-image-acquisition-acceptance",
+    "shine-prototype-vacuum-control-acceptance",
+    "shine-timing-system-design",
+    "shine-total-control-integration-design",
+    "shine-upper-software-design",
+    "shine-vacuum-control-design"
+  ],
+  "unresolved_family_candidates": [],
+  "by_usage_status": {
+    "reference": 118,
+    "current": 4,
+    "pending_review": 43,
+    "historical": 45
+  },
+  "by_approval_status": {
+    "unknown": 210
+  },
+  "by_access_scope": {
+    "internal": 207,
+    "restricted": 3
+  },
+  "by_source_format": {
+    "pdf": 49,
+    "md": 4,
+    "docx": 121,
+    "pptx": 19,
+    "doc": 15,
+    "xlsx": 2
+  },
+  "by_disposition": {
+    "text_index": 208,
+    "structured_index": 2
+  },
+  "conflicts": 6,
+  "output": "data/documents/v2/registry-v2.json",
+  "conflict_output": "data/documents/v2/conflicts.json"
+}

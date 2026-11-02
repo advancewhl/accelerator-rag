@@ -1,0 +1,155 @@
+{
+  "kind": "kb2-format-sample-survey",
+  "results": [
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/六、加速器控制20240422.docx",
+      "size_bytes": 11933654,
+      "format": "docx",
+      "status": "ok",
+      "seconds": 0.428,
+      "peak_rss_mb": 75.0,
+      "paragraphs": 1593,
+      "tables": 19,
+      "headings": 1,
+      "formula_paragraphs": 14,
+      "inline_shapes": 79,
+      "sections": 3,
+      "chars": 107044,
+      "core_title": ""
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/硬X射线自由电子激光装置网络安全设计报告.docx",
+      "size_bytes": 12521542,
+      "format": "docx",
+      "status": "ok",
+      "seconds": 0.838,
+      "peak_rss_mb": 149.3,
+      "paragraphs": 2463,
+      "tables": 76,
+      "headings": 144,
+      "formula_paragraphs": 0,
+      "inline_shapes": 37,
+      "sections": 1,
+      "chars": 188162,
+      "core_title": ""
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/归档文档（20251119）/2025硬线归档/SHINE IOC 模板建立.docx",
+      "size_bytes": 208065,
+      "format": "docx",
+      "status": "ok",
+      "seconds": 0.058,
+      "peak_rss_mb": 149.3,
+      "paragraphs": 449,
+      "tables": 1,
+      "headings": 8,
+      "formula_paragraphs": 0,
+      "inline_shapes": 1,
+      "sections": 2,
+      "chars": 16216,
+      "core_title": ""
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/操作手册/第三版（202411）/SHINE注入器段准直器控制界面操作手册.docx",
+      "size_bytes": 678030,
+      "format": "docx",
+      "status": "ok",
+      "seconds": 0.003,
+      "peak_rss_mb": 149.3,
+      "paragraphs": 14,
+      "tables": 0,
+      "headings": 0,
+      "formula_paragraphs": 0,
+      "inline_shapes": 1,
+      "sections": 1,
+      "chars": 686,
+      "core_title": ""
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/1 硬线工程/15. 真空控制样机设计评审报告.pptx",
+      "size_bytes": 950446,
+      "format": "pptx",
+      "status": "ok",
+      "seconds": 0.057,
+      "peak_rss_mb": 159.9,
+      "slides": 23,
+      "shapes": 72,
+      "tables": 6,
+      "notes_slides": 0,
+      "chars": 6246
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/机柜命名规则.pptx",
+      "size_bytes": 375264,
+      "format": "pptx",
+      "status": "ok",
+      "seconds": 0.017,
+      "peak_rss_mb": 160.1,
+      "slides": 6,
+      "shapes": 26,
+      "tables": 4,
+      "notes_slides": 0,
+      "chars": 1483
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/陈广花补充材料/端子对应表最终版3.8现场改造.xlsx",
+      "size_bytes": 83506,
+      "format": "xlsx",
+      "status": "ok",
+      "seconds": 0.067,
+      "peak_rss_mb": 167.5,
+      "sheets": [
+        {
+          "name": "主控柜 (调整)",
+          "rows": 341,
+          "columns": 11,
+          "nonempty_cells": 1988,
+          "formula_cells": 0,
+          "max_row": 341,
+          "max_column": 11
+        },
+        {
+          "name": "温控柜",
+          "rows": 582,
+          "columns": 11,
+          "nonempty_cells": 3656,
+          "formula_cells": 0,
+          "max_row": 582,
+          "max_column": 11
+        },
+        {
+          "name": "Sheet3",
+          "rows": 0,
+          "columns": 0,
+          "nonempty_cells": 0,
+          "formula_cells": 0,
+          "max_row": 1,
+          "max_column": 1
+        }
+      ],
+      "nonempty_cells": 5644,
+      "formula_cells": 0
+    },
+    {
+      "path": "data/l0_raw/incoming/2026-11-02-shine-control/资料/3 样机验收/陈广花补充材料/补充材料清单.xlsx",
+      "size_bytes": 10757,
+      "format": "xlsx",
+      "status": "ok",
+      "seconds": 0.004,
+      "peak_rss_mb": 167.5,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 25,
+          "columns": 2,
+          "nonempty_cells": 30,
+          "formula_cells": 0,
+          "max_row": 25,
+          "max_column": 2
+        }
+      ],
+      "nonempty_cells": 30,
+      "formula_cells": 0
+    }
+  ]
+}

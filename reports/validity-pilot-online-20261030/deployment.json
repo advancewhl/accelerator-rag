@@ -1,0 +1,426 @@
+{
+  "activated_at": "2026-10-30T00:45:23.620809+00:00",
+  "release_directory": "/opt/accelerator-rag-releases/md-20261030",
+  "backup_container": "accelerator-rag-pdf-rollback-20261030",
+  "previous_container_id": "54e39162ba78f776c677027130e2ef37f2f3d8be4674653937dd8fcb5f71aa3c",
+  "runtime_image": "sha256:6ae5d53ae25c7b9d7b48595653e0370a00d2a48d41c2c27e8f5c1af4e5adc84d",
+  "runtime_image_tag": "accelerator-rag-runtime:20261026",
+  "gpu_devices": [
+    {
+      "Driver": "",
+      "Count": 0,
+      "DeviceIDs": [
+        "2"
+      ],
+      "Capabilities": [
+        [
+          "gpu"
+        ]
+      ],
+      "Options": {}
+    }
+  ],
+  "effective_model_name": "ds-1017",
+  "effective_model_base_url": "http://127.0.0.1:8000/v1",
+  "config": {
+    "model_base_url": "http://127.0.0.1:8000/v1",
+    "model_name": "ds-1017",
+    "indexes": [
+      {
+        "model_name": "intfloat/multilingual-e5-base",
+        "model_path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+        "index_path": "/workspace/tmp/stage-two-eight/e5_reused_signed_index",
+        "collection": "knowledge_stage27_intfloat__multilingual_e5_base",
+        "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4",
+        "point_count": 4803,
+        "device": "cuda:0",
+        "dtype": "float32"
+      },
+      {
+        "model_name": "Qwen/Qwen3-Embedding-0.6B",
+        "model_path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+        "index_path": "/workspace/tmp/stage-two-eight/qwen3_embedding_0_6b_fp32/qdrant",
+        "collection": "knowledge_stage28_qwen3_embedding_0_6b_fp32",
+        "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823",
+        "point_count": 4572,
+        "device": "cuda:0",
+        "dtype": "float32"
+      }
+    ],
+    "reranker": {
+      "model_path": "/workspace/tmp/stage-two-eight-two/models/Qwen--Qwen3-Reranker-0.6B",
+      "device": "cuda:0",
+      "dtype": "auto",
+      "batch_size": 4
+    },
+    "generation_max_tokens": 4096,
+    "trace_dir": "tmp/rag-request-traces",
+    "source_root": "/workspace/data/l0_raw"
+  },
+  "embedding_build_device": "cpu",
+  "embedding_dtype": "float32",
+  "container_id": "5488746890b9fe588701a863369c80a6bf38d07560e80b61174cb17beaa4a6b4",
+  "catalog": {
+    "document_count": 17,
+    "indexed_section_count": 4572,
+    "documents": [
+      {
+        "document_id": "epics-application-developers-guide-r3-16-2",
+        "document_title": "EPICS Application Developer's Guide",
+        "versions": [
+          "R3.16.2 (2018-10-22)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "epics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 847,
+        "page_count": 354,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/epics-application-developers-guide-r3-16-2"
+      },
+      {
+        "document_id": "epics-documentation-latest-2026-08-18",
+        "document_title": "EPICS Documentation",
+        "versions": [
+          "latest (2026-08-18)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "epics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 1071,
+        "page_count": 455,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/epics-documentation-latest-2026-08-18"
+      },
+      {
+        "document_id": "european-xfel-full-technical-design-report-2007",
+        "document_title": "The European X-Ray Free-Electron Laser Technical Design Report",
+        "versions": [
+          "DESY 2006-097 (2007-07)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "accelerator_design"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 1730,
+        "page_count": 646,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-full-technical-design-report-2007"
+      },
+      {
+        "document_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+        "document_title": "Standard E-Beam Diagnostics for the European-XFEL",
+        "versions": [
+          "LINAC2010 TUP095"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "electron_beam_diagnostics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 13,
+        "page_count": 3,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-standard-e-beam-diagnostics-linac2010"
+      },
+      {
+        "document_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+        "document_title": "The European XFEL Undulator Commissioning Spectrometer",
+        "versions": [
+          "Rev B, Ver 2 (2011-06-08)"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "photon_diagnostics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 41,
+        "page_count": 21,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-undulator-commissioning-spectrometer-cdr-2011"
+      },
+      {
+        "document_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+        "document_title": "X-Ray Optics and Beam Transport",
+        "versions": [
+          "XFEL.EU TR-2012-006 (2012-12)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "beam_transport"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 235,
+        "page_count": 164,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/european-xfel-x-ray-optics-beam-transport-tdr-2012"
+      },
+      {
+        "document_id": "rag-ingestion-verification-rollback",
+        "document_title": "RAG 知识入库、验证与回滚手册",
+        "versions": [
+          "accelerator-rag-prab@0b62844 (2026-10-29); doc-revision=2026-10-29-ingestion-r3"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "data_acquisition"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 12,
+        "page_count": null,
+        "document_format": "md",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/rag-ingestion-verification-rollback"
+      },
+      {
+        "document_id": "shine-accelerator-control-system-design-presentation",
+        "document_title": "SHINE 加速器控制系统设计与开发",
+        "versions": [
+          "unknown"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "control_architecture"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 33,
+        "page_count": 34,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-control-system-design-presentation"
+      },
+      {
+        "document_id": "shine-accelerator-fast-interlock-2024",
+        "document_title": "SHINE 加速器快联锁系统设计与开发",
+        "versions": [
+          "核技术 47(12):120203 (2024-12)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "interlock"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 18,
+        "page_count": 9,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-fast-interlock-2024"
+      },
+      {
+        "document_id": "shine-accelerator-preliminary-design-report-2017",
+        "document_title": "硬 X 射线自由电子激光装置初步设计报告（加速器分册）",
+        "versions": [
+          "初步设计报告 (2017-12-26)"
+        ],
+        "categories": [
+          "accelerator_physics"
+        ],
+        "topics": [
+          "accelerator_design"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 477,
+        "page_count": 472,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-accelerator-preliminary-design-report-2017"
+      },
+      {
+        "document_id": "shine-control-system-status-icalepcs2019",
+        "document_title": "Status of the SHINE Control System",
+        "versions": [
+          "ICALEPCS2019 WEPHA167"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "control_architecture"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 15,
+        "page_count": 4,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-control-system-status-icalepcs2019"
+      },
+      {
+        "document_id": "shine-cryogenic-control-system-2021",
+        "document_title": "The Cryogenic Control System of SHINE",
+        "versions": [
+          "EPJ Techniques and Instrumentation (2021)"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "cryogenics"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 22,
+        "page_count": 8,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-cryogenic-control-system-2021"
+      },
+      {
+        "document_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+        "document_title": "EPICS IOC and PVs Information Management System for SHINE",
+        "versions": [
+          "PCaPAC2022 FRO21"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "ioc"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 13,
+        "page_count": 3,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-epics-ioc-pv-information-management-pcapac2022"
+      },
+      {
+        "document_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+        "document_title": "White Rabbit Based Beam-Synchronous Timing Systems for SHINE",
+        "versions": [
+          "IPAC2022 THIYGD1"
+        ],
+        "categories": [
+          "control_system"
+        ],
+        "topics": [
+          "timing"
+        ],
+        "languages": [
+          "en"
+        ],
+        "indexed_section_count": 17,
+        "page_count": 5,
+        "document_format": "pdf",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/shine-white-rabbit-beam-synchronous-timing-ipac2022"
+      },
+      {
+        "document_id": "waveform-alignment-semantics",
+        "document_title": "对齐语义、参数与诊断手册",
+        "versions": [
+          "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "waveform"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 9,
+        "page_count": null,
+        "document_format": "md",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/waveform-alignment-semantics"
+      },
+      {
+        "document_id": "waveform-fault-history",
+        "document_title": "历史故障记录与版本变更说明",
+        "versions": [
+          "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "waveform"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 11,
+        "page_count": null,
+        "document_format": "md",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/waveform-fault-history"
+      },
+      {
+        "document_id": "waveform-storage-dataflow",
+        "document_title": "Waveform 存储与数据流技术说明",
+        "versions": [
+          "waveform-storage-system@dc50e08 (2026-10-26); doc-revision=2026-10-29-reader-r2"
+        ],
+        "categories": [
+          "beam_diagnostics"
+        ],
+        "topics": [
+          "waveform"
+        ],
+        "languages": [
+          "zh"
+        ],
+        "indexed_section_count": 8,
+        "page_count": null,
+        "document_format": "md",
+        "original_available": true,
+        "document_url": "/v1/rag/documents/waveform-storage-dataflow"
+      }
+    ]
+  }
+}

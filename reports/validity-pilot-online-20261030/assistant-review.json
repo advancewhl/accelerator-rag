@@ -1,0 +1,269 @@
+{
+  "review_type": "assistant_gold_comparison",
+  "independent_human_review": "pending",
+  "scope": "逐题比对已保存回答与题集的必要事实及禁止推断；不是双人金标准或独立人工正确率。引用位置由另一个离线检查核对，语义蕴含仍待独立审核。",
+  "cases": [
+    {
+      "id": "P50-001",
+      "verdict": "pass",
+      "notes": "PP、目标 SCAN 为 Passive、读取前处理三个条件均保留。"
+    },
+    {
+      "id": "P50-002",
+      "verdict": "pass",
+      "notes": "说明 IOC 故障通知和重启后的自动重连；重复引用两个版本，表达冗余。"
+    },
+    {
+      "id": "P50-003",
+      "verdict": "pass",
+      "notes": "caget、caput、camonitor 的读取、写入、监视职责正确。"
+    },
+    {
+      "id": "P50-004",
+      "verdict": "rubric_ambiguous",
+      "notes": "17.5 GeV 常规预定能量与 20 GeV 最高能力区分正确，但正文未明确 2007 设计资料这一年代条件。引用版本标出了 2007；需要确认评分是否要求正文再次注明，不能直接认定是实时值误用。"
+    },
+    {
+      "id": "P50-005",
+      "verdict": "issue",
+      "failure_type": "condition_omission",
+      "notes": "把严格小于 10 微秒和严格小于 100 微秒写成 10 微秒、100 微秒的指标，遗漏比较关系。附加实测均值不能补足设计约束。"
+    },
+    {
+      "id": "P50-006",
+      "verdict": "pass",
+      "notes": "Spartan6 XC6SLX25 与 verilog HDL 正确。"
+    },
+    {
+      "id": "P50-007",
+      "verdict": "pass",
+      "notes": "保留 PLC 控制与 PID、Soft IOC 采集并转换 PV 的分工。"
+    },
+    {
+      "id": "P50-008",
+      "verdict": "pass",
+      "notes": "覆盖站点 DI/DO、主 PLC 安全逻辑和 CPLD 微秒级转换，明确没有具体接线证据。"
+    },
+    {
+      "id": "P50-009",
+      "verdict": "pass",
+      "notes": "按题目实测口径回答，保留三项严格小于和相对参考的区别。"
+    },
+    {
+      "id": "P50-010",
+      "verdict": "pass",
+      "notes": "超导连续波与 8 GeV 正确；题干已限定初步设计，回答未声称是在线读数。"
+    },
+    {
+      "id": "P50-011",
+      "verdict": "pass",
+      "notes": "说明 skipped_devices、参与设备范围与整数匹配不证明物理同步。"
+    },
+    {
+      "id": "P50-012",
+      "verdict": "rubric_ambiguous",
+      "notes": "正确定位两个默认 1.0 阈值及分析要求，但未提评分清单中的 valid_mask。题干只问共同编号不增加时应先查什么，掩码未必是该问题必要事实；需先裁决题目和清单是否对齐。"
+    },
+    {
+      "id": "P50-013",
+      "verdict": "pass",
+      "notes": "区分占位零与真实零，明确均值和频谱计算前应用 valid_mask。"
+    },
+    {
+      "id": "P50-014",
+      "verdict": "pass",
+      "notes": "明确 device_id 排序，按输出 device_ids 映射行。"
+    },
+    {
+      "id": "P50-015",
+      "verdict": "pass",
+      "notes": "说明逐通道归零及 first_valid_offset_seconds／共同有效区间。"
+    },
+    {
+      "id": "P50-016",
+      "verdict": "pass",
+      "notes": "明确历史任务频率优先，缺记录需补证，当前 500 Hz PV 不能替代历史频率。"
+    },
+    {
+      "id": "P50-017",
+      "verdict": "issue",
+      "notes": "回答列出默认 128 点和 5 s 要求，却未将题中 200 点、1 s 代入并明确判断点数满足、跨度不满足。属于适用条件应用不完整，而非阈值知识错误。",
+      "failure_type": "condition_application"
+    },
+    {
+      "id": "P50-018",
+      "verdict": "pass",
+      "notes": "区分可保留的整数倍缺口与基本步长推断不可靠的情形。"
+    },
+    {
+      "id": "P50-019",
+      "verdict": "pass",
+      "notes": "正确区分 coverage 有无缺失，说明保留掩码及参数应使用 v2 HDF5。"
+    },
+    {
+      "id": "P50-020",
+      "verdict": "issue",
+      "notes": "明确同秒不能唯一识别任务，但遗漏 request_id、capture_sequence、device_id 三项具体身份字段，泛称核对元数据不能覆盖必要事实。",
+      "failure_type": "required_fact_omission"
+    },
+    {
+      "id": "P50-021",
+      "verdict": "pass",
+      "notes": "区分任务运行窗口和连续波形跨度，说明等待、下载和失败间隔。"
+    },
+    {
+      "id": "P50-022",
+      "verdict": "pass",
+      "notes": "明确 captured_at 只标识段采集周期开始，不证明逐点同步。"
+    },
+    {
+      "id": "P50-023",
+      "verdict": "pass",
+      "notes": "明确 bunchID 零编号与 X、Y 双零的不同处理阶段。"
+    },
+    {
+      "id": "P50-024",
+      "verdict": "pass",
+      "notes": "保留合法范围与 strict 构造仍校验参数的规则，正确指出 ValueError。"
+    },
+    {
+      "id": "P50-025",
+      "verdict": "pass",
+      "notes": "没有虚构时间容差或自动缩放参数；提出先确认转换依据并独立记录。"
+    },
+    {
+      "id": "P50-026",
+      "verdict": "pass",
+      "notes": "区分 cae6b64 的 10 Hz／2100 s 支持、接口测试与未完成的真实全链路验收。"
+    },
+    {
+      "id": "P50-027",
+      "verdict": "rubric_ambiguous",
+      "notes": "正确指出 8 月已有 10 Hz、不能泛化全部事故，并要求部署和日志证据。状态为 partial 而预期 answered，且未提降采样记录的局限；否定归因可由不同证据成立，状态与必要事实清单需裁决。"
+    },
+    {
+      "id": "P50-028",
+      "verdict": "pass",
+      "notes": "保留 89bb146 的路径差异及部署、入口、时间、日志条件，没有倒推出 8 月全部事故。"
+    },
+    {
+      "id": "P50-029",
+      "verdict": "pass",
+      "notes": "保留 61b47db 的新检查与此前无检查的区别，没有把可能错配写成已发生事实。"
+    },
+    {
+      "id": "P50-030",
+      "verdict": "rubric_ambiguous",
+      "notes": "正确回答提交时检查不等于全程连续监控，但未逐项展开前端启动、采集前和服务端受理三个时点。题干已给出两端读 PV，是否必须复述每个时点需裁决。"
+    },
+    {
+      "id": "P50-031",
+      "verdict": "pass",
+      "notes": "说明旧固定因子、新分析器跨度及依赖编号步长与采样率的限制，未声称物理时基已验证。"
+    },
+    {
+      "id": "P50-032",
+      "verdict": "pass",
+      "notes": "明确附近提交无法唯一还原现场部署，保留未提交修改和版本记录缺失等替代解释。"
+    },
+    {
+      "id": "P50-033",
+      "verdict": "pass",
+      "notes": "明确 hash 只覆盖 alignment.py，时间轴、导出模块及部署信息仍须核对。"
+    },
+    {
+      "id": "P50-034",
+      "verdict": "pass",
+      "notes": "区分旧顺序收缩及跳过设备与 strict／coverage 的交集和允许缺失语义，并区分无交集与顺序敏感。"
+    },
+    {
+      "id": "P50-035",
+      "verdict": "pass",
+      "notes": "保留 metadata 变更的范围、尚未证实算法回归，以及同输入、可确认版本的比较要求。"
+    },
+    {
+      "id": "P50-036",
+      "verdict": "pass",
+      "notes": "包含同任务同段、编号范围步长、目标设备定位及硬件根因未确认。"
+    },
+    {
+      "id": "P50-037",
+      "verdict": "issue",
+      "notes": "正确否认 25 台全部恢复，但把约 19500 点称为“表中最后一列”“改变设备集合”的结果，未在答案中明确说排除了目标设备，指代不完整。",
+      "failure_type": "incomplete_reference"
+    },
+    {
+      "id": "P50-038",
+      "verdict": "pass",
+      "notes": "保留成功文件和失败清单，先查设备产数、完成标记及下载，再判断分析范围。"
+    },
+    {
+      "id": "P50-039",
+      "verdict": "rubric_ambiguous",
+      "notes": "正确指出零字节文件不能证明 18 台硬件故障，但未补充成功数据能否使用取决于分析目标；题干只问硬件归因，该附加评分要求需要裁决。"
+    },
+    {
+      "id": "P50-040",
+      "verdict": "pass",
+      "notes": "正确区分 MongoDB 目录与 HDF5 波形，先查元数据连接、登记记录和实际文件。"
+    },
+    {
+      "id": "P50-041",
+      "verdict": "pass",
+      "notes": "没有把服务关停改写为用户主动取消，要求按实际文件清单判断完成段。"
+    },
+    {
+      "id": "P50-042",
+      "verdict": "rubric_ambiguous",
+      "notes": "正确要求读取完整错误信息，并识别 unsupported 10 Hz 为支持表缺档；未展开连接／版本排查及不可插值等待值。题干问区分原因，附加处理要求需要明示。"
+    },
+    {
+      "id": "P50-043",
+      "verdict": "rubric_ambiguous",
+      "notes": "正确否认零编号必然缩小非零交集，提醒先确认实际影响；未展开编号集合检查和位置零值策略区别。题干只问因果判断，清单附加要求需裁决。"
+    },
+    {
+      "id": "P50-044",
+      "verdict": "issue",
+      "notes": "结论正确，且明确版本原文与语义支持的要求；但解释干跑时改说快照／报告脚本不写索引，没有准确指出建索引 --dry-run 本身不加载 GPU、不写向量。",
+      "failure_type": "imprecise_operation_reference"
+    },
+    {
+      "id": "P50-045",
+      "verdict": "rubric_ambiguous",
+      "notes": "明确不能混合新旧两路，要求保持旧服务并修复候选；未展开非事务性和原文／配置成套版本。题干只问能否上线，清单中的机制说明是否必需需裁决。"
+    },
+    {
+      "id": "P50-046",
+      "verdict": "boundary_status_mismatch",
+      "notes": "没有编造当前健康状态，说明需维修／工单和实时设备证据。因提供历史背景返回 partial，而题集预期 insufficient；内容守住边界，标签需按目标事实统一。"
+    },
+    {
+      "id": "P50-047",
+      "verdict": "boundary_status_mismatch",
+      "notes": "正确保留输入影响定位并拒绝确定固件或采样窗口根因，要求设备侧材料；返回 answered 与预期 partial 不一致。"
+    },
+    {
+      "id": "P50-048",
+      "verdict": "boundary_status_mismatch",
+      "notes": "拒绝把 X=100 换算成具体毫米值，明确单位、标定系数和偏移缺失。提供数据结构背景后返回 partial，题集预期 insufficient。"
+    },
+    {
+      "id": "P50-049",
+      "verdict": "boundary_status_mismatch",
+      "notes": "未把 89bb146 指定为现场完整版本，明确唯一提交和确切原因都无法确认；返回 answered 与预期 partial 不一致。"
+    },
+    {
+      "id": "P50-050",
+      "verdict": "issue",
+      "failure_type": "unsupported_absence_claim",
+      "notes": "没有编造任务 ID 或路径，状态 partial 正确。但把缺少真实采集落盘验收记录推出“因此不存在该任务的 ID”，越过证据边界；缺记录不等于已证明任务不存在。应改为“现有材料无法提供可核验的任务 ID”。"
+    }
+  ],
+  "summary": {
+    "pass": 32,
+    "rubric_ambiguous": 8,
+    "issue": 6,
+    "boundary_status_mismatch": 4
+  }
+}

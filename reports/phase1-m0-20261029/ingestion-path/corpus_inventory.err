@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/whloong/projects/accelerator-rag-prab/scripts/corpus_inventory.py", line 109, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/whloong/projects/accelerator-rag-prab/scripts/corpus_inventory.py", line 94, in main
+    inventory = build_inventory(records, args.project_root)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/whloong/projects/accelerator-rag/src/accelerator_rag/corpus/registry.py", line 168, in build_inventory
+    raw_paths = set(discover_raw_files(root))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/whloong/projects/accelerator-rag/src/accelerator_rag/corpus/registry.py", line 149, in discover_raw_files
+    raise ValueError(f"raw 目录不存在: {raw_root}")
+ValueError: raw 目录不存在: /home/whloong/projects/accelerator-rag-prab/data/l0_raw

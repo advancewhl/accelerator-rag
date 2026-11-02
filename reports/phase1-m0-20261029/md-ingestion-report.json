@@ -1,0 +1,104 @@
+{
+  "registry": "data/documents/registry-md.json",
+  "documents": [
+    {
+      "document_id": "waveform-storage-dataflow",
+      "source_path": "data/l0_raw/waveform/waveform-storage-dataflow.md",
+      "document_type": "md",
+      "version": "waveform-storage-system@dc50e08 (2026-10-26)",
+      "sections_pages": 12,
+      "chunks": 23,
+      "eligible_chunks": 23,
+      "characters": 21188,
+      "page_numbers_from": 1,
+      "page_numbers_to": 12,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "owner",
+        "verified_date"
+      ]
+    },
+    {
+      "document_id": "waveform-alignment-semantics",
+      "source_path": "data/l0_raw/waveform/alignment-semantics-and-diagnostics.md",
+      "document_type": "md",
+      "version": "waveform-storage-system@dc50e08 (2026-10-26)",
+      "sections_pages": 10,
+      "chunks": 43,
+      "eligible_chunks": 43,
+      "characters": 39501,
+      "page_numbers_from": 1,
+      "page_numbers_to": 10,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "owner",
+        "verified_date"
+      ]
+    },
+    {
+      "document_id": "waveform-fault-history",
+      "source_path": "data/l0_raw/waveform/fault-history-and-version-changes.md",
+      "document_type": "md",
+      "version": "waveform-storage-system@dc50e08 (2026-10-26)",
+      "sections_pages": 8,
+      "chunks": 37,
+      "eligible_chunks": 37,
+      "characters": 34642,
+      "page_numbers_from": 1,
+      "page_numbers_to": 8,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "owner",
+        "verified_date"
+      ]
+    },
+    {
+      "document_id": "rag-ingestion-verification-rollback",
+      "source_path": "data/l0_raw/runbooks/rag-ingestion-verification-rollback.md",
+      "document_type": "md",
+      "version": "accelerator-rag-prab@0b62844 (2026-10-29)",
+      "sections_pages": 10,
+      "chunks": 51,
+      "eligible_chunks": 51,
+      "characters": 47492,
+      "page_numbers_from": 1,
+      "page_numbers_to": 10,
+      "warnings": [],
+      "front_matter_keys": [
+        "alignment_algo_hash",
+        "applicable_system_version",
+        "audience",
+        "doc_type",
+        "owner",
+        "status",
+        "title",
+        "verified_date"
+      ]
+    }
+  ],
+  "totals": {
+    "documents": 4,
+    "sections_pages": 40,
+    "chunks": 154,
+    "eligible_chunks": 154,
+    "characters": 142823
+  },
+  "eligibility": {
+    "config": {
+      "replacement_ratio": 0.2,
+      "minimum_replacements": 8
+    },
+    "total_chunks": 154,
+    "eligible_chunks": 154,
+    "ineligible_chunks": 0,
+    "ineligible_by_reason": {},
+    "per_document_ineligible": {}
+  },
+  "page_semantics": "Markdown page_start/page_end are 1-based section indexes, not PDF pages."
+}

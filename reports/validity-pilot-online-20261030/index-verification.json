@@ -1,0 +1,58 @@
+{
+  "markdown_parents": 40,
+  "routes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "collection": "knowledge_stage27_intfloat__multilingual_e5_base",
+      "point_count": 4803,
+      "parent_count": 4572,
+      "passages_per_document": {
+        "epics-application-developers-guide-r3-16-2": 874,
+        "epics-documentation-latest-2026-08-18": 1075,
+        "european-xfel-full-technical-design-report-2007": 1736,
+        "european-xfel-standard-e-beam-diagnostics-linac2010": 13,
+        "european-xfel-undulator-commissioning-spectrometer-cdr-2011": 41,
+        "european-xfel-x-ray-optics-beam-transport-tdr-2012": 235,
+        "rag-ingestion-verification-rollback": 18,
+        "shine-accelerator-control-system-design-presentation": 33,
+        "shine-accelerator-fast-interlock-2024": 25,
+        "shine-accelerator-preliminary-design-report-2017": 647,
+        "shine-control-system-status-icalepcs2019": 15,
+        "shine-cryogenic-control-system-2021": 22,
+        "shine-epics-ioc-pv-information-management-pcapac2022": 13,
+        "shine-white-rabbit-beam-synchronous-timing-ipac2022": 17,
+        "waveform-alignment-semantics": 12,
+        "waveform-fault-history": 16,
+        "waveform-storage-dataflow": 11
+      },
+      "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4"
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "collection": "knowledge_stage28_qwen3_embedding_0_6b_fp32",
+      "point_count": 4572,
+      "parent_count": 4572,
+      "passages_per_document": {
+        "epics-application-developers-guide-r3-16-2": 847,
+        "epics-documentation-latest-2026-08-18": 1071,
+        "european-xfel-full-technical-design-report-2007": 1730,
+        "european-xfel-standard-e-beam-diagnostics-linac2010": 13,
+        "european-xfel-undulator-commissioning-spectrometer-cdr-2011": 41,
+        "european-xfel-x-ray-optics-beam-transport-tdr-2012": 235,
+        "rag-ingestion-verification-rollback": 12,
+        "shine-accelerator-control-system-design-presentation": 33,
+        "shine-accelerator-fast-interlock-2024": 18,
+        "shine-accelerator-preliminary-design-report-2017": 477,
+        "shine-control-system-status-icalepcs2019": 15,
+        "shine-cryogenic-control-system-2021": 22,
+        "shine-epics-ioc-pv-information-management-pcapac2022": 13,
+        "shine-white-rabbit-beam-synchronous-timing-ipac2022": 17,
+        "waveform-alignment-semantics": 9,
+        "waveform-fault-history": 11,
+        "waveform-storage-dataflow": 8
+      },
+      "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823"
+    }
+  ],
+  "dual_parent_equality": true
+}

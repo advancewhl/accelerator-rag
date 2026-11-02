@@ -1,0 +1,1434 @@
+{
+  "schema_version": 2,
+  "release_target": "kb-2.0.0",
+  "generated_on": "2026-11-02",
+  "status": "draft",
+  "groups": {
+    "new_facts_operations": {
+      "count": 20,
+      "split": {
+        "dev": 14,
+        "sealed": 6
+      },
+      "description_zh": "新资料事实与操作：定时、恒温机柜、激光、真空、PDU、数据存储/存档客户端的事实与界面操作。"
+    },
+    "version_comparison": {
+      "count": 15,
+      "split": {
+        "dev": 10,
+        "sealed": 5
+      },
+      "description_zh": "当前、历史与版本比较：操作手册第一/二/三版、归档版、设计报告与 V6/样机口径对比。"
+    },
+    "format_evidence": {
+      "count": 15,
+      "split": {
+        "dev": 10,
+        "sealed": 5
+      },
+      "description_zh": "OCR、表格、幻灯片与公式：DOCX/XLSX/PPTX/扫描 PDF 的定位、单元格/幻灯片/页码与表达保真。"
+    },
+    "conflict_boundary": {
+      "count": 10,
+      "split": {
+        "dev": 6,
+        "sealed": 4
+      },
+      "description_zh": "冲突、未知与资料边界：待核实日期、未批准修订、设计/实测/现场区分、缺证据与拒答。"
+    }
+  },
+  "questions": [
+    {
+      "id": "KB2-FACT-001",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "按 2023-09《硬X射线自由电子激光装置项目 定时系统控制界面操作说明》，给 Laser、LLRF 和束测系统设置延时值时，输入值的单位是什么？输入后怎样生效？",
+      "task_condition": "仅适用 2023-09 归档版定时界面说明；问题是界面操作，不涉及当前现场延时设定值或设备状态。",
+      "expected_answer_boundary": "正确：延时单位为 ns；输入值后按回车键设入。错误：写成 µs/ps；或声称点击 Enable/Disable 即完成延时设置。",
+      "required_facts": [
+        "延时输入单位为 ns",
+        "输入后通过回车键将值设入"
+      ],
+      "forbidden_inferences": [
+        "把延时单位写成 µs 或 ps",
+        "把界面说明当作当前现场延时值"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "evidence_location": "§二 监控页面，给与各系统的信号控制段",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“输入想要设置的延时值（单位为ns），最后通过回车键将输入值设入”。提取文本：reports/incoming-2026-11-02/tmp/doc-txt/硬X射线自由电子激光装置项目定时系统控制界面操作说明.txt。"
+    },
+    {
+      "id": "KB2-FACT-002",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "定时界面上的单触发模式应怎样操作？请按顺序说明使能、触发和退出的步骤，以及状态在哪里显示。",
+      "task_condition": "2023-09 归档版定时界面说明；描述按钮操作顺序，不代表任何设备当前处于单触发模式。",
+      "expected_answer_boundary": "正确顺序：点击 Enable/Disable 进入单触发模式 → 点击 Trigger 一次，为各设备输出一个单脉冲 → 再次点击 Enable/Disable 关闭单触发模式并恢复原模式；状态在前面的单触发模式监测界面显示。错误：把 Trigger 当作持续输出，或省略退出步骤。",
+      "required_facts": [
+        "先点击 Enable/Disable 进入单触发模式",
+        "点击一次 Trigger 输出单个脉冲",
+        "再次点击 Enable/Disable 退出并恢复原模式",
+        "单触发状态在监测界面显示"
+      ],
+      "forbidden_inferences": [
+        "声称 Trigger 会连续输出脉冲",
+        "省略退出单触发模式步骤",
+        "断言当前设备已处于单触发状态"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "evidence_location": "§二 监控页面，额外功能控制段",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“通过点击Enable/Disable按键将所有定时节点的输出设置成单触发模式，再通过点击一次Trigger按键为各个设备输出一次单个脉冲，最后可以通过再次点击Enable/Disable按键关闭单触发模式……单触发模式状态会在前面的单触发模式监测界面中显示”。"
+    },
+    {
+      "id": "KB2-FACT-003",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "定时控制总界面的设备状态灯中，绿色、红色、白色分别表示什么？交换机第一状态灯为灰色有什么特殊含义？",
+      "task_condition": "2023-09 归档版定时界面说明；只解释界面灯色约定，不推断具体设备当前健康状态。",
+      "expected_answer_boundary": "正确：绿色为正常工作（交换机第一状态灯灰色）；红色为报警，可点击进入高级设置；白色为已连接、为后续定时设备预留。错误：把白色说成故障，或把绿色说成已通过现场验证。",
+      "required_facts": [
+        "绿色表示设备正常工作，交换机第一状态灯显示灰色",
+        "红色表示报警，可点击状态灯进入高级设置子界面",
+        "白色表示为连接定时设备、为后续设备准备"
+      ],
+      "forbidden_inferences": [
+        "把白色状态灯解释为故障",
+        "把绿色状态灯解释为当前设备一定健康"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "evidence_location": "§二 监控页面，所有定时设备状态显示与控制段",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“状态灯显示为绿色（交换机第一状态灯显示为灰色）表示设备正常工作；状态灯显示为红色表示报警……状态灯显示为白色表示为连接定时设备，它们是为后续的定时设备所准备的”。"
+    },
+    {
+      "id": "KB2-FACT-004",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "恒温机柜控制界面控制几台 LLRF 恒温机柜？怎样开停机柜、怎样设置温度报警阈值？超过阈值时界面如何提示？",
+      "task_condition": "2023-09 归档版恒温机柜界面说明；只描述界面能力，不给出当前温度或报警状态。",
+      "expected_answer_boundary": "正确：控制 LLRF01-08 共 8 台；点击 Running/Stop 开关，Status 绿色为开、红色为关；Threshold_Setting 输入阈值后回车设入；实时温度超过阈值时 Alarm 灯变红，否则绿色。错误：把 8 台写成 4 台；或把阈值设置说成自动控制温度。",
+      "required_facts": [
+        "控制 LLRF01-08 共 8 台恒温机柜",
+        "Running/Stop 控制开关，Status 绿色开、红色关",
+        "Threshold_Setting 输入阈值后按回车设入",
+        "超过阈值 Alarm 变红，否则绿色"
+      ],
+      "forbidden_inferences": [
+        "把 8 台写成其他数量",
+        "断言当前机柜温度或 Alarm 状态",
+        "把阈值设置说成自动温度闭环控制"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc",
+      "evidence_location": "§二 监控页面",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“实现对LLRF01-08总共8台恒温机柜的远程控制”“点击Running/Stop按键控制相应机柜的开关……开启为绿色，关闭为红色”“通过全选Threshold_Setting输入框中的值……最后再通过回车键将阈值设入……Alarm报警指示灯会变红；反之则呈绿色”。"
+    },
+    {
+      "id": "KB2-FACT-005",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "激光控制系统手册中，注入器激光设备分布在哪些层？B3 层和 B5 层当前上线参与调试的设备分别有哪些、各多少台？",
+      "task_condition": "第一版《SHINE激光界面操作手册》（无日期）的“概述”口径；是文档编写时的上线调试清单，不是今天实时设备状态。",
+      "expected_answer_boundary": "正确：B3 层 CCD 1 台、光闸 2 台、能量计 1 台；B5 层 CCD 1 台、能量计 1 台、电动镜架 2 台；分布层为 B3 激光洁净间和 B5 光学平台。错误：把“提供台数”与“上线台数”混为一谈，或把清单当作当前在线状态。",
+      "required_facts": [
+        "设备分布于 B3 层激光洁净间和 B5 层光学平台",
+        "B3：CCD 1 台、光闸 2 台、能量计 1 台",
+        "B5：CCD 1 台、能量计 1 台、电动镜架 2 台"
+      ],
+      "forbidden_inferences": [
+        "把文档上线清单当作今天实时在线设备",
+        "遗漏 B3/B5 的分层归属"
+      ],
+      "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+      "evidence_location": "§1 概述",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“注入器激光设备分布于B3层激光洁净间以及B5层光学平台……目前上线参与调试的设备有B3层CCD1台、光闸2台、能量计1台；B5层CCD1台、能量计1台、电动镜架2台”。"
+    },
+    {
+      "id": "KB2-FACT-006",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "激光控制页面的光闸控制区中，InterLock、Enable、Status、Switch 四列分别表示什么？联锁解除和联锁状态用什么颜色表示？",
+      "task_condition": "第一版《SHINE激光界面操作手册》光闸控制区；只解释界面字段，不推断具体光闸当前状态。",
+      "expected_answer_boundary": "正确：InterLock 绿色为联锁解除可正常运行、红色为联锁状态；Enable 的 Disable 表示不可控制、Enable 表示可控制；Status 的 Open/Close 表示光闸开关状态；Switch 用 Close 关、Open 开。错误：把 InterLock 绿色说成联锁动作，或把 Enable 状态与 Status 开关状态混同。",
+      "required_facts": [
+        "InterLock 绿色表示联锁解除可正常运行，红色表示联锁状态",
+        "Enable/Disable 表示是否可对光闸进行控制",
+        "Status 的 Open/Close 表示光闸开关状态",
+        "Switch 列 Close 关闭、Open 打开"
+      ],
+      "forbidden_inferences": [
+        "把 InterLock 绿色解释为联锁动作",
+        "把 Enable 状态当作光闸开关状态",
+        "断言当前光闸处于 Open 或 Close"
+      ],
+      "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+      "evidence_location": "§2.1 光闸控制区",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“InterLock列显示光闸联锁状态实时监测信息。绿色表示联锁解除可正常运行状态，红色表示联锁状态”“Enable列……Disabel表示不可对光闸进行控制，Enable表示可以对光闸进行控制”“Status列……Open表示光闸为打开状态，Close表示光闸为关闭状态”“Switch列……Close关闭光闸，Open打开光闸”。"
+    },
+    {
+      "id": "KB2-FACT-007",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "激光控制系统共提供几台能量计的控制？其中哪几台上线使用？界面中 Energy 与 Power 两列各显示什么？",
+      "task_condition": "第一版《SHINE激光界面操作手册》能量计控制区；不给出具体能量读数，也不推断设备当前是否在线。",
+      "expected_answer_boundary": "正确：共提供 4 台，1、3 两台上线使用；Energy 列显示当前功率值，Power 列显示当前 Power 值。错误：把“4 台提供”说成“4 台全部上线”，或编造数值/单位。",
+      "required_facts": [
+        "共提供 4 台能量计的控制",
+        "1、3 两台上线使用",
+        "Energy 列显示当前功率值，Power 列显示当前 Power 值"
+      ],
+      "forbidden_inferences": [
+        "声称 4 台全部上线",
+        "编造能量计读数或单位"
+      ],
+      "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+      "evidence_location": "§2.4 能量计控制区",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“目前共提供4台能量计的控制，1,3两台上线使用”“Energy列显示能量计当前功率值。Power列显示能量计当前Power值”。"
+    },
+    {
+      "id": "KB2-FACT-008",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "激光控制系统的 CCD 控制区共提供几台 CCD？哪几台上线？Trigger Mode 有哪些选项？重新连接、开始采集和停止采集分别用什么控件？",
+      "task_condition": "第一版《SHINE激光界面操作手册》CCD 控制区；只描述界面控件，不推断当前相机连接或采集状态。",
+      "expected_answer_boundary": "正确：提供 8 台，CCD1、CCD2 上线；Trigger Mode 有 on/off；点击 Reconnect 重新连接；Start 开始采集、Stop 停止采集。错误：把 8 台全部说成上线，或把 Trigger Mode 说成连续/外触发等未写出的选项。",
+      "required_facts": [
+        "提供 8 台 CCD 控制，CCD1、CCD2 上线使用",
+        "Trigger Mode 有 on、off 两种模式",
+        "Reconnect 重新连接 CCD",
+        "Start 开始图像采集、Stop 停止图像采集"
+      ],
+      "forbidden_inferences": [
+        "声称 8 台 CCD 全部上线",
+        "虚构 Trigger Mode 选项",
+        "断言当前相机连接或采集状态"
+      ],
+      "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+      "evidence_location": "§2.6 CCD控制区",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“目前提供8台CCD的控制，CCD1、CCD2上线使用”“Trigger Mode：触发模式选择，有on、off两种模式可供选择”“点击Reconncet按钮可重新连接CCD”“点击Start按钮开始图像采集，点击Stop按钮停止图像采集”。"
+    },
+    {
+      "id": "KB2-FACT-009",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "注入器真空设备分布在哪些层？真空计、泵电源和门阀分别通过什么方式与控制系统通信？",
+      "task_condition": "第三版（202411）《SHINE注入段段真空控制界面操作手册》§1 概述；描述设计通信方式，不代表当前网络或设备在线。",
+      "expected_answer_boundary": "正确：设备分布于 B4、B5；真空计与泵电源通过 RS232 或网络通信；门阀通过阀门控制器连接至 PLC 与 IOC。错误：把门阀说成直接 RS232 通信，或遗漏 PLC/IOC 环节。",
+      "required_facts": [
+        "注入器真空设备分布于 B4、B5",
+        "真空计与泵电源通过 RS232 或网络通讯",
+        "门阀通过阀门控制器连接至 PLC 与 IOC 通讯"
+      ],
+      "forbidden_inferences": [
+        "把门阀说成直接 RS232 或网络设备",
+        "断言当前通信链路在线"
+      ],
+      "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "§1 概述",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“注入器真空设备分布于B4、B5……真空计与泵电源通过RS232或网络通讯实现控制，阀门通过阀门控制器连接至PLC与IOC通讯”。"
+    },
+    {
+      "id": "KB2-FACT-010",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "GUN 段真空控制页面包含多少台 CCG、PRG、离子泵、门阀和温度显示？",
+      "task_condition": "第三版（202411）真空手册 §2 分段页面；只统计该页面列出的设备数量，不推断现场实际安装数量。",
+      "expected_answer_boundary": "正确：8 个 CCG、1 个 PRG、14 台离子泵（IP）、1 个门阀（VAL，仅显示开关状态）、4 个温度显示。错误：把离子泵写成 8 台或把门阀写成 2 个。",
+      "required_facts": [
+        "8 个 CCG",
+        "1 个 PRG",
+        "14 台离子泵（IP）",
+        "1 个门阀（VAL，仅显示开关状态）",
+        "4 个温度显示"
+      ],
+      "forbidden_inferences": [
+        "把页面统计当作现场实际安装数量",
+        "漏掉“门阀仅显示开关状态”的限制"
+      ],
+      "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "§2 分段页面，1）GUN Vacuum",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“为电子枪段真空控制页面。包含8个CCG、1个PRG、14台离子泵（IP）、1个门阀（VAL，仅显示开关状态）、4个温度显示”。"
+    },
+    {
+      "id": "KB2-FACT-011",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "沈科仪（SKY）离子泵电源的压力保护值、压力回差值和保护电流分别怎样设置？输入格式和回差比例有什么限制？",
+      "task_condition": "第三版（202411）真空手册 §3.1 SKY 离子泵电源；只描述设备界面参数规则，不给出具体设定值。",
+      "expected_answer_boundary": "正确：保护压强分 HighProtectPressure（压力保护值）和 LowProtectPressure（压力回差值）；按 xE-x 格式输入；回差值应小于保护值的 80%；ProtectCurrent 在离子流超过保护电流时切断高压；只有远控状态才能远程升高压。错误：把 80% 写成 50%，或说回差值应大于保护值。",
+      "required_facts": [
+        "保护压强有 HighProtectPressure 和 LowProtectPressure",
+        "输入格式为 xE-x",
+        "回差值应小于保护值的 80%",
+        "离子流超过 ProtectCurrent 时切断高压",
+        "只有远控状态才能远程升高压"
+      ],
+      "forbidden_inferences": [
+        "把 80% 改成其他比例",
+        "声称回差值应大于保护值",
+        "断言当前保护设定值"
+      ],
+      "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "§3 设备控制页面，1）沈科仪（SKY）离子泵电源",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“保护压强有压力保护值（HighProtectPressure）和压力回差值（LowProtectPressure）……设定时，必须按照xE-x的格式输入数值，且回差值应小于保护值的80%……当离子流超过保护电流时切断高压……只有处于远控状态才能远程升高压”。"
+    },
+    {
+      "id": "KB2-FACT-012",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "当前系统有哪几种 Agilent 离子泵电源、各多少台、编号是什么？",
+      "task_condition": "第三版（202411）真空手册 §3.2；按文档编写时的设备清单回答，不推断今天新增或撤除的设备。",
+      "expected_answer_boundary": "正确：Agilent 离子泵电源共 3 台，其中 IPCMini 2 台（PHC-IP01、PHC-IP02），4UHV 1 台（GUN-IP01）。错误：把 3 台写成 2 台，或把编号与型号错配。",
+      "required_facts": [
+        "Agilent 离子泵电源共 3 台",
+        "IPCMini 2 台，编号 PHC-IP01、PHC-IP02",
+        "4UHV 1 台，编号 GUN-IP01"
+      ],
+      "forbidden_inferences": [
+        "把型号与编号错配",
+        "把文档清单当作今天现场设备清单"
+      ],
+      "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "§3 设备控制页面，2）Agilent离子泵电源",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“当前系统有Agilent离子泵电源3台，包括IPCMini2台，编号为PHC-IP01、PHC-IP02，4UHV 1台，编号为GUN-IP01”。"
+    },
+    {
+      "id": "KB2-FACT-013",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "Inficon 094 真空计最多可以带几个真空规？有几路保护继电器输出？修改保护阈值时 SP Low 与 SP High 的关系是什么？设定后为什么要保存参数？",
+      "task_condition": "第三版（202411）真空手册 §3.6 Inficon 真空计；只描述界面能力与参数规则，不给出当前阈值。",
+      "expected_answer_boundary": "正确：最多 4 个真空规（A1、B1、A2、B2）；4 路保护继电器输出；SP Low 应小于 SP High；设定成功后点击 <SAVE PARAMETERS> 保存，避免设备断电后参数丢失；规管与继电器的对应关系只显示、不能修改。错误：把 4 路写成 2 路，或说 SP Low 可大于 SP High。",
+      "required_facts": [
+        "最多带 4 个真空规（A1、B1、A2、B2）",
+        "4 路保护继电器输出",
+        "SP Low 应小于 SP High",
+        "设定成功后点击 <SAVE PARAMETERS> 保存参数",
+        "规管与继电器的对应关系只显示、不能修改"
+      ],
+      "forbidden_inferences": [
+        "把 4 路继电器写成其他数量",
+        "声称 SP Low 可以大于 SP High",
+        "断言当前保护阈值"
+      ],
+      "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "§3 设备控制页面，6）Inficon真空计",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“1台Inficon 094真空计最多可以带4个真空规（A1、B1、A2、B2）……有4路保护继电器输出……修改保护阈值时要注意SP Low应小于SP High……点击下方<SAVE PARAMETERS>按钮保存参数，避免设备断电后设定参数丢失……和规管的对应关系只在界面上显示，不能进行修改”。"
+    },
+    {
+      "id": "KB2-FACT-014",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "question_zh": "SHINE PDU 界面操作手册中，每台 PDU 有几个通道？主界面和 details 页面分别能查看哪些电气量？能否重启 PDU？",
+      "task_condition": "第一版《SHINE电源分配器PDU界面操作手册》；只描述界面显示与控制能力，不给出具体 PDU 台数或读数。",
+      "expected_answer_boundary": "正确：每台 PDU 8 个通道；主界面显示总电压、总功率、总电流、总电能；details 显示 L1/L2/L3 每相以及每通道的总电流、总电压、总功率、总电能；可以重启 PDU。错误：把通道数写成 3 或 6，或声称界面给出实时读数快照。",
+      "required_facts": [
+        "每个 PDU 有 8 个通道",
+        "主界面显示总电压、总功率、总电流和总电能",
+        "details 显示 L1/L2/L3 每相以及每通道的总电流、总电压、总功率和总电能",
+        "可以重启 PDU 设备"
+      ],
+      "forbidden_inferences": [
+        "把通道数写成 3 或 6",
+        "编造当前 PDU 电气读数",
+        "把界面能力当作现场 PDU 总台数"
+      ],
+      "candidate_source": "操作手册/SHINE电源分配器PDU界面操作手册.doc",
+      "evidence_location": "PDU 控制主界面与 details 页面说明",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“每个PDU有8个通道……主界面可以显示每一台PDU的总电压、总功率、总电流和总电能”“可以查看 L1/L2/L3 每一相总电流、总电压、总功率和总电能。可以查看每个通道的总电流、总电压、总功率和总电能。可以重启PDU设备”。"
+    },
+    {
+      "id": "KB2-FACT-015",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "question_zh": "在 archiver appliance web 查询软件中，Check Status 显示“Being archived”表示什么？输入“*”会看到什么？details 页面可以对 PV 做哪些操作？",
+      "task_condition": "2023-12-06 第二版 web 查询操作手册 §2 主要功能；只解释界面状态与操作，不证明某个 PV 当前正在正常采集。",
+      "expected_answer_boundary": "正确：Being archived 表示 PV 是正常被测量的，可查看相关具体参数；输入 * 可以看到所有 PV；details 可查看当前 PV 详细信息，并可暂停 PV 存储或删除不需要的 PV 值。错误：把 Being archived 当作当前值健康/在线证明；说 * 只匹配单个 PV；说 details 只能看不能操作。",
+      "required_facts": [
+        "Being archived 表示 PV 是正常被测量的",
+        "输入 * 可以看到所有 PV",
+        "details 可查看当前 PV 详细信息",
+        "details 可暂停 PV 存储或删除不需要的 PV 值"
+      ],
+      "forbidden_inferences": [
+        "把 Being archived 当作当前值健康或在线证明",
+        "说 * 只匹配单个 PV",
+        "说 details 只能查看不能操作"
+      ],
+      "candidate_source": "操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+      "evidence_location": "§2 主要功能，（1）查看PV状态、（2）查看详细信息",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“状态为Being archived时表示PV是正常被测量的，可查看相关具体参数。（输入*可以看到所有PV)”“点开details，可以看到当前PV的详细信息，同时可以对PV名称进行操作，暂停PV存储或删除不需要的PV值”。"
+    },
+    {
+      "id": "KB2-FACT-016",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "question_zh": "2023-10《数据存档系统查询软件设计报告》中，Quick chart 显示波形数据时，横坐标的上下两个位置分别表示什么？黄色点表示什么？",
+      "task_condition": "2023-10 归档版《数据存档系统查询软件设计报告》第 4 节 Quick chart 说明；只解释图形坐标语义，不证明某个 PV 当前有数据。",
+      "expected_answer_boundary": "正确：波形数据横坐标分上下两个位置，上坐标为时间，下坐标根据波形点数量自动调整、显示波形点位置，黄色点所指位置为时间。错误：把上下坐标都说成时间；把黄色点解释为数值或报警点；把图形说明当作实时数据证明。",
+      "required_facts": [
+        "波形数据横坐标分上下两个位置",
+        "上坐标为时间",
+        "下坐标根据波形点数量自动调整、显示波形点位置",
+        "黄色点所指的位置为时间"
+      ],
+      "forbidden_inferences": [
+        "把上下坐标都说成时间",
+        "把黄色点解释为数值或报警点",
+        "把图形说明当作实时数据证明"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存档系统查询软件设计报告.doc",
+      "evidence_location": "第 4 节 Quick chart，波形数据曲线说明",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“当PV值为波形数据时，横坐标分为上下两个位置，上坐标为时间，下坐标根据波形点的数量自动调整，显示波形点的位置，黄色的点所指的位置为时间”。"
+    },
+    {
+      "id": "KB2-FACT-017",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "question_zh": "第三版（202411）《SHINE注入段段真空控制界面操作手册》中，分子泵机组共有几套？InjCM 段和 BI 段分别采用什么组合？",
+      "task_condition": "第三版（202411）真空手册 §3.7 分子泵机组；按文档设备清单回答，不推断今天现场机组数量或运行状态。",
+      "expected_answer_boundary": "正确：共有 3 套；InjCM 段为 2 套 TCP350+HISCROLL 组合；BI 段为 1 套 TCP350+ACP15 组合。错误：把 3 套写成 2 套；把两段组合互换；把文档清单当作当前运行状态。",
+      "required_facts": [
+        "分子泵机组共有 3 套",
+        "InjCM 段为 2 套 TCP350+HISCROLL 组合",
+        "BI 段为 1 套 TCP350+ACP15 组合"
+      ],
+      "forbidden_inferences": [
+        "把 3 套写成 2 套",
+        "把 InjCM 与 BI 的组合互换",
+        "把文档清单当作当前运行状态"
+      ],
+      "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "§3 设备控制页面，7）分子泵机组",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“共有3套， InjCM段为2套TCP350+HISCROLL组合（图11），BI段为1套TCP350+ACP15组合（图12）”。"
+    },
+    {
+      "id": "KB2-FACT-018",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "question_zh": "2023-10 数据存储系统设计报告中，EPICS Archiver Appliance 服务用什么命令启动和停止？查询运行状态用什么命令？web 查询入口是什么地址？",
+      "task_condition": "2023-10《数据存储系统设计报告》§2.5 archiver appliance 软件配置；描述当时部署命令与地址，不代表当前生产环境或当前服务状态。",
+      "expected_answer_boundary": "正确：启动 `sudo systemctl start epicsarchiverap.service`；停止 `sudo systemctl stop epicsarchiverap.service`；状态 `systemctl status -l epicsarchiverap.service | cat -b`；web 查询 `http://10.101.9.1:17665/mgmt/ui/index.html`。错误：编造其他服务名/端口；把 2023-10 地址当作当前生产入口；把启动命令当作服务已正常运行证明。",
+      "required_facts": [
+        "启动命令：sudo systemctl start epicsarchiverap.service",
+        "停止命令：sudo systemctl stop epicsarchiverap.service",
+        "状态命令：systemctl status -l epicsarchiverap.service | cat -b",
+        "web 查询地址：http://10.101.9.1:17665/mgmt/ui/index.html"
+      ],
+      "forbidden_inferences": [
+        "编造其他服务名或端口",
+        "把 2023-10 地址当作当前生产入口",
+        "把启动命令当作服务已正常运行证明"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+      "evidence_location": "§2.5 archiver appliance软件配置，（4）启动和查询服务",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“启动/停止服务：sudo systemctl start epicsarchiverap.service / sudo systemctl stop epicsarchiverap.service；查询运行状态：systemctl status -l epicsarchiverap.service | cat -b；web页面查询：http://10.101.9.1:17665/mgmt/ui/index.html”。"
+    },
+    {
+      "id": "KB2-FACT-019",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "question_zh": "V6 优化设计报告的总体目标是什么？装置由哪些主要部分组成？请给出能量、波荡器线、光束线和首批实验站数量。",
+      "task_condition": "V6 为《优化设计报告-加速器分册V6（返回通读版本）》，文件名含“返回通读版本”，批准状态待确认；回答只能作为 V6 文档口径，不能当作 kb-2.0.0 现行结论。",
+      "expected_answer_boundary": "正确：建设一台能量 7.2 GeV 的超导直线加速器、2 条波荡器线、2 条光束线、首批 6 个实验站；主要部分包括注入器、主加速器、自由电子激光放大器（波荡器线）、光束线和实验站，以及束流诊断、控制、激光、同步、数据采集与处理等公共子系统。错误：写成 8 GeV，或遗漏“返回通读版本”的待核实状态。",
+      "required_facts": [
+        "能量 7.2 GeV 的超导直线加速器",
+        "2 条波荡器线、2 条光束线",
+        "首批 6 个实验站",
+        "主要部分组成包括注入器、主加速器、波荡器线、光束线和实验站"
+      ],
+      "forbidden_inferences": [
+        "把 7.2 GeV 写成 8 GeV",
+        "把 V6 当作已批准的现行版",
+        "断言现场实际运行能量"
+      ],
+      "candidate_source": "1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "unknown",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；ANALYSIS.md §4.3 与 inventory.clean.json 的 head 均记为“能量7.2 GeV……2条波荡器线、2条光束线以及首批6个实验站”。该文件不在 tmp/doc-txt 提取正文中，冻结前必须回到 V6 原文核对原句、章节位置和批准状态；证据位置说明：V6 第一章概述；页码/段落待代表样本解析。"
+    },
+    {
+      "id": "KB2-FACT-020",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "question_zh": "V6 中 SHINE 主加速器采用什么工作模式？注入器出口能量约多少？三个加速段分别有多少个 1.3 GHz 模组？",
+      "task_condition": "V6 文档口径；V6 文件名含“返回通读版本”，且该题数值来自 ANALYSIS 的二手描述，冻结前必须回原文核对；不能当作当前运行值。",
+      "expected_answer_boundary": "正确：超导连续波；注入器出口约 100 MeV；三个加速段分别约 2、18、30 个 1.3 GHz 模组；总能量 7.2 GeV。错误：把工作模式写成常温脉冲，或把三个模组数写成 2/18/30 以外的组合。",
+      "required_facts": [
+        "超导连续波工作模式",
+        "注入器出口约 100 MeV",
+        "三个加速段分别约 2、18、30 个 1.3 GHz 模组",
+        "总能量 7.2 GeV"
+      ],
+      "forbidden_inferences": [
+        "把工作模式写成常温脉冲",
+        "把设计值当作当前在线测量值",
+        "在未核对原文时把二手描述当作原文引用"
+      ],
+      "candidate_source": "1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "unknown",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；ANALYSIS.md §4.1 表格摘要：“V6：超导连续波、四级加速三级压缩；注入器出口约100 MeV；三个加速段分别 2/18/30 个 1.3 GHz 模组；总能量 7.2 GeV”。这是二手摘要，不是原文逐字引用；必须回到 V6 正文/参数表核对后才能升级为 verified；证据位置说明：V6 加速器总体技术方案/加速段参数表；待解析。"
+    },
+    {
+      "id": "KB2-VER-001",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照 2023-09 归档版《定时系统控制界面操作说明》与 2023-12-06 第二版《SHINE定时界面操作手册》：第二版在信号控制和全局频率设置中新增了哪个束测信号？两版的频率分组有何不同？",
+      "task_condition": "左侧为 2023-09 归档版（硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc）；右侧为 2023-12-06 第二版（操作手册/第二版/SHINE定时界面操作手册(20231206).doc）。比较对象是文档界面说明，不是现场部署版本。",
+      "expected_answer_boundary": "正确：第二版在信号控制中加入 FC（Profile、SBPM、FC、ICT），在多个系统同步频率中加入 FC（Laser、SBPM、ICT、FC）；2023-09 版只有 Profile、SBPM、ICT，频率同步项为 Laser、SBPM、ICT。错误：说第二版删除了 FC，或把 FC 加到 2023-09 版。",
+      "required_facts": [
+        "2023-09 版信号控制为 Profile、SBPM、ICT，无 FC",
+        "2023-12-06 版信号控制为 Profile、SBPM、FC、ICT",
+        "2023-09 版同步频率为 Laser、SBPM、ICT，无 FC",
+        "2023-12-06 版同步频率为 Laser、SBPM、ICT、FC"
+      ],
+      "forbidden_inferences": [
+        "把 FC 归到 2023-09 版",
+        "把文档版本差异当作现场已部署差异"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc；操作手册/第二版/SHINE定时界面操作手册(20231206).doc",
+      "evidence_location": "两侧均为 §二/2.1 信号控制区与 2.2 额外功能控制区",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2023-09 原文：“束测系统（Profile、SBPM和ICT）”“多个系统同步频率设置（包括：Laser、SBPM、ICT）”；2023-12-06 原文：“束测系统（Profile、SBPM、FC和ICT）”“多个系统同步频率设置（包括：Laser、SBPM、ICT、FC）”。"
+    },
+    {
+      "id": "KB2-VER-002",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照第一版《SHINE定时界面操作手册》与 2023-09 归档版《定时系统控制界面操作说明》：控制机器时钟输出使能时，哪一版要求先点 Enable/Disable 再点 APPLY？两版步骤能否互换？",
+      "task_condition": "第一版为 操作手册/SHINE定时界面操作手册.doc（无日期，控制组 余鹏翔）；2023-09 版为归档版。两者是界面说明修订，不是同一现场的运行版本证明。",
+      "expected_answer_boundary": "正确：第一版要求点击 Enable/Disable 后再点击 APPLY；2023-09 版只写点击 Enable/Disable，未写 APPLY；操作步骤不能跨修订直接互换，应按对应版本执行。错误：把 APPLY 说成两版都有，或把第一版步骤套到 2023-09 版。",
+      "required_facts": [
+        "第一版：点击 Enable/Disable 后再点击 APPLY",
+        "2023-09 版：只写点击 Enable/Disable，未写 APPLY",
+        "两版操作步骤不能直接互换"
+      ],
+      "forbidden_inferences": [
+        "把 APPLY 步骤归到 2023-09 版",
+        "把文档步骤差异当作现场已验证行为"
+      ],
+      "candidate_source": "操作手册/SHINE定时界面操作手册.doc；归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "evidence_location": "两侧均为 §二 监控页面，给与各系统的信号控制段",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“通过点击Enable/Disable按键，再点击APPLY按键控制机器时钟输出功能的使能”；2023-09 版原文：“通过点击Enable/Disable按键控制机器时钟输出功能的使能”，无 APPLY。"
+    },
+    {
+      "id": "KB2-VER-003",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照第一版与 2023-12-06 第二版定时界面手册：全局频率设置的分组方式有什么变化？第一版的“其余系统频率设置”与第二版的 LLRF、同步频率设置如何对应？",
+      "task_condition": "第一版：操作手册/SHINE定时界面操作手册.doc；第二版：操作手册/第二版/SHINE定时界面操作手册(20231206).doc。只比较界面分组，不判断哪版在现场运行。",
+      "expected_answer_boundary": "正确：第一版为 Profile 频率设置 + 其余系统频率设置（暂定：Laser、LLRF、SBPM、ICT）；第二版把 LLRF 单列，并分为 Profile、LLRF、多个系统同步频率（Laser、SBPM、ICT、FC）。错误：说第二版仍把 LLRF 放在“其余系统”里，或说第一版包含 FC。",
+      "required_facts": [
+        "第一版：Profile + 其余系统（暂定：Laser、LLRF、SBPM、ICT）",
+        "第二版：Profile + LLRF + 多个系统同步（Laser、SBPM、ICT、FC）",
+        "第二版把 LLRF 从“其余系统”中单列"
+      ],
+      "forbidden_inferences": [
+        "把第二版的 LLRF 归入“其余系统”",
+        "把 FC 归到第一版",
+        "声称已确认现场采用哪一版"
+      ],
+      "candidate_source": "操作手册/SHINE定时界面操作手册.doc；操作手册/第二版/SHINE定时界面操作手册(20231206).doc",
+      "evidence_location": "两侧均为 §二 额外功能控制/2.2 额外功能控制区",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“全局频率设置功能又分为Profile频率设置和其余系统频率设置（暂定：Laser、LLRF、SBPM、ICT）”；第二版原文：“分为Profile频率设置，LLRF频率设置以及多个系统同步频率设置（包括：Laser、SBPM、ICT、FC）”。"
+    },
+    {
+      "id": "KB2-VER-004",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照第一版《SHINE恒温机柜界面操作手册》与 2023-09 归档版《恒温机柜控制界面操作说明》：两版都控制几台机柜？开停机柜、设置温度阈值和报警灯语义是否一致？能否据此认定它们是同一修订？",
+      "task_condition": "第一版：操作手册/SHINE恒温机柜界面操作手册.doc（无日期）；2023-09 版：归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc。比较的是文档内容与身份，不是现场机柜状态。",
+      "expected_answer_boundary": "正确：两版都写 LLRF01-08 共 8 台，Running/Stop、Status 绿/红、Threshold_Setting+回车、Alarm 红/绿语义一致；在已提取正文范围内未发现实质差异。但正文相同不等于同一修订，仍需按登记元数据、封面和去重记录确认身份。错误：仅凭正文相同就宣布合并，或说两版控制台数不同。",
+      "required_facts": [
+        "两版均控制 LLRF01-08 共 8 台",
+        "两版均用 Running/Stop 控制开关，Status 绿色开、红色关",
+        "两版均通过 Threshold_Setting 输入阈值后回车设入",
+        "在提取正文范围内未发现实质差异",
+        "正文相同不等于同一修订，身份仍需登记确认"
+      ],
+      "forbidden_inferences": [
+        "仅凭正文相同宣布两版为同一修订",
+        "声称两版控制台数不同",
+        "断言当前机柜报警状态"
+      ],
+      "candidate_source": "操作手册/SHINE恒温机柜界面操作手册.doc；归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc",
+      "evidence_location": "两侧均为 §二 监控页面",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；两版提取正文均含：“实现对LLRF01-08总共8台恒温机柜的远程控制”“点击Running/Stop按键控制相应机柜的开关……开启为绿色，关闭为红色”“通过全选Threshold_Setting输入框中的值……最后再通过回车键将阈值设入……Alarm报警指示灯会变红；反之则呈绿色”。身份/重复关系需查登记表与 sha256，不在本句可证范围。"
+    },
+    {
+      "id": "KB2-VER-005",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照 2024-10 归档版《SHINE注入段真空控制操作手册》与 第三版（202411）《SHINE注入段段真空控制界面操作手册》：GUN 段页面统计是否变化？能否据此认定第三版取代归档版？",
+      "task_condition": "2024-10 版：归档文档（202410）/SHINE注入段真空控制操作手册.doc（封面编制缪海峰）；第三版：操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc。两侧均为文档，不是现场版本。",
+      "expected_answer_boundary": "正确：两版 GUN 段均写 8 个 CCG、1 个 PRG、14 台离子泵、1 个门阀、4 个温度显示，提取正文未发现计数差异；但第三版是否取代 2024-10 版，需看批准/修订记录和登记关系，不能仅凭目录名“第三版”判定。错误：说两版计数不同，或直接宣布第三版为现行。",
+      "required_facts": [
+        "两版 GUN 段均为 8 个 CCG、1 个 PRG、14 台 IP、1 个门阀、4 个温度显示",
+        "提取正文未发现计数差异",
+        "第三版是否取代 2024-10 版需批准/修订记录确认"
+      ],
+      "forbidden_inferences": [
+        "仅凭目录名“第三版”宣布现行",
+        "声称两版 GUN 计数不同",
+        "把文档版本当作现场部署版本"
+      ],
+      "candidate_source": "归档文档（202410）/SHINE注入段真空控制操作手册.doc；操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+      "evidence_location": "两侧均为 §2 分段页面，1）GUN Vacuum",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；两版均含：“为电子枪段真空控制页面。包含8个CCG、1个PRG、14台离子泵（IP）、1个门阀（VAL，仅显示开关状态）、4个温度显示”。是否取代须查封面批准栏与修订记录，当前不能判定。"
+    },
+    {
+      "id": "KB2-VER-006",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照 2023-09 第一版《SHINE数据存档系统archiverDesktop操作手册》与 2024-11《SHINE存档数据查询软件操作手册》：主窗口区域数从几变几？新增了哪些区域？",
+      "task_condition": "左侧为 2023-09 第一版 archiverDesktop 手册；右侧为 2024-11 归档版查询软件手册。比较客户端界面，不代表服务端存档能力变化。",
+      "expected_answer_boundary": "正确：第一版为 4 个区域（左上操作区、中上 PV 列表、右上坐标轴列表、下部图形区）；2024-11 版为 5 个区域（左上 PV 搜索/起止时间、中上曲线属性、右上坐标轴属性、中部时间快捷键、下部绘图区）。错误：把两版都说成 4 个或 5 个区域，或把中上与右上职责互换。",
+      "required_facts": [
+        "第一版主窗口为 4 个区域",
+        "2024-11 版主窗口为 5 个区域",
+        "2024-11 版新增中部时间快捷键组",
+        "2024-11 版左上改为 PV 模糊搜索+起止时间，中上改为曲线属性，右上为坐标轴属性，下部为绘图区"
+      ],
+      "forbidden_inferences": [
+        "把两版区域数说成相同",
+        "把中上曲线属性与右上坐标轴属性互换"
+      ],
+      "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+      "evidence_location": "第一版 §2 软件启动；2024-11 版 §1 软件启动",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“主窗口共分4个区域，下部为主要的图形显示区域……左上区域为操作区域……中上区域为PV列表……右上区域为坐标轴列表”；2024-11 版原文：“主窗口共分5个区域，分为左上，中上，右上，中部、下部”并列出五区职责。"
+    },
+    {
+      "id": "KB2-VER-007",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照 2023-09 第一版与 2024-11 版 archiverDesktop 手册：图形右键菜单的可用性说明有什么变化？2024-11 版给出的导出路径是什么？",
+      "task_condition": "第一版 2023-09；2024-11 归档版。比较客户端功能说明，不证明某台 OPI 上安装的是哪一版。",
+      "expected_answer_boundary": "正确：2023-09 版明确写右键菜单功能尚未完成开发、暂时不要使用；2024-11 版给出“右键-Export → Plot+Image File → Export”的导出路径。错误：说 2023-09 版右键 Export 可用，或说 2024-11 版仍禁用右键菜单。",
+      "required_facts": [
+        "2023-09 版：右键菜单功能尚未完成开发，暂时不要使用",
+        "2024-11 版：右键-Export，默认 Plot+Image File，点击 Export"
+      ],
+      "forbidden_inferences": [
+        "把右键 Export 可用性归到 2023-09 版",
+        "把 2024-11 版说成仍禁用右键菜单"
+      ],
+      "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+      "evidence_location": "第一版 §3.4 图形控制；2024-11 版 §3.5 图形控制与导出",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“右键点击图形会出现控件自带的一些操作功能，这些功能尚未完成开发，因此请暂时不要使用这些功能”；2024-11 版原文：“在绘图区域，右键-Export，弹出图 13所示的对话框，采用默认设置Plot+Image File，点击Export即可”。"
+    },
+    {
+      "id": "KB2-VER-008",
+      "group": "version_comparison",
+      "split": "sealed",
+      "question_zh": "对照 2023-09 第一版与 2024-11 版 archiverDesktop 手册：2024-11 版新增了哪两种历史数据导出方式？各自的时间限制是什么？第一版是否已有这些导出说明？",
+      "task_condition": "第一版 2023-09；2024-11 归档版。只比较操作手册功能，不把“有导出说明”当作“已导出成功”。",
+      "expected_answer_boundary": "正确：2024-11 版新增 Export Raw Data（最多 2 周）和 Export Plot Data（无时间限制）；第一版提取正文只有图形控制与对数坐标等章节，未见这两种导出说明。错误：说第一版已有 Export Raw Data，或把 2 周限制套到 Export Plot Data。",
+      "required_facts": [
+        "2024-11 版有 Export Raw Data，最多 2 周",
+        "2024-11 版有 Export Plot Data，无时间限制",
+        "第一版提取正文未见这两种导出说明"
+      ],
+      "forbidden_inferences": [
+        "说第一版已有 Export Raw Data/Plot Data",
+        "把 2 周限制套到 Export Plot Data",
+        "把导出说明当作导出成功证明"
+      ],
+      "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+      "evidence_location": "第一版 §3 操作说明（3.1–3.6）；2024-11 版 §3.6 历史数据导出",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2024-11 版原文：“‘Export Raw Data’……最多导出2周的数据；‘Export Plot Data’……没有时间范围限制”；第一版全文共 3.1–3.6 节，无 Export Raw/Plot Data 段落。"
+    },
+    {
+      "id": "KB2-VER-009",
+      "group": "version_comparison",
+      "split": "sealed",
+      "question_zh": "对照 2023-09 第一版与 2024-11 版 archiverDesktop 手册：2024-11 版新增的 Live 和关联图功能分别是什么？第一版是否已有这两项？",
+      "task_condition": "第一版 2023-09；2024-11 归档版。只比较客户端功能，不证明后端数据实时性或关联关系有效。",
+      "expected_answer_boundary": "正确：2024-11 版新增 Live（1 秒刷新，15min/30min/1hour/2hour 窗口）和 Correlation（以一个 PV 为横坐标、其他 PV 为纵坐标绘制散点图）；第一版提取正文未见这两项。错误：说第一版已有 Live 或关联图，或把关联图解释为因果分析。",
+      "required_facts": [
+        "2024-11 版有 Live：1 秒刷新，4 个时间窗口",
+        "2024-11 版有 Correlation：一个 PV 为横坐标、其他 PV 为纵坐标的散点图",
+        "第一版提取正文未见 Live 或 Correlation 说明"
+      ],
+      "forbidden_inferences": [
+        "说第一版已有 Live/Correlation",
+        "把关联图解释为因果关系或物理同步证明"
+      ],
+      "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+      "evidence_location": "第一版 §3 操作说明；2024-11 版 §3.8 Live功能、§3.9 多个PV的关联图",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2024-11 版原文：“实时更新PV数据，1秒刷新一次……15min、30min、1hour、2hour”“以一个PV作为横坐标，其他PV作为纵坐标绘制一段时间的关联图……（散点图）”；第一版全文无 Live/Correlation 章节。"
+    },
+    {
+      "id": "KB2-VER-010",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照第一版《SHINE数据存档系统web查询软件操作手册》与 2023-12-06 第二版《archiver appliance数据存档系统web查询软件操作手册》：第二版新增了哪些概述和多 PV 说明？第一版是否已有这些内容？",
+      "task_condition": "第一版：操作手册/SHINE数据存档系统web查询软件操作手册.doc（无日期）；第二版：操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc。比较同族 web 查询手册，不涉及 archiverDesktop。",
+      "expected_answer_boundary": "正确：第二版新增概述（EPICS Archiver Appliance 实现、可存储数百万个 PV）和 Add PVs 后的两条说明（多曲线自动左右坐标、点击纵坐标显示对数单位）；第一版提取正文未见这些概述/说明。错误：把第二版的概述归到第一版，或把 web 手册与 archiverDesktop 混为同一产品。",
+      "required_facts": [
+        "第二版新增概述：EPICS Archiver Appliance 可存储数百万个 PV",
+        "第二版新增多 PV 说明：可同时显示多条曲线、自动生成左右坐标、点击纵坐标显示对数单位",
+        "第一版提取正文未见这些概述/说明"
+      ],
+      "forbidden_inferences": [
+        "把第二版概述归到第一版",
+        "把 web 查询软件与 archiverDesktop 当作同一产品"
+      ],
+      "candidate_source": "操作手册/SHINE数据存档系统web查询软件操作手册.doc；操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+      "evidence_location": "第一版 §1–5；第二版 §1 概述、§3（9）Add PVs 说明",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第二版原文：“EPICS Archiver Appliance是EPICS控制系统存档器的实现，能够存储数百万个PV”“说明：①可同时显示多条曲线……自动在左右两侧生成坐标。②点击纵坐标，可以显示对数单位”；第一版全文无此概述和说明。"
+    },
+    {
+      "id": "KB2-VER-011",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照 2023-10《数据存档系统查询软件设计报告》与 2023-12-06 第二版 web 查询操作手册：两者是什么关系？设计报告能否当作第二版操作手册的发布说明？",
+      "task_condition": "左侧为 2023-10 归档的设计报告（封面同时写“数据存储系统操作手册 设计报告”）；右侧为 2023-12-06 第二版 web 操作手册。比较文档性质与版本关系，不比较部署。",
+      "expected_answer_boundary": "正确：设计报告描述 web 查询软件的界面与功能清单（Check Status、details、Quick chart、导出等），属于设计/操作说明材料；2023-12-06 是第二版操作手册，新增概述和多 PV 说明；两者不能等同为一个修订，设计报告也不能当作发布说明或现场验证记录。错误：说两者是同一文件/同一版，或用设计报告替代操作手册。",
+      "required_facts": [
+        "2023-10 设计报告描述 web 查询界面与功能清单（Check Status、details、Quick chart、导出等）",
+        "2023-12-06 是第二版 web 操作手册，新增概述和多 PV 说明",
+        "两者文档性质不同，不能等同为同一修订",
+        "设计报告不能当作发布说明或现场验证记录"
+      ],
+      "forbidden_inferences": [
+        "把设计报告与第二版操作手册当作同一修订",
+        "把设计报告当作现场部署证明"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存档系统查询软件设计报告.doc；操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+      "evidence_location": "设计报告封面/正文功能 1–5；第二版 §1 概述、§2–5",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；设计报告封面：“数据存储系统操作手册 设计报告”“2023年10月”，正文列 Check Status、details、Quick chart 等功能（并非恰好 13 项独立功能，故不写死数量）；第二版手册标题为“Archiver appliance数据存档系统web查询软件操作手册”，新增概述与多 PV 说明。两者是不同文档，版本关系需登记表确认。"
+    },
+    {
+      "id": "KB2-VER-012",
+      "group": "version_comparison",
+      "split": "sealed",
+      "question_zh": "对照 2018-11《常规功率源控制初步设计报告》与 V6《优化设计报告-加速器分册（返回通读版本）》：两处对 SHINE 直线加速器能量的表述分别是多少？哪一个是现行依据？",
+      "task_condition": "左侧为 2018-11 初步设计（1 硬线工程/20. 常规功率源控制初步设计报告.docx）；右侧为 V6（文件名含“返回通读版本”，批准状态待确认）。两侧均为设计文档，不是现场运行值。",
+      "expected_answer_boundary": "正确：2018 初步设计写 8 GeV 超导直线加速器；V6 写 7.2 GeV 超导直线加速器；两者是不同代次/不同设计阶段的文档口径，当前不能判定哪一个是 kb-2.0.0 的现行依据，必须分别标注版本并等待 V6 批准状态确认。允许回答“存在版本冲突/资料不足”。错误：直接把 7.2 或 8 GeV 说成当前唯一正确值，或把设计值当运行值。",
+      "required_facts": [
+        "2018-11 初步设计写 8 GeV 超导直线加速器",
+        "V6 写 7.2 GeV 超导直线加速器",
+        "两者是不同代次/设计阶段口径",
+        "V6 批准状态未确认，不能判定唯一现行依据"
+      ],
+      "forbidden_inferences": [
+        "把 7.2 或 8 GeV 直接说成当前唯一正确值",
+        "把设计能量当作现场运行能量",
+        "忽略 V6“返回通读版本”的待核实状态"
+      ],
+      "candidate_source": "1 硬线工程/20. 常规功率源控制初步设计报告.docx；1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "2018 报告 §概述（head 可见“能量为8GeV”）；V6 第一章概述（head 可见“7.2 GeV”）",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；ANALYSIS.md §4.3 对照表：“2018 初步设计……能量为 8 GeV 的超导直线加速器”“2024 优化设计 V6……能量 7.2 GeV 的超导直线加速器”；inventory.clean.json 的 head 也分别出现 8GeV/7.2 GeV。两份 .docx 均不在 tmp/doc-txt，冻结前必须回原文核对原句、章节与批准状态。"
+    },
+    {
+      "id": "KB2-VER-013",
+      "group": "version_comparison",
+      "split": "sealed",
+      "question_zh": "对照《快联锁样机设计报告》的设计指标与同批样机测试/ANALYSIS 摘要：单节点/整系统响应时间的设计要求是多少？FPGA 快保护和 PLC 的实测/实现量级分别是多少？能否把 11.8 µs 当作满足“小于 10 µs”的证明？",
+      "task_condition": "设计侧为 2 重大专项/8. 快联锁样机设计报告.docx（2018-07）；实测/实现侧来自 ANALYSIS §4.1 对样机报告的摘要，尚未逐页核对。两侧口径分别为“设计要求”和“样机实测/实现”，不能混为现场运行值。",
+      "expected_answer_boundary": "正确：设计要求为单节点信号响应 ≤10 µs、整系统/节点间故障响应 <100 µs（ANALYSIS 口径，需原报告核对）；摘要给出 FPGA 快保护约 11.8 µs、PLC 约 33 ms；11.8 µs 不满足“小于 10 µs”，不能作为满足设计要求的证明；必须区分设计要求、样机实测/实现和现场运行。允许回答“实测值需回原报告核对”。错误：把 11.8 µs 说成满足 <10 µs；把设计指标当实测；把 PLC 33 ms 与快联锁 µs 指标混用。",
+      "required_facts": [
+        "单节点设计要求 10 µs 以内",
+        "整系统/节点间故障响应小于 100 µs（ANALYSIS 口径，需原报告核对）",
+        "FPGA 快保护约 11.8 µs",
+        "PLC 约 33 ms",
+        "11.8 µs 不满足小于 10 µs",
+        "必须区分设计要求、样机实测/实现和现场运行"
+      ],
+      "forbidden_inferences": [
+        "把 11.8 µs 说成满足 <10 µs",
+        "把设计指标当作实测值",
+        "把 PLC 33 ms 与快联锁 µs 指标混用",
+        "把样机结果当作现场运行验证"
+      ],
+      "candidate_source": "2 重大专项/8. 快联锁样机设计报告.docx；3 样机验收/快联锁样机测试报告.pdf（17 页扫描件）；reports/incoming-2026-11-02/ANALYSIS.md §4.1",
+      "evidence_location": "设计报告“设计指标和技术参数”章节（待解析）；测试报告 OCR 页码未知；ANALYSIS §4.1 表格",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；ANALYSIS.md §4.1：“单节点信号响应需控制在 10 µs 以内、整系统/节点间故障响应 <100 µs；FPGA 快保护约 11.8 µs，PLC 约 33 ms”。这是二手摘要；设计报告和扫描测试报告均未提取，冻结前必须回原文/OCR 核对具体指标表、测量条件和页码。"
+    },
+    {
+      "id": "KB2-VER-014",
+      "group": "version_comparison",
+      "split": "dev",
+      "question_zh": "对照 2018-07《定时样机设计报告》的设计指标与旧题 P50-009 中 Prototype II 的实测口径：设计时钟精度/抖动是多少？实测抖动有哪三个口径、分别是什么？两组数能否直接互换？",
+      "task_condition": "设计侧为 2 重大专项/11. 定时样机设计报告.pdf（2018-07，15 页）；实测量级来自旧题 P50-009（IPAC2022 Prototype II）。设计指标与实测的统计口径、对象和条件不同。",
+      "expected_answer_boundary": "正确：设计侧为时钟精度 1 ns、抖动 <30 ps（ANALYSIS 摘要，需回原报告核对）；P50-009 的实测口径为束流同步相对外部参考 <20 ps RMS、节点间 <10 ps RMS、随机事件相对参考 <35 ps RMS；设计指标与实测不能直接互换，必须分别标注口径。允许回答“设计值需回原报告核对”。错误：把 <30 ps 设计值当作实测值，或把三个实测口径合并成一个数。",
+      "required_facts": [
+        "设计侧：时钟精度 1 ns、抖动 <30 ps（待原报告核对）",
+        "实测：束流同步相对外部参考 <20 ps RMS",
+        "实测：节点间 <10 ps RMS",
+        "实测：随机事件相对参考 <35 ps RMS",
+        "设计指标与实测口径不能直接互换"
+      ],
+      "forbidden_inferences": [
+        "把 <30 ps 设计值当作实测值",
+        "把三个实测口径合并成一个数",
+        "把设计报告当作现场运行验证"
+      ],
+      "candidate_source": "2 重大专项/11. 定时样机设计报告.pdf；data/evaluation/validity-pilot-v2.json P50-009",
+      "evidence_location": "设计报告“设计指标和技术参数”章节（待解析，页码 unknown）；P50-009 的 IPAC2022 Prototype II 证据组",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；ANALYSIS.md §4.1：“《定时样机设计报告》：时钟精度 1 ns、抖动 <30 ps”“部分：属设计指标，不是原型 II 实测口径”；P50-009 的实测三口径见 validity-pilot-v2.json。定时样机设计报告为文本 PDF，但未在 tmp/doc-txt，冻结前必须解析核对页码与原句。"
+    },
+    {
+      "id": "KB2-VER-015",
+      "group": "version_comparison",
+      "split": "sealed",
+      "question_zh": "web 查询软件与 archiverDesktop 是同一软件的两个版本吗？两者在架构和主要功能上分别是什么关系？",
+      "task_condition": "对比 2023-12-06 web 查询手册、2024-11 archiverDesktop 手册与 2023-09 archiverDesktop 第一版；三者都查询 archiver appliance 数据，但客户端形态不同。",
+      "expected_answer_boundary": "正确：不是同一软件的两个版本；web 查询软件是 web 界面（Check Status、details、Quick chart 等），archiverDesktop 是 Qt/Python 的 C/S 桌面客户端（Plot、曲线属性、坐标轴、导出、Live、关联图等）；两者共享 archiver appliance 数据源但产品形态/功能集不同，不能把一者的操作或限制套到另一者。错误：说 archiverDesktop 只是 web 查询的新版，或把 web 的 Check Status 当作 archiverDesktop 的控件。",
+      "required_facts": [
+        "web 查询软件是 web 界面，功能含 Check Status、details、Quick chart",
+        "archiverDesktop 是 Qt/Python 的 C/S 桌面客户端",
+        "archiverDesktop 功能含 Plot、曲线/坐标轴属性、导出、Live、关联图",
+        "两者共享 archiver appliance 数据源但不是同一产品的版本关系"
+      ],
+      "forbidden_inferences": [
+        "说 archiverDesktop 只是 web 查询的新版",
+        "把 web 的 Check Status 当作 archiverDesktop 控件",
+        "把一者的限制套到另一者"
+      ],
+      "candidate_source": "操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc；操作手册/SHINE数据存档系统archiverDesktop操作手册.doc",
+      "evidence_location": "web 手册 §1–5；2024-11 archiverDesktop §1 概述/§1 软件启动；2023-09 archiverDesktop §1 概述",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2024-11 原文：“archiverDesktop是基于archiver appliance存档数据库的客户端软件，用于查询PV历史数据”；2023-09 原文：“基于Qt开发的一套专用于archiver appliance存档数据查询的客户端软件……C/S软件架构……Python”；web 手册标题为“web查询软件操作手册”，功能为 Check Status/details/Quick chart。"
+    },
+    {
+      "id": "KB2-FMT-001",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "2023-10《数据存储系统设计报告》的服务器配置清单中，服务器型号、CPU、内存和物理磁盘分别是什么？请逐项给出数量、型号/规格和容量。",
+      "task_condition": "该题针对原 DOC 中的服务器配置表/清单（提取文本按行保留）；只读 2023-10 报告，不代表当前生产服务器。",
+      "expected_answer_boundary": "正确：Model PowerEdge R750；CPU 2 x Intel XEON Gold 6346 3.1G, 16C/32T；RAM 16 x 16GB DDR4 3200MHz；物理磁盘 4 x 1.92TB SATA、8 x 8TB SATA、2 x 480GB RAID1。错误：漏掉数量或把 16C/32T 写成 16 核；把 2 x 480GB RAID1 说成数据盘 RAID5。",
+      "required_facts": [
+        "Model: PowerEdge R750",
+        "CPU: 2 x Intel XEON Gold 6346 3.1G, 16C/32T",
+        "RAM: 16 x 16GB DDR4 3200MHz",
+        "物理磁盘: 4 x 1.92TB SATA",
+        "物理磁盘: 8 x 8TB SATA",
+        "物理磁盘: 2 x 480GB RAID1"
+      ],
+      "forbidden_inferences": [
+        "漏掉数量或容量",
+        "把 2 x 480GB RAID1 说成数据盘 RAID5",
+        "把 2023-10 配置当作当前生产服务器"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+      "evidence_location": "§1 数据存储系统配置，（1）服务器配置信息（原 DOC 表格/清单，无 PDF 页码）",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文逐行：“Model: PowerEdge R750”“cpu: 2 x Intel XEON Gold 6346 3.1G, 16C/32T”“ram: 16 x 16GB DDR4 3200MHz”“physical disk: 4 x 1.92 TB sata / 8 x 8 TB sata / 2 x 480GB raid 1”。"
+    },
+    {
+      "id": "KB2-FMT-002",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "2023-10《数据存储系统设计报告》的目录结构表中，/arch 根目录下的 sts、mts、lts 分别指向哪里？请按表格结构给出对应关系。",
+      "task_condition": "该题针对报告 §2.2 的目录结构块（提取文本保留了树形结构）；只读该报告，不代表当前生产挂载。",
+      "expected_answer_boundary": "正确：/arch/sts → /dev/shm；/arch/mts → mtsdata；/arch/lts → /data；数据盘根目录为 /data。错误：把 sts 与 lts 的目标互换，或把 mts 指向 /data。",
+      "required_facts": [
+        "/arch/sts → /dev/shm",
+        "/arch/mts → mtsdata",
+        "/arch/lts → /data",
+        "数据盘根目录为 /data"
+      ],
+      "forbidden_inferences": [
+        "把 sts 与 lts 目标互换",
+        "把 mts 指向 /data",
+        "把 2023-10 目录结构当作当前生产挂载"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+      "evidence_location": "§2.2 存储配置，目录结构（树形表）",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文树形结构：“/arch ├─ sts ──> /dev/shm ├─ mts ──> mtsdata └─ lts ──> /data”，并写“数据盘根目录为/data”。"
+    },
+    {
+      "id": "KB2-FMT-003",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "在《端子对应表最终版3.8现场改造.xlsx》的“主控柜 (调整)”工作表中，信号源 FEEDCAP1、前线号 F1001（压力传感器，量程 0–5 bar）这一行对应的航插号、航插接口、端子排、端子编号、后线号、模块接口、连接信号、模块型号和槽号分别是什么？",
+      "task_condition": "该题要求按工作表表头和 F1001 行读取单元格，不能按相邻行猜测；F1001 是信号源侧前线号，不是端子编号。",
+      "expected_answer_boundary": "计划期望（待核对）：航插号 C124、航插接口 1、端子排 X121、端子编号 1、后线号 X1001、模块接口 AI002-1（IN1+）、连接信号 FC1-PT01、模块型号 F3AD08-4R、槽号 SLOT2。以上仅来自 inventory.clean.json 的 head，必须在 xlsx 原表逐单元格核对后才能作为金标准；当前正确做法是给出单元格并标明待核实。错误：只给行号不给列名；把 F1001 当作端子编号；把相邻行拼进来。",
+      "required_facts": [
+        "航插号 C124（待核对）",
+        "航插接口 1（待核对）",
+        "端子排 X121（待核对）",
+        "端子编号 1（待核对）",
+        "后线号 X1001（待核对）",
+        "模块接口 AI002-1（IN1+）（待核对）",
+        "连接信号 FC1-PT01（待核对）",
+        "模块型号 F3AD08-4R（待核对）",
+        "槽号 SLOT2（待核对）"
+      ],
+      "forbidden_inferences": [
+        "把 F1001 当作端子编号",
+        "只给行号不给列名",
+        "把相邻行或不同版本端子表拼接",
+        "在未核对 xlsx 时把 inventory head 当作最终金标准"
+      ],
+      "candidate_source": "3 样机验收/陈广花补充材料/端子对应表最终版3.8现场改造.xlsx",
+      "evidence_location": "工作表“主控柜 (调整)”，F1001 行（单元格范围待解析；inventory head 仅显示前几行）",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 的 head 显示表头“信号源/前线号/航插号/航插接口/端子排/端子编号/后线号/模块接口/连接信号/模块型号/槽号”，并出现“FEEDCAP1 压力传感器(量程0-5bar) F1001 C124 1 X121 1 X1001 AI002-1（IN1+） FC1-PT01 F3AD08-4R SLOT2”。该 xlsx 不在 tmp/doc-txt，必须打开工作簿核对单元格与合并单元格关系后才能冻结。"
+    },
+    {
+      "id": "KB2-FMT-004",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "在端子对应表中，前线号、航插号、端子排、端子编号、后线号、模块接口、连接信号、模块型号、槽号分别表示什么？为什么不能按相邻行推断接线关系？",
+      "task_condition": "该题考表头语义与结构化读取；以“主控柜 (调整)”工作表的实际表头为准，不能用段落文本替代表格。",
+      "expected_answer_boundary": "正确：按表头说明信号源侧前线号、航插号/接口、柜内端子排+端子编号、模块侧后线号/模块接口/模块型号/槽号，以及连接信号；必须按列名或单元格坐标关联一行，不能按相邻行或视觉顺序推断，尤其不能跨版本拼接。允许回答“部分列义需业务审核人确认”。错误：把前线号与后线号混为一谈；把端子编号当航插号；按相邻行猜连接。",
+      "required_facts": [
+        "前线号属于信号源侧，后线号属于模块侧（待业务确认）",
+        "航插号/航插接口是连接器侧信息",
+        "端子排+端子编号是柜内端子位置",
+        "模块接口/模块型号/槽号定位 PLC 模块侧",
+        "连接信号是信号名称",
+        "必须按列名/单元格坐标关联，不能按相邻行推断"
+      ],
+      "forbidden_inferences": [
+        "把前线号与后线号混为一谈",
+        "把端子编号当作航插号",
+        "按相邻行或视觉顺序推断接线",
+        "跨版本拼接端子表"
+      ],
+      "candidate_source": "3 样机验收/陈广花补充材料/端子对应表最终版3.8现场改造.xlsx",
+      "evidence_location": "工作表“主控柜 (调整)”表头行（列名待逐格核对）",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；列名来自 inventory.clean.json 的 head，完整表头、合并单元格和列义需打开 xlsx 并由业务审核人确认。该题不应在表结构未冻结时作为已验证金标准。"
+    },
+    {
+      "id": "KB2-FMT-005",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "在《快联锁样机工艺设计评审报告.pptx》（2019-12-20）中，给出单节点和整系统响应时间指标的是哪一页幻灯片？请报告幻灯片序号、页面标题和指标原文，并说明它是设计指标还是实测结果。",
+      "task_condition": "目标文件为 2 重大专项/10. 快联锁样机工艺设计评审报告.pptx（2019-12-20，inventory 记为 4,729 字符）；必须按幻灯片和对象定位，不能把备注当画面正文。",
+      "expected_answer_boundary": "计划边界：必须返回幻灯片序号、标题和指标原文（单节点/整系统，含比较符和单位），并明确标注“设计指标/评审材料”而非实测；当前尚未解析，具体页码和原文待冻结，不能编造。错误：不给幻灯片序号；把设计指标说成实测；把备注文字冒充画面正文。",
+      "required_facts": [
+        "幻灯片序号（待解析）",
+        "页面标题（待解析）",
+        "单节点响应指标原文（待解析）",
+        "整系统响应指标原文（待解析）",
+        "明确标注设计指标而非实测"
+      ],
+      "forbidden_inferences": [
+        "编造幻灯片序号或指标数值",
+        "把设计指标说成实测",
+        "把备注文字冒充画面正文"
+      ],
+      "candidate_source": "2 重大专项/10. 快联锁样机工艺设计评审报告.pptx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；该 PPTX 不在 tmp/doc-txt，inventory.clean.json 仅给出标题 head“SHINE 快联锁系统样机工艺设计评审报告 陈广花，陈建锋，于春蕾……2019年12月20日”和 4,729 字符。必须解析幻灯片与备注后才能冻结题目和答案；证据位置说明：幻灯片序号、对象位置待解析。"
+    },
+    {
+      "id": "KB2-FMT-006",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "在《定时样机评审报告.pptx》（2018-07-12）中，设计指标页给出的时钟精度和抖动指标分别是多少？请给出幻灯片序号、指标原文、单位与统计口径。",
+      "task_condition": "目标文件为 2 重大专项/12. 定时样机评审报告.pptx（2018-07-12，inventory 记为 8,034 字符）；该评审报告是过程材料，指标可能是设计值而非现场实测。",
+      "expected_answer_boundary": "计划边界：必须给出幻灯片序号、指标原文、单位（ns/ps）和统计口径，并标注是设计/评审口径；不得与 Prototype II 的实测三口径混同。当前未解析，具体数值待回幻灯片核对。错误：把评审报告指标直接当实测；省略单位/统计口径；编造幻灯片序号。",
+      "required_facts": [
+        "幻灯片序号（待解析）",
+        "时钟精度指标原文与单位（待解析）",
+        "抖动指标原文与单位（待解析）",
+        "统计口径（设计/评审，待解析）",
+        "不得与 Prototype II 实测口径混同"
+      ],
+      "forbidden_inferences": [
+        "把评审报告指标直接当实测",
+        "省略单位或统计口径",
+        "编造幻灯片序号或数值"
+      ],
+      "candidate_source": "2 重大专项/12. 定时样机评审报告.pptx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json head 仅显示“定时系统样机评审 阎映炳 控制系统 项目背景 设计指标和技术参数……”，未给出具体指标。必须解析 PPTX 幻灯片/备注后冻结；证据位置说明：幻灯片序号、对象位置待解析。"
+    },
+    {
+      "id": "KB2-FMT-007",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "在《恒温机柜控制样机验收评审报告.pptx》中，验收测试项和结论分别是什么？请给出幻灯片序号、测试项、实测值/判定和结论原文。",
+      "task_condition": "目标文件为 3 样机验收/恒温机柜控制样机验收评审报告.pptx（inventory 记为 2,139 字符）；这是验收评审材料，必须区分验收结论与设计指标。",
+      "expected_answer_boundary": "计划边界：必须返回幻灯片序号、测试项、实测值/判定与验收结论原文；不能把设计目标写成验收实测，也不能只给“通过”而不给测试项。当前未解析，具体内容待冻结。错误：只给结论不给测试项；把设计值当实测；编造幻灯片序号。",
+      "required_facts": [
+        "幻灯片序号（待解析）",
+        "验收测试项（待解析）",
+        "实测值或判定（待解析）",
+        "验收结论原文（待解析）",
+        "区分验收结论与设计指标"
+      ],
+      "forbidden_inferences": [
+        "只给“通过”不给测试项",
+        "把设计值当作验收实测",
+        "编造幻灯片序号或数值"
+      ],
+      "candidate_source": "3 样机验收/恒温机柜控制样机验收评审报告.pptx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory head 仅显示“硬 X 射线自由电子激光装置 恒温机柜控制样机验收评审报告 余鹏翔……项目概述 系统结构与样机目标……”，无具体测试项。必须解析 PPTX 后冻结；证据位置说明：幻灯片序号、对象位置待解析。"
+    },
+    {
+      "id": "KB2-FMT-008",
+      "group": "format_evidence",
+      "split": "sealed",
+      "question_zh": "《机柜命名规则.pptx》规定的机柜命名格式是什么？请给出字段顺序、分隔符和至少两个示例，并说明备注中是否另有适用条件。",
+      "task_condition": "目标文件为根目录《机柜命名规则.pptx》（inventory 记为 802 字符）；该文件很小，必须确认是否只有命名规则页，不能把文件名当作正文证据。",
+      "expected_answer_boundary": "计划边界：必须给出幻灯片中的命名格式、字段顺序、分隔符和示例；若备注另有适用条件，必须单独标注为备注，不能拼进画面正文。当前未解析，格式与示例待冻结。错误：凭文件名编造格式；把备注当画面正文；只给一个示例。",
+      "required_facts": [
+        "机柜命名格式/字段顺序（待解析）",
+        "分隔符（待解析）",
+        "至少两个示例（待解析）",
+        "备注中的适用条件（如有，待解析）"
+      ],
+      "forbidden_inferences": [
+        "凭文件名编造命名格式",
+        "把备注文字当画面正文",
+        "只给一个示例"
+      ],
+      "candidate_source": "机柜命名规则.pptx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 仅记 802 字符，无正文 head。必须解析 PPTX 幻灯片与备注后冻结；证据位置说明：幻灯片序号、对象位置待解析。"
+    },
+    {
+      "id": "KB2-FMT-009",
+      "group": "format_evidence",
+      "split": "sealed",
+      "question_zh": "《快联锁样机测试报告.pdf》（17 页扫描件）中，单节点和整系统的实测响应时间分别是多少？请给出页码、测量条件、单位和原文表格/图注位置。",
+      "task_condition": "目标文件为 3 样机验收/快联锁样机测试报告.pdf，17 页整本无文本层，需 OCR 并人工复核；该报告是样机测试，不是现场运行验证。",
+      "expected_answer_boundary": "计划边界：必须给出页码、测量条件、数值、单位与表格/图注位置；OCR 未复核前只能回答“需查原页/待核实”，不得编造数值。实测值必须与设计指标 <10 µs/<100 µs 分开。错误：不给页码；把 OCR 识别值直接当金标准；把样机实测当现场运行值。",
+      "required_facts": [
+        "页码（待 OCR 定位）",
+        "单节点实测响应时间（待 OCR/人工复核）",
+        "整系统实测响应时间（待 OCR/人工复核）",
+        "测量条件（待 OCR）",
+        "单位与表格/图注位置（待 OCR）",
+        "区分样机实测与设计指标"
+      ],
+      "forbidden_inferences": [
+        "编造实测数值",
+        "把 OCR 未复核值当金标准",
+        "把样机实测当现场运行值",
+        "不给页码"
+      ],
+      "candidate_source": "3 样机验收/快联锁样机测试报告.pdf",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 pages=17、pages_without_text=17、chars=16。必须 OCR 并逐页人工复核数字、单位（µs/ms）和测量条件后才能冻结；证据位置说明：17 页整本无文本层；待 OCR 后定位页码/表格。"
+    },
+    {
+      "id": "KB2-FMT-010",
+      "group": "format_evidence",
+      "split": "sealed",
+      "question_zh": "《设备命名规则》（SHINE-OP-TL-018-R0-20190903，14 页扫描件）中，控制信号命名的字段构成和分隔规则是什么？请给出页码与至少一个示例。",
+      "task_condition": "目标文件为 序号24-SHINE-OP-TL-018- 设备命名规则-R0-20190903.pdf，14 页整本无文本层，需 OCR；规则文档不能替代现场设备清单。",
+      "expected_answer_boundary": "计划边界：必须给出页码、字段构成、分隔规则和示例；OCR 未复核前不得编造字段或示例。错误：只给文件名不给页码；把示例当现场设备；编造分隔符。",
+      "required_facts": [
+        "页码（待 OCR）",
+        "控制信号命名字段构成（待 OCR）",
+        "分隔规则（待 OCR）",
+        "至少一个示例（待 OCR）"
+      ],
+      "forbidden_inferences": [
+        "编造字段或示例",
+        "只给文件名不给页码",
+        "把命名规则示例当现场设备清单"
+      ],
+      "candidate_source": "序号24-SHINE-OP-TL-018- 设备命名规则-R0-20190903.pdf",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 pages=14、pages_without_text=14、chars=13。必须 OCR 并人工复核页码与示例后冻结；证据位置说明：14 页整本无文本层；待 OCR 后定位页码。"
+    },
+    {
+      "id": "KB2-FMT-011",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "《SHINE 项目技术代号规则》（SHINE-OP-TL-004-2022，12 页扫描件）中，加速器总体、直线加速器分总体等系统代号的层级和写法是什么？请给出页码与示例。",
+      "task_condition": "目标文件为 附件-SHINE-OP-TL-004-2022-SHINE项目技术代号规则-20220926.pdf，12 页整本无文本层，需 OCR；规则文档不能替代现场设备台账。",
+      "expected_answer_boundary": "计划边界：必须给出页码、代号层级、写法与示例；OCR 未复核前不得编造代号。错误：凭文件名或常识编造代号层级；把示例当现场设备；不给页码。",
+      "required_facts": [
+        "页码（待 OCR）",
+        "系统代号层级（待 OCR）",
+        "代号写法/分隔规则（待 OCR）",
+        "至少一个示例（待 OCR）"
+      ],
+      "forbidden_inferences": [
+        "凭文件名或常识编造代号层级",
+        "把规则示例当现场设备台账",
+        "不给页码"
+      ],
+      "candidate_source": "附件-SHINE-OP-TL-004-2022-SHINE项目技术代号规则-20220926.pdf",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 pages=12、pages_without_text=12、chars=11。必须 OCR 并人工复核后冻结；证据位置说明：12 页整本无文本层；待 OCR 后定位页码。"
+    },
+    {
+      "id": "KB2-FMT-012",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "《24. 控制需求工作联系单.pdf》（47 页扫描件）中，任选一条控制需求，给出提出系统、需求内容、接口方式和页码；请说明该表是需求记录还是已实现接口。",
+      "task_condition": "目标文件为 1 硬线工程/24. 控制需求工作联系单.pdf，47 页整本无文本层，需 OCR；工作联系单是过程记录，不能证明当前接口已实现。",
+      "expected_answer_boundary": "计划边界：必须给出页码、提出系统、需求内容、接口方式，并标注“需求记录/待确认”，不能把联系单当实现验收。错误：编造需求条目；不给页码；把需求记录当已实现接口。",
+      "required_facts": [
+        "页码（待 OCR）",
+        "提出系统（待 OCR）",
+        "需求内容（待 OCR）",
+        "接口方式（待 OCR）",
+        "标注需求记录而非已实现接口"
+      ],
+      "forbidden_inferences": [
+        "编造需求条目",
+        "不给页码",
+        "把工作联系单当实现验收"
+      ],
+      "candidate_source": "1 硬线工程/24. 控制需求工作联系单.pdf",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 pages=47、pages_without_text=47、chars=46。必须 OCR 并逐页复核后才能冻结具体条目；证据位置说明：47 页整本无文本层；待 OCR 后定位页码/表格。"
+    },
+    {
+      "id": "KB2-FMT-013",
+      "group": "format_evidence",
+      "split": "sealed",
+      "question_zh": "从 V6《优化设计报告-加速器分册》中选取一个定义加速器能量/加速梯度的公式，给出可编辑 LaTeX 源码、符号定义、单位和所在章节/表格位置。",
+      "task_condition": "目标文件为 V6 DOCX（899,640 字符、605 个表格、310.8 MB）；公式必须来自原文，不能根据上下文伪造；V6 批准状态待确认。",
+      "expected_answer_boundary": "计划边界：必须给出 LaTeX 源码、符号表、单位和章节/表格位置；渲染结果需与原文逐符号核对（上下标、分式、运算符、定界符）。无法可靠恢复的公式区域应保留原页并标未验证，不得生成伪造公式。当前未解析，具体公式待代表样本冻结。错误：用文字描述代替 LaTeX；编造公式；把公式当现场运行值。",
+      "required_facts": [
+        "LaTeX 源码（待解析）",
+        "符号定义（待解析）",
+        "单位（待解析）",
+        "章节/表格位置（待解析）",
+        "渲染与原文逐符号核对"
+      ],
+      "forbidden_inferences": [
+        "用文字描述代替 LaTeX",
+        "编造公式或符号",
+        "把公式计算结果当作现场运行值",
+        "在公式区域无法恢复时伪造公式"
+      ],
+      "candidate_source": "1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 V6 899,640 字符、605 个表格、310.8 MB，但未提取公式文本。必须用支持 OMML/公式的解析链提取并人工复核后冻结；证据位置说明：公式章节/表格待解析；V6 共 11,567 段、605 表。"
+    },
+    {
+      "id": "KB2-FMT-014",
+      "group": "format_evidence",
+      "split": "sealed",
+      "question_zh": "在《联锁系统初步设计报告.docx》（2019-10，14 个表格）中，找出慢联锁和快联锁的关键信号响应时间指标表，分别给出站内/站间（或单节点/节点间）的数值、比较符、单位和表名/表号。",
+      "task_condition": "目标文件为 1 硬线工程/23. 联锁系统初步设计报告.docx（17,876 字符、14 个表格）；必须从表格读取，不能把正文概述当指标表。",
+      "expected_answer_boundary": "计划边界：必须给出表名/表号、行标签、数值、比较符和单位，并区分慢联锁与快联锁；ANALYSIS 仅称“慢联锁几十 ms、快联锁 µs 级；主站—子站单向光纤传输 >10 µs”，属部分支撑，不能代替表值。当前未解析，具体表值待冻结。错误：把正文概述当表值；把 ms 与 µs 混用；不给表名/表号。",
+      "required_facts": [
+        "慢联锁指标表表名/表号（待解析）",
+        "慢联锁站内/站间数值、比较符、单位（待解析）",
+        "快联锁指标表表名/表号（待解析）",
+        "快联锁单节点/节点间数值、比较符、单位（待解析）",
+        "区分慢联锁与快联锁"
+      ],
+      "forbidden_inferences": [
+        "把正文概述当表值",
+        "把 ms 与 µs 混用",
+        "不给表名/表号",
+        "把设计指标当实测值"
+      ],
+      "candidate_source": "1 硬线工程/23. 联锁系统初步设计报告.docx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 14 个表格、17,876 字符；ANALYSIS §4.1 仅给二手摘要“慢联锁几十 ms、快联锁 µs 级；主站—子站单向光纤传输 >10 µs”。必须解析 DOCX 表格并逐格核对后冻结；证据位置说明：14 个表格；设计指标和技术参数章节待解析。"
+    },
+    {
+      "id": "KB2-FMT-015",
+      "group": "format_evidence",
+      "split": "dev",
+      "question_zh": "在《硬X射线自由电子激光装置网络安全设计报告.docx》（2026-11-05，76 个表格）中，任选一张访问控制/网络分区表，给出表名、表头、一行具体规则和所在章节；该表能否直接证明现场已按此配置？",
+      "task_condition": "目标文件为根目录《硬X射线自由电子激光装置网络安全设计报告.docx》（192,666 字符、76 个表格）；该报告封面日期 2026-11-05，审核/审定/会签栏为空，只能作为设计/待核实材料。",
+      "expected_answer_boundary": "计划边界：必须给出表名、表头、一行规则和章节；同时说明该表是设计/待核实材料，不能直接证明现场已配置，需现场核查或实施记录。当前未解析，具体表项待冻结。错误：编造表名/规则；把设计表当现场配置证明；忽略批准状态。",
+      "required_facts": [
+        "表名（待解析）",
+        "表头列义（待解析）",
+        "一行具体规则（待解析）",
+        "章节位置（待解析）",
+        "说明不能直接证明现场已配置"
+      ],
+      "forbidden_inferences": [
+        "编造表名或规则",
+        "把设计表当现场配置证明",
+        "忽略封面日期与空白批准栏"
+      ],
+      "candidate_source": "硬X射线自由电子激光装置网络安全设计报告.docx",
+      "evidence_location": "unknown",
+      "provenance_status": "needs_source_check",
+      "notes": "needs_source_check；inventory.clean.json 记 192,666 字符、76 个表格，head 显示封面“2026年11月5日”、编制史武军/吕慧慧/唐小丰、审核/审定/会签为空。必须解析 DOCX 表格并由业务审核人确认表项后冻结；证据位置说明：76 个表格；网络分区/访问控制章节待解析。"
+    },
+    {
+      "id": "KB2-BND-001",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "question_zh": "《硬X射线自由电子激光装置网络安全设计报告》封面写 2026 年 11 月 5 日，晚于本计划编制日期 2026-11-02，且审核/审定/会签栏为空。能否把该报告当作 kb-2.0.0 的现行批准依据？",
+      "task_condition": "依据计划 §2.3 与 inventory 封面信息；该报告尚未进入 tmp/doc-txt。题目考“待核实材料能否作为现行依据”，不是判断报告技术内容对错。",
+      "expected_answer_boundary": "正确：不能作为现行批准依据；应记录封面日期 2026-11-05、审核/审定/会签为空，标为 pending_review，向资料责任人确认批准状态、适用范围和生效时间；只能说文档存在/可作参考，不能说现行有效或已部署。错误：因日期最新就认定现行；因内容完整就认定批准；编造批准人或生效日期。",
+      "required_facts": [
+        "封面日期为 2026-11-05",
+        "审核/审定/会签栏为空",
+        "标为 pending_review/待核实",
+        "需责任人确认批准状态、适用范围和生效时间",
+        "不能据此断言现行有效或已部署"
+      ],
+      "forbidden_inferences": [
+        "因日期最新就认定现行",
+        "因内容完整就认定批准",
+        "编造批准人或生效日期",
+        "把设计报告当现场部署证明"
+      ],
+      "candidate_source": "硬X射线自由电子激光装置网络安全设计报告.docx",
+      "evidence_location": "封面（日期与批准栏）；ANALYSIS/计划 §2.3 二手描述",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；docs/roadmap/knowledge-base-v2-plan.md §2.3 明确：“网络安全设计报告封面写明 2026 年 11 月 5 日，晚于本计划日期；审核栏未填写……确认后才能作为现行依据”；inventory.clean.json head 显示“2026年11月5日”且审核/审定/会签为空。冻结前必须打开 DOCX 封面核对日期与全部签署栏。"
+    },
+    {
+      "id": "KB2-BND-002",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "question_zh": "V6 优化设计报告文件名含“返回通读版本”。能否据此把 V6 当作 kb-2.0.0 的正式现行版？回答应说明还需确认哪些信息。",
+      "task_condition": "依据计划 §2.3 对 V6 的初步判断；V6 为 DOCX，尚未进入 tmp/doc-txt。题目考版本状态判断，不是 V6 技术内容。",
+      "expected_answer_boundary": "正确：不能仅凭文件名或日期把 V6 当作正式现行版；文件名含“返回通读版本”，应保留原版本标签，向资料责任人确认批准状态、替代范围（整篇/章节/指标）和生效时间；在确认前只能作为参考/待核实材料。错误：把“返回通读版本”解释为已批准；直接宣布 V6 替代 2017/2018 版；编造批准信息。",
+      "required_facts": [
+        "文件名含“返回通读版本”",
+        "不能仅凭文件名/日期认定为正式现行版",
+        "需确认批准状态",
+        "需确认替代范围（整篇/章节/指标）",
+        "需确认生效时间"
+      ],
+      "forbidden_inferences": [
+        "把“返回通读版本”解释为已批准",
+        "直接宣布 V6 替代旧版",
+        "编造批准信息或生效日期"
+      ],
+      "candidate_source": "1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "文件名；计划 §2.3 第 2 行；V6 封面/批准页（待解析）",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；docs/roadmap/knowledge-base-v2-plan.md §2.3：“‘V6 一定是正式现行版’｜文件名含‘返回通读版本’｜保留原版本标签；向资料责任人确认批准状态、范围和生效时间”。V6 未提取，冻结前必须核对封面/批准页与版本记录。"
+    },
+    {
+      "id": "KB2-BND-003",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "question_zh": "2018-11《常规功率源控制初步设计报告》写 SHINE 是 8 GeV 超导直线加速器，V6 写 7.2 GeV。面对“SHINE 是多少 GeV”的问题，正确回答应怎样处理这个冲突？",
+      "task_condition": "两侧分别为 2018-11 初步设计与 V6（返回通读版本）；均为设计文档，V6 批准状态待确认。题目允许“资料不足/存在冲突”的正确回答。",
+      "expected_answer_boundary": "正确：分别列出 2018 初步设计 8 GeV 与 V6 7.2 GeV 的版本、日期和适用阶段；说明两者是不同代次/设计阶段口径，当前不能给出单一“现行值”；如问当前运行能量，资料不足，需运行测量/V6 批准状态。允许回答“存在冲突/资料不足”。错误：强行选 7.2 或 8 GeV 作为唯一答案；把设计值当运行值；忽略 V6 待核实状态。",
+      "required_facts": [
+        "2018-11 初步设计写 8 GeV",
+        "V6 写 7.2 GeV",
+        "两者是不同代次/设计阶段口径",
+        "当前不能给出单一现行值",
+        "如问运行能量则资料不足"
+      ],
+      "forbidden_inferences": [
+        "强行选 7.2 或 8 GeV 作为唯一答案",
+        "把设计值当运行值",
+        "忽略 V6 待核实状态",
+        "编造第三个能量值"
+      ],
+      "candidate_source": "1 硬线工程/20. 常规功率源控制初步设计报告.docx；1、硬X射线自由电子激光装置优化设计报告-加速器分册V6（返回通读版本）.docx",
+      "evidence_location": "2018 报告 §概述；V6 第一章概述；ANALYSIS §4.3 对照表",
+      "provenance_status": "derived_from_analysis",
+      "notes": "derived_from_analysis；ANALYSIS §4.3 对照表与 inventory head 分别出现 8 GeV/7.2 GeV。两份 DOCX 均未提取，冻结前必须回原文核对原句与章节，并由业务审核人确认两版适用条件。"
+    },
+    {
+      "id": "KB2-BND-004",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "question_zh": "2023-10《数据存储系统设计报告》一方面写“将服务器磁盘配置为 RAID5”，另一方面配置清单写“2 x 480GB raid 1”。能否回答“所有磁盘都是 RAID5”？",
+      "task_condition": "依据同一份 2023-10 报告的 §1 配置清单与 §4 波形数据采集测试段落；两处描述的对象可能不同（系统盘 vs 数据盘）。",
+      "expected_answer_boundary": "正确：不能笼统说所有磁盘都是 RAID5；配置清单明确 2 x 480GB 为 RAID1（系统盘），RAID5 是报告对数据存储可靠性的总体设计表述，具体 vdiskhdd/vdiskssd 的 RAID 级别需按配置表和实施记录核对；应分别说明对象与条件。允许回答“表述存在范围差异/需核对”。错误：把 2 x 480GB 说成 RAID5；把“服务器磁盘配置为 RAID5”当成所有磁盘的逐盘事实；忽略系统盘/数据盘区分。",
+      "required_facts": [
+        "配置清单写 2 x 480GB RAID1",
+        "报告 §4 写“服务器磁盘配置为 RAID5”",
+        "RAID5 是总体设计表述，不等于每块盘都是 RAID5",
+        "具体 vdiskhdd/vdiskssd 的 RAID 级别需核对配置表/实施记录"
+      ],
+      "forbidden_inferences": [
+        "把 2 x 480GB 说成 RAID5",
+        "把总体表述当成逐盘事实",
+        "忽略系统盘/数据盘区分"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+      "evidence_location": "§1(1) 服务器配置信息；§4 波形数据采集测试",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“physical disk: …… 2 x 480GB raid 1”；同文 §4：“将服务器磁盘配置为RAID5”“将固态硬盘组合成一个虚拟硬盘阵列……将机械硬盘组合成一个虚拟硬盘阵列”。两处对象/范围不同，不能合并为“全部 RAID5”。"
+    },
+    {
+      "id": "KB2-BND-005",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "question_zh": "2024-10《SHINE注入段真空控制操作手册》封面有编制人缪海峰和日期，但审核、审定、会签栏为空。能否把它称为“已批准/现行”的操作手册？",
+      "task_condition": "依据该 DOC 封面提取文本；题目只判断批准状态，不评价手册技术内容。",
+      "expected_answer_boundary": "正确：不能称已批准/现行；编制栏有名字和 2024-10 日期，但审核/审定/会签为空，应标为待核实/未完成审批；可描述为“2024-10 版操作手册文本”，不能推断其现场适用性。错误：把“有编制人”当批准；把日期当生效日期；编造审核人。",
+      "required_facts": [
+        "封面编制人为缪海峰",
+        "日期为 2024 年 10 月",
+        "审核、审定、会签栏为空",
+        "不能称已批准/现行",
+        "应标为待核实/未完成审批"
+      ],
+      "forbidden_inferences": [
+        "把有编制人当作已批准",
+        "把日期当作生效日期",
+        "编造审核/审定/会签人",
+        "断言现场适用"
+      ],
+      "candidate_source": "归档文档（202410）/SHINE注入段真空控制操作手册.doc",
+      "evidence_location": "封面（编制/审核/审定/会签栏与日期）",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；封面原文：“编制: 缪海峰 审核: 审定: 会签: 2024年10月”，审核/审定/会签后无内容。"
+    },
+    {
+      "id": "KB2-BND-006",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "question_zh": "2023-09《硬X射线自由电子激光装置项目 定时系统控制界面操作说明》封面编制、审核、审定、会签栏均为空，只有“2023年9月”。能否据此认定它是已批准的现行操作依据？",
+      "task_condition": "依据该 DOC 封面提取文本；题目只判断批准状态，不评价定时操作内容。",
+      "expected_answer_boundary": "正确：不能认定已批准/现行；封面只有 2023 年 9 月，编制/审核/审定/会签均为空，应标为待核实；可描述为“2023-09 归档版界面说明”，不能推断现场适用性或替代关系。错误：把归档日期当批准日期；因文件在归档目录就认定已批准；编造签署人。",
+      "required_facts": [
+        "封面仅写 2023 年 9 月",
+        "编制、审核、审定、会签栏均为空",
+        "不能认定已批准/现行",
+        "应标为待核实",
+        "不能推断现场适用性或替代关系"
+      ],
+      "forbidden_inferences": [
+        "把归档日期当批准日期",
+        "因在归档目录就认定已批准",
+        "编造签署人",
+        "断言现场适用"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "evidence_location": "封面（编制/审核/审定/会签栏与日期）",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；封面原文：“编制: 审核: 审定: 会签: 2023年9月”，四个签署栏后均无内容。"
+    },
+    {
+      "id": "KB2-BND-007",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "question_zh": "仅凭《恒温机柜控制界面操作说明》或《定时系统控制界面操作说明》，能否回答“今天 8 台 LLRF 恒温机柜的实际温度是多少”或“当前定时系统频率是多少”？",
+      "task_condition": "两份文档均为静态界面说明，不含实时测量数据；问题要求当前现场值。",
+      "expected_answer_boundary": "正确：不能；这些文档只描述界面字段和操作，不能提供今天的温度/频率；应说明需要实时 PV、Archiver 记录或现场测量，并给出可查路径（若系统可用），不得编造数值。错误：把界面说明中的字段当作实时值；编造温度/频率；用文档日期推断当前状态。",
+      "required_facts": [
+        "文档为静态界面说明，不含实时测量",
+        "不能回答今天实际温度/当前频率",
+        "需实时 PV、Archiver 记录或现场测量",
+        "不得编造数值"
+      ],
+      "forbidden_inferences": [
+        "把界面字段当作实时值",
+        "编造温度或频率",
+        "用文档日期推断当前状态",
+        "把历史记录当作当前值"
+      ],
+      "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc；归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+      "evidence_location": "两份文档全文；均无实时数据接口或测量记录",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；恒温机柜文档只写“Temperature一栏为机柜内温度的实时监测”，定时文档只写界面状态灯与频率设置，均未给出任何当前温度/频率数值或数据源。"
+    },
+    {
+      "id": "KB2-BND-008",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "question_zh": "《SHINE激光界面操作手册》写“目前上线参与调试的设备有……”。能否用它回答“今天 B3/B5 激光设备实际在线哪些”？",
+      "task_condition": "该手册为第一版、无日期；句子是文档编写时的上线调试清单，不是实时设备状态接口。",
+      "expected_answer_boundary": "正确：不能直接作为今天在线状态；应说明这是手册编写时的清单（B3/B5 各设备台数），今天在线状态需查询实时设备状态/PV 或现场确认；可引用清单但必须标注时点不明。错误：把“目前上线”当作今天实时状态；编造在线/离线设备；把提供台数当上线台数。",
+      "required_facts": [
+        "该手册为第一版、无日期",
+        "“目前上线参与调试”是文档编写时清单",
+        "不能直接回答今天在线状态",
+        "需实时设备状态/PV 或现场确认",
+        "可引用清单但需标注时点不明"
+      ],
+      "forbidden_inferences": [
+        "把“目前上线”当作今天实时状态",
+        "编造在线/离线设备",
+        "把提供台数当作上线台数"
+      ],
+      "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+      "evidence_location": "§1 概述",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“目前上线参与调试的设备有B3层CCD1台、光闸2台、能量计1台；B5层CCD1台、能量计1台、电动镜架2台”。文档无日期，不能证明今天状态。"
+    },
+    {
+      "id": "KB2-BND-009",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "question_zh": "仅凭《SHINE电源分配器PDU界面操作手册》，能否回答“现场共有多少台 PDU、分别是什么型号”？",
+      "task_condition": "该手册只描述单台 PDU 界面与 8 个通道，未给出总台数、型号清单或现场台账。",
+      "expected_answer_boundary": "正确：不能；手册只说明每台 PDU 有 8 个通道及界面可查看的电气量，没有现场 PDU 总台数/型号；需查设备台账、IOC 配置或现场清点。错误：把“每个 PDU 8 通道”当作总台数；编造型号/台数；用界面截图推断现场规模。",
+      "required_facts": [
+        "手册只描述单台 PDU 界面与 8 个通道",
+        "未给出 PDU 总台数",
+        "未给出型号清单/现场台账",
+        "需查设备台账、IOC 配置或现场清点"
+      ],
+      "forbidden_inferences": [
+        "把 8 个通道当作 8 台 PDU",
+        "编造 PDU 型号或台数",
+        "用界面截图推断现场规模"
+      ],
+      "candidate_source": "操作手册/SHINE电源分配器PDU界面操作手册.doc",
+      "evidence_location": "全文；无设备总台数/型号清单",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文仅写“每个PDU有8个通道，分别连接不同的设备……”，未出现 PDU 总台数或型号清单。"
+    },
+    {
+      "id": "KB2-BND-010",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "question_zh": "2024-11 archiverDesktop 手册写“Export Raw Data……最多导出 2 周的数据”。能否据此回答“存档系统只保留 2 周历史数据”？",
+      "task_condition": "该限制是客户端导出功能的时间范围限制，不是存档服务器保留策略；手册未给出保留期。",
+      "expected_answer_boundary": "正确：不能；2 周是 Export Raw Data 的客户端导出上限，不等于存档保留期；存档保留期需查服务器配置/运维策略，Export Plot Data 还没有时间范围限制。错误：把导出上限当保留期；说所有数据只保留 2 周；用客户端限制推断服务器容量。",
+      "required_facts": [
+        "2 周是 Export Raw Data 的导出上限",
+        "不等于存档保留期",
+        "Export Plot Data 没有时间范围限制",
+        "保留期需查服务器配置/运维策略"
+      ],
+      "forbidden_inferences": [
+        "把导出上限当作存档保留期",
+        "说所有数据只保留 2 周",
+        "用客户端限制推断服务器容量"
+      ],
+      "candidate_source": "归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+      "evidence_location": "§3.6 历史数据导出",
+      "provenance_status": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“‘Export Raw Data’导出一段时间的所有历史数据，因为数据量很大，考虑到网络负荷，限定了时间范围，最多导出2周的数据；‘Export Plot Data’……这个没有时间范围限制”。"
+    }
+  ]
+}

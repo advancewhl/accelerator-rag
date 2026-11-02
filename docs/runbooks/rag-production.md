@@ -2,10 +2,11 @@
 
 ## 运行环境
 
-服务面向组内加速器与控制工程人员。网页、RAG API、文档引用与 PDF 查看器由同一个进程提供。每次提问独立处理，不把页面历史拼接到后续问题中。
+服务面向组内加速器与控制工程人员。网页、RAG API、文档引用及 PDF／Markdown 阅读器由同一个进程提供。每次提问独立处理，不把页面历史拼接到后续问题中。
 
 - GPU 主机：`10.101.9.190`。
-- 稳定目录：`/opt/accelerator-rag`。
+- 当前发布目录：`/opt/accelerator-rag-releases/md-20261030`。
+- 上一版目录：`/opt/accelerator-rag`，保留用于回滚。
 - 容器：`accelerator-rag`。
 - 运行镜像：`accelerator-rag-runtime:20261026`。
 - Web 与 API：`http://10.101.9.190:8003/`。
@@ -30,7 +31,8 @@ ACCELERATOR_MODEL_API_KEY
 在 GPU 主机执行：
 
 ```bash
-RAG_ENV_FILE=/opt/rag-production.env \
+RAG_WORKSPACE=/opt/accelerator-rag-releases/md-20261030 \
+  RAG_ENV_FILE=/opt/rag-production.env \
   bash /opt/accelerator-rag/deploy/rag-start.sh
 curl -fsS http://127.0.0.1:8003/health
 ```
@@ -38,6 +40,8 @@ curl -fsS http://127.0.0.1:8003/health
 脚本只管理挂载目录与名称匹配的独立 RAG 容器。配置文件为 `config/rag-production.json`。可通过 `RAG_GPU_DEVICE`、`RAG_WORKSPACE` 和 `RAG_RUNTIME_IMAGE` 覆盖部署资源。首次加载需要等待模型与索引核验完成。
 
 索引沿用已签名的数据与目录，启动时完整核验一次。运行时禁止索引写入，不重复扫描整库。不要同时启动第二个进程持有同一组本地 Qdrant 索引。
+
+2026 年 10 月 30 日已加入 4 份 Markdown。当前两路索引共有 4,572 个相同父块，E5 为 4,803 个向量点，Qwen3 为 4,572 个向量点。发布与回滚步骤见 [Markdown 发布记录](rag-markdown-release.md)。只重启当前版本时使用 `docker restart accelerator-rag`，无需重建索引。
 
 ## 使用接口
 
@@ -61,7 +65,7 @@ curl -s http://127.0.0.1:8003/v1/rag/answer \
 
 请求只接受 `query`。响应包含 `status`、`answer`、`requirements`、`citations`、`latency` 和 `request_id`。`requirements[].supported` 表示最终完整性；全部完整为 `answered`，仍有缺项但存在已核查事实为 `partial`，没有可展示事实为 `insufficient`。`coverage` 区分完整、部分和无证据，`reason`、`missing` 说明原因。不存在的证据 ID 或无法核验的模型输出返回 HTTP 502，网页提供重试提示。
 
-`GET /v1/rag/documents/{document_id}` 返回登记的原始 PDF。`GET /v1/rag/documents/{document_id}/view#page=N` 打开本地 PDF 查看器，`N` 为物理页。接口不接受文件路径。引用中的 `quote` 是被选中的原文，真实服务器路径不进入响应。
+`GET /v1/rag/documents/{document_id}` 返回登记的原始 PDF 或 Markdown。PDF 使用 `/view#page=N` 定位物理页；Markdown 使用 `/view#section-N` 定位章节，`/sections` 返回同一快照的章节正文。引用中的 `document_format` 和 `locator_kind` 区分格式与位置。接口不接受文件路径。引用中的 `quote` 是被选中的原文，真实服务器路径不进入响应。
 
 网页支持 Enter 发送、Shift+Enter 换行、当前页面问答历史、新建会话、引用定位和复制答案。刷新会开始新的页面会话。Markdown、KaTeX、PDF.js 均使用本地资源，运行时不访问公网 CDN。
 

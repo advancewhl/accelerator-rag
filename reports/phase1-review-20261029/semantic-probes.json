@@ -1,0 +1,78 @@
+{
+  "different_steps_can_intersect": [
+    2,
+    6
+  ],
+  "zero_keep_vs_drop": {
+    "keep": [
+      2,
+      4
+    ],
+    "drop": [
+      2,
+      4
+    ]
+  },
+  "coverage_without_missing_can_write_legacy": {
+    "all_valid": true,
+    "written": true
+  },
+  "coverage_channel_time_origin": [
+    {
+      "channel": "A_X",
+      "loader_first_time": 0.0,
+      "engine_first_valid_offset": 0.0,
+      "engine_first_time": 0.0,
+      "engine_duration": 0.5
+    },
+    {
+      "channel": "B_X",
+      "loader_first_time": 0.0,
+      "engine_first_valid_offset": 0.1,
+      "engine_first_time": 0.0,
+      "engine_duration": 0.4
+    }
+  ],
+  "historical_fixture_time_axis": [
+    {
+      "sequence": 0,
+      "points": 422,
+      "array_equal_to_recorded": true,
+      "point_count_estimate_seconds": 0.842,
+      "actual_loader_duration_seconds": 0.842,
+      "modal_step": 2000
+    },
+    {
+      "sequence": 1,
+      "points": 621,
+      "array_equal_to_recorded": true,
+      "point_count_estimate_seconds": 1.24,
+      "actual_loader_duration_seconds": 1.24,
+      "modal_step": 2000
+    },
+    {
+      "sequence": 2,
+      "points": 455,
+      "array_equal_to_recorded": true,
+      "point_count_estimate_seconds": 0.908,
+      "actual_loader_duration_seconds": 0.908,
+      "modal_step": 2000
+    },
+    {
+      "sequence": 3,
+      "points": 375,
+      "array_equal_to_recorded": true,
+      "point_count_estimate_seconds": 0.748,
+      "actual_loader_duration_seconds": 0.748,
+      "modal_step": 2000
+    },
+    {
+      "sequence": 4,
+      "points": 288,
+      "array_equal_to_recorded": true,
+      "point_count_estimate_seconds": 0.574,
+      "actual_loader_duration_seconds": 0.574,
+      "modal_step": 2000
+    }
+  ]
+}

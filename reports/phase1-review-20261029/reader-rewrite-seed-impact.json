@@ -1,0 +1,168 @@
+{
+  "note": "仅列出直接引用重写文档的题目；间接引用旧审计案例的题目也需语义复核。原题集未改写。",
+  "affected_items": [
+    {
+      "id": "S2-ALIGN-003",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.1",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#5.3"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-004",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.10",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.6"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-005",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.8",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.7"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-006",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.6",
+        "docs/waveform/waveform-storage-dataflow.md#6.3",
+        "docs/waveform/waveform-storage-dataflow.md#3.2"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-007",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#3.4"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-008",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.4"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-009",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.3"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-010",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.5",
+        "docs/waveform/waveform-storage-dataflow.md#2.1"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-011",
+      "locators": [
+        "docs/waveform/waveform-storage-dataflow.md#3.1",
+        "docs/waveform/waveform-storage-dataflow.md#6.1",
+        "docs/waveform/waveform-storage-dataflow.md#6.2",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.6"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-012",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#1.2",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#1.1"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S2-ALIGN-013",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.8",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.1"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-003",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#5.1",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#3.3"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-004",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#8"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-005",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#2.1"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-006",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#3.1"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-007",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#5.9",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.3"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-008",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.4"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-009",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.6",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#4.10"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-010",
+      "locators": [
+        "docs/waveform/waveform-storage-dataflow.md#10"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-011",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#8",
+        "docs/waveform/waveform-storage-dataflow.md#9"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    },
+    {
+      "id": "S4-FAULT-012",
+      "locators": [
+        "docs/waveform/alignment-semantics-and-diagnostics.md#3.4",
+        "docs/waveform/alignment-semantics-and-diagnostics.md#5.1"
+      ],
+      "action": "重新核对摘录、标准答案和评分条件；链接可打开不等于答案已验证"
+    }
+  ]
+}

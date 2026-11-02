@@ -24,6 +24,8 @@ data/raw/*
 data/interim/*
 data/processed/*
 data/parsed/*
+# 知识库候选构建产物（规范化正文、阅读副本、父块、索引）；不进入 Git
+data/knowledge-builds/
 
 # 其他分支保留的论文数据层与本地中间产物
 data/l0_raw/

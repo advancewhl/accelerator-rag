@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "release_id": "kb-2.0.0-rc.1",
+  "build_id": "<build-id>",
+  "status": "candidate-incomplete",
+  "created_at": "<YYYY-MM-DD>",
+  "previous_release": "<previous-release-id-or-unknown>",
+  "registry": "data/documents/v2/registry-v2.json",
+  "registry_sha256": "<sha256>",
+  "source_root": "/workspace/data/l0_raw",
+  "build_dir": "/workspace/data/knowledge-builds/<build-id>",
+  "release_dir": "/opt/accelerator-rag-releases/<release-id>",
+  "code": {
+    "git_commit": "<git-commit>",
+    "source_snapshot": "<path-or-archive>",
+    "runtime_image": "<image-id>",
+    "python": "<version>",
+    "dependencies": "<lock-or-requirements-sha256>",
+    "fonts_and_converters": {
+      "libreoffice": "<version-or-unknown>",
+      "ocr": "<tool-and-version-or-unknown>"
+    }
+  },
+  "corpus": {
+    "revision_count": 0,
+    "family_count": 0,
+    "total_chunks": 0,
+    "eligible_chunks": 0,
+    "ineligible_chunks": 0,
+    "text_index_count": 0,
+    "structured_index_count": 0,
+    "attachment_only_count": 0,
+    "catalog_only_count": 0,
+    "excluded_count": 0,
+    "deferred_count": 0
+  },
+  "contracts": {
+    "schema_version": 2,
+    "chunking_algorithm": "kb2-chunks-v1",
+    "parser_profiles": [],
+    "conversion_profiles": [],
+    "ocr_profiles": [],
+    "eligibility_policy": "<version>",
+    "scope_policy": "<version>"
+  },
+  "indexes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "collection": "<collection>",
+      "index_path": "<path>",
+      "dense_index_contract_id": "<contract-id>",
+      "parent_count": 0,
+      "point_count": 0
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "collection": "<collection>",
+      "index_path": "<path>",
+      "dense_index_contract_id": "<contract-id>",
+      "parent_count": 0,
+      "point_count": 0
+    }
+  ],
+  "answer": {
+    "generation_model": "ds-1017",
+    "reranker_model": "Qwen/Qwen3-Reranker-0.6B",
+    "prompt_version": "<version>",
+    "generation_max_tokens": 4096,
+    "max_retrieval_rounds": 2,
+    "max_parents": 5,
+    "max_evidence_tokens": 6000,
+    "default_usage_statuses": ["current", "reference"]
+  },
+  "verification": {
+    "legacy_question_set": "data/evaluation/seed-questions-v1.json",
+    "new_question_set": "data/evaluation/kb2-question-plan-v1.json",
+    "semantic_review_owner": "<name-or-unknown>",
+    "engineering_report": "<report-path>",
+    "reader_check": "<report-path>",
+    "performance_baseline": "<report-path>",
+    "rollback_drill": "<report-path>"
+  },
+  "operations": {
+    "runtime_dir": "/opt/accelerator-rag-releases/<release-id>",
+    "mounts": ["/workspace:ro", "/workspace/tmp:rw"],
+    "port": 8003,
+    "log_dir": "<path>",
+    "rollback_target": "<previous-complete-release>",
+    "rollback_verified": false,
+    "observed_at": null,
+    "remaining_limitations": []
+  }
+}

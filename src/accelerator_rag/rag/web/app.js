@@ -6,10 +6,20 @@ const history = [];
 let readerModule;
 function closeReader() { readerModule?.closeReader(false); }
 async function openSource(citation, trigger) {
+  if (!citation.document_url) {
+    $('source-hint').textContent = '该格式的阅读页尚未接入；引用位置仍可用于定位修订与段落/幻灯片。';
+    return;
+  }
   try {
     readerModule ||= await import('/assets/pdf-reader.js');
     if (current?.data.citations.includes(citation)) await readerModule.openReader(citation, trigger);
   } catch { $('source-hint').textContent = '阅读器加载失败，请检查连接后重试。'; }
+}
+const locatorLabels = {page:'物理页', section:'章节索引', paragraph:'段落', slide:'幻灯片', cell_range:'单元格范围'};
+function locatorText(citation) {
+  const kind = citation.locator_kind || 'page';
+  const label = citation.position_label || `${citation.page_start}${citation.page_start === citation.page_end ? '' : `～${citation.page_end}`}`;
+  return `${locatorLabels[kind] || kind} ${label}`;
 }
 const statusLabels = {answered: '已找到完整依据', partial: '部分资料可确认', insufficient: '当前资料无法确认'};
 const statusNotes = {
@@ -43,7 +53,7 @@ function inlineText(container, text, citations) {
       const button = textElement('button', part, 'cite');
       button.type = 'button'; button.setAttribute('aria-label', `查看来源 ${number}`);
       const citation = citations.find(c => c.number === number);
-      button.title = `${citation.document_title} · PDF 第 ${citation.page_start} 页`;
+      button.title = `${citation.document_title} · ${locatorText(citation)}`;
       button.addEventListener('click', () => {
         openSource(citations.find(c => c.number === number), button);
       });
@@ -97,20 +107,19 @@ function showResult(data, question) {
   $('source-empty').hidden = data.citations.length > 0;
   $('source-empty-title').textContent = data.citations.length ? '答案有据可查' : '本次没有可引用的证据';
   $('source-empty-note').textContent = data.citations.length ? '点击引用，在这里对照文档原文。' : '可补充设备名称、问题范围或文档版本后重试。';
-  $('source-hint').textContent = data.citations.length ? '页码指 PDF 文件中的物理页，可能与页脚印刷页码不同。' : '本次没有足够依据，因此未附上无关文档。';
+  $('source-hint').textContent = data.citations.length ? '引用按修订版位置标示：PDF 物理页、Markdown 章节、DOCX 段落、PPTX 幻灯片或表格单元格范围。' : '本次没有足够依据，因此未附上无关文档。';
   $('sources').replaceChildren();
   for (const c of data.citations) {
     const item = textElement('li', '', 'source');
     item.id = `source-${c.number}`; item.tabIndex = -1;
     item.append(textElement('span', `[${c.number}]`, 'source-number'));
     item.append(textElement('h3', c.document_title));
-    const page = c.page_start === c.page_end ? `${c.page_start}` : `${c.page_start}～${c.page_end}`;
-    item.append(textElement('p', `物理页 ${page}`, 'page'));
+    item.append(textElement('p', locatorText(c), 'page'));
     item.append(textElement('p', `版本：${c.document_version === 'unknown' ? '文档未标明' : c.document_version}`));
     if (/^\/v1\/rag\/documents\/[a-zA-Z0-9_-]+$/.test(c.document_url || '')) {
       const link = textElement('button', '阅读原文 →', 'pdf-link');
       link.type = 'button';
-      link.setAttribute('aria-label', `阅读来源 ${c.number} 的 PDF 原文，第 ${c.page_start} 页`);
+      link.setAttribute('aria-label', `阅读来源 ${c.number} 的原文，${locatorText(c)}`);
       link.addEventListener('click', () => openSource(c, link));
       item.append(link);
     }
@@ -183,7 +192,7 @@ document.querySelectorAll('[data-question]').forEach(button => button.addEventLi
 $('copy').addEventListener('click', async () => {
   if (!current) return;
   const {data, question} = current;
-  const sources = data.citations.map(c => `[${c.number}] ${c.document_title}；版本 ${c.document_version}；物理页 ${c.page_start}～${c.page_end}`).join('\n');
+  const sources = data.citations.map(c => `[${c.number}] ${c.document_title}；版本 ${c.document_version}；${locatorText(c)}`).join('\n');
   try {
     await navigator.clipboard.writeText(`${question}\n\n${statusLabels[data.status]}\n${data.answer}\n\n${sources}`);
     $('copy').textContent = '已复制答案与出处';
@@ -277,7 +286,7 @@ function renderCatalog() {
   for (const d of visible) {
     const card = textElement('article', '', 'library-document');
     const heading = textElement('div', '', 'library-card-heading');
-    heading.append(textElement('span', 'PDF', 'document-format'));
+    heading.append(textElement('span', (d.document_format || 'pdf').toUpperCase(), 'document-format'));
     heading.append(textElement('span', '已收录 · 可检索', 'document-indexed'));
     card.append(heading, textElement('h2', d.document_title));
     const versions = d.versions.filter(v => v !== 'unknown');
@@ -285,11 +294,12 @@ function renderCatalog() {
     const tags = textElement('div', '', 'document-tags');
     d.categories.forEach(c => tags.append(textElement('span', categoryLabel(c))));
     card.append(tags);
-    const facts = textElement('p', `${d.page_count ? `${d.page_count} 页` : '页数待确认'} · ${d.indexed_section_count.toLocaleString()} 段可检索内容`, 'document-facts');
+    const facts = textElement('p', `${d.page_count ? `${d.page_count} 页` : (d.document_format === 'md' ? '按章节定位' : '页数待确认')} · ${d.indexed_section_count.toLocaleString()} 段可检索内容`, 'document-facts');
     const bottom = textElement('div', '', 'library-card-bottom');
-    const button = textElement('button', d.original_available ? '阅读原文 →' : '原文暂不可用', 'pdf-link');
-    button.type = 'button'; button.disabled = !d.original_available;
-    button.setAttribute('aria-label', `阅读 ${d.document_title} 的 PDF 原文`);
+    const readable = Boolean(d.document_url);
+    const button = textElement('button', readable ? '阅读原文 →' : '该格式阅读页未接入', 'pdf-link');
+    button.type = 'button'; button.disabled = !readable;
+    button.setAttribute('aria-label', `阅读 ${d.document_title} 的原文`);
     button.addEventListener('click', async () => {
       try {
         readerModule ||= await import('/assets/pdf-reader.js');
@@ -297,7 +307,7 @@ function renderCatalog() {
         $('library-view').hidden = true; $('workspace').hidden = false;
         $('workspace').classList.add('expanded');
         await readerModule.openReader({document_url:d.document_url, document_title:d.document_title,
-          document_version:versions.join('；') || 'unknown', page_start:1}, button,
+          document_format:d.document_format, document_version:versions.join('；') || 'unknown', page_start:1}, button,
           {backLabel:'← 知识库目录', onClose:showLibraryView});
       } catch {
         showLibraryView(); $('library-message').textContent = '原文阅读器加载失败，请检查连接后重试。';

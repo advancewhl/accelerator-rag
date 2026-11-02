@@ -1,0 +1,31 @@
+{
+  "documents": 4,
+  "chunks": 40,
+  "eligible_chunks": 40,
+  "per_document": {
+    "waveform-storage-dataflow": {
+      "chunks": 8
+    },
+    "waveform-alignment-semantics": {
+      "chunks": 9
+    },
+    "waveform-fault-history": {
+      "chunks": 11
+    },
+    "rag-ingestion-verification-rollback": {
+      "chunks": 12
+    }
+  },
+  "eligibility": {
+    "config": {
+      "replacement_ratio": 0.2,
+      "minimum_replacements": 8
+    },
+    "total_chunks": 40,
+    "eligible_chunks": 40,
+    "ineligible_chunks": 0,
+    "ineligible_by_reason": {},
+    "per_document_ineligible": {}
+  }
+}
+dry run: no index was opened, no vector was written

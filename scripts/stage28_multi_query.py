@@ -41,7 +41,9 @@ docs = IngestionService(root).ingest_all_registered_pdfs()
 eligible, _ = eligibility_audit([c for d in docs for c in d.chunks])
 assert (
     sha256(
-        json.dumps([asdict(c) for c in eligible], sort_keys=True).encode()
+        json.dumps(
+            [c.legacy_dict() for c in eligible], sort_keys=True
+        ).encode()
     ).hexdigest()
     == result["canonical_parent_sha256"]
 )

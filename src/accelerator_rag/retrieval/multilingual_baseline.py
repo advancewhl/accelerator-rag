@@ -2,7 +2,6 @@
 import gc
 import json
 import os
-from dataclasses import asdict
 from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
@@ -120,7 +119,7 @@ def run():
     history = json.loads((root/'reports/rag-stage-two-seven-embedding-comparison.json').read_text())
     sources = {d.record.source_path: sha256((root/d.record.source_path).read_bytes()).hexdigest() for d in docs}
     assert sources == history['metadata']['source_sha256']
-    parent_hash = sha256(json.dumps([asdict(c) for c in eligible], sort_keys=True).encode()).hexdigest()
+    parent_hash = sha256(json.dumps([c.legacy_dict() for c in eligible], sort_keys=True).encode()).hexdigest()
     assert parent_hash == history['metadata']['canonical_parent_sha256']
     result = {'status':'RUNNING','started_at': datetime.now(timezone.utc).isoformat(),
               'judgment_revision':'evidence-contract-v2','frozen_sha256':hashes,

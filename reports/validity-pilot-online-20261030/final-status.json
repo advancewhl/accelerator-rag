@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-10-30T01:01:19.872733+00:00",
+  "health": {
+    "status": "ok"
+  },
+  "document_count": 17,
+  "indexed_section_count": 4572,
+  "containers": [
+    {
+      "name": "accelerator-rag",
+      "id": "5488746890b9fe588701a863369c80a6bf38d07560e80b61174cb17beaa4a6b4",
+      "state": "running",
+      "health": "healthy",
+      "started_at": "2026-10-30T00:45:25.516481899Z"
+    },
+    {
+      "name": "accelerator-rag-pdf-rollback-20261030",
+      "id": "54e39162ba78f776c677027130e2ef37f2f3d8be4674653937dd8fcb5f71aa3c",
+      "state": "exited",
+      "health": "unhealthy",
+      "started_at": "2026-10-30T00:43:13.575191946Z"
+    },
+    {
+      "name": "ds-1017",
+      "id": "fa94fcee0cebb1bd7699b7d233f67b566e2981e575e7c3ae80a5384e2b2d58f8",
+      "state": "running",
+      "health": null,
+      "started_at": "2026-10-29T12:25:05.443495551Z"
+    },
+    {
+      "name": "open-webui",
+      "id": "ae08dec4b2a36183ea059191dfa7fa0d385bee738dbf8d66dd1ad0041d97906b",
+      "state": "running",
+      "health": "healthy",
+      "started_at": "2026-10-22T07:15:09.340799789Z"
+    }
+  ]
+}

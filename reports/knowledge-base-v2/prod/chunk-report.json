@@ -1,0 +1,5418 @@
+{
+  "records": [
+    {
+      "revision_id": "epics-application-developers-guide-r3-16-2",
+      "status": "chunked",
+      "chunk_count": 848,
+      "eligible_chunk_count": 847,
+      "indexable_chunk_count": 846,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 1,
+      "ineligible_by_reason": {
+        "number_or_running_code_only": 1
+      },
+      "char_count": 741481,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 848,
+        "total_chars": 741481
+      }
+    },
+    {
+      "revision_id": "epics-documentation-latest-2026-08-18",
+      "status": "chunked",
+      "chunk_count": 1071,
+      "eligible_chunk_count": 1071,
+      "indexable_chunk_count": 1069,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 926450,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 1071,
+        "total_chars": 926450
+      }
+    },
+    {
+      "revision_id": "european-xfel-full-technical-design-report-2007",
+      "status": "chunked",
+      "chunk_count": 1730,
+      "eligible_chunk_count": 1730,
+      "indexable_chunk_count": 1730,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1469169,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 1730,
+        "total_chars": 1469169
+      }
+    },
+    {
+      "revision_id": "european-xfel-undulator-commissioning-spectrometer-cdr-2011",
+      "status": "chunked",
+      "chunk_count": 41,
+      "eligible_chunk_count": 41,
+      "indexable_chunk_count": 41,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 32036,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 41,
+        "total_chars": 32036
+      }
+    },
+    {
+      "revision_id": "european-xfel-x-ray-optics-beam-transport-tdr-2012",
+      "status": "chunked",
+      "chunk_count": 235,
+      "eligible_chunk_count": 235,
+      "indexable_chunk_count": 235,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 169328,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 235,
+        "total_chars": 169328
+      }
+    },
+    {
+      "revision_id": "european-xfel-standard-e-beam-diagnostics-linac2010",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 13,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 12438,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 13,
+        "total_chars": 12438
+      }
+    },
+    {
+      "revision_id": "shine-epics-ioc-pv-information-management-pcapac2022",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 13,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 11677,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 13,
+        "total_chars": 11677
+      }
+    },
+    {
+      "revision_id": "shine-accelerator-fast-interlock-2024",
+      "status": "chunked",
+      "chunk_count": 18,
+      "eligible_chunk_count": 18,
+      "indexable_chunk_count": 18,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 15651,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 18,
+        "total_chars": 15651
+      }
+    },
+    {
+      "revision_id": "shine-control-system-status-icalepcs2019",
+      "status": "chunked",
+      "chunk_count": 15,
+      "eligible_chunk_count": 15,
+      "indexable_chunk_count": 15,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 13895,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 15,
+        "total_chars": 13895
+      }
+    },
+    {
+      "revision_id": "shine-cryogenic-control-system-2021",
+      "status": "chunked",
+      "chunk_count": 22,
+      "eligible_chunk_count": 22,
+      "indexable_chunk_count": 22,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 18792,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 22,
+        "total_chars": 18792
+      }
+    },
+    {
+      "revision_id": "shine-white-rabbit-beam-synchronous-timing-ipac2022",
+      "status": "chunked",
+      "chunk_count": 17,
+      "eligible_chunk_count": 17,
+      "indexable_chunk_count": 17,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 15196,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 17,
+        "total_chars": 15196
+      }
+    },
+    {
+      "revision_id": "shine-accelerator-control-system-design-presentation",
+      "status": "chunked",
+      "chunk_count": 34,
+      "eligible_chunk_count": 33,
+      "indexable_chunk_count": 33,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 1,
+      "ineligible_by_reason": {
+        "boilerplate_only": 1
+      },
+      "char_count": 5965,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 34,
+        "total_chars": 5965
+      }
+    },
+    {
+      "revision_id": "shine-accelerator-preliminary-design-report-2017",
+      "status": "chunked",
+      "chunk_count": 480,
+      "eligible_chunk_count": 477,
+      "indexable_chunk_count": 476,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 3,
+      "ineligible_by_reason": {
+        "mostly_replacement_chars": 3
+      },
+      "char_count": 323096,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 480,
+        "total_chars": 323096
+      }
+    },
+    {
+      "revision_id": "waveform-storage-dataflow",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6147,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 8,
+        "total_chars": 6147
+      }
+    },
+    {
+      "revision_id": "waveform-alignment-semantics",
+      "status": "chunked",
+      "chunk_count": 9,
+      "eligible_chunk_count": 9,
+      "indexable_chunk_count": 9,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6647,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 9,
+        "total_chars": 6647
+      }
+    },
+    {
+      "revision_id": "waveform-fault-history",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8548,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 11,
+        "total_chars": 8548
+      }
+    },
+    {
+      "revision_id": "rag-ingestion-verification-rollback",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 9534,
+      "statistics": {
+        "algorithm": "legacy-v1",
+        "chunk_count": 12,
+        "total_chars": 9534
+      }
+    },
+    {
+      "revision_id": "accelerator-overall-design-rev-255d2148",
+      "status": "chunked",
+      "chunk_count": 1668,
+      "eligible_chunk_count": 1668,
+      "indexable_chunk_count": 1655,
+      "short_chunks_filtered": 13,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1033118,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1668,
+        "document_count": 1,
+        "total_chars": 1033118,
+        "min_chars": 6,
+        "max_chars": 1665,
+        "chunks_under_20_chars": 13,
+        "chunks_under_50_chars": 42,
+        "by_position_kind": {
+          "paragraph": 1668
+        },
+        "by_usage_status": {
+          "pending_review": 1668
+        }
+      }
+    },
+    {
+      "revision_id": "accelerator-overall-design-rev-206c9b16",
+      "status": "chunked",
+      "chunk_count": 125,
+      "eligible_chunk_count": 125,
+      "indexable_chunk_count": 124,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 113811,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 125,
+        "document_count": 1,
+        "total_chars": 113811,
+        "min_chars": 9,
+        "max_chars": 1197,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 125
+        },
+        "by_usage_status": {
+          "pending_review": 125
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-ec969fe7",
+      "status": "chunked",
+      "chunk_count": 18,
+      "eligible_chunk_count": 18,
+      "indexable_chunk_count": 17,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 17109,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 18,
+        "document_count": 1,
+        "total_chars": 17109,
+        "min_chars": 14,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 18
+        },
+        "by_usage_status": {
+          "pending_review": 18
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-ff3d788c",
+      "status": "chunked",
+      "chunk_count": 6,
+      "eligible_chunk_count": 6,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4690,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 6,
+        "document_count": 1,
+        "total_chars": 4690,
+        "min_chars": 14,
+        "max_chars": 1184,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 6
+        },
+        "by_usage_status": {
+          "pending_review": 6
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-1e849ef0",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 6,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5105,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 5105,
+        "min_chars": 14,
+        "max_chars": 1193,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 7
+        },
+        "by_usage_status": {
+          "pending_review": 7
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-5d3b56d9",
+      "status": "chunked",
+      "chunk_count": 30,
+      "eligible_chunk_count": 30,
+      "indexable_chunk_count": 28,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 11897,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 30,
+        "document_count": 1,
+        "total_chars": 11897,
+        "min_chars": 11,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 6,
+        "by_position_kind": {
+          "paragraph": 30
+        },
+        "by_usage_status": {
+          "pending_review": 30
+        }
+      }
+    },
+    {
+      "revision_id": "ioc-installation-maintenance-7bdda0ec-rev",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6879,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 6879,
+        "min_chars": 14,
+        "max_chars": 1175,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "pending_review": 8
+        }
+      }
+    },
+    {
+      "revision_id": "epics-subsystem-design-b1da391e-rev",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 4,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 760,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 760,
+        "min_chars": 4,
+        "max_chars": 310,
+        "chunks_under_20_chars": 4,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "paragraph": 7
+        },
+        "by_usage_status": {
+          "pending_review": 7
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-5a85d11d",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 9,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4056,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 4056,
+        "min_chars": 14,
+        "max_chars": 1162,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "pending_review": 11
+        }
+      }
+    },
+    {
+      "revision_id": "laser-subsystem-design-09b41a98-rev",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6723,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 6723,
+        "min_chars": 8,
+        "max_chars": 1183,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "pending_review": 13
+        }
+      }
+    },
+    {
+      "revision_id": "design-unknown-b147219c-rev",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2849,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 2849,
+        "min_chars": 476,
+        "max_chars": 1194,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 3
+        },
+        "by_usage_status": {
+          "pending_review": 3
+        }
+      }
+    },
+    {
+      "revision_id": "design-unknown-0fe9f442-rev",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3673,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 3673,
+        "min_chars": 175,
+        "max_chars": 1176,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 4
+        },
+        "by_usage_status": {
+          "pending_review": 4
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-453dc071",
+      "status": "chunked",
+      "chunk_count": 9,
+      "eligible_chunk_count": 9,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2984,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 9,
+        "document_count": 1,
+        "total_chars": 2984,
+        "min_chars": 7,
+        "max_chars": 861,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 9
+        },
+        "by_usage_status": {
+          "pending_review": 9
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-81469bb1",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5281,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 5281,
+        "min_chars": 14,
+        "max_chars": 1182,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "pending_review": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-5407ecef",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2415,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 2415,
+        "min_chars": 10,
+        "max_chars": 1193,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "pending_review": 5
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-structured-list-235f0323-rev",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 545,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 545,
+        "min_chars": 80,
+        "max_chars": 465,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "pending_review": 2
+        }
+      }
+    },
+    {
+      "revision_id": "design-subsystem-design-224fcb69-rev",
+      "status": "chunked",
+      "chunk_count": 15,
+      "eligible_chunk_count": 15,
+      "indexable_chunk_count": 15,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8859,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 15,
+        "document_count": 1,
+        "total_chars": 8859,
+        "min_chars": 58,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 15
+        },
+        "by_usage_status": {
+          "reference": 15
+        }
+      }
+    },
+    {
+      "revision_id": "shine-upper-software-design-rev-5871aba8",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3409,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 3409,
+        "min_chars": 53,
+        "max_chars": 1178,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "reference": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-alarm-system-design-rev-024389c8",
+      "status": "chunked",
+      "chunk_count": 19,
+      "eligible_chunk_count": 19,
+      "indexable_chunk_count": 15,
+      "short_chunks_filtered": 4,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3553,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 19,
+        "document_count": 1,
+        "total_chars": 3553,
+        "min_chars": 4,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 4,
+        "chunks_under_50_chars": 5,
+        "by_position_kind": {
+          "paragraph": 19
+        },
+        "by_usage_status": {
+          "reference": 19
+        }
+      }
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-76ee918f",
+      "status": "chunked",
+      "chunk_count": 27,
+      "eligible_chunk_count": 27,
+      "indexable_chunk_count": 27,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 17797,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 27,
+        "document_count": 1,
+        "total_chars": 17797,
+        "min_chars": 30,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 27
+        },
+        "by_usage_status": {
+          "reference": 27
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-c4307138",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2099,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 2099,
+        "min_chars": 53,
+        "max_chars": 1184,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 4
+        },
+        "by_usage_status": {
+          "reference": 4
+        }
+      }
+    },
+    {
+      "revision_id": "shine-vacuum-control-design-rev-63cb4220",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4803,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 4803,
+        "min_chars": 60,
+        "max_chars": 1185,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-vacuum-control-design-rev-cc8e7444",
+      "status": "chunked",
+      "chunk_count": 25,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 23,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 1,
+      "ineligible_by_reason": {
+        "boilerplate_only": 1
+      },
+      "char_count": 6685,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 25,
+        "document_count": 1,
+        "total_chars": 6685,
+        "min_chars": 4,
+        "max_chars": 1185,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 5,
+        "by_position_kind": {
+          "slide": 25
+        },
+        "by_usage_status": {
+          "reference": 25
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-0f199d9a",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4297,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 4297,
+        "min_chars": 50,
+        "max_chars": 1196,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-motion-control-design-rev-1dcfbf6f",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5714,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 5714,
+        "min_chars": 4,
+        "max_chars": 1177,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "shine-motion-control-design-rev-959495ac",
+      "status": "chunked",
+      "chunk_count": 6,
+      "eligible_chunk_count": 6,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2677,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 6,
+        "document_count": 1,
+        "total_chars": 2677,
+        "min_chars": 9,
+        "max_chars": 1175,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 6
+        },
+        "by_usage_status": {
+          "reference": 6
+        }
+      }
+    },
+    {
+      "revision_id": "cryogenics-subsystem-design-d568a7c0-rev",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 6,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2279,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 2279,
+        "min_chars": 6,
+        "max_chars": 1183,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 7
+        },
+        "by_usage_status": {
+          "reference": 7
+        }
+      }
+    },
+    {
+      "revision_id": "design-subsystem-design-684e6d78-rev",
+      "status": "chunked",
+      "chunk_count": 21,
+      "eligible_chunk_count": 21,
+      "indexable_chunk_count": 21,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 14437,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 21,
+        "document_count": 1,
+        "total_chars": 14437,
+        "min_chars": 40,
+        "max_chars": 1191,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 21
+        },
+        "by_usage_status": {
+          "reference": 21
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-cad6eb9b",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3307,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 12,
+        "document_count": 1,
+        "total_chars": 3307,
+        "min_chars": 7,
+        "max_chars": 1194,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 12
+        },
+        "by_usage_status": {
+          "reference": 12
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-89e7c1c5",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3083,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 3083,
+        "min_chars": 53,
+        "max_chars": 1154,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "reference": 11
+        }
+      }
+    },
+    {
+      "revision_id": "design-subsystem-design-da4c332c-rev",
+      "status": "chunked",
+      "chunk_count": 9,
+      "eligible_chunk_count": 9,
+      "indexable_chunk_count": 9,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2680,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 9,
+        "document_count": 1,
+        "total_chars": 2680,
+        "min_chars": 30,
+        "max_chars": 977,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 9
+        },
+        "by_usage_status": {
+          "reference": 9
+        }
+      }
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-f5183218",
+      "status": "chunked",
+      "chunk_count": 44,
+      "eligible_chunk_count": 44,
+      "indexable_chunk_count": 40,
+      "short_chunks_filtered": 4,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 19643,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 44,
+        "document_count": 1,
+        "total_chars": 19643,
+        "min_chars": 10,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 4,
+        "chunks_under_50_chars": 11,
+        "by_position_kind": {
+          "paragraph": 44
+        },
+        "by_usage_status": {
+          "reference": 44
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-unknown-50d873c0-rev",
+      "status": "chunked",
+      "chunk_count": 17,
+      "eligible_chunk_count": 17,
+      "indexable_chunk_count": 17,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 14766,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 17,
+        "document_count": 1,
+        "total_chars": 14766,
+        "min_chars": 26,
+        "max_chars": 1185,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "pdf_page": 17
+        },
+        "by_usage_status": {
+          "pending_review": 17
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-79dd5344",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2178,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 2178,
+        "min_chars": 423,
+        "max_chars": 1072,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-ab895b02",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1714,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1714,
+        "min_chars": 758,
+        "max_chars": 956,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "design-subsystem-design-4182b2a4-rev",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 13,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4167,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 4167,
+        "min_chars": 4,
+        "max_chars": 1122,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-network-design-rev-4faff6e1",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2566,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 2566,
+        "min_chars": 53,
+        "max_chars": 1056,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "reference": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-8117756d",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 14,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8066,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 8066,
+        "min_chars": 22,
+        "max_chars": 1196,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "data-acquisition-subsystem-design-ef330419-rev",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3421,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 3421,
+        "min_chars": 52,
+        "max_chars": 1197,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "reference": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-c4391960",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6199,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 6199,
+        "min_chars": 25,
+        "max_chars": 1142,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "reference": 11
+        }
+      }
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-c30a8805",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2955,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 2955,
+        "min_chars": 52,
+        "max_chars": 1074,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 7
+        },
+        "by_usage_status": {
+          "reference": 7
+        }
+      }
+    },
+    {
+      "revision_id": "data-acquisition-subsystem-design-ff6a0723-rev",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 13,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6082,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 6082,
+        "min_chars": 53,
+        "max_chars": 1186,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "reference": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-cce79def",
+      "status": "chunked",
+      "chunk_count": 30,
+      "eligible_chunk_count": 30,
+      "indexable_chunk_count": 30,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 26612,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 30,
+        "document_count": 1,
+        "total_chars": 26612,
+        "min_chars": 31,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 30
+        },
+        "by_usage_status": {
+          "pending_review": 30
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-355ebaac",
+      "status": "chunked",
+      "chunk_count": 28,
+      "eligible_chunk_count": 28,
+      "indexable_chunk_count": 28,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 9387,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 28,
+        "document_count": 1,
+        "total_chars": 9387,
+        "min_chars": 41,
+        "max_chars": 1147,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 28
+        },
+        "by_usage_status": {
+          "reference": 28
+        }
+      }
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-05ee3d50",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8574,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 8574,
+        "min_chars": 782,
+        "max_chars": 1166,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-network-design-rev-5a573f23",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2283,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 2283,
+        "min_chars": 1091,
+        "max_chars": 1192,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-3c2f41e2",
+      "status": "chunked",
+      "chunk_count": 31,
+      "eligible_chunk_count": 31,
+      "indexable_chunk_count": 30,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 29601,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 31,
+        "document_count": 1,
+        "total_chars": 29601,
+        "min_chars": 4,
+        "max_chars": 1209,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 31
+        },
+        "by_usage_status": {
+          "reference": 31
+        }
+      }
+    },
+    {
+      "revision_id": "shine-total-control-integration-design-rev-06757b8b",
+      "status": "chunked",
+      "chunk_count": 37,
+      "eligible_chunk_count": 37,
+      "indexable_chunk_count": 33,
+      "short_chunks_filtered": 4,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 28305,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 37,
+        "document_count": 1,
+        "total_chars": 28305,
+        "min_chars": 6,
+        "max_chars": 1197,
+        "chunks_under_20_chars": 4,
+        "chunks_under_50_chars": 5,
+        "by_position_kind": {
+          "paragraph": 37
+        },
+        "by_usage_status": {
+          "historical": 37
+        }
+      }
+    },
+    {
+      "revision_id": "shine-motion-control-design-rev-8a334d2e",
+      "status": "chunked",
+      "chunk_count": 22,
+      "eligible_chunk_count": 22,
+      "indexable_chunk_count": 15,
+      "short_chunks_filtered": 7,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2639,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 22,
+        "document_count": 1,
+        "total_chars": 2639,
+        "min_chars": 6,
+        "max_chars": 538,
+        "chunks_under_20_chars": 7,
+        "chunks_under_50_chars": 10,
+        "by_position_kind": {
+          "paragraph": 22
+        },
+        "by_usage_status": {
+          "historical": 22
+        }
+      }
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-3ceaf5ce",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3598,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 3598,
+        "min_chars": 18,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "pdf_page": 4
+        },
+        "by_usage_status": {
+          "historical": 4
+        }
+      }
+    },
+    {
+      "revision_id": "design-subsystem-design-51995144-rev",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5101,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 5101,
+        "min_chars": 424,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-alarm-system-design-rev-b14bf84e",
+      "status": "chunked",
+      "chunk_count": 10,
+      "eligible_chunk_count": 10,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 11166,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 10,
+        "document_count": 1,
+        "total_chars": 11166,
+        "min_chars": 751,
+        "max_chars": 1193,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 10
+        },
+        "by_usage_status": {
+          "historical": 10
+        }
+      }
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-2f211afd",
+      "status": "chunked",
+      "chunk_count": 50,
+      "eligible_chunk_count": 50,
+      "indexable_chunk_count": 47,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 34263,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 50,
+        "document_count": 1,
+        "total_chars": 34263,
+        "min_chars": 8,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "paragraph": 50
+        },
+        "by_usage_status": {
+          "historical": 50
+        }
+      }
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-c2785a38",
+      "status": "chunked",
+      "chunk_count": 24,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 24,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 22581,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 24,
+        "document_count": 1,
+        "total_chars": 22581,
+        "min_chars": 101,
+        "max_chars": 1194,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 24
+        },
+        "by_usage_status": {
+          "historical": 24
+        }
+      }
+    },
+    {
+      "revision_id": "shine-upper-software-design-rev-1e946f58",
+      "status": "chunked",
+      "chunk_count": 33,
+      "eligible_chunk_count": 33,
+      "indexable_chunk_count": 33,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 28112,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 33,
+        "document_count": 1,
+        "total_chars": 28112,
+        "min_chars": 21,
+        "max_chars": 1197,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 33
+        },
+        "by_usage_status": {
+          "historical": 33
+        }
+      }
+    },
+    {
+      "revision_id": "shine-total-control-integration-design-rev-d7547f73",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 53552,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 53552,
+        "min_chars": 9,
+        "max_chars": 6773,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "historical": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-9dd24041",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 48759,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 48759,
+        "min_chars": 9,
+        "max_chars": 5915,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "historical": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-b481f486",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 84092,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 84092,
+        "min_chars": 9,
+        "max_chars": 9094,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "historical": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-upper-software-design-rev-a70d5112",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 70914,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 70914,
+        "min_chars": 9,
+        "max_chars": 8441,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "historical": 13
+        }
+      }
+    },
+    {
+      "revision_id": "review-review-opinion-3823b7fa-rev",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 367,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 367,
+        "min_chars": 367,
+        "max_chars": 367,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 1
+        },
+        "by_usage_status": {
+          "historical": 1
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-structured-list-c4fbb373-rev",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 503,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 503,
+        "min_chars": 80,
+        "max_chars": 423,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "historical": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-total-control-integration-design-rev-f242bd70",
+      "status": "chunked",
+      "chunk_count": 44,
+      "eligible_chunk_count": 44,
+      "indexable_chunk_count": 42,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 35432,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 44,
+        "document_count": 1,
+        "total_chars": 35432,
+        "min_chars": 6,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 44
+        },
+        "by_usage_status": {
+          "historical": 44
+        }
+      }
+    },
+    {
+      "revision_id": "shine-ioc-management-rev-5ebc213a",
+      "status": "chunked",
+      "chunk_count": 22,
+      "eligible_chunk_count": 22,
+      "indexable_chunk_count": 20,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 23006,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 22,
+        "document_count": 1,
+        "total_chars": 23006,
+        "min_chars": 13,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 22
+        },
+        "by_usage_status": {
+          "historical": 22
+        }
+      }
+    },
+    {
+      "revision_id": "shine-equipment-control-design-rev-27cdd601",
+      "status": "chunked",
+      "chunk_count": 10,
+      "eligible_chunk_count": 10,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8551,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 10,
+        "document_count": 1,
+        "total_chars": 8551,
+        "min_chars": 14,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 10
+        },
+        "by_usage_status": {
+          "historical": 10
+        }
+      }
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-3f3a3ed3",
+      "status": "chunked",
+      "chunk_count": 9,
+      "eligible_chunk_count": 9,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6599,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 9,
+        "document_count": 1,
+        "total_chars": 6599,
+        "min_chars": 14,
+        "max_chars": 1196,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 9
+        },
+        "by_usage_status": {
+          "historical": 9
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-7da26046",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3898,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 3898,
+        "min_chars": 14,
+        "max_chars": 1154,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-c2b8d34a",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2941,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 2941,
+        "min_chars": 14,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-7a76323b",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 5,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3709,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 3709,
+        "min_chars": 12,
+        "max_chars": 1182,
+        "chunks_under_20_chars": 5,
+        "chunks_under_50_chars": 5,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "historical": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-power-supply-control-design-rev-9e3fb650",
+      "status": "chunked",
+      "chunk_count": 10,
+      "eligible_chunk_count": 10,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3345,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 10,
+        "document_count": 1,
+        "total_chars": 3345,
+        "min_chars": 10,
+        "max_chars": 1161,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 10
+        },
+        "by_usage_status": {
+          "historical": 10
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-298e6f72",
+      "status": "chunked",
+      "chunk_count": 9,
+      "eligible_chunk_count": 9,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3449,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 9,
+        "document_count": 1,
+        "total_chars": 3449,
+        "min_chars": 8,
+        "max_chars": 974,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 9
+        },
+        "by_usage_status": {
+          "historical": 9
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fba058ab",
+      "status": "chunked",
+      "chunk_count": 20,
+      "eligible_chunk_count": 20,
+      "indexable_chunk_count": 14,
+      "short_chunks_filtered": 6,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5079,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 20,
+        "document_count": 1,
+        "total_chars": 5079,
+        "min_chars": 7,
+        "max_chars": 1184,
+        "chunks_under_20_chars": 6,
+        "chunks_under_50_chars": 8,
+        "by_position_kind": {
+          "paragraph": 20
+        },
+        "by_usage_status": {
+          "historical": 20
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-96ebdc19",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3484,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 3484,
+        "min_chars": 14,
+        "max_chars": 1179,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-vacuum-control-design-rev-8bd0c87b",
+      "status": "chunked",
+      "chunk_count": 17,
+      "eligible_chunk_count": 17,
+      "indexable_chunk_count": 15,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 12752,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 17,
+        "document_count": 1,
+        "total_chars": 12752,
+        "min_chars": 14,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 17
+        },
+        "by_usage_status": {
+          "historical": 17
+        }
+      }
+    },
+    {
+      "revision_id": "shine-interlock-system-design-rev-89d6d828",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 14,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5035,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 5035,
+        "min_chars": 62,
+        "max_chars": 1196,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "historical": 14
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-network-design-rev-e3c6b63f",
+      "status": "chunked",
+      "chunk_count": 34,
+      "eligible_chunk_count": 34,
+      "indexable_chunk_count": 31,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 18585,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 34,
+        "document_count": 1,
+        "total_chars": 18585,
+        "min_chars": 14,
+        "max_chars": 1197,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "paragraph": 34
+        },
+        "by_usage_status": {
+          "historical": 34
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-structured-list-42dbcf51-rev",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 629,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 629,
+        "min_chars": 80,
+        "max_chars": 549,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "historical": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-c05637cf",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 514,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 514,
+        "min_chars": 514,
+        "max_chars": 514,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-ebbcf97e",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1647,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 1647,
+        "min_chars": 14,
+        "max_chars": 457,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 6,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "pending_review": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-2536c98d",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 417,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 417,
+        "min_chars": 417,
+        "max_chars": 417,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-99ecefba",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1227,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1227,
+        "min_chars": 159,
+        "max_chars": 1068,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "pending_review": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-0e94a5e4",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 552,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 552,
+        "min_chars": 552,
+        "max_chars": 552,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fba2ad49",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2483,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 2483,
+        "min_chars": 370,
+        "max_chars": 1071,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "pending_review": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-f12c9ad8",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1143,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 1143,
+        "min_chars": 1143,
+        "max_chars": 1143,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-f11c069c",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1223,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 1223,
+        "min_chars": 14,
+        "max_chars": 963,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "pending_review": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-b672c917",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2000,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 2000,
+        "min_chars": 811,
+        "max_chars": 1189,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "pending_review": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-24e94d16",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 416,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 416,
+        "min_chars": 416,
+        "max_chars": 416,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-e6551458",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3670,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 3670,
+        "min_chars": 14,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "pending_review": 11
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-41ba2750",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1603,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 1603,
+        "min_chars": 11,
+        "max_chars": 878,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "pending_review": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fd679514",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 389,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 389,
+        "min_chars": 389,
+        "max_chars": 389,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-afa68262",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 698,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 698,
+        "min_chars": 698,
+        "max_chars": 698,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-b6698e8a",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1143,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 1143,
+        "min_chars": 1143,
+        "max_chars": 1143,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fd3c0264",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 485,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 485,
+        "min_chars": 485,
+        "max_chars": 485,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-eb5d6e0e",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 587,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 587,
+        "min_chars": 587,
+        "max_chars": 587,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 1
+        },
+        "by_usage_status": {
+          "pending_review": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-b9bfd428",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3435,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 3435,
+        "min_chars": 1051,
+        "max_chars": 1193,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "pending_review": 3
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-structured-list-21a3ef6a-rev",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 234,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 234,
+        "min_chars": 234,
+        "max_chars": 234,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 1
+        },
+        "by_usage_status": {
+          "historical": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-6aab6b8c",
+      "status": "chunked",
+      "chunk_count": 13,
+      "eligible_chunk_count": 13,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1647,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 13,
+        "document_count": 1,
+        "total_chars": 1647,
+        "min_chars": 14,
+        "max_chars": 457,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 6,
+        "by_position_kind": {
+          "paragraph": 13
+        },
+        "by_usage_status": {
+          "historical": 13
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-c6fe79d8",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1223,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 1223,
+        "min_chars": 14,
+        "max_chars": 963,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-fe5144f3",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3670,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 3670,
+        "min_chars": 14,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "historical": 11
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-02f29c6a",
+      "status": "chunked",
+      "chunk_count": 6,
+      "eligible_chunk_count": 6,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2721,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 6,
+        "document_count": 1,
+        "total_chars": 2721,
+        "min_chars": 14,
+        "max_chars": 1194,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 6
+        },
+        "by_usage_status": {
+          "historical": 6
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-475b3a6a",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3012,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 3012,
+        "min_chars": 13,
+        "max_chars": 1188,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "historical": 11
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-715c251d",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1278,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1278,
+        "min_chars": 14,
+        "max_chars": 1105,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "historical": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-6d6e357f",
+      "status": "chunked",
+      "chunk_count": 22,
+      "eligible_chunk_count": 22,
+      "indexable_chunk_count": 20,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 9995,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 22,
+        "document_count": 1,
+        "total_chars": 9995,
+        "min_chars": 6,
+        "max_chars": 1141,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 22
+        },
+        "by_usage_status": {
+          "historical": 22
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-300f0580",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 583,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 583,
+        "min_chars": 14,
+        "max_chars": 569,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "historical": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-3e4fff6e",
+      "status": "chunked",
+      "chunk_count": 6,
+      "eligible_chunk_count": 6,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3275,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 6,
+        "document_count": 1,
+        "total_chars": 3275,
+        "min_chars": 13,
+        "max_chars": 1165,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 6
+        },
+        "by_usage_status": {
+          "historical": 6
+        }
+      }
+    },
+    {
+      "revision_id": "shine-data-storage-and-archive-rev-a14b336b",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1203,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1203,
+        "min_chars": 10,
+        "max_chars": 1179,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "historical": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-a00f759c",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1650,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 1650,
+        "min_chars": 14,
+        "max_chars": 895,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-9d5de275",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2638,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 2638,
+        "min_chars": 32,
+        "max_chars": 927,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-eda64af5",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 1,
+      "ineligible_by_reason": {
+        "document_title_only": 1
+      },
+      "char_count": 2958,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 2958,
+        "min_chars": 19,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "historical": 5
+        }
+      }
+    },
+    {
+      "revision_id": "design-unknown-4fe07691-rev",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 52,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 52,
+        "min_chars": 3,
+        "max_chars": 35,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "historical": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-9aa08d8a",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4258,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 4258,
+        "min_chars": 14,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 11
+        },
+        "by_usage_status": {
+          "pending_review": 11
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-73552d9f",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1468,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1468,
+        "min_chars": 274,
+        "max_chars": 1194,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "pending_review": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-2a16a52e",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1684,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 1684,
+        "min_chars": 11,
+        "max_chars": 959,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 5
+        },
+        "by_usage_status": {
+          "pending_review": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-operation-manual-series-rev-ec081ce3",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1372,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1372,
+        "min_chars": 35,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "pending_review": 3
+        }
+      }
+    },
+    {
+      "revision_id": "review-meeting-record-fffb37b5-rev",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3504,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 3504,
+        "min_chars": 1138,
+        "max_chars": 1188,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-005a9d75",
+      "status": "chunked",
+      "chunk_count": 24,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 23,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6119,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 24,
+        "document_count": 1,
+        "total_chars": 6119,
+        "min_chars": 17,
+        "max_chars": 917,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "slide": 24
+        },
+        "by_usage_status": {
+          "reference": 24
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-2887187d",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7917,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 7917,
+        "min_chars": 822,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 7
+        },
+        "by_usage_status": {
+          "reference": 7
+        }
+      }
+    },
+    {
+      "revision_id": "shine-timing-system-design-rev-fcfd3af1",
+      "status": "chunked",
+      "chunk_count": 41,
+      "eligible_chunk_count": 41,
+      "indexable_chunk_count": 37,
+      "short_chunks_filtered": 4,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8664,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 41,
+        "document_count": 1,
+        "total_chars": 8664,
+        "min_chars": 8,
+        "max_chars": 665,
+        "chunks_under_20_chars": 4,
+        "chunks_under_50_chars": 8,
+        "by_position_kind": {
+          "slide": 41
+        },
+        "by_usage_status": {
+          "reference": 41
+        }
+      }
+    },
+    {
+      "revision_id": "timing-meeting-record-ec4f85b7-rev",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1180,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 1180,
+        "min_chars": 1180,
+        "max_chars": 1180,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 1
+        },
+        "by_usage_status": {
+          "reference": 1
+        }
+      }
+    },
+    {
+      "revision_id": "review-review-opinion-22b0719a-rev",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 6,
+      "short_chunks_filtered": 6,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1300,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 12,
+        "document_count": 1,
+        "total_chars": 1300,
+        "min_chars": 4,
+        "max_chars": 641,
+        "chunks_under_20_chars": 6,
+        "chunks_under_50_chars": 7,
+        "by_position_kind": {
+          "slide": 12
+        },
+        "by_usage_status": {
+          "reference": 12
+        }
+      }
+    },
+    {
+      "revision_id": "review-review-opinion-a5d7f741-rev",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 13,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7515,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 7515,
+        "min_chars": 6,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "slide": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "review-review-opinion-87f14cc2-rev",
+      "status": "chunked",
+      "chunk_count": 25,
+      "eligible_chunk_count": 25,
+      "indexable_chunk_count": 22,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8868,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 25,
+        "document_count": 1,
+        "total_chars": 8868,
+        "min_chars": 5,
+        "max_chars": 1191,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "slide": 25
+        },
+        "by_usage_status": {
+          "reference": 25
+        }
+      }
+    },
+    {
+      "revision_id": "review-review-opinion-dbe8f471-rev",
+      "status": "chunked",
+      "chunk_count": 32,
+      "eligible_chunk_count": 32,
+      "indexable_chunk_count": 27,
+      "short_chunks_filtered": 5,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5942,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 32,
+        "document_count": 1,
+        "total_chars": 5942,
+        "min_chars": 6,
+        "max_chars": 636,
+        "chunks_under_20_chars": 5,
+        "chunks_under_50_chars": 7,
+        "by_position_kind": {
+          "slide": 32
+        },
+        "by_usage_status": {
+          "reference": 32
+        }
+      }
+    },
+    {
+      "revision_id": "review-review-opinion-b6fb8a08-rev",
+      "status": "chunked",
+      "chunk_count": 20,
+      "eligible_chunk_count": 20,
+      "indexable_chunk_count": 18,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4779,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 20,
+        "document_count": 1,
+        "total_chars": 4779,
+        "min_chars": 6,
+        "max_chars": 771,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "slide": 20
+        },
+        "by_usage_status": {
+          "reference": 20
+        }
+      }
+    },
+    {
+      "revision_id": "network-interface-specification-9fbf4318-rev",
+      "status": "chunked",
+      "chunk_count": 31,
+      "eligible_chunk_count": 31,
+      "indexable_chunk_count": 31,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 28228,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 31,
+        "document_count": 1,
+        "total_chars": 28228,
+        "min_chars": 291,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 31
+        },
+        "by_usage_status": {
+          "reference": 31
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-review-opinion-6558bd90-rev",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5137,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 5137,
+        "min_chars": 923,
+        "max_chars": 1168,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 5
+        },
+        "by_usage_status": {
+          "reference": 5
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-review-opinion-cd39daca-rev",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6658,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 6658,
+        "min_chars": 343,
+        "max_chars": 1199,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "control-architecture-review-opinion-e6a9d0d9-rev",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2790,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 2790,
+        "min_chars": 6,
+        "max_chars": 936,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 7
+        },
+        "by_usage_status": {
+          "reference": 7
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-18e00a41",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 14,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 11588,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 11588,
+        "min_chars": 60,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-a23bdd5e",
+      "status": "chunked",
+      "chunk_count": 34,
+      "eligible_chunk_count": 34,
+      "indexable_chunk_count": 34,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4238,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 34,
+        "document_count": 1,
+        "total_chars": 4238,
+        "min_chars": 20,
+        "max_chars": 383,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "slide": 34
+        },
+        "by_usage_status": {
+          "reference": 34
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-cb7a647f",
+      "status": "chunked",
+      "chunk_count": 23,
+      "eligible_chunk_count": 23,
+      "indexable_chunk_count": 20,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 6303,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 23,
+        "document_count": 1,
+        "total_chars": 6303,
+        "min_chars": 5,
+        "max_chars": 1031,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 23
+        },
+        "by_usage_status": {
+          "reference": 23
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-274f4d70",
+      "status": "chunked",
+      "chunk_count": 32,
+      "eligible_chunk_count": 32,
+      "indexable_chunk_count": 31,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5413,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 32,
+        "document_count": 1,
+        "total_chars": 5413,
+        "min_chars": 18,
+        "max_chars": 391,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "slide": 32
+        },
+        "by_usage_status": {
+          "reference": 32
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-849da7e8",
+      "status": "chunked",
+      "chunk_count": 16,
+      "eligible_chunk_count": 16,
+      "indexable_chunk_count": 16,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2597,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 16,
+        "document_count": 1,
+        "total_chars": 2597,
+        "min_chars": 27,
+        "max_chars": 250,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "slide": 16
+        },
+        "by_usage_status": {
+          "reference": 16
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-887ee55c",
+      "status": "chunked",
+      "chunk_count": 9,
+      "eligible_chunk_count": 9,
+      "indexable_chunk_count": 9,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7210,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 9,
+        "document_count": 1,
+        "total_chars": 7210,
+        "min_chars": 70,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 9
+        },
+        "by_usage_status": {
+          "reference": 9
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-52ddc518",
+      "status": "chunked",
+      "chunk_count": 24,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 24,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5873,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 24,
+        "document_count": 1,
+        "total_chars": 5873,
+        "min_chars": 49,
+        "max_chars": 917,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "slide": 24
+        },
+        "by_usage_status": {
+          "reference": 24
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-a0ac5b09",
+      "status": "chunked",
+      "chunk_count": 18,
+      "eligible_chunk_count": 18,
+      "indexable_chunk_count": 17,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 4948,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 18,
+        "document_count": 1,
+        "total_chars": 4948,
+        "min_chars": 7,
+        "max_chars": 929,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 18
+        },
+        "by_usage_status": {
+          "reference": 18
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-c60664e0",
+      "status": "chunked",
+      "chunk_count": 17,
+      "eligible_chunk_count": 17,
+      "indexable_chunk_count": 17,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 13646,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 17,
+        "document_count": 1,
+        "total_chars": 13646,
+        "min_chars": 365,
+        "max_chars": 1189,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 17
+        },
+        "by_usage_status": {
+          "reference": 17
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-b3cfdc93",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 14,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 9283,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 9283,
+        "min_chars": 38,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-dc14f6ea",
+      "status": "chunked",
+      "chunk_count": 20,
+      "eligible_chunk_count": 20,
+      "indexable_chunk_count": 18,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5452,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 20,
+        "document_count": 1,
+        "total_chars": 5452,
+        "min_chars": 7,
+        "max_chars": 953,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "paragraph": 20
+        },
+        "by_usage_status": {
+          "reference": 20
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-6eeb7a51",
+      "status": "chunked",
+      "chunk_count": 16,
+      "eligible_chunk_count": 16,
+      "indexable_chunk_count": 16,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 16372,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 16,
+        "document_count": 1,
+        "total_chars": 16372,
+        "min_chars": 37,
+        "max_chars": 1576,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 16
+        },
+        "by_usage_status": {
+          "reference": 16
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-fb983000",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1912,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1912,
+        "min_chars": 113,
+        "max_chars": 1040,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-eae18b75",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8054,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 8054,
+        "min_chars": 908,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 7
+        },
+        "by_usage_status": {
+          "reference": 7
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-fast-interlock-acceptance-rev-65ef5689",
+      "status": "chunked",
+      "chunk_count": 46,
+      "eligible_chunk_count": 46,
+      "indexable_chunk_count": 45,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7759,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 46,
+        "document_count": 1,
+        "total_chars": 7759,
+        "min_chars": 7,
+        "max_chars": 591,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "slide": 46
+        },
+        "by_usage_status": {
+          "reference": 46
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-57360e44",
+      "status": "chunked",
+      "chunk_count": 6,
+      "eligible_chunk_count": 6,
+      "indexable_chunk_count": 6,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5395,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 6,
+        "document_count": 1,
+        "total_chars": 5395,
+        "min_chars": 501,
+        "max_chars": 1141,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 6
+        },
+        "by_usage_status": {
+          "reference": 6
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-651e9729",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3052,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 3052,
+        "min_chars": 72,
+        "max_chars": 527,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "slide": 11
+        },
+        "by_usage_status": {
+          "reference": 11
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-7abc5dda",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1372,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1372,
+        "min_chars": 251,
+        "max_chars": 1121,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-a70950eb",
+      "status": "chunked",
+      "chunk_count": 10,
+      "eligible_chunk_count": 10,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7186,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 10,
+        "document_count": 1,
+        "total_chars": 7186,
+        "min_chars": 59,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 10
+        },
+        "by_usage_status": {
+          "reference": 10
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-11066a8f",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1951,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1951,
+        "min_chars": 326,
+        "max_chars": 1152,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-8d7a6e9c",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1299,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1299,
+        "min_chars": 183,
+        "max_chars": 1116,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-8c544d9d",
+      "status": "chunked",
+      "chunk_count": 16,
+      "eligible_chunk_count": 16,
+      "indexable_chunk_count": 16,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 14539,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 16,
+        "document_count": 1,
+        "total_chars": 14539,
+        "min_chars": 36,
+        "max_chars": 1337,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 16
+        },
+        "by_usage_status": {
+          "reference": 16
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-constant-temperature-cabinet-acceptance-rev-086e1ab9",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1899,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1899,
+        "min_chars": 115,
+        "max_chars": 1155,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-8ff4f605",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2913,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 12,
+        "document_count": 1,
+        "total_chars": 2913,
+        "min_chars": 4,
+        "max_chars": 587,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 12
+        },
+        "by_usage_status": {
+          "reference": 12
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-16bef6dc",
+      "status": "chunked",
+      "chunk_count": 16,
+      "eligible_chunk_count": 16,
+      "indexable_chunk_count": 16,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 12262,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 16,
+        "document_count": 1,
+        "total_chars": 12262,
+        "min_chars": 236,
+        "max_chars": 1143,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 16
+        },
+        "by_usage_status": {
+          "reference": 16
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-26b859ef",
+      "status": "chunked",
+      "chunk_count": 27,
+      "eligible_chunk_count": 27,
+      "indexable_chunk_count": 27,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 21534,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 27,
+        "document_count": 1,
+        "total_chars": 21534,
+        "min_chars": 62,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 27
+        },
+        "by_usage_status": {
+          "reference": 27
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-eb646e98",
+      "status": "chunked",
+      "chunk_count": 16,
+      "eligible_chunk_count": 16,
+      "indexable_chunk_count": 16,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 32027,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 16,
+        "document_count": 1,
+        "total_chars": 32027,
+        "min_chars": 36,
+        "max_chars": 3112,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 16
+        },
+        "by_usage_status": {
+          "reference": 16
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-e10b2c95",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2501,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 2501,
+        "min_chars": 114,
+        "max_chars": 1358,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 4
+        },
+        "by_usage_status": {
+          "reference": 4
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-3f6c76ef",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 9063,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 9063,
+        "min_chars": 739,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-aa1b543f",
+      "status": "chunked",
+      "chunk_count": 24,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 24,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 8473,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 24,
+        "document_count": 1,
+        "total_chars": 8473,
+        "min_chars": 22,
+        "max_chars": 1179,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "slide": 24
+        },
+        "by_usage_status": {
+          "reference": 24
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-control-system-development-environment-acceptance-rev-0ddc9a9b",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3870,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 12,
+        "document_count": 1,
+        "total_chars": 3870,
+        "min_chars": 4,
+        "max_chars": 796,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 12
+        },
+        "by_usage_status": {
+          "reference": 12
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-d566c87c",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2584,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 2584,
+        "min_chars": 79,
+        "max_chars": 743,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-4ccbbdf9",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 9297,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 12,
+        "document_count": 1,
+        "total_chars": 9297,
+        "min_chars": 265,
+        "max_chars": 1172,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 12
+        },
+        "by_usage_status": {
+          "reference": 12
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-797f5569",
+      "status": "chunked",
+      "chunk_count": 25,
+      "eligible_chunk_count": 25,
+      "indexable_chunk_count": 23,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 12679,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 25,
+        "document_count": 1,
+        "total_chars": 12679,
+        "min_chars": 14,
+        "max_chars": 1192,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 25
+        },
+        "by_usage_status": {
+          "reference": 25
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-9c3b0792",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 8,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2847,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 2847,
+        "min_chars": 88,
+        "max_chars": 757,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-c6cbe796",
+      "status": "chunked",
+      "chunk_count": 25,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 23,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 1,
+      "ineligible_by_reason": {
+        "boilerplate_only": 1
+      },
+      "char_count": 6668,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 25,
+        "document_count": 1,
+        "total_chars": 6668,
+        "min_chars": 4,
+        "max_chars": 1185,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 5,
+        "by_position_kind": {
+          "slide": 25
+        },
+        "by_usage_status": {
+          "reference": 25
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-b8744e0c",
+      "status": "chunked",
+      "chunk_count": 16,
+      "eligible_chunk_count": 16,
+      "indexable_chunk_count": 16,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 18487,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 16,
+        "document_count": 1,
+        "total_chars": 18487,
+        "min_chars": 36,
+        "max_chars": 1738,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 16
+        },
+        "by_usage_status": {
+          "reference": 16
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-9ee264dd",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1694,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1694,
+        "min_chars": 118,
+        "max_chars": 907,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-vacuum-control-acceptance-rev-ecdbd61a",
+      "status": "chunked",
+      "chunk_count": 32,
+      "eligible_chunk_count": 32,
+      "indexable_chunk_count": 30,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7819,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 32,
+        "document_count": 1,
+        "total_chars": 7819,
+        "min_chars": 10,
+        "max_chars": 1078,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 4,
+        "by_position_kind": {
+          "slide": 32
+        },
+        "by_usage_status": {
+          "reference": 32
+        }
+      }
+    },
+    {
+      "revision_id": "acceptance-structured-list-cb5ed7c0-rev",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1394,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 1394,
+        "min_chars": 80,
+        "max_chars": 694,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 4
+        },
+        "by_usage_status": {
+          "historical": 4
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-c6a5b9dd",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1498,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 1498,
+        "min_chars": 4,
+        "max_chars": 509,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "paragraph": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-64817d0b",
+      "status": "chunked",
+      "chunk_count": 5,
+      "eligible_chunk_count": 5,
+      "indexable_chunk_count": 5,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3732,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 5,
+        "document_count": 1,
+        "total_chars": 3732,
+        "min_chars": 509,
+        "max_chars": 1003,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 5
+        },
+        "by_usage_status": {
+          "reference": 5
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-e6a12f47",
+      "status": "chunked",
+      "chunk_count": 37,
+      "eligible_chunk_count": 37,
+      "indexable_chunk_count": 33,
+      "short_chunks_filtered": 4,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 11096,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 37,
+        "document_count": 1,
+        "total_chars": 11096,
+        "min_chars": 2,
+        "max_chars": 1189,
+        "chunks_under_20_chars": 4,
+        "chunks_under_50_chars": 9,
+        "by_position_kind": {
+          "paragraph": 37
+        },
+        "by_usage_status": {
+          "reference": 37
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-3e7259b3",
+      "status": "chunked",
+      "chunk_count": 14,
+      "eligible_chunk_count": 14,
+      "indexable_chunk_count": 13,
+      "short_chunks_filtered": 1,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3469,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 14,
+        "document_count": 1,
+        "total_chars": 3469,
+        "min_chars": 4,
+        "max_chars": 973,
+        "chunks_under_20_chars": 1,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 14
+        },
+        "by_usage_status": {
+          "reference": 14
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-f248f5c6",
+      "status": "chunked",
+      "chunk_count": 10,
+      "eligible_chunk_count": 10,
+      "indexable_chunk_count": 10,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7174,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 10,
+        "document_count": 1,
+        "total_chars": 7174,
+        "min_chars": 37,
+        "max_chars": 1365,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "paragraph": 10
+        },
+        "by_usage_status": {
+          "reference": 10
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-898e4159",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1648,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 1648,
+        "min_chars": 117,
+        "max_chars": 879,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-f459fb45",
+      "status": "chunked",
+      "chunk_count": 7,
+      "eligible_chunk_count": 7,
+      "indexable_chunk_count": 7,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7302,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 7,
+        "document_count": 1,
+        "total_chars": 7302,
+        "min_chars": 150,
+        "max_chars": 1194,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 7
+        },
+        "by_usage_status": {
+          "reference": 7
+        }
+      }
+    },
+    {
+      "revision_id": "shine-prototype-high-frame-rate-image-acquisition-acceptance-rev-806ece99",
+      "status": "chunked",
+      "chunk_count": 24,
+      "eligible_chunk_count": 24,
+      "indexable_chunk_count": 21,
+      "short_chunks_filtered": 3,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7129,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 24,
+        "document_count": 1,
+        "total_chars": 7129,
+        "min_chars": 7,
+        "max_chars": 1197,
+        "chunks_under_20_chars": 3,
+        "chunks_under_50_chars": 3,
+        "by_position_kind": {
+          "slide": 24
+        },
+        "by_usage_status": {
+          "reference": 24
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-a3f4b84d",
+      "status": "chunked",
+      "chunk_count": 12,
+      "eligible_chunk_count": 12,
+      "indexable_chunk_count": 12,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 13095,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 12,
+        "document_count": 1,
+        "total_chars": 13095,
+        "min_chars": 80,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 12
+        },
+        "by_usage_status": {
+          "pending_review": 12
+        }
+      }
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-809d76b0",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2294,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 2294,
+        "min_chars": 1099,
+        "max_chars": 1195,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "paragraph": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-ec572f07",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1220,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1220,
+        "min_chars": 39,
+        "max_chars": 1181,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "pdf_page": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-2b521f09",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 510,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 510,
+        "min_chars": 510,
+        "max_chars": 510,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 1
+        },
+        "by_usage_status": {
+          "reference": 1
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-dd6df538",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3587,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 3587,
+        "min_chars": 44,
+        "max_chars": 1192,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 1,
+        "by_position_kind": {
+          "pdf_page": 4
+        },
+        "by_usage_status": {
+          "reference": 4
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-d738fbf9",
+      "status": "chunked",
+      "chunk_count": 4,
+      "eligible_chunk_count": 4,
+      "indexable_chunk_count": 4,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3717,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 4,
+        "document_count": 1,
+        "total_chars": 3717,
+        "min_chars": 216,
+        "max_chars": 1185,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 4
+        },
+        "by_usage_status": {
+          "reference": 4
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-302424d8",
+      "status": "chunked",
+      "chunk_count": 2,
+      "eligible_chunk_count": 2,
+      "indexable_chunk_count": 2,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 1967,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 2,
+        "document_count": 1,
+        "total_chars": 1967,
+        "min_chars": 799,
+        "max_chars": 1168,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 2
+        },
+        "by_usage_status": {
+          "reference": 2
+        }
+      }
+    },
+    {
+      "revision_id": "shine-control-standards-2024-rev-b270bc6e",
+      "status": "chunked",
+      "chunk_count": 3,
+      "eligible_chunk_count": 3,
+      "indexable_chunk_count": 3,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 3310,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 3,
+        "document_count": 1,
+        "total_chars": 3310,
+        "min_chars": 937,
+        "max_chars": 1198,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 3
+        },
+        "by_usage_status": {
+          "reference": 3
+        }
+      }
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-5e0aacca",
+      "status": "chunked",
+      "chunk_count": 8,
+      "eligible_chunk_count": 8,
+      "indexable_chunk_count": 6,
+      "short_chunks_filtered": 2,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 2040,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 8,
+        "document_count": 1,
+        "total_chars": 2040,
+        "min_chars": 9,
+        "max_chars": 527,
+        "chunks_under_20_chars": 2,
+        "chunks_under_50_chars": 2,
+        "by_position_kind": {
+          "slide": 8
+        },
+        "by_usage_status": {
+          "reference": 8
+        }
+      }
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-c5611140",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 978,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 978,
+        "min_chars": 978,
+        "max_chars": 978,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 1
+        },
+        "by_usage_status": {
+          "reference": 1
+        }
+      }
+    },
+    {
+      "revision_id": "standards-standard-specification-78a0894e-rev",
+      "status": "chunked",
+      "chunk_count": 18,
+      "eligible_chunk_count": 18,
+      "indexable_chunk_count": 18,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 14667,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 18,
+        "document_count": 1,
+        "total_chars": 14667,
+        "min_chars": 513,
+        "max_chars": 1137,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 18
+        },
+        "by_usage_status": {
+          "reference": 18
+        }
+      }
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-ed248111",
+      "status": "chunked",
+      "chunk_count": 6,
+      "eligible_chunk_count": 6,
+      "indexable_chunk_count": 6,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 5787,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 6,
+        "document_count": 1,
+        "total_chars": 5787,
+        "min_chars": 675,
+        "max_chars": 1187,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 6
+        },
+        "by_usage_status": {
+          "reference": 6
+        }
+      }
+    },
+    {
+      "revision_id": "shine-device-naming-rules-rev-1ae132e6",
+      "status": "chunked",
+      "chunk_count": 11,
+      "eligible_chunk_count": 11,
+      "indexable_chunk_count": 11,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 7890,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 11,
+        "document_count": 1,
+        "total_chars": 7890,
+        "min_chars": 301,
+        "max_chars": 1102,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "pdf_page": 11
+        },
+        "by_usage_status": {
+          "reference": 11
+        }
+      }
+    },
+    {
+      "revision_id": "acceptance-structured-list-df2d46d4-rev",
+      "status": "chunked",
+      "chunk_count": 50,
+      "eligible_chunk_count": 50,
+      "indexable_chunk_count": 50,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 57357,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 50,
+        "document_count": 1,
+        "total_chars": 57357,
+        "min_chars": 517,
+        "max_chars": 1199,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "cell_range": 50
+        },
+        "by_usage_status": {
+          "reference": 50
+        }
+      }
+    },
+    {
+      "revision_id": "acceptance-structured-list-a5431570-rev",
+      "status": "chunked",
+      "chunk_count": 1,
+      "eligible_chunk_count": 1,
+      "indexable_chunk_count": 1,
+      "short_chunks_filtered": 0,
+      "ineligible_chunk_count": 0,
+      "ineligible_by_reason": {},
+      "char_count": 823,
+      "statistics": {
+        "algorithm": "kb2-chunks-v1",
+        "chunk_count": 1,
+        "document_count": 1,
+        "total_chars": 823,
+        "min_chars": 823,
+        "max_chars": 823,
+        "chunks_under_20_chars": 0,
+        "chunks_under_50_chars": 0,
+        "by_position_kind": {
+          "cell_range": 1
+        },
+        "by_usage_status": {
+          "reference": 1
+        }
+      }
+    }
+  ]
+}
