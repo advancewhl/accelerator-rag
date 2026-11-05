@@ -64,3 +64,9 @@ tmp/
 /output/rag-paper-source.zip
 /output/pdf/rag-paper-font-fixed.pdf
 /output/prompts/codex-paper-rewrite-20261027.md
+
+# 仅本地存档：含内部文档原文或逐字证据，不进入 Git
+/reports/incoming-*/
+/reports/knowledge-base-v2/prod/trace-*.json
+/reports/knowledge-base-v2/prod/ocr-*.json
+/reports/validity-pilot-online-20261030/traces/
