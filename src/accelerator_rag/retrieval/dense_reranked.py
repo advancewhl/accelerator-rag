@@ -23,8 +23,11 @@ class DenseRerankedRetriever:
         return hits
 
     def search_with_trace(self, query: str, *, top_k: int, scope=None):
-        if type(top_k) is not int or not 1 <= top_k <= 5:
-            raise ValueError("reranked retrieval returns one to five parents")
+        # Each dense model contributes its fixed Top-10 parents, so callers may
+        # request up to ten reranked parents (the requirement retriever needs
+        # ranks 6-10 to survive into fusion).
+        if type(top_k) is not int or not 1 <= top_k <= 10:
+            raise ValueError("reranked retrieval returns one to ten parents")
         parents, children = {}, {}
         for model, dense in self.retrievers.items():
             hits, traces, _ = dense.search_with_trace(query, top_k=10, scope=scope)

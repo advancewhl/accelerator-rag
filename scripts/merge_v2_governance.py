@@ -409,6 +409,84 @@ def _resolve_families(
     return list(updated.values()), families, unresolved
 
 
+def _apply_operation_manual_split(
+    revisions: list[RevisionRecord],
+    families: list[DocumentFamily],
+    generated_on: str,
+) -> tuple[list[RevisionRecord], list[DocumentFamily]]:
+    """Apply the reviewed device/manual split as part of the merge, not as a
+    manual post-processing step."""
+
+    from split_operation_manual_families import (  # noqa: PLC0415
+        DEVICE_FAMILIES,
+        FAMILY_BY_ID,
+        REVISION_DEVICE_SLUG,
+        REVISION_FAMILY_ID,
+        SERIES_FAMILY_ID,
+        SERIES_TAG,
+    )
+
+    updated = []
+    counts: dict[str, int] = {}
+    for revision in revisions:
+        family_id = REVISION_FAMILY_ID.get(revision.revision_id)
+        if family_id is None:
+            updated.append(revision)
+            continue
+        counts[family_id] = counts.get(family_id, 0) + 1
+        device_slug = REVISION_DEVICE_SLUG[revision.revision_id]
+        tags = [
+            tag
+            for tag in revision.tags
+            if tag != SERIES_TAG and not tag.startswith("device:")
+        ]
+        tags.extend([SERIES_TAG, f"device:{device_slug}"])
+        updated.append(
+            replace(
+                revision,
+                family_id=family_id,
+                tags=tuple(dict.fromkeys(tags)),
+            )
+        )
+    if not counts:
+        return updated, families
+    missing = {
+        family.family_id: len(family.revision_ids) - counts.get(family.family_id, 0)
+        for family in DEVICE_FAMILIES
+        if counts.get(family.family_id, 0) != len(family.revision_ids)
+    }
+    if missing:
+        raise SystemExit(
+            "operation-manual split cannot be applied; revision membership "
+            f"does not match the reviewed mapping: {missing}"
+        )
+    kept = [
+        family
+        for family in families
+        if family.family_id != SERIES_FAMILY_ID
+        and family.family_id not in FAMILY_BY_ID
+    ]
+    created = [
+        DocumentFamily(
+            family_id=family.family_id,
+            title=family.title,
+            description=family.description,
+            revision_ids=family.revision_ids,
+            notes="device/manual split from shine-control-operation-manual-series",
+            created_at=generated_on,
+        )
+        for family in DEVICE_FAMILIES
+    ]
+    return updated, kept + created
+
+
+def _display_path(path: Path) -> str:
+    try:
+        return str(path.relative_to(ROOT))
+    except ValueError:
+        return str(path)
+
+
 def main() -> int:
     args = parse_args()
     legacy = load_registry_v2(args.registry)
@@ -455,6 +533,9 @@ def main() -> int:
         list(legacy.revisions) + new_revisions,
         family_candidates,
         args.generated_on,
+    )
+    revisions, families = _apply_operation_manual_split(
+        revisions, families, args.generated_on
     )
     final_family_by_path = {
         revision.source_path: revision.family_id for revision in revisions
@@ -567,8 +648,8 @@ def main() -> int:
             Counter(revision.disposition for revision in revisions)
         ),
         "conflicts": len(ledger.conflicts),
-        "output": str(args.output.relative_to(ROOT)),
-        "conflict_output": str(args.conflict_output.relative_to(ROOT)),
+        "output": _display_path(args.output),
+        "conflict_output": _display_path(args.conflict_output),
     }
     args.report.write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

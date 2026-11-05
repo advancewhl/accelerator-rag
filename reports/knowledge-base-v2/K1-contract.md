@@ -15,7 +15,7 @@
 | `src/accelerator_rag/retrieval/scope.py` | 请求级 `RetrievalScope`，所有召回路径共用 |
 | `scripts/migrate_registry_v2.py` | 从 v1 注册表生成 `data/documents/v2/registry-v2.legacy-baseline.json` |
 | `scripts/merge_v2_governance.py` | 合并旧库、218 条处置、21 个族候选和 6 项冲突 |
-| `data/documents/v2/registry-v2.json` | 正式候选：210 条修订（旧 17 + 新批次 193）、235 条处置、74 个族 |
+| `data/documents/v2/registry-v2.json` | 正式候选：210 条修订（旧 17 + 新批次 193）、235 条处置、89 个族（后续 F11 设备族拆分） |
 | `data/documents/v2/registry-v2.legacy-baseline.json` | 旧库迁移快照：17 条修订（4 current / 13 reference） |
 | `tests/corpus/test_schema_v2.py` 等 | 契约、适配、切块、范围过滤测试 |
 
@@ -93,7 +93,7 @@
 | K1 新增测试 | Schema、适配、切块、范围过滤共 49 项通过 |
 | 全量测试 | K1 完成时 **315 passed**；K2/K3/K4 合并后最终 **454 passed, 2 skipped** |
 | 旧注册表迁移 | 17 条修订、17 个家族、17 条处置；4 current / 13 reference |
-| 批次治理合并 | 210 条修订、74 个族、235 条处置、6 项冲突；218 个批次文件全覆盖 |
+| 批次治理合并 | 210 条修订、89 个族（F11 拆分后）、235 条处置、6 项冲突；218 个批次文件全覆盖 |
 | `registry-v2.json` 加载 | 通过 Schema v2 全量校验 |
 | Ruff | 新增/修改模块无错误 |
 

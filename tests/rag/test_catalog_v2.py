@@ -255,7 +255,7 @@ def test_restricted_chunk_is_not_listed_in_public_catalog(tmp_path):
     assert catalog.snapshot()["families"] == []
 
 
-def test_new_office_formats_have_no_pdf_reader_url(tmp_path):
+def test_new_office_formats_have_a_normalized_reader_url(tmp_path):
     from accelerator_rag.rag.catalog import DocumentCatalog
 
     source = tmp_path / "manual.docx"
@@ -276,6 +276,7 @@ def test_new_office_formats_have_no_pdf_reader_url(tmp_path):
         approval_status="unknown",
         access_scope="internal",
         scope="",
+        tags="series:shine-control-operation-manual-series;device:timing",
         position_kind="paragraph",
         position_label="paragraph-4",
         effective_position_kind="paragraph",
@@ -286,8 +287,14 @@ def test_new_office_formats_have_no_pdf_reader_url(tmp_path):
     document = catalog.snapshot()["documents"][0]
 
     assert document["original_available"] is True
-    assert document["reader_available"] is False
-    assert document["document_url"] is None
+    assert document["reader_available"] is True
+    assert document["document_url"] == "/v1/rag/documents/manual-rev"
+    assert document["download_url"] == "/v1/rag/documents/manual-rev"
+    assert document["reader_kind"] == "office"
+    assert document["tags"] == [
+        "device:timing",
+        "series:shine-control-operation-manual-series",
+    ]
 
 
 def test_release_identity_reads_top_level_or_nested_config():

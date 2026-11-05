@@ -38,6 +38,11 @@ def make_chunk(
     access_scope="internal",
     family_id="",
     topic="ioc",
+    position_kind="",
+    section_path="",
+    document_ordinal=0,
+    approval_status="unknown",
+    tags="",
 ):
     return KnowledgeChunk(
         chunk_id,
@@ -55,7 +60,12 @@ def make_chunk(
         document_kind="subsystem_design",
         evidence_role="design_target",
         usage_status=usage_status,
+        approval_status=approval_status,
         access_scope=access_scope,
+        position_kind=position_kind,
+        section_path=section_path,
+        tags=tags,
+        document_ordinal=document_ordinal,
     )
 
 
@@ -381,6 +391,80 @@ def test_same_page_expansion_and_anchors_respect_scope():
         hit.chunk.chunk_id for hit in results
     }
     assert trace["scope"] == scope.describe()
+
+
+def test_approval_status_filter_rejects_unknown_and_draft():
+    approved = make_chunk("rev-a:approved", approval_status="approved")
+    draft = make_chunk("rev-a:draft", approval_status="draft")
+    unknown = make_chunk("rev-a:unknown", approval_status="")
+
+    scope = RetrievalScope(approval_statuses=frozenset({"approved"}))
+    assert scope.allows(approved)
+    assert not scope.allows(draft)
+    assert not scope.allows(unknown)
+    assert scope.describe()["approval_statuses"] == ["approved"]
+
+
+def test_tags_and_legacy_series_family_alias():
+    chunk = make_chunk(
+        "rev-a:tagged",
+        family_id="shine-control-operation-manual-timing",
+        tags=(
+            "series:shine-control-operation-manual-series;"
+            "device:timing;batch-2026-11-02"
+        ),
+    )
+
+    assert RetrievalScope(tags=frozenset({"series:shine-control-operation-manual-series"})).allows(chunk)
+    assert RetrievalScope(tags=frozenset({"device:timing"})).allows(chunk)
+    assert not RetrievalScope(tags=frozenset({"device:interlock"})).allows(chunk)
+    # Old clients still send the pre-split family ID.
+    assert RetrievalScope(
+        family_ids=frozenset({"shine-control-operation-manual-series"})
+    ).allows(chunk)
+    assert chunk.tag_list[-1] == "batch-2026-11-02"
+
+
+def test_paragraph_neighbors_follow_reading_order_not_page_number():
+    paragraphs = [
+        make_chunk(
+            f"rev-a:p{i}",
+            text=f"paragraph {i} about timing",
+            page=i,
+            position_kind="paragraph",
+            section_path="2. 定时系统",
+            document_ordinal=i,
+        )
+        for i in range(1, 6)
+    ]
+
+    class Dense:
+        def search_with_trace(self, query, *, top_k, scope=None):
+            return [RetrievalResult(1, 0.9, paragraphs[2], "fake")], [], {
+                "rerank_seconds": 0
+            }
+
+    class EmptyLexical:
+        def search(self, query, *, top_k, scope=None):
+            return []
+
+    class Reranker:
+        def score(self, query, texts):
+            return [0.5] * len(texts)
+
+    retriever = RequirementRetriever(
+        Dense(), paragraphs, Reranker()
+    )
+    retriever.lexical = EmptyLexical()
+    results, _trace = retriever.retrieve(
+        "timing", ["timing"], scope=default_scope()
+    )
+
+    # Each Word paragraph has its own position number; expansion must use the
+    # explicit reading order instead of the shared page bucket.
+    assert {hit.chunk.chunk_id for hit in results} == {
+        paragraph.chunk_id for paragraph in paragraphs
+    }
 
 
 def test_workflow_passes_scope_to_every_retrieval_round():

@@ -82,6 +82,8 @@ def test_default_scope_applies_explicit_filters():
                 "family_ids": ["family-a"],
                 "usage_statuses": ["current", "historical"],
                 "document_kinds": ["operation_manual"],
+                "approval_statuses": ["approved"],
+                "tags": ["series:shine-control-operation-manual-series"],
                 "topics": ["ioc"],
             },
         }
@@ -91,6 +93,8 @@ def test_default_scope_applies_explicit_filters():
     assert scope.family_ids == {"family-a"}
     assert scope.usage_statuses == {"current", "historical"}
     assert scope.document_kinds == {"operation_manual"}
+    assert scope.approval_statuses == {"approved"}
+    assert scope.tags == {"series:shine-control-operation-manual-series"}
     assert scope.topics == {"ioc"}
 
 
@@ -211,6 +215,18 @@ def test_unqueryable_explicit_usage_status_is_rejected():
         response = client.post(
             "/v1/rag/answer",
             json={"query": "q", "scope": {"usage_statuses": ["excluded"]}},
+        )
+    assert response.status_code == 422
+    assert response.json()["detail"]["code"] == "INVALID_RAG_INPUT"
+    assert not service.calls
+
+
+def test_unknown_approval_status_is_rejected():
+    service = RecordingService()
+    with TestClient(create_app(service)) as client:
+        response = client.post(
+            "/v1/rag/answer",
+            json={"query": "q", "scope": {"approval_statuses": ["sealed"]}},
         )
     assert response.status_code == 422
     assert response.json()["detail"]["code"] == "INVALID_RAG_INPUT"

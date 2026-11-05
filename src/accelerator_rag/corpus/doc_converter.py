@@ -170,6 +170,10 @@ def parse_doc(
     source_path: str | None = None,
     timeout: int = 180,
     output_dir: str | Path | None = None,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
     """Convert a ``.doc`` file and parse the resulting DOCX as the original."""
 
@@ -190,6 +194,10 @@ def parse_doc(
             title=resolved_title,
             parser_profile=parser_profile,
             source_path=resolved_source,
+            media_dir=media_dir,
+            media_prefix=media_prefix,
+            media_max_bytes=media_max_bytes,
+            media_min_bytes=media_min_bytes,
         )
         return replace(
             document,
@@ -219,6 +227,10 @@ def _parse_converted_docx(
     title: str,
     parser_profile: str,
     source_path: str,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
     return parse_docx(
         conversion.docx_path,
@@ -228,4 +240,8 @@ def _parse_converted_docx(
         parser_profile=parser_profile,
         source_path=source_path,
         source_format="doc",
+        media_dir=media_dir,
+        media_prefix=media_prefix,
+        media_max_bytes=media_max_bytes,
+        media_min_bytes=media_min_bytes,
     )

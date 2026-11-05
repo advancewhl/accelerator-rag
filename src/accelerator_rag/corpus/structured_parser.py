@@ -166,6 +166,31 @@ def parse_xlsx(
                 f"Cannot read cached XLSX values from {xlsx_path}: {exc}"
             ) from exc
 
+        # Read-only worksheets do not expose merged ranges.  A second, normal
+        # workbook is loaded only to record declared merges; values still come
+        # from the cached-value workbook above.
+        merged_by_sheet: dict[str, tuple[str, ...]] = {}
+        structure_book = None
+        try:
+            structure_book = load_workbook(
+                filename=xlsx_path,
+                read_only=False,
+                data_only=False,
+                keep_links=False,
+                keep_vba=False,
+            )
+            merged_by_sheet = {
+                worksheet.title: tuple(
+                    str(item) for item in worksheet.merged_cells.ranges
+                )
+                for worksheet in structure_book.worksheets
+            }
+        except Exception as exc:  # pragma: no cover - defensive
+            warnings.append(f"merged_ranges_unavailable:{type(exc).__name__}")
+        finally:
+            if structure_book is not None:
+                structure_book.close()
+
         try:
             for worksheet in formula_book.worksheets:
                 value_sheet = value_book[worksheet.title]
@@ -259,6 +284,12 @@ def parse_xlsx(
                     rows=table_rows,
                     header_rows=header_rows,
                     caption=caption,
+                    row_numbers=tuple(row_numbers),
+                    column_letters=tuple(
+                        get_column_letter(index)
+                        for index in range(1, width + 1)
+                    ),
+                    merged_ranges=merged_by_sheet.get(worksheet.title, ()),
                 )
                 status = _formula_status(formula_count, cached_count)
                 position = _cell_range_position(

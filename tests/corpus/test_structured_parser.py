@@ -114,11 +114,13 @@ def test_xlsx_reads_formulas_and_cached_values_without_links(
         path, revision_id="xlsx-sample-r1", source_path=XLSX_SOURCE
     )
 
-    assert len(calls) == 2
-    assert {call["data_only"] for call in calls} == {False, True}
+    assert len(calls) == 3
+    assert [call["read_only"] for call in calls] == [True, True, False]
+    assert {
+        call["data_only"] for call in calls if call["read_only"]
+    } == {False, True}
     assert all(call["keep_links"] is False for call in calls)
     assert all(call["keep_vba"] is False for call in calls)
-    assert all(call["read_only"] is True for call in calls)
 
 
 def test_xlsx_title_row_becomes_caption_and_header_moves_down(tmp_path):

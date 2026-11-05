@@ -6,7 +6,7 @@
 
 | 文件 | 内容 | 当前状态 |
 | --- | --- | --- |
-| `registry-v2.json` | 正式候选修订、文档族、逐文件处置 | 210 条修订（旧 17 + 新批次 193）、235 条处置、74 个族 |
+| `registry-v2.json` | 正式候选修订、文档族、逐文件处置 | 210 条修订（旧 17 + 新批次 193）、235 条处置、89 个族（F11 将 31 个操作手册修订拆为 16 个设备族） |
 | `registry-v2.legacy-baseline.json` | 旧库迁移快照 | 17 条修订；合并脚本的唯一合法输入 |
 | `dispositions.draft.json` | 2026-11-02 批次 218 个文件的处置候选 | 已生成并通过 Schema 校验 |
 | `family-candidates.draft.json` | 版本族候选 | 已生成（21 个族） |
@@ -23,6 +23,8 @@
 /home/whloong/miniconda3/envs/accelerator-rag/bin/python scripts/merge_v2_governance.py \
   --registry data/documents/v2/registry-v2.legacy-baseline.json
 ```
+
+`merge_v2_governance.py` 在合并末尾应用已评审的 F11 设备族拆分（31 个操作手册修订 → 16 个族），无需再手工运行后处理脚本；独立脚本 `scripts/split_operation_manual_families.py` 仅用于检查或迁移旧注册表。
 
 加载时会经过 `accelerator_rag.corpus.schema_v2.RegistryV2` 全量校验：
 

@@ -33,6 +33,13 @@ _QUERYABLE_USAGE_STATUSES = frozenset(
     }
 )
 _VALID_ACCESS_SCOPES = frozenset(item.value for item in AccessScope)
+# Old clients may still send the pre-split series family ID.  Keep it working
+# through the series tag rather than silently returning no documents.
+LEGACY_FAMILY_TAGS = {
+    "shine-control-operation-manual-series": (
+        "series:shine-control-operation-manual-series"
+    )
+}
 
 
 def _freeze(
@@ -61,7 +68,9 @@ class RetrievalScope:
     usage_statuses: frozenset[str] = DEFAULT_USAGE_STATUSES
     document_kinds: frozenset[str] | None = None
     evidence_roles: frozenset[str] | None = None
+    approval_statuses: frozenset[str] | None = None
     topics: frozenset[str] | None = None
+    tags: frozenset[str] | None = None
     access_scopes: frozenset[str] = DEFAULT_ACCESS_SCOPES
     allow_unknown_usage: bool = True
     allow_unknown_access: bool = True
@@ -76,7 +85,9 @@ class RetrievalScope:
             "family_ids",
             "document_kinds",
             "evidence_roles",
+            "approval_statuses",
             "topics",
+            "tags",
         ):
             object.__setattr__(
                 self, name, _freeze(getattr(self, name), name)
@@ -115,7 +126,13 @@ class RetrievalScope:
             return False
         if self.family_ids is not None:
             if chunk.effective_family_id not in self.family_ids:
-                return False
+                legacy_tags = {
+                    LEGACY_FAMILY_TAGS[family_id]
+                    for family_id in self.family_ids
+                    if family_id in LEGACY_FAMILY_TAGS
+                }
+                if not (set(chunk.tag_list) & legacy_tags):
+                    return False
         status = chunk.effective_usage_status
         if status == "unknown":
             if not self.allow_unknown_usage:
@@ -128,7 +145,12 @@ class RetrievalScope:
         if self.evidence_roles is not None:
             if chunk.evidence_role not in self.evidence_roles:
                 return False
+        if self.approval_statuses is not None:
+            if (chunk.approval_status or "unknown") not in self.approval_statuses:
+                return False
         if self.topics is not None and chunk.topic not in self.topics:
+            return False
+        if self.tags is not None and not (set(chunk.tag_list) & self.tags):
             return False
         access = chunk.access_scope or "unknown"
         if access == "unknown":
@@ -181,7 +203,9 @@ class RetrievalScope:
             "usage_statuses": sorted(self.usage_statuses),
             "document_kinds": values(self.document_kinds),
             "evidence_roles": values(self.evidence_roles),
+            "approval_statuses": values(self.approval_statuses),
             "topics": values(self.topics),
+            "tags": values(self.tags),
             "access_scopes": sorted(self.access_scopes),
             "allow_unknown_usage": self.allow_unknown_usage,
             "allow_unknown_access": self.allow_unknown_access,

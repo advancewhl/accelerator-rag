@@ -348,7 +348,7 @@ def test_merged_cells_keep_every_column(tmp_path):
     assert table_data.rows[1] == ("A", "B", "C")
 
 
-def test_omml_formula_is_kept_without_fake_latex(tmp_path):
+def test_omml_formula_is_converted_to_latex(tmp_path):
     path = tmp_path / "formula.docx"
     document = Document()
     document.add_paragraph("公式如下：")
@@ -360,12 +360,12 @@ def test_omml_formula_is_kept_without_fake_latex(tmp_path):
     formulas = parsed.blocks_of(BlockType.FORMULA.value)
     assert len(formulas) == 1
     formula = formulas[0]
-    assert formula.text == "E=mc^2"
+    assert formula.text == r"\(E=mc\^{}2\)"
     assert dict(formula.metadata) == {
         "formula_source": "omml",
-        "latex_status": "unresolved",
+        "latex_status": "latex",
+        "latex_source": "omml",
     }
-    assert "\\" not in formula.text
     assert dict(formula.position.locator)["omml"] == "true"
 
 

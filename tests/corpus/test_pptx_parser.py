@@ -244,6 +244,53 @@ def test_source_text_is_not_repaired_or_normalized(tmp_path):
     assert "2019" not in parsed.text
 
 
+def test_shapes_are_ordered_by_visual_position(tmp_path):
+    path = tmp_path / "deck.pptx"
+    presentation = Presentation()
+    slide = presentation.slides.add_slide(presentation.slide_layouts[6])
+    lower = slide.shapes.add_textbox(Inches(1), Inches(4), Inches(3), Inches(1))
+    lower.text = "较低的对象"
+    upper = slide.shapes.add_textbox(Inches(1), Inches(1), Inches(3), Inches(1))
+    upper.text = "较高的对象"
+    presentation.save(path)
+
+    parsed = parse(path)
+    texts = [block.text for block in parsed.blocks if block.text]
+
+    assert texts == ["较高的对象", "较低的对象"]
+    orders = [
+        dict(block.metadata)["object_order"]
+        for block in parsed.blocks
+        if block.position.kind == "slide"
+    ]
+    assert orders == ["0", "1"]
+
+
+def test_group_child_is_sorted_by_slide_coordinates(tmp_path):
+    path = tmp_path / "deck.pptx"
+    presentation = Presentation()
+    slide = presentation.slides.add_slide(presentation.slide_layouts[6])
+    external = slide.shapes.add_textbox(
+        Inches(1), Inches(2), Inches(3), Inches(1)
+    )
+    external.text = "外部上方"
+    group = slide.shapes.add_group_shape()
+    inside = group.shapes.add_textbox(Inches(0), Inches(0), Inches(3), Inches(1))
+    inside.text = "组内下方"
+    xfrm = group._element.grpSpPr.xfrm
+    xfrm.off.set("y", str(Inches(5)))
+    xfrm.ext.set("cx", str(Inches(3)))
+    xfrm.ext.set("cy", str(Inches(1)))
+    xfrm.chExt.set("cx", str(Inches(3)))
+    xfrm.chExt.set("cy", str(Inches(1)))
+    presentation.save(path)
+
+    parsed = parse(path)
+    texts = [block.text for block in parsed.blocks if block.text]
+
+    assert texts == ["外部上方", "组内下方"]
+
+
 def test_empty_presentation_has_warning(tmp_path):
     path = tmp_path / "empty.pptx"
     Presentation().save(path)

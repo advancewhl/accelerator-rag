@@ -10,6 +10,11 @@ markdownFrame.title = 'Markdown 原文';
 markdownFrame.style.cssText = 'width:100%;height:100%;border:0;background:white';
 markdownFrame.hidden = true;
 $('pdf-viewport').append(markdownFrame);
+const officeFrame = document.createElement('iframe');
+officeFrame.title = 'Office 文档正文';
+officeFrame.style.cssText = 'width:100%;height:100%;border:0;background:#f6f4ef';
+officeFrame.hidden = true;
+$('pdf-viewport').append(officeFrame);
 function controls(disabled = false) {
   $('pdf-prev').disabled = disabled || page <= 1;
   $('pdf-next').disabled = disabled || !pdf || page >= pdf.numPages;
@@ -56,6 +61,7 @@ function render() {
 export async function openReader(citation, trigger, options = {}) {
   const url = citation.document_url;
   const isMarkdown = ['md', 'markdown'].includes(citation.document_format);
+  const isOffice = ['docx', 'doc', 'pptx', 'xlsx', 'csv'].includes(citation.document_format);
   if (!/^\/v1\/rag\/documents\/[a-zA-Z0-9_-]+$/.test(url || '')) return;
   if (!visible) returnScroll = $('workspace').scrollTop;
   returnFocus = trigger || document.activeElement; visible = true;
@@ -65,21 +71,29 @@ export async function openReader(citation, trigger, options = {}) {
   $('reader-expand').hidden = Boolean(options.onClose);
   $('reader-close').textContent = options.backLabel || '← 证据列表';
   $('reader-title').textContent = citation.document_title;
-  $('reader-version').textContent = `${citation.number ? `引用 [${citation.number}]` : '知识库原文'} · ${citation.document_version === 'unknown' ? '文档未标明版本' : citation.document_version} · ${isMarkdown ? 'Markdown 章节索引' : 'PDF 物理页'}`;
+  $('reader-version').textContent = `${citation.number ? `引用 [${citation.number}]` : '知识库原文'} · ${citation.document_version === 'unknown' ? '文档未标明版本' : citation.document_version} · ${isMarkdown ? 'Markdown 章节索引' : isOffice ? '规范化正文' : 'PDF 物理页'}`;
   $('reader-close').focus({preventScroll:true});
   page = Math.max(1, Number(citation.page_start) || 1); zoom = 1;
   $('pdf-viewport').scrollTop = 0;
-  $('pdf-prev').closest('.reader-toolbar').hidden = isMarkdown;
+  $('pdf-prev').closest('.reader-toolbar').hidden = isMarkdown || isOffice;
   markdownFrame.hidden = !isMarkdown;
-  if (isMarkdown) {
+  officeFrame.hidden = !isOffice;
+  if (isMarkdown || isOffice) {
     generation++; renderTask?.cancel(); pdf = null; activeUrl = '';
     if (loading) { await loading.destroy(); loading = null; }
     controls(true); message(''); $('pdf-canvas').hidden = true;
     $('pdf-page').value = page; $('pdf-total').textContent = '';
-    $('pdf-caption').textContent = `章节索引 ${page}`;
-    markdownFrame.src = `${url}/view#section-${page}`;
+    if (isMarkdown) {
+      $('pdf-caption').textContent = `章节索引 ${page}`;
+      markdownFrame.src = `${url}/view#section-${page}`;
+    } else {
+      const anchor = citation.anchor_block_id || (citation.source_block_ids || [])[0] || '';
+      $('pdf-caption').textContent = citation.position_label || '规范化正文';
+      officeFrame.src = `${url}/view?embedded=1&block_id=${encodeURIComponent(anchor)}`;
+    }
     return;
   }
+  officeFrame.hidden = true;
   if (pdf && activeUrl === url) { page = Math.min(page, pdf.numPages); render(); return; }
   const id = ++generation;
   $('pdf-page').value = page; $('pdf-total').textContent = '/ …';

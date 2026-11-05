@@ -15,6 +15,14 @@ from accelerator_rag.providers.structured import inline_schema, normalize_tool_a
 from .context import EvidenceContext
 
 
+# Formats the workbench can open, either natively or through the Office
+# normalized-content reader.  Download itself is available for every indexed
+# revision; this set only controls the curated reader URL.
+_READABLE_SUFFIXES = frozenset(
+    {".pdf", ".md", ".markdown", ".docx", ".doc", ".pptx", ".xlsx", ".csv"}
+)
+
+
 class AnswerContractError(ValueError):
     """Unverifiable model output is withheld."""
 
@@ -29,6 +37,7 @@ class Requirement(Contract):
     )
     question: StrictStr = Field(min_length=1, max_length=1500)
     search_query: StrictStr = Field(default="", max_length=1500)
+    search_query_local: StrictStr = Field(default="", max_length=1500)
 
 
 class Requirements(Contract):
@@ -116,6 +125,16 @@ def _requires_exact_evidence(question):
             question,
             re.I,
         )
+    )
+
+
+def _unverified_evidence(chunk) -> bool:
+    """Parse-time quality signals that cannot solely support an exact claim."""
+
+    return (
+        getattr(chunk, "review_status", "") == "required"
+        or getattr(chunk, "formula_status", "") in {"unresolved", "mixed"}
+        or getattr(chunk, "extraction_method", "") == "ocr"
     )
 
 
@@ -229,7 +248,8 @@ def extract_requirements(provider, query):
         "协作、连接、因果等关系要求必须单独保留，不能用单个组件参数替代。"
         "询问信息如何管理时，问句应保留从产生或收集到使用的流程范围，不能缩减成存在哪里；仅问局部环节时不扩大范围。"
         "信息管理的 search_query 可用 lifecycle、registration、collection、storage、presentation 等通用检索概念，不预设具体实现。"
-        "每项 search_query 写适合检索的精简英文同义问法，保留系统与组件标识，不猜测答案、参数或设备功能。",
+        "每项 search_query 写适合检索的精简英文同义问法，保留系统与组件标识，不猜测答案、参数或设备功能。"
+        "每项 search_query_local 用问题或文档原文语言写同一检索意图；设备名称、PV 名、端子号、版本号必须逐字保留，禁止翻译或改写。",
         {"query": query},
         check,
     ).requirements
@@ -277,6 +297,19 @@ def select_evidence(
                 for requirement in requirements
                 if requirement.id == r.id
             )
+            if r.supported and _requires_exact_evidence(question) and r.span_ids:
+                chunks = [
+                    context.sources[context.spans[span][0]].chunk
+                    for span in r.span_ids
+                ]
+                if chunks and all(_unverified_evidence(chunk) for chunk in chunks):
+                    # Retrieval may use an unreviewed OCR page as a lead, but
+                    # an exact value cannot be completed from it alone.
+                    r.supported = False
+                    r.missing = (
+                        "仅命中待复核 OCR 或未恢复公式；精确数值需已确认"
+                        "原文或原页核对。"
+                    )
             if _requires_exact_evidence(question) and r.span_ids:
 
                 def scopes(bundle):
@@ -1028,29 +1061,55 @@ def resolve(answer, context):
         )
         if position_kind == "pdf_page":
             position_kind = "page"
-        citations.append(
-            {
-                "number": numbers[sid],
-                "source_id": sid,
-                "document_id": c.document_id,
-                "document_title": c.document_title,
-                "document_version": c.document_version,
-                "document_format": suffix.lstrip("."),
-                "locator_kind": position_kind,
-                "position_label": getattr(c, "position_label", ""),
-                "page_start": c.page_start,
-                "page_end": c.page_end,
-                "chunk_id": c.chunk_id,
-                "retrieval_rank": hit.rank,
-                "rerank_score": hit.score,
-                "quote": "\n\n".join(answer.quotes[sid]),
-                "document_url": (
-                    "/v1/rag/documents/" + c.document_id
-                    if suffix in {".pdf", ".md", ".markdown"}
-                    else None
-                ),
-            }
-        )
+        citation = {
+            "number": numbers[sid],
+            "source_id": sid,
+            "document_id": c.document_id,
+            "document_title": c.document_title,
+            "document_version": c.document_version,
+            "document_format": suffix.lstrip("."),
+            "locator_kind": position_kind,
+            "position_label": getattr(c, "position_label", ""),
+            "page_start": c.page_start,
+            "page_end": c.page_end,
+            "chunk_id": c.chunk_id,
+            "retrieval_rank": hit.rank,
+            "rerank_score": hit.score,
+            "quote": "\n\n".join(answer.quotes[sid]),
+            "document_url": (
+                "/v1/rag/documents/" + c.document_id
+                if suffix.lower() in _READABLE_SUFFIXES
+                else None
+            ),
+        }
+        for name in (
+            "document_kind",
+            "evidence_role",
+            "usage_status",
+            "approval_status",
+            "scope",
+            "section_path",
+            "section_id",
+            "position_locator",
+            "media_block_ids",
+            "content_role",
+            "extraction_method",
+            "review_status",
+            "formula_status",
+        ):
+            value = getattr(c, name, "")
+            if value:
+                citation[name] = value
+        block_ids = getattr(c, "source_block_id_list", ())
+        if block_ids:
+            citation["source_block_ids"] = list(block_ids)
+            citation["anchor_block_id"] = (
+                block_ids[-1]
+                if getattr(c, "content_role", "") == "table"
+                else block_ids[0]
+            )
+        citation["document_ordinal"] = getattr(c, "document_ordinal", 0)
+        citations.append(citation)
     return {
         "status": answer.status,
         "answer": SOURCE_REF.sub(lambda m: f"[{numbers['S' + m[1]]}]", answer.answer),

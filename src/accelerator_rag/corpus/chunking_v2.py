@@ -22,7 +22,8 @@ from accelerator_rag.domain.knowledge import KnowledgeChunk
 from accelerator_rag.domain.position import BlockType, PositionKind
 
 
-V2_CHUNKING_ALGORITHM = "kb2-chunks-v1"
+V2_CHUNKING_ALGORITHM = "kb2-chunks-v2"
+_MAX_SECTION_PATH_CHARS = 300
 
 
 @dataclass(frozen=True)
@@ -74,12 +75,165 @@ def _split_text(text: str, config: V2ChunkingConfig) -> list[str]:
     return [piece for piece in pieces if piece]
 
 
+def block_evidence_profile(
+    block: ParsedBlock, parsed: ParsedDocument
+) -> dict[str, str]:
+    """The parse-time character of one block, without inventing missing facts."""
+
+    metadata = dict(block.metadata)
+    role = block.block_type
+    if (
+        block.block_type == BlockType.PARAGRAPH.value
+        and metadata.get("container") == "textbox"
+    ):
+        role = "textbox"
+    elif block.block_type == BlockType.NOTE.value or metadata.get("source") == "notes":
+        role = "note"
+    elif metadata.get("source") == "image_ocr":
+        role = "image_ocr"
+    if metadata.get("ocr"):
+        extraction = "ocr"
+    elif parsed.source_format == "doc" or "libreoffice" in parsed.conversion_profile.casefold():
+        extraction = "converted"
+    elif parsed.source_format == "pdf":
+        extraction = "text_layer"
+    else:
+        extraction = "native"
+    review = (
+        "required"
+        if metadata.get("manual_review_required") == "true"
+        else ""
+    )
+    return {
+        "content_role": role,
+        "extraction_method": extraction,
+        "review_status": review,
+        "formula_status": metadata.get("latex_status", ""),
+    }
+
+
+def _common_profile(
+    blocks: tuple[ParsedBlock, ...], parsed: ParsedDocument
+) -> dict[str, str]:
+    """Keep a single character when all blocks agree; name a mixed parent."""
+
+    profiles = [block_evidence_profile(block, parsed) for block in blocks]
+    result = {}
+    for key in (
+        "content_role",
+        "extraction_method",
+        "review_status",
+        "formula_status",
+    ):
+        values = {profile[key] for profile in profiles if profile[key]}
+        if len(values) == 1:
+            result[key] = next(iter(values))
+        elif values:
+            result[key] = "mixed"
+        else:
+            result[key] = ""
+    return result
+
+
+def _locator_text(locator: tuple[tuple[str, str], ...]) -> str:
+    """Serialize the parser locator without losing table/sheet coordinates."""
+
+    return ";".join(
+        f"{str(key).strip()}={str(value).strip()}" for key, value in locator
+    )
+
+
+def _compact_section_path(path: str) -> str:
+    if len(path) <= _MAX_SECTION_PATH_CHARS:
+        return path
+    segments = path.split(" > ")
+    while len(segments) > 1 and len(" > ".join(segments)) > _MAX_SECTION_PATH_CHARS:
+        segments.pop(0)
+    return " > ".join(segments)
+
+
+def section_path_map(blocks: tuple[ParsedBlock, ...]) -> dict[str, str]:
+    """Heading breadcrumb for every block; readers reuse the chunking rule."""
+
+    stack: list[tuple[int, str]] = []
+    paths: dict[str, str] = {}
+    last_slide: int | None = None
+    for block in blocks:
+        if block.position.kind == PositionKind.SLIDE.value:
+            if last_slide is not None and block.position.start != last_slide:
+                # A slide title must not leak into the next slide's evidence.
+                stack = []
+            last_slide = block.position.start
+        if (
+            block.block_type == BlockType.HEADING.value
+            and block.heading_level
+        ):
+            while stack and stack[-1][0] >= block.heading_level:
+                stack.pop()
+            stack.append((block.heading_level, block.text.strip()))
+        paths[block.block_id] = _compact_section_path(
+            " > ".join(text for _, text in stack if text)
+        )
+    return paths
+
+
+def _section_paths(
+    blocks: tuple[ParsedBlock, ...], revision: RevisionRecord
+) -> dict[str, tuple[str, str]]:
+    """Map every block to its heading breadcrumb and a stable section ID."""
+
+    paths: dict[str, tuple[str, str]] = {}
+    for block_id, path in section_path_map(blocks).items():
+        section_id = ""
+        if path:
+            digest = sha256(
+                f"{revision.revision_id}\x1f{path}".encode()
+            ).hexdigest()[:16]
+            section_id = f"s-{digest}"
+        paths[block_id] = (path, section_id)
+    return paths
+
+
 def _groups(
     blocks: tuple[ParsedBlock, ...], max_heading_level: int
 ) -> list[list[ParsedBlock]]:
     groups: list[list[ParsedBlock]] = []
     current: list[ParsedBlock] = []
     for block in blocks:
+        # Speaker notes are page evidence, not slide-body prose.  Keeping them
+        # in a separate parent preserves the body/notes identity in retrieval.
+        if block.block_type == BlockType.NOTE.value:
+            if current and any(
+                item.block_type != BlockType.NOTE.value for item in current
+            ):
+                groups.append(current)
+                current = []
+            if (
+                current
+                and block.position.kind == PositionKind.SLIDE.value
+                and current[-1].position.kind == PositionKind.SLIDE.value
+                and block.position.start != current[-1].position.start
+            ):
+                # Notes-only consecutive slides must not merge into one chunk.
+                groups.append(current)
+                current = []
+            current.append(block)
+            continue
+        if current and all(
+            item.block_type == BlockType.NOTE.value for item in current
+        ):
+            groups.append(current)
+            current = []
+        if (
+            current
+            and block.position.kind == PositionKind.SLIDE.value
+            and current[-1].position.kind == PositionKind.SLIDE.value
+            and block.position.start != current[-1].position.start
+        ):
+            # A slide is the primary evidence boundary; never merge two slides
+            # just because their combined text fits the parent budget.
+            groups.append(current)
+            current = []
         if block.block_type == BlockType.TABLE.value:
             # A heading immediately before a table belongs to that table record;
             # otherwise a heading-only chunk would carry no evidence.
@@ -112,8 +266,8 @@ def _groups(
 
 def _pieces(
     blocks: list[ParsedBlock], config: V2ChunkingConfig
-) -> list[tuple[str, ParsedBlock, ParsedBlock]]:
-    pieces: list[tuple[str, ParsedBlock, ParsedBlock]] = []
+) -> list[tuple[str, tuple[ParsedBlock, ...]]]:
+    pieces: list[tuple[str, tuple[ParsedBlock, ...]]] = []
     current: list[ParsedBlock] = []
     current_chars = 0
 
@@ -125,18 +279,32 @@ def _pieces(
             block.effective_text.strip() for block in current if block.effective_text
         ).strip()
         if text:
-            pieces.append((text, current[0], current[-1]))
+            pieces.append((text, tuple(current)))
         current = []
         current_chars = 0
 
     for block in blocks:
         text = block.effective_text.strip()
         if not text:
+            # Keep an anchor for pictures that accompany text; the image does
+            # not contribute characters, but its block ID must survive.
+            if block.block_type == BlockType.IMAGE.value:
+                current.append(block)
             continue
         if len(text) > config.max_chars:
+            # A long OCR paragraph may be split away from its preceding image;
+            # attach the image anchor to the first split piece as well.
+            carried = tuple(
+                item
+                for item in current
+                if item.block_type == BlockType.IMAGE.value
+            )
             flush()
-            for piece in _split_text(text, config):
-                pieces.append((piece, block, block))
+            for index, piece in enumerate(_split_text(text, config)):
+                sources = (block,)
+                if index == 0 and carried:
+                    sources = carried + sources
+                pieces.append((piece, sources))
             continue
         if current and current_chars + len(text) + 2 > config.max_chars:
             flush()
@@ -273,11 +441,19 @@ def _make_chunk(
     position_start: int,
     position_end: int,
     position_label: str,
+    source_blocks: tuple[ParsedBlock, ...],
+    section_path: str,
+    section_id: str,
+    position_locator: str,
+    content_role: str = "",
     ordinal: int,
 ) -> KnowledgeChunk:
     text = text.strip()
     if not text:
         raise ChunkingV2Error("cannot create an empty evidence chunk")
+    profile = _common_profile(source_blocks, parsed)
+    if content_role:
+        profile["content_role"] = content_role
     return KnowledgeChunk(
         chunk_id=_chunk_id(
             revision,
@@ -310,6 +486,21 @@ def _make_chunk(
         position_kind=position_kind,
         position_label=position_label,
         access_scope=revision.access_scope,
+        source_block_ids=",".join(block.block_id for block in source_blocks),
+        content_role=profile["content_role"],
+        extraction_method=profile["extraction_method"],
+        review_status=profile["review_status"],
+        formula_status=profile["formula_status"],
+        section_path=section_path,
+        section_id=section_id,
+        position_locator=position_locator,
+        media_block_ids=",".join(
+            block.block_id
+            for block in source_blocks
+            if block.block_type == BlockType.IMAGE.value
+        ),
+        tags=";".join(revision.tags),
+        document_ordinal=ordinal,
     )
 
 
@@ -329,14 +520,23 @@ def chunk_parsed_document(
 
     chunks: list[KnowledgeChunk] = []
     table_ordinal = 0
+    paths = _section_paths(parsed.blocks, revision)
     for group in _groups(parsed.blocks, config.max_heading_level):
         if group[-1].block_type == BlockType.TABLE.value:
             table_ordinal += 1
             block = group[-1]
+            table_caption = (
+                block.table.caption.strip() if block.table is not None else ""
+            )
             prefix = "\n\n".join(
                 item.effective_text.strip()
                 for item in group[:-1]
                 if item.effective_text.strip()
+                and not (
+                    table_caption
+                    and item.block_type == BlockType.CAPTION.value
+                    and item.effective_text.strip() == table_caption
+                )
             ).strip()
             base_label = block.position.label or f"table-{table_ordinal}"
             header_rows = block.table.header_rows if block.table is not None else 0
@@ -351,6 +551,7 @@ def chunk_parsed_document(
                     if spreadsheet
                     else block.position.kind
                 )
+                section_path, section_id = paths[group[0].block_id]
                 chunks.append(
                     _make_chunk(
                         revision=revision,
@@ -371,6 +572,11 @@ def chunk_parsed_document(
                             if spreadsheet
                             else base_label
                         ),
+                        source_blocks=tuple(group),
+                        section_path=section_path,
+                        section_id=section_id,
+                        position_locator=_locator_text(block.position.locator),
+                        content_role=BlockType.TABLE.value,
                         ordinal=len(chunks),
                     )
                 )
@@ -381,11 +587,13 @@ def chunk_parsed_document(
                 "a chunk group cannot mix position kinds: "
                 + ", ".join(sorted(kinds))
             )
-        for text, first, last in _pieces(group, config):
+        for text, source_blocks in _pieces(group, config):
+            first, last = source_blocks[0], source_blocks[-1]
             if first.position.kind != last.position.kind:
                 raise ChunkingV2Error(
                     "a chunk cannot cross position kinds; split the block group"
                 )
+            section_path, section_id = paths[source_blocks[0].block_id]
             chunks.append(
                 _make_chunk(
                     revision=revision,
@@ -396,7 +604,74 @@ def chunk_parsed_document(
                     position_start=first.position.start,
                     position_end=last.position.end,
                     position_label=first.position.label,
+                    source_blocks=source_blocks,
+                    section_path=section_path,
+                    section_id=section_id,
+                    position_locator=_locator_text(first.position.locator),
                     ordinal=len(chunks),
+                )
+            )
+    covered = {
+        block_id
+        for chunk in chunks
+        for block_id in chunk.source_block_id_list
+    }
+    orphans = [
+        block
+        for block in parsed.blocks
+        if block.block_type == BlockType.IMAGE.value
+        and block.block_id not in covered
+    ]
+    for image in orphans:
+        section_path, section_id = paths[image.block_id]
+        chunks.append(
+            _make_chunk(
+                revision=revision,
+                parsed=parsed,
+                config=config,
+                text=image.caption.strip() or "[图片]",
+                position_kind=image.position.kind,
+                position_start=image.position.start,
+                position_end=image.position.end,
+                position_label=image.position.label,
+                source_blocks=(image,),
+                section_path=section_path,
+                section_id=section_id,
+                position_locator=_locator_text(image.position.locator),
+                content_role=BlockType.IMAGE.value,
+                ordinal=len(chunks),
+            )
+        )
+    if not chunks:
+        image = next(
+            (
+                block
+                for block in parsed.blocks
+                if block.block_type == BlockType.IMAGE.value
+            ),
+            None,
+        )
+        if image is not None:
+            # A picture-only document/page must still have an evidence anchor;
+            # it is short and has no identifier, so the index policy decides
+            # whether its placeholder text is searchable.
+            section_path, section_id = paths[image.block_id]
+            chunks.append(
+                _make_chunk(
+                    revision=revision,
+                    parsed=parsed,
+                    config=config,
+                    text=image.caption.strip() or "[图片]",
+                    position_kind=image.position.kind,
+                    position_start=image.position.start,
+                    position_end=image.position.end,
+                    position_label=image.position.label,
+                    source_blocks=(image,),
+                    section_path=section_path,
+                    section_id=section_id,
+                    position_locator=_locator_text(image.position.locator),
+                    content_role=BlockType.IMAGE.value,
+                    ordinal=0,
                 )
             )
     if not chunks:
@@ -429,4 +704,20 @@ def chunking_v2_statistics(chunks: list[KnowledgeChunk]) -> dict:
             status: sum(chunk.usage_status == status for chunk in chunks)
             for status in sorted({chunk.usage_status for chunk in chunks})
         },
+        "by_content_role": {
+            role: sum(chunk.content_role == role for chunk in chunks)
+            for role in sorted({chunk.content_role for chunk in chunks})
+            if role
+        },
+        "by_extraction_method": {
+            method: sum(chunk.extraction_method == method for chunk in chunks)
+            for method in sorted({chunk.extraction_method for chunk in chunks})
+            if method
+        },
+        "chunks_requiring_review": sum(
+            chunk.review_status == "required" for chunk in chunks
+        ),
+        "chunks_with_unresolved_formula": sum(
+            chunk.formula_status == "unresolved" for chunk in chunks
+        ),
     }

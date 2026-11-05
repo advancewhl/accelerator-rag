@@ -17,8 +17,22 @@ _OPTIONAL_TEXT_FIELDS = frozenset(
         "position_kind",
         "position_label",
         "access_scope",
+        # Block-level evidence character.  These are additive and default to
+        # empty so historical payloads decode unchanged.
+        "source_block_ids",
+        "content_role",
+        "extraction_method",
+        "review_status",
+        "formula_status",
+        "section_path",
+        "section_id",
+        "position_locator",
+        "media_block_ids",
+        "tags",
     }
 )
+
+_OPTIONAL_INT_FIELDS = frozenset({"document_ordinal"})
 
 
 @dataclass(frozen=True)
@@ -54,6 +68,17 @@ class KnowledgeChunk:
     position_kind: str = ""
     position_label: str = ""
     access_scope: str = ""
+    source_block_ids: str = ""
+    content_role: str = ""
+    extraction_method: str = ""
+    review_status: str = ""
+    formula_status: str = ""
+    section_path: str = ""
+    section_id: str = ""
+    position_locator: str = ""
+    media_block_ids: str = ""
+    tags: str = ""
+    document_ordinal: int = 0
 
     def __post_init__(self) -> None:
         for field in fields(self):
@@ -63,6 +88,10 @@ class KnowledgeChunk:
                     raise ValueError(f"{field.name} must be a string")
                 if value != value.strip():
                     raise ValueError(f"{field.name} must not have outer whitespace")
+                continue
+            if field.name in _OPTIONAL_INT_FIELDS:
+                if type(value) is not int or value < 0:
+                    raise ValueError(f"{field.name} must be a nonnegative integer")
                 continue
             if field.name not in {"page_start", "page_end"}:
                 if not isinstance(value, str) or not value.strip():
@@ -106,6 +135,20 @@ class KnowledgeChunk:
     def effective_usage_status(self) -> str:
         return self.usage_status or "unknown"
 
+    @property
+    def tag_list(self) -> tuple[str, ...]:
+        return tuple(tag for tag in self.tags.split(";") if tag)
+
+    @property
+    def source_block_id_list(self) -> tuple[str, ...]:
+        """Parsed-block identities that contributed to this evidence chunk."""
+
+        return tuple(
+            block_id
+            for block_id in self.source_block_ids.split(",")
+            if block_id
+        )
+
     def legacy_dict(self) -> dict:
         """The frozen 11-field v1 shape used by historical baseline hashes.
 
@@ -114,7 +157,7 @@ class KnowledgeChunk:
         """
 
         values = asdict(self)
-        for name in _OPTIONAL_TEXT_FIELDS:
+        for name in _OPTIONAL_TEXT_FIELDS | _OPTIONAL_INT_FIELDS:
             values.pop(name, None)
         return values
 

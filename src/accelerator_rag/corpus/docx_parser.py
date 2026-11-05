@@ -29,14 +29,17 @@ The document metadata records ``heading_style_count``,
 ``heading_heuristic_count`` and ``heading_detection=conservative`` so a build
 report can explain what happened.
 
-Formulas are kept as OMML-derived text with ``latex_status=unresolved``; no
-LaTeX is synthesized here.  If an OMML expression has no extractable text the
+Common OMML structures are converted to LaTeX (``latex_status=latex``) while
+unsupported or damaged expressions keep their extracted text and
+``latex_status=unresolved``.  If an OMML expression has no extractable text the
 block is still emitted with an explicit placeholder and a warning.
 """
 
 from __future__ import annotations
 
 from collections import Counter
+from dataclasses import replace
+from hashlib import sha256
 from pathlib import Path, PurePosixPath
 import re
 
@@ -45,6 +48,7 @@ from docx.oxml.ns import qn
 from docx.table import Table
 from docx.text.paragraph import Paragraph
 
+from accelerator_rag.corpus.omml import omml_paragraph_latex
 from accelerator_rag.corpus.parsed_document import (
     ParsedBlock,
     ParsedDocument,
@@ -425,6 +429,25 @@ def _make_block(
     )
 
 
+def _attach_image_captions(blocks: list[ParsedBlock]) -> list[ParsedBlock]:
+    """Attach a following caption block when the image had no preceding one."""
+
+    values = list(blocks)
+    for index, block in enumerate(values):
+        if block.block_type != BlockType.IMAGE.value or block.caption:
+            continue
+        for candidate in values[index + 1 : index + 2]:
+            if candidate.block_type != BlockType.CAPTION.value:
+                continue
+            metadata = block.metadata
+            if not any(key == "image_caption" for key, _ in metadata):
+                metadata += (("image_caption", candidate.text),)
+            metadata += (("caption_source", "following"),)
+            values[index] = replace(block, caption=candidate.text, metadata=metadata)
+            break
+    return values
+
+
 def _textbox_elements(element) -> list:
     return [
         child for child in element.iter() if child.tag == qn("w:txbxContent")
@@ -452,8 +475,16 @@ def parse_docx(
     parser_profile: str = "python-docx-v1",
     source_path: str | None = None,
     source_format: str = SourceFormat.DOCX.value,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
-    """Parse one DOCX file into typed, ordered blocks."""
+    """Parse one DOCX file into typed, ordered blocks.
+
+    ``media_dir`` materializes embedded images beside the parsed snapshot;
+    without it the IMAGE blocks still carry hashes and relationship IDs.
+    """
 
     docx_path = Path(path)
     if not docx_path.exists():
@@ -484,6 +515,84 @@ def parse_docx(
     heuristic_heading_count = 0
     textbox_count = 0
     textbox_paragraph_count = 0
+    image_count = 0
+    media_written = 0
+    media_names: dict[str, str] = {}
+    media_root = Path(media_dir) if media_dir is not None else None
+
+    def emit_images(element, body_index: int, caption: str) -> None:
+        nonlocal image_count, media_written
+        for blip in element.iter(qn("a:blip")):
+            rid = blip.get(qn("r:embed")) or blip.get(qn("r:link"))
+            if not rid:
+                continue
+            part = document.part.related_parts.get(rid)
+            if part is None:
+                warnings.append(f"image_relationship_missing:{body_index}")
+                continue
+            try:
+                blob = part.blob
+            except (AttributeError, KeyError, OSError, ValueError) as exc:
+                warnings.append(
+                    f"image_unreadable:{body_index}:{type(exc).__name__}"
+                )
+                continue
+            digest = sha256(blob).hexdigest()
+            extension = PurePosixPath(str(part.partname)).suffix.lower()
+            media_path = ""
+            media_status = "not_materialized"
+            if media_root is not None:
+                if digest in media_names:
+                    media_status = "duplicate"
+                    media_path = (
+                        f"{media_prefix}/{media_names[digest]}"
+                        if media_prefix
+                        else media_names[digest]
+                    )
+                elif len(blob) < media_min_bytes:
+                    media_status = "below_size_floor"
+                elif media_written + len(blob) > media_max_bytes:
+                    media_status = "budget_exceeded"
+                else:
+                    media_root.mkdir(parents=True, exist_ok=True)
+                    name = f"{digest[:16]}{extension}"
+                    (media_root / name).write_bytes(blob)
+                    media_names[digest] = name
+                    media_written += len(blob)
+                    media_status = "materialized"
+                    media_path = (
+                        f"{media_prefix}/{name}" if media_prefix else name
+                    )
+            image_count += 1
+            metadata = [
+                ("kind", "image"),
+                ("media_rid", rid),
+                ("media_sha256", digest),
+                ("media_bytes", str(len(blob))),
+                ("media_type", str(part.content_type)),
+                ("media_ext", extension.lstrip(".")),
+                ("media_status", media_status),
+            ]
+            if media_path:
+                metadata.append(("media_path", media_path))
+            if caption:
+                metadata.append(("image_caption", caption))
+            locator = (
+                ("image", str(image_count)),
+                ("relationship", rid),
+            )
+            blocks.append(
+                _make_block(
+                    revision_id=revision_id,
+                    asset_id=resolved_asset,
+                    ordinal=len(blocks),
+                    block_type=BlockType.IMAGE.value,
+                    text="",
+                    position=_position(body_index, locator),
+                    caption=caption,
+                    metadata=tuple(metadata),
+                )
+            )
 
     def emit_textboxes(element, body_index: int, anchor: str) -> None:
         nonlocal textbox_count, textbox_paragraph_count
@@ -525,18 +634,29 @@ def parse_docx(
             locator: list[tuple[str, str]] = []
             if style_name:
                 locator.append(("style", style_name))
+            emit_images(paragraph._p, body_index, last_caption)
 
             if _has_omml(paragraph):
                 last_caption = ""
-                text, extracted = _formula_text(paragraph)
+                latex, converted = omml_paragraph_latex(paragraph._p)
+                if converted:
+                    text = latex
+                    metadata: list[tuple[str, str]] = [
+                        ("formula_source", "omml"),
+                        ("latex_status", "latex"),
+                        ("latex_source", "omml"),
+                    ]
+                    extracted = True
+                else:
+                    text, extracted = _formula_text(paragraph)
+                    metadata = [
+                        ("formula_source", "omml"),
+                        ("latex_status", "unresolved"),
+                    ]
                 if not extracted:
                     warnings.append(
                         f"formula_text_unavailable:paragraph-{body_index}"
                     )
-                metadata: list[tuple[str, str]] = [
-                    ("formula_source", "omml"),
-                    ("latex_status", "unresolved"),
-                ]
                 if not extracted:
                     metadata.append(("formula_text_status", "unavailable"))
                 position = _position(body_index, tuple(locator) + (("omml", "true"),))
@@ -595,7 +715,11 @@ def parse_docx(
                     previous_is_table or next_is_table
                 )
                 if caption_style or caption_text:
-                    last_caption = text
+                    # A caption immediately after a table describes that table,
+                    # not the next picture.  Do not let it leak into image OCR.
+                    last_caption = (
+                        "" if previous_is_table and not next_is_table else text
+                    )
                     blocks.append(
                         _make_block(
                             revision_id=revision_id,
@@ -662,6 +786,7 @@ def parse_docx(
         else:
             table = item
             table_index += 1
+            emit_images(table._tbl, body_index, last_caption)
             table_data = _table_data(table)
             if table_data is None:
                 warnings.append(f"empty_table:paragraph-{body_index}")
@@ -699,6 +824,7 @@ def parse_docx(
 
     if not blocks and "empty_document" not in warnings:
         warnings.append("empty_document")
+    blocks = _attach_image_captions(blocks)
 
     core_title = str(document.core_properties.title or "").strip()
     resolved_title = title or core_title or first_heading or docx_path.stem
@@ -718,6 +844,7 @@ def parse_docx(
         ),
         ("textbox_count", str(textbox_count)),
         ("textbox_paragraph_count", str(textbox_paragraph_count)),
+        ("image_count", str(image_count)),
         ("toc_detection", "conservative"),
         ("toc_block_count", str(len(toc_indices))),
         ("body_font_size_pt", f"{body_size:g}"),

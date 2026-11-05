@@ -15,13 +15,16 @@ LEGACY = PROJECT_ROOT / "data/documents/v2/registry-v2.legacy-baseline.json"
 CONFLICTS = PROJECT_ROOT / "data/documents/v2/conflicts.json"
 BATCH_ID = "2026-11-02-shine-control"
 BATCH_ROOT = "data/l0_raw/incoming/2026-11-02-shine-control/资料/"
+SERIES_FAMILY_ID = "shine-control-operation-manual-series"
 
 
 def test_batch_artifact_covers_all_inputs_and_revisions():
     registry = load_registry_v2(REGISTRY)
 
     assert len(registry.revisions) == 210
-    assert len(registry.families) == 74
+    # F11 replaced the 31-revision operation-manual series family with 16
+    # explicit device/manual families: 74 - 1 + 16 = 89.
+    assert len(registry.families) == 89
     assert len(registry.dispositions) == 235
     batch = [
         item for item in registry.dispositions if item.batch_id == BATCH_ID
@@ -59,8 +62,12 @@ def test_batch_revisions_never_claim_approval_or_current_status():
     assert all(
         revision.usage_status != "current" for revision in batch_revisions
     )
+    # Revision IDs are immutable: after the F11 split the 31 operation-manual
+    # IDs still carry their original series prefix instead of the new device
+    # family_id.  All other revisions keep the family_id prefix invariant.
     assert all(
         revision.revision_id.startswith(revision.family_id)
+        or revision.revision_id.startswith(SERIES_FAMILY_ID)
         for revision in batch_revisions
     )
     assert all(

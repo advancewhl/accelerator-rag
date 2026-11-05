@@ -4,7 +4,11 @@ from contextlib import asynccontextmanager
 from dataclasses import replace
 import os
 from pathlib import Path
+import re
+import shutil
+import zipfile
 from typing import Annotated, Literal
+from urllib.parse import quote
 
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
@@ -17,7 +21,7 @@ from pydantic import (
     StringConstraints,
 )
 
-from accelerator_rag.corpus.schema_v2 import DocumentKind
+from accelerator_rag.corpus.schema_v2 import ApprovalStatus, DocumentKind
 from accelerator_rag.corpus.taxonomy_v2 import TOPICS_BY_CATEGORY
 from accelerator_rag.domain.model import ModelProviderError
 from accelerator_rag.retrieval.scope import (
@@ -27,6 +31,7 @@ from accelerator_rag.retrieval.scope import (
     version_scope,
 )
 from .answer import AnswerContractError
+from .reader import DocumentReader, ReaderRecord, ReaderUnavailable
 from .release import ReleaseIdentity, release_identity_from_config, release_status
 
 
@@ -38,12 +43,45 @@ RevisionId = Annotated[
 ]
 FamilyId = RevisionId
 _DOCUMENT_KINDS = frozenset(item.value for item in DocumentKind)
+_APPROVAL_STATUSES = frozenset(item.value for item in ApprovalStatus)
 _TOPICS = frozenset(
     topic for topics in TOPICS_BY_CATEGORY.values() for topic in topics
 )
 QUERYABLE_USAGE_STATUSES = frozenset(
     {"current", "historical", "reference", "pending_review"}
 )
+_MEDIA_TYPES = {
+    ".pdf": "application/pdf",
+    ".md": "text/markdown; charset=utf-8",
+    ".markdown": "text/markdown; charset=utf-8",
+    ".txt": "text/plain; charset=utf-8",
+    ".docx": (
+        "application/vnd.openxmlformats-officedocument."
+        "wordprocessingml.document"
+    ),
+    ".doc": "application/msword",
+    ".pptx": (
+        "application/vnd.openxmlformats-officedocument."
+        "presentationml.presentation"
+    ),
+    ".xlsx": (
+        "application/vnd.openxmlformats-officedocument."
+        "spreadsheetml.sheet"
+    ),
+    ".csv": "text/csv; charset=utf-8",
+}
+_OFFICE_SUFFIXES = {".docx", ".doc", ".pptx", ".xlsx", ".csv"}
+# Only browser-renderable raster formats are served.  SVG is deliberately
+# excluded: a same-origin SVG can execute script when opened directly.
+_IMAGE_TYPES = {
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".gif": "image/gif",
+    ".bmp": "image/bmp",
+    ".webp": "image/webp",
+}
+_MEDIA_NAME = re.compile(r"^[0-9a-f]{16}\.[a-z0-9]{2,5}$")
 
 
 class AnswerScopeRequest(BaseModel):
@@ -56,6 +94,8 @@ class AnswerScopeRequest(BaseModel):
     family_ids: list[FamilyId] = Field(default_factory=list, max_length=32)
     usage_statuses: list[StrictStr] = Field(default_factory=list, max_length=4)
     document_kinds: list[StrictStr] = Field(default_factory=list, max_length=16)
+    approval_statuses: list[StrictStr] = Field(default_factory=list, max_length=8)
+    tags: list[StrictStr] = Field(default_factory=list, max_length=16)
     topics: list[StrictStr] = Field(default_factory=list, max_length=32)
 
 
@@ -85,11 +125,18 @@ def _scope_filters(scope: AnswerScopeRequest) -> dict:
         if kinds - _DOCUMENT_KINDS:
             raise HTTPException(422, detail={"code": "INVALID_RAG_INPUT"})
         filters["document_kinds"] = kinds
+    if scope.approval_statuses:
+        statuses = frozenset(scope.approval_statuses)
+        if statuses - _APPROVAL_STATUSES:
+            raise HTTPException(422, detail={"code": "INVALID_RAG_INPUT"})
+        filters["approval_statuses"] = statuses
     if scope.topics:
         topics = frozenset(scope.topics)
         if topics - _TOPICS:
             raise HTTPException(422, detail={"code": "INVALID_RAG_INPUT"})
         filters["topics"] = topics
+    if scope.tags:
+        filters["tags"] = frozenset(scope.tags)
     return filters
 
 
@@ -147,11 +194,49 @@ def _answer_scope(
     return replace(base, **extra) if extra else base
 
 
+def _reader_record(app, document_id: str) -> ReaderRecord | None:
+    registry = getattr(app.state.rag, "documents", {})
+    path = registry.get(document_id)
+    if path is None or not path.is_file():
+        return None
+    sources = getattr(app.state.rag, "document_sources", {})
+    titles = getattr(app.state.rag, "document_titles", {})
+    source_path = sources.get(document_id) or (
+        f"data/l0_raw/office/{path.name}"
+    )
+    return ReaderRecord(
+        document_id=document_id,
+        path=path,
+        source_path=source_path,
+        title=titles.get(document_id) or path.stem,
+    )
+
+
+def _office_content_available(path: Path) -> bool:
+    suffix = path.suffix.lower()
+    if suffix in {".docx", ".pptx", ".xlsx"}:
+        return zipfile.is_zipfile(path)
+    if suffix == ".doc":
+        return shutil.which("soffice") is not None
+    return suffix == ".csv"
+
+
+def _reader(app) -> DocumentReader:
+    reader = getattr(app.state, "reader", None)
+    if reader is None:
+        reader = DocumentReader(
+            snapshot_dir=getattr(app.state.rag, "snapshot_dir", None)
+        )
+        app.state.reader = reader
+    return reader
+
+
 def create_app(service=None, *, config_path=None):
     @asynccontextmanager
     async def lifespan(app):
         if service is not None:
             app.state.rag = service
+            app.state.reader = getattr(service, "reader", None)
             yield
         else:
             from .runtime import RagRuntime
@@ -159,6 +244,7 @@ def create_app(service=None, *, config_path=None):
             with RagRuntime(config_path or os.environ["RAG_CONFIG"]) as runtime:
                 runtime.check_generation_service()
                 app.state.rag = runtime
+                app.state.reader = getattr(runtime, "reader", None)
                 yield
 
     app = FastAPI(title="Standalone RAG", lifespan=lifespan)
@@ -205,8 +291,10 @@ def create_app(service=None, *, config_path=None):
             return FileResponse(web / "document.html")
         if suffix in {".md", ".markdown"}:
             return FileResponse(web / "markdown-document.html")
-        # DOCX/PPTX/XLSX reading copies belong to the frozen release package;
-        # silently showing the Markdown reader would misrepresent the source.
+        if suffix in _OFFICE_SUFFIXES:
+            return FileResponse(web / "office-document.html")
+        # Unknown formats are registered but have no curated reader.  Never
+        # silently show the Markdown or PDF reader for another source type.
         raise HTTPException(
             501,
             detail={
@@ -214,6 +302,128 @@ def create_app(service=None, *, config_path=None):
                 "format": suffix.lstrip(".") or "unknown",
             },
         )
+
+    @app.get("/v1/rag/documents/{document_id}/content")
+    def document_content(
+        document_id: str,
+        offset: int = 0,
+        limit: int = 200,
+        block_id: str | None = None,
+    ):
+        if offset < 0 or not 1 <= limit <= 500:
+            raise HTTPException(422, detail={"code": "INVALID_CONTENT_RANGE"})
+        record = _reader_record(app, document_id)
+        if record is None:
+            raise HTTPException(404, detail={"code": "DOCUMENT_NOT_FOUND"})
+        if record.path.suffix.lower() not in _OFFICE_SUFFIXES:
+            raise HTTPException(422, detail={"code": "NATIVE_READER"})
+        try:
+            payload = _reader(app).read(record)
+        except ReaderUnavailable as exc:
+            raise HTTPException(
+                503,
+                detail={
+                    "code": "CONTENT_NOT_AVAILABLE",
+                    "format": record.path.suffix.lower().lstrip("."),
+                    "reason": str(exc),
+                },
+            ) from exc
+        blocks = payload["blocks"]
+        total = len(blocks)
+        start = min(offset, total)
+        if block_id:
+            index = next(
+                (
+                    position
+                    for position, block in enumerate(blocks)
+                    if block["block_id"] == block_id
+                ),
+                None,
+            )
+            if index is None:
+                raise HTTPException(
+                    404, detail={"code": "ANCHOR_NOT_FOUND"}
+                )
+            start = max(0, index - 20)
+            if index >= start + limit:
+                start = max(0, index - limit + 1)
+        end = min(start + limit, total)
+        outline = [
+            {
+                "ordinal": block["ordinal"],
+                "text": block["text"],
+                "heading_level": block["heading_level"],
+            }
+            for block in blocks
+            if block["block_type"] == "heading" and block["text"].strip()
+        ]
+        return {
+            **{key: value for key, value in payload.items() if key != "blocks"},
+            "blocks": blocks[start:end],
+            "total_blocks": total,
+            "offset": start,
+            "next_offset": end if end < total else None,
+            "outline": outline,
+        }
+
+    @app.get("/v1/rag/documents/{document_id}/media/{name}")
+    def document_media(document_id: RevisionId, name: str):
+        if not _MEDIA_NAME.fullmatch(name):
+            raise HTTPException(404, detail={"code": "MEDIA_NOT_FOUND"})
+        if _reader_record(app, document_id) is None:
+            raise HTTPException(404, detail={"code": "DOCUMENT_NOT_FOUND"})
+        snapshot_dir = getattr(app.state.rag, "snapshot_dir", None)
+        if not snapshot_dir:
+            raise HTTPException(404, detail={"code": "MEDIA_NOT_FOUND"})
+        media_root = (Path(snapshot_dir) / "media").resolve()
+        path = (media_root / document_id / name).resolve()
+        media_type = _IMAGE_TYPES.get(path.suffix.lower())
+        if (
+            not path.is_relative_to(media_root)
+            or path.is_symlink()
+            or not path.is_file()
+            or media_type is None
+        ):
+            raise HTTPException(404, detail={"code": "MEDIA_NOT_FOUND"})
+        return FileResponse(
+            path,
+            media_type=media_type,
+            headers={
+                "X-Content-Type-Options": "nosniff",
+                "Cache-Control": "private, max-age=3600",
+            },
+        )
+
+    @app.get("/v1/rag/documents/{document_id}/metadata")
+    def document_metadata(document_id: str):
+        record = _reader_record(app, document_id)
+        if record is None:
+            raise HTTPException(404, detail={"code": "DOCUMENT_NOT_FOUND"})
+        catalog = getattr(app.state.rag, "catalog", None)
+        getter = getattr(catalog, "get", None)
+        row = getter(document_id) if callable(getter) else None
+        suffix = record.path.suffix.lower()
+        return {
+            "document": row,
+            "document_id": document_id,
+            "document_title": record.title,
+            "document_format": suffix.lstrip("."),
+            "reader_kind": (
+                "pdf"
+                if suffix == ".pdf"
+                else "markdown"
+                if suffix in {".md", ".markdown"}
+                else "office"
+            ),
+            "content_available": (
+                _office_content_available(record.path)
+                if suffix in _OFFICE_SUFFIXES
+                else suffix in {".md", ".markdown"}
+            ),
+            "snapshot_available": bool(
+                getattr(app.state.rag, "snapshot_dir", None)
+            ),
+        }
 
     @app.get("/v1/rag/documents/{document_id}/sections")
     def document_sections(document_id: str):
@@ -235,19 +445,35 @@ def create_app(service=None, *, config_path=None):
         path = registry.get(document_id)
         if path is None or not path.is_file():
             raise HTTPException(404, detail={"code": "DOCUMENT_NOT_FOUND"})
-        media_type = (
-            "text/markdown; charset=utf-8"
-            if path.suffix.lower() in {".md", ".markdown"}
-            else "application/pdf"
-        )
+        suffix = path.suffix.lower()
+        media_type = _MEDIA_TYPES.get(suffix, "application/octet-stream")
+        disposition = "attachment" if suffix in _OFFICE_SUFFIXES else "inline"
+        filename = quote(path.name, safe="")
         return FileResponse(
             path,
             media_type=media_type,
             headers={
-                "Content-Disposition": "inline",
+                "Content-Disposition": (
+                    f"{disposition}; filename*=UTF-8''{filename}"
+                ),
                 "X-Content-Type-Options": "nosniff",
+                "Cache-Control": "private, max-age=0, must-revalidate",
             },
         )
+
+    @app.get("/v1/rag/structured/lookup")
+    def structured_lookup(q: str, document_id: str | None = None):
+        index = getattr(app.state.rag, "table_records", None)
+        if index is None:
+            return {"query": q, "count": 0, "records": []}
+        records = index.lookup_in_text(
+            q, revision_ids={document_id} if document_id else None
+        )
+        return {
+            "query": q,
+            "count": len(records),
+            "records": [record.to_dict() for record in records],
+        }
 
     @app.post("/v1/rag/answer")
     def answer(request: AnswerRequest):

@@ -4,10 +4,14 @@ let current = null;
 let busy = false;
 const history = [];
 let readerModule;
+let activeScope = null;
+const usageLabels = {current:'现行', reference:'参考', pending_review:'待核实', historical:'历史', unknown:'状态未知'};
+const kindLabels = {overall_design:'总体设计', subsystem_design:'分系统设计', standard_specification:'标准规范', interface_specification:'接口说明', operation_manual:'操作手册', installation_maintenance:'安装维护', test_plan:'测试大纲', test_report:'测试报告', acceptance_report:'验收报告', development_summary:'研制总结', review_opinion:'评审意见', meeting_record:'会议记录', paper:'论文', configuration_snapshot:'配置快照', structured_list:'结构化清单', drawing:'图纸'};
+const scopeModes = {current:'version', reference:'version', pending_review:'version', historical:'version'};
 function closeReader() { readerModule?.closeReader(false); }
 async function openSource(citation, trigger) {
   if (!citation.document_url) {
-    $('source-hint').textContent = '该格式的阅读页尚未接入；引用位置仍可用于定位修订与段落/幻灯片。';
+    $('source-hint').textContent = '该格式暂无正文阅读页；可下载原件核对，引用位置仍标示修订与段落。';
     return;
   }
   try {
@@ -115,7 +119,14 @@ function showResult(data, question) {
     item.append(textElement('span', `[${c.number}]`, 'source-number'));
     item.append(textElement('h3', c.document_title));
     item.append(textElement('p', locatorText(c), 'page'));
-    item.append(textElement('p', `版本：${c.document_version === 'unknown' ? '文档未标明' : c.document_version}`));
+    item.append(textElement('p', `版本：${versionText(c.document_version, c.document_title) || '文档未标明'}`));
+    const meta = [];
+    if (c.usage_status) meta.push(usageLabels[c.usage_status] || c.usage_status);
+    if (c.document_kind) meta.push(kindLabels[c.document_kind] || c.document_kind);
+    if (c.content_role === 'note') meta.push('演讲者备注');
+    if (c.review_status === 'required') meta.push('OCR 待复核');
+    if (c.formula_status === 'unresolved') meta.push('公式未恢复');
+    if (meta.length) item.append(textElement('p', meta.join(' · '), 'citation-meta'));
     if (/^\/v1\/rag\/documents\/[a-zA-Z0-9_-]+$/.test(c.document_url || '')) {
       const link = textElement('button', '阅读原文 →', 'pdf-link');
       link.type = 'button';
@@ -153,7 +164,10 @@ async function ask(event) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 180000);
   try {
-    const response = await fetch('/v1/rag/answer', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query: question}), signal: controller.signal});
+    const payload = {query: question};
+    const scope = scopePayload();
+    if (scope) payload.scope = scope;
+    const response = await fetch('/v1/rag/answer', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload), signal: controller.signal});
     if (!response.ok) {
       const failure = await response.json().catch(() => ({}));
       const code = failure.detail?.code;
@@ -231,7 +245,7 @@ $('new-session').addEventListener('click', () => {
   $('sidebar').classList.remove('open');
   $('menu-toggle').setAttribute('aria-expanded','false');
   $('result').hidden = true; $('error').hidden = true; $('welcome').hidden = false;
-  $('question').value = ''; resetSources(); $('question').focus();
+  $('question').value = ''; clearScope(); resetSources(); $('question').focus();
 });
 
 $('menu-toggle').addEventListener('click', () => {
@@ -274,46 +288,105 @@ function showLibraryView() {
 function categoryLabel(value) {
   return ({accelerator:'加速器', accelerator_physics:'加速器物理', beam_diagnostics:'束流诊断', control_system:'控制系统', 'control-system':'控制系统', epics:'EPICS', documentation:'技术文档'})[value] || value;
 }
+function renderScope() {
+  const bar = $('scope-bar'), chip = $('scope-chip');
+  if (!activeScope) { bar.hidden = true; chip.textContent = ''; return; }
+  bar.hidden = false;
+  const version = activeScope.version && activeScope.version !== 'unknown' ? `（${activeScope.version}）` : '';
+  const status = activeScope.usage ? ` · ${usageLabels[activeScope.usage] || activeScope.usage}` : '';
+  chip.textContent = `${activeScope.label}${version}${status}`;
+}
+function versionText(value, title) {
+  const text = (value || '').trim();
+  if (!text || text === 'unknown' || text.startsWith('batch-') || (title && text.includes(title))) return '';
+  return text;
+}
+function setScope(document) {
+  const usage = (document.usage_statuses || []).find(v => v && v !== 'unknown') || '';
+  activeScope = {
+    mode: scopeModes[usage] || 'version',
+    revision_ids: [document.document_id],
+    label: document.document_title,
+    version: (document.versions || []).map(v => versionText(v, document.document_title)).find(Boolean) || '',
+    usage
+  };
+  renderScope();
+  if (usage === 'pending_review') {
+    $('source-hint').textContent = '已选择待核实资料。答案会保留该状态，不能自动当作现行依据。';
+  }
+}
+function clearScope() { activeScope = null; renderScope(); }
+function scopePayload() {
+  if (!activeScope || !activeScope.revision_ids.length) return undefined;
+  return {mode: activeScope.mode, revision_ids: activeScope.revision_ids};
+}
 function renderCatalog() {
   const query = $('library-search').value.trim().toLocaleLowerCase();
   const category = $('library-category').value;
+  const format = $('library-format').value;
+  const status = $('library-status').value;
   const visible = catalogDocuments.filter(d =>
     (!category || d.categories.includes(category)) &&
+    (!format || (d.document_format || '') === format) &&
+    (!status || (d.usage_statuses || []).includes(status)) &&
     [d.document_title, ...d.versions, ...d.categories, ...d.topics].join(' ').toLocaleLowerCase().includes(query));
   $('library-documents').replaceChildren();
   $('library-message').textContent = catalogDocuments.length ? `显示 ${visible.length} / ${catalogDocuments.length} 份文档` : '当前服务尚未收录可检索文档。';
-  if (catalogDocuments.length && !visible.length) $('library-message').textContent = '未找到匹配的文档。试着缩短关键词或切换分类。';
+  if (catalogDocuments.length && !visible.length) $('library-message').textContent = '未找到匹配的文档。试着缩短关键词或切换筛选条件。';
   for (const d of visible) {
     const card = textElement('article', '', 'library-document');
     const heading = textElement('div', '', 'library-card-heading');
     heading.append(textElement('span', (d.document_format || 'pdf').toUpperCase(), 'document-format'));
-    heading.append(textElement('span', '已收录 · 可检索', 'document-indexed'));
+    const usage = (d.usage_statuses || []).filter(v => v && v !== 'unknown');
+    const primaryUsage = usage[0] || 'unknown';
+    heading.append(textElement('span', usageLabels[primaryUsage] || primaryUsage, `document-indexed status-${primaryUsage}`));
+    if (d.reader_available === false) heading.append(textElement('span', '仅原件', 'document-indexed status-original'));
     card.append(heading, textElement('h2', d.document_title));
-    const versions = d.versions.filter(v => v !== 'unknown');
+    const versions = d.versions.map(v => versionText(v, d.document_title)).filter(Boolean);
     card.append(textElement('p', versions.length ? versions.join('；') : '文档未标明版本', 'document-version'));
     const tags = textElement('div', '', 'document-tags');
     d.categories.forEach(c => tags.append(textElement('span', categoryLabel(c))));
+    (d.document_kinds || []).filter(v => v && v !== 'unknown').slice(0, 2).forEach(k => tags.append(textElement('span', kindLabels[k] || k)));
     card.append(tags);
     const facts = textElement('p', `${d.page_count ? `${d.page_count} 页` : (d.document_format === 'md' ? '按章节定位' : '页数待确认')} · ${d.indexed_section_count.toLocaleString()} 段可检索内容`, 'document-facts');
     const bottom = textElement('div', '', 'library-card-bottom');
-    const readable = Boolean(d.document_url);
-    const button = textElement('button', readable ? '阅读原文 →' : '该格式阅读页未接入', 'pdf-link');
-    button.type = 'button'; button.disabled = !readable;
-    button.setAttribute('aria-label', `阅读 ${d.document_title} 的原文`);
-    button.addEventListener('click', async () => {
-      try {
-        readerModule ||= await import('/assets/pdf-reader.js');
-        if ($('library-view').hidden) return;
-        $('library-view').hidden = true; $('workspace').hidden = false;
-        $('workspace').classList.add('expanded');
-        await readerModule.openReader({document_url:d.document_url, document_title:d.document_title,
-          document_format:d.document_format, document_version:versions.join('；') || 'unknown', page_start:1}, button,
-          {backLabel:'← 知识库目录', onClose:showLibraryView});
-      } catch {
-        showLibraryView(); $('library-message').textContent = '原文阅读器加载失败，请检查连接后重试。';
-      }
+    const readable = Boolean(d.document_url && d.reader_available !== false);
+    if (readable) {
+      const button = textElement('button', '阅读原文 →', 'pdf-link');
+      button.type = 'button';
+      button.setAttribute('aria-label', `阅读 ${d.document_title} 的原文`);
+      button.addEventListener('click', async () => {
+        try {
+          readerModule ||= await import('/assets/pdf-reader.js');
+          if ($('library-view').hidden) return;
+          $('library-view').hidden = true; $('workspace').hidden = false;
+          $('workspace').classList.add('expanded');
+          await readerModule.openReader({document_url:d.document_url, document_title:d.document_title,
+            document_format:d.document_format, document_version:versions.join('；') || 'unknown', page_start:1}, button,
+            {backLabel:'← 知识库目录', onClose:showLibraryView});
+        } catch {
+          showLibraryView(); $('library-message').textContent = '原文阅读器加载失败，请检查连接后重试。';
+        }
+      });
+      bottom.append(facts, button);
+    } else if (d.download_url) {
+      const link = textElement('a', '下载原件 →', 'pdf-link');
+      link.href = d.download_url; link.download = '';
+      bottom.append(facts, link);
+    } else {
+      bottom.append(facts, textElement('span', '原件不可用', 'document-facts'));
+    }
+    const askButton = textElement('button', '在此资料中提问', 'scope-ask');
+    askButton.type = 'button';
+    askButton.addEventListener('click', () => {
+      setScope(d); showChatView(); $('question').focus();
     });
-    bottom.append(facts, button); card.append(bottom); $('library-documents').append(card);
+    bottom.append(askButton);
+    card.append(bottom);
+    if (primaryUsage === 'pending_review' || primaryUsage === 'historical') {
+      card.append(textElement('p', primaryUsage === 'pending_review' ? '默认问答不包含此资料；选择后可查阅，但不等于现行依据。' : '默认问答不包含此资料；选择后可查阅其历史记载。', 'document-scope-note'));
+    }
+    $('library-documents').append(card);
   }
 }
 async function loadCatalog() {
@@ -332,6 +405,16 @@ async function loadCatalog() {
     const categories = [...new Set(catalogDocuments.flatMap(d => d.categories))].sort();
     categories.forEach(c => $('library-category').append(new Option(categoryLabel(c), c)));
     if (categories.includes(previous)) $('library-category').value = previous;
+    const previousFormat = $('library-format').value;
+    $('library-format').replaceChildren(new Option('全部格式', ''));
+    const formats = [...new Set(catalogDocuments.map(d => d.document_format).filter(Boolean))].sort();
+    formats.forEach(f => $('library-format').append(new Option(f.toUpperCase(), f)));
+    if (formats.includes(previousFormat)) $('library-format').value = previousFormat;
+    const previousStatus = $('library-status').value;
+    $('library-status').replaceChildren(new Option('全部状态', ''));
+    const statuses = [...new Set(catalogDocuments.flatMap(d => d.usage_statuses || []).filter(v => v && v !== 'unknown'))];
+    statuses.forEach(s => $('library-status').append(new Option(usageLabels[s] || s, s)));
+    if (statuses.includes(previousStatus)) $('library-status').value = previousStatus;
     $('library-summary').textContent = `${data.document_count} 份文档  /  ${data.indexed_section_count.toLocaleString()} 段已收录内容`;
     renderCatalog();
   } catch {
@@ -345,3 +428,7 @@ $('back-to-chat').addEventListener('click', showChatView);
 $('library-refresh').addEventListener('click', loadCatalog);
 $('library-search').addEventListener('input', renderCatalog);
 $('library-category').addEventListener('change', renderCatalog);
+$('library-format').addEventListener('change', renderCatalog);
+$('library-status').addEventListener('change', renderCatalog);
+$('scope-clear').addEventListener('click', clearScope);
+renderScope();

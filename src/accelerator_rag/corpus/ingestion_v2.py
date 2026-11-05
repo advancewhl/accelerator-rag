@@ -77,6 +77,10 @@ def _parse_local(
     source_format: str,
     doc_output_dir: str | Path | None = None,
     timeout: int = 180,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
     if source_format == SourceFormat.PDF.value:
         parsed = parse_pdf(path, source_path=source_path)
@@ -101,6 +105,10 @@ def _parse_local(
             asset_id=asset_id,
             title=title,
             source_path=source_path,
+            media_dir=media_dir,
+            media_prefix=media_prefix,
+            media_max_bytes=media_max_bytes,
+            media_min_bytes=media_min_bytes,
         )
     if source_format == SourceFormat.DOC.value:
         return parse_doc(
@@ -111,6 +119,10 @@ def _parse_local(
             source_path=source_path,
             timeout=timeout,
             output_dir=doc_output_dir,
+            media_dir=media_dir,
+            media_prefix=media_prefix,
+            media_max_bytes=media_max_bytes,
+            media_min_bytes=media_min_bytes,
         )
     if source_format == SourceFormat.PPTX.value:
         return parse_pptx(
@@ -119,6 +131,10 @@ def _parse_local(
             asset_id=asset_id,
             title=title,
             source_path=source_path,
+            media_dir=media_dir,
+            media_prefix=media_prefix,
+            media_max_bytes=media_max_bytes,
+            media_min_bytes=media_min_bytes,
         )
     if source_format == SourceFormat.XLSX.value:
         return parse_xlsx(
@@ -153,6 +169,11 @@ def _parse_local(
 def parse_revision(
     revision: RevisionRecord,
     project_root: str | Path = ".",
+    *,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
     """Parse one immutable revision after governance checks."""
 
@@ -165,6 +186,10 @@ def parse_revision(
         title=revision.title,
         source_path=revision.source_path,
         source_format=revision.source_format,
+        media_dir=media_dir,
+        media_prefix=media_prefix,
+        media_max_bytes=media_max_bytes,
+        media_min_bytes=media_min_bytes,
     )
 
 
@@ -178,6 +203,10 @@ def parse_path(
     title: str | None = None,
     doc_output_dir: str | Path | None = None,
     timeout: int = 180,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
     """Parse an arbitrary local path; intended for tests and dry runs."""
 
@@ -204,4 +233,8 @@ def parse_path(
         source_format=resolved_format,
         doc_output_dir=doc_output_dir,
         timeout=timeout,
+        media_dir=media_dir,
+        media_prefix=media_prefix,
+        media_max_bytes=media_max_bytes,
+        media_min_bytes=media_min_bytes,
     )

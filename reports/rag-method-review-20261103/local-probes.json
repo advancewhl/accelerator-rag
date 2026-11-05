@@ -1,0 +1,41 @@
+{
+  "legacy_family_alias": {
+    "python_scope_allows": true,
+    "qdrant_count": 0
+  },
+  "split_table_mapping": {
+    "first_row_parent": "last-piece",
+    "expected_first_row_parent": "first-piece",
+    "all_parents": [
+      "last-piece",
+      "last-piece"
+    ]
+  },
+  "numeric_guard": {
+    "source_numbers": [
+      "10"
+    ],
+    "wrong_claim_numbers": [
+      "10"
+    ],
+    "guard_cannot_distinguish": true,
+    "conversion_1000_ms_to_1_s_rejected_by_number_set": true
+  },
+  "ocr_mixed_evidence_guard": {
+    "supported_with_unverified_value_and_native_background": true,
+    "note": "Synthetic model selection; demonstrates a guard gap, not model error frequency."
+  },
+  "unresolved_conflict": {
+    "selected_sources": [
+      "S1"
+    ],
+    "supported": true,
+    "returned_conflicts": 0,
+    "conflicts_in_trace": 1
+  },
+  "cross_document_quantitative_claim": {
+    "exception": "model output remains unverifiable after one repair",
+    "cause": "all claims failed factual validation: [{\"requirement_ids\": [\"R1\"], \"reason\": \"Cross-version quantitative claim; bind each version to a separate claim.\"}]",
+    "same_revision_labels": true
+  }
+}

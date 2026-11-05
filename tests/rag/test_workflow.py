@@ -1,5 +1,6 @@
 """Behavioral regressions for the complete requirement-driven evidence loop."""
 
+from dataclasses import replace
 import json
 from threading import Lock
 
@@ -185,6 +186,37 @@ def test_field_inventory_cannot_invent_a_source_term():
             [Requirement(id="R1", question="Which fields?")],
             context,
         )
+
+
+def test_exact_question_cannot_be_completed_from_unreviewed_ocr_only():
+    chunk = replace(
+        hit("scan", "联锁响应时间阈值为 100 µs。").chunk,
+        extraction_method="ocr",
+        review_status="required",
+    )
+    context = EvidenceContextBuilder().build(
+        [RetrievalResult(1, 0.9, chunk, "test")]
+    )
+    output = {
+        "requirements": [
+            {
+                "id": "R1",
+                "supported": True,
+                "span_ids": ["S1.1"],
+            }
+        ]
+    }
+    assessment = select_evidence(
+        Provider([("submit_evidence", output)]),
+        "联锁响应时间阈值是多少？",
+        [Requirement(id="R1", question="联锁响应时间阈值是多少？")],
+        context,
+        assessment=True,
+    )
+    support = assessment.requirements[0]
+
+    assert not support.supported
+    assert "待复核" in support.missing
 
 
 def test_quantitative_alternative_cannot_change_document_version_scope():
@@ -481,7 +513,9 @@ def test_missing_relation_triggers_targeted_recall_before_generation():
         events.index("submit_claims")
         > [i for i, event in enumerate(events) if event == "retrieve"][-1]
     )
-    assert retriever.queries[1] == ["controller converter interlock signal connection"]
+    second_round = retriever.queries[1]
+    assert "controller converter interlock signal connection" in second_round
+    assert second_round[0] == "How do these cooperate?"
     assert len(trace["rounds"]) == 2
 
 

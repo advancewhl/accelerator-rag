@@ -72,21 +72,39 @@ class EvidenceContextBuilder:
             ) or ("section" if suffix in {".md", ".markdown"} else "page")
             if locator_kind == "pdf_page":
                 locator_kind = "page"
-            records.append(
-                {
-                    "source_id": sid,
-                    "document_title": hit.chunk.document_title,
-                    "document_version": hit.chunk.document_version,
-                    "locator_kind": locator_kind,
-                    "position_label": getattr(
-                        hit.chunk, "position_label", ""
-                    ),
-                    "page_start": hit.chunk.page_start,
-                    "page_end": hit.chunk.page_end,
-                    "text": hit.chunk.text,
-                    "answer_spans": segments,
-                }
-            )
+            record = {
+                "source_id": sid,
+                "document_title": hit.chunk.document_title,
+                "document_version": hit.chunk.document_version,
+                "locator_kind": locator_kind,
+                "position_label": getattr(
+                    hit.chunk, "position_label", ""
+                ),
+                "page_start": hit.chunk.page_start,
+                "page_end": hit.chunk.page_end,
+                "text": hit.chunk.text,
+                "answer_spans": segments,
+            }
+            # Governance and parse quality travel with the evidence.  Empty
+            # values are omitted so legacy chunks keep a compact prompt.
+            for name in (
+                "document_kind",
+                "evidence_role",
+                "usage_status",
+                "approval_status",
+                "scope",
+                "section_path",
+                "position_locator",
+                "media_block_ids",
+                "content_role",
+                "extraction_method",
+                "review_status",
+                "formula_status",
+            ):
+                value = getattr(hit.chunk, name, "")
+                if value:
+                    record[name] = value
+            records.append(record)
         # Full KnowledgeChunk.text always remains in context, independently of
         # the selectable spans. Internal paths and evaluation labels are absent.
         return EvidenceContext(sources, json.dumps(records, ensure_ascii=False), spans)

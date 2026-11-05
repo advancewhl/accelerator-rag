@@ -16,6 +16,9 @@ from accelerator_rag.domain.position import PositionKind
 
 
 UNKNOWN = "unknown"
+_READER_FORMATS = frozenset(
+    {"pdf", "md", "markdown", "docx", "doc", "pptx", "xlsx", "csv"}
+)
 _TEXT_FIELDS = (
     ("revision_labels", "revision_label"),
     ("usage_statuses", "usage_status"),
@@ -31,6 +34,16 @@ def _text(chunk, name: str) -> str:
 
     value = getattr(chunk, name, "")
     return value if isinstance(value, str) else ""
+
+
+def _reader_kind(document_format: str | None) -> str:
+    if document_format == "pdf":
+        return "pdf"
+    if document_format in {"md", "markdown"}:
+        return "markdown"
+    if document_format in _READER_FORMATS:
+        return "office"
+    return ""
 
 
 def _position_kind(chunk, path: Path) -> str:
@@ -77,6 +90,7 @@ class DocumentCatalog:
                 "categories": set(),
                 "topics": set(),
                 "languages": set(),
+                "tags": set(),
             },
         )
         row["versions"].add(chunk.document_version)
@@ -92,6 +106,11 @@ class DocumentCatalog:
             self._scopes.setdefault(chunk.document_id, set()).update(
                 token.strip() for token in scope.split(";") if token.strip()
             )
+        row["tags"].update(
+            tag.strip()
+            for tag in _text(chunk, "tags").split(";")
+            if tag.strip()
+        )
         self._sections.setdefault(chunk.document_id, set()).add(chunk.chunk_id)
         self._paths[chunk.document_id] = path
 
@@ -110,6 +129,7 @@ class DocumentCatalog:
                 "categories",
                 "topics",
                 "languages",
+                "tags",
             ):
                 row[field] = sorted(row[field])
             row["indexed_section_count"] = len(self._sections[document_id])
@@ -148,6 +168,7 @@ class DocumentCatalog:
                             "scope": sorted(
                                 self._scopes.get(row["document_id"], set())
                             ),
+                            "tags": row["tags"],
                         }
                         for row in revisions
                     ],
@@ -156,21 +177,33 @@ class DocumentCatalog:
             )
         return families
 
+    def get(self, document_id: str):
+        """One catalog row without forcing a full snapshot."""
+
+        if document_id not in self._documents:
+            return None
+        row = dict(self._documents[document_id])
+        available = self._paths[document_id].is_file()
+        readable = row.get("document_format") in _READER_FORMATS
+        row.update(
+            original_available=available,
+            reader_available=readable,
+            document_url=(
+                "/v1/rag/documents/" + document_id
+                if available and readable
+                else None
+            ),
+            download_url=(
+                "/v1/rag/documents/" + document_id if available else None
+            ),
+            reader_kind=_reader_kind(row.get("document_format")),
+        )
+        return row
+
     def snapshot(self):
         documents = []
         for document_id in sorted(self._documents):
-            row = dict(self._documents[document_id])
-            available = self._paths[document_id].is_file()
-            readable = row.get("document_format") in {"pdf", "md"}
-            row.update(
-                original_available=available,
-                reader_available=readable,
-                document_url=(
-                    "/v1/rag/documents/" + document_id
-                    if available and readable
-                    else None
-                ),
-            )
+            row = self.get(document_id)
             documents.append(row)
         return {
             "document_count": len(documents),

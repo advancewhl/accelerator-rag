@@ -19,6 +19,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import re
+import shutil
 import subprocess
 import sys
 
@@ -33,8 +34,15 @@ from accelerator_rag.corpus.chunking_v2 import (  # noqa: E402
     chunk_parsed_document,
     chunking_v2_statistics,
 )
-from accelerator_rag.corpus.eligibility import eligibility_audit  # noqa: E402
+from accelerator_rag.corpus.eligibility import (  # noqa: E402
+    eligibility_audit,
+    is_indexable_chunk,
+)
+from accelerator_rag.corpus.table_records import (  # noqa: E402
+    build_table_records,
+)
 from accelerator_rag.corpus.markdown_parser import parse_markdown  # noqa: E402
+from accelerator_rag.corpus.media import enrich_image_ocr  # noqa: E402
 from accelerator_rag.corpus.parsed_document import (  # noqa: E402
     ParsedDocument,
     from_markdown_parsed,
@@ -56,6 +64,7 @@ DEFAULT_BUILD_ROOT = ROOT / "data/knowledge-builds"
 # usable evidence.  All chunks stay in the build for audit; only this list feeds
 # the index stage.
 MIN_INDEXABLE_CHARS = 20
+DEFAULT_IMAGE_OCR_MAX = 20
 _BUILD_ID = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 
 
@@ -77,6 +86,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-revisions", type=int, default=0)
     parser.add_argument("--batch-id", default="")
     parser.add_argument("--revision-id", action="append", default=[])
+    parser.add_argument(
+        "--image-ocr-max",
+        type=int,
+        default=DEFAULT_IMAGE_OCR_MAX,
+        help="maximum key images OCR'd per revision; 0 disables image OCR",
+    )
+    parser.add_argument(
+        "--media-max-bytes",
+        type=int,
+        default=256 * 1024 * 1024,
+        help="maximum image bytes materialized per revision",
+    )
+    parser.add_argument(
+        "--media-min-bytes",
+        type=int,
+        default=4096,
+        help="images smaller than this are not materialized",
+    )
     parser.add_argument(
         "--include-restricted",
         action="store_true",
@@ -159,18 +186,48 @@ def parse_legacy(revision: RevisionRecord) -> ParsedDocument:
     raise ValueError(f"legacy parser does not support {revision.source_format}")
 
 
+def _block_order_key(block):
+    """Page first, then the actual top coordinate, then a stable tie-break."""
+
+    locator = block.position.locator_dict
+    top = 0.0
+    bbox = locator.get("ocr_bbox") or locator.get("bbox") or ""
+    if bbox:
+        try:
+            top = float(bbox.split(",")[1])
+        except (ValueError, IndexError):
+            top = 0.0
+    return (
+        block.position.start,
+        top,
+        block.position.label,
+        block.block_id,
+    )
+
+
 def _add_ocr_pages(
     revision: RevisionRecord, document: ParsedDocument
 ) -> ParsedDocument:
     """OCR pages that have no text layer; keep existing text-layer blocks."""
 
-    if revision.source_format != "pdf" or not revision.ocr_profile:
+    if revision.source_format != "pdf":
         return document
     from accelerator_rag.corpus.ocr import ocr_pdf_pages, plan_pdf_ocr
 
     path = ROOT / revision.source_path
     plans = plan_pdf_ocr(path)
-    pages = [plan.page_number for plan in plans if plan.recommended]
+    if revision.ocr_profile:
+        pages = [
+            plan.page_number
+            for plan in plans
+            if plan.recommended or plan.mixed_candidate
+        ]
+    else:
+        # A text-layer PDF may still need OCR for a large raster table region;
+        # this enhancement is independent of the whole-document OCR profile.
+        pages = [
+            plan.page_number for plan in plans if plan.mixed_candidate
+        ]
     if not pages:
         return document
     ocr_document = ocr_pdf_pages(
@@ -187,7 +244,7 @@ def _add_ocr_pages(
     blocks = tuple(
         sorted(
             document.blocks + ocr_document.blocks,
-            key=lambda block: (block.position.start, block.block_id),
+            key=_block_order_key,
         )
     )
     return replace(
@@ -199,14 +256,36 @@ def _add_ocr_pages(
     )
 
 
-def parse_revision_document(revision: RevisionRecord) -> ParsedDocument:
+def parse_revision_document(
+    revision: RevisionRecord,
+    *,
+    media_dir: Path | None = None,
+    media_prefix: str = "",
+    image_ocr_max: int = DEFAULT_IMAGE_OCR_MAX,
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
+) -> ParsedDocument:
     if revision.batch_id == "legacy-baseline":
         document = parse_legacy(revision)
     else:
         from accelerator_rag.corpus.ingestion_v2 import parse_revision
 
-        document = parse_revision(revision, ROOT)
-    return _add_ocr_pages(revision, document)
+        document = parse_revision(
+            revision,
+            ROOT,
+            media_dir=media_dir,
+            media_prefix=media_prefix,
+            media_max_bytes=media_max_bytes,
+            media_min_bytes=media_min_bytes,
+        )
+    document = _add_ocr_pages(revision, document)
+    return enrich_image_ocr(
+        document,
+        media_root=media_dir,
+        max_images=image_ocr_max,
+        min_bytes=media_min_bytes,
+        document_kind=revision.document_kind,
+    )
 
 
 def legacy_chunks(revision: RevisionRecord):
@@ -258,10 +337,17 @@ def stage_validate(registry: RegistryV2, revisions, allow_missing: bool) -> dict
 
 
 def stage_parse(
-    build_dir: Path, revisions, allow_missing: bool
+    build_dir: Path,
+    revisions,
+    allow_missing: bool,
+    *,
+    image_ocr_max: int = DEFAULT_IMAGE_OCR_MAX,
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> dict:
     parsed_dir = build_dir / "parsed"
     records = []
+    media_entries = []
     for revision in revisions:
         source = ROOT / revision.source_path
         if not source.is_file():
@@ -274,8 +360,31 @@ def stage_parse(
             )
             continue
         try:
-            document = parse_revision_document(revision)
+            media_dir = build_dir / "media" / revision.revision_id
+            if media_dir.is_dir():
+                # A rebuild must not count stale images from an earlier pass.
+                shutil.rmtree(media_dir)
+            document = parse_revision_document(
+                revision,
+                media_dir=media_dir,
+                media_prefix=f"media/{revision.revision_id}",
+                image_ocr_max=image_ocr_max,
+                media_max_bytes=media_max_bytes,
+                media_min_bytes=media_min_bytes,
+            )
             write_json(parsed_dir / f"{revision.revision_id}.json", document.to_dict())
+            media_files = (
+                sorted(media_dir.glob("*")) if media_dir.is_dir() else []
+            )
+            media_bytes = sum(path.stat().st_size for path in media_files)
+            media_inventory = [
+                {
+                    "path": f"media/{revision.revision_id}/{path.name}",
+                    "bytes": path.stat().st_size,
+                    "sha256": file_sha256(path),
+                }
+                for path in media_files
+            ]
             status = "parsed"
             if not document.blocks and revision.ocr_profile:
                 # A scanned revision is parsed into an explicit empty asset; OCR
@@ -291,8 +400,12 @@ def stage_parse(
                     "position_kinds": list(document.position_kinds),
                     "warnings": list(document.warnings),
                     "parser_profile": document.parser_profile,
+                    "media_files": len(media_files),
+                    "media_bytes": media_bytes,
+                    "media_inventory": media_inventory,
                 }
             )
+            media_entries.extend(media_inventory)
         except Exception as exc:
             records.append(
                 {
@@ -306,6 +419,7 @@ def stage_parse(
             if not allow_missing:
                 raise
     write_json(build_dir / "parse-report.json", {"records": records})
+    write_json(build_dir / "media-manifest.json", {"media": media_entries})
     return {
         "stage": "parse",
         "parsed": sum(item["status"] == "parsed" for item in records),
@@ -313,16 +427,22 @@ def stage_parse(
         "missing": sum(item["status"] == "missing_source" for item in records),
         "failed": sum(item["status"] == "failed" for item in records),
         "records": len(records),
+        "media_files": sum(item.get("media_files", 0) for item in records),
+        "media_bytes": sum(item.get("media_bytes", 0) for item in records),
     }
 
 
 def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
     parsed_dir = build_dir / "parsed"
     chunks_dir = build_dir / "chunks"
-    # A stage run owns this build's chunk files; stale files from an earlier
-    # subset must not leak into the quality report or a manifest.
+    records_dir = build_dir / "records"
+    # A stage run owns this build's chunk/record files; stale files from an
+    # earlier subset must not leak into the quality report or a manifest.
     chunks_dir.mkdir(parents=True, exist_ok=True)
+    records_dir.mkdir(parents=True, exist_ok=True)
     for stale in chunks_dir.glob("*.json"):
+        stale.unlink()
+    for stale in records_dir.glob("*.json"):
         stale.unlink()
     records = []
     all_ids: set[str] = set()
@@ -337,6 +457,7 @@ def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
             )
             continue
         try:
+            document = None
             if revision.batch_id == "legacy-baseline":
                 chunks = legacy_chunks(revision)
             else:
@@ -358,6 +479,16 @@ def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
                     )
                     continue
                 chunks = chunk_parsed_document(document, revision)
+            table_records = (
+                build_table_records(document, chunks)
+                if document is not None
+                else ()
+            )
+            if table_records:
+                write_json(
+                    records_dir / f"{revision.revision_id}.json",
+                    {"records": [item.to_dict() for item in table_records]},
+                )
             duplicate = len(all_ids & {chunk.chunk_id for chunk in chunks})
             if duplicate:
                 raise ValueError(f"duplicate chunk IDs across corpus: {duplicate}")
@@ -366,8 +497,13 @@ def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
             indexable = [
                 chunk
                 for chunk in eligible
-                if len(chunk.text.strip()) >= MIN_INDEXABLE_CHARS
+                if is_indexable_chunk(chunk, MIN_INDEXABLE_CHARS)
                 and chunk.access_scope != "restricted"
+            ]
+            short_retained = [
+                chunk
+                for chunk in indexable
+                if len(chunk.text.strip()) < MIN_INDEXABLE_CHARS
             ]
             write_json(
                 chunks_dir / f"{revision.revision_id}.json",
@@ -383,6 +519,7 @@ def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
                     ],
                     "eligibility": eligibility,
                     "short_chunks_filtered": len(eligible) - len(indexable),
+                    "short_chunks_retained": len(short_retained),
                     "min_indexable_chars": MIN_INDEXABLE_CHARS,
                 },
             )
@@ -394,6 +531,8 @@ def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
                     "eligible_chunk_count": len(eligible),
                     "indexable_chunk_count": len(indexable),
                     "short_chunks_filtered": len(eligible) - len(indexable),
+                    "short_chunks_retained": len(short_retained),
+                    "table_record_count": len(table_records),
                     "ineligible_chunk_count": len(chunks) - len(eligible),
                     "ineligible_by_reason": eligibility["ineligible_by_reason"],
                     "char_count": sum(len(chunk.text) for chunk in chunks),
@@ -436,6 +575,12 @@ def stage_chunks(build_dir: Path, revisions, allow_missing: bool) -> dict:
         "short_chunks_filtered": sum(
             item.get("short_chunks_filtered", 0) for item in records
         ),
+        "short_chunks_retained": sum(
+            item.get("short_chunks_retained", 0) for item in records
+        ),
+        "table_records": sum(
+            item.get("table_record_count", 0) for item in records
+        ),
         "ineligible_chunks": sum(
             item.get("ineligible_chunk_count", 0) for item in records
         ),
@@ -450,9 +595,18 @@ def stage_report(build_dir: Path, revisions) -> dict:
         for path in (build_dir / "chunks").glob("*.json")
         if path.stem in selected_ids
     )
+    records_dir = build_dir / "records"
+    record_files = (
+        sorted(records_dir.glob("*.json")) if records_dir.is_dir() else []
+    )
+    table_record_count = sum(
+        len(json.loads(path.read_text(encoding="utf-8")).get("records", ()))
+        for path in record_files
+    )
     chunk_counts = {}
     total_chunks = total_chars = 0
     total_eligible = total_ineligible = total_indexable = short_filtered = 0
+    short_retained = indexable_under_20 = 0
     ineligible_reasons: dict[str, int] = {}
     duplicate_ids = set()
     seen = set()
@@ -467,6 +621,13 @@ def stage_report(build_dir: Path, revisions) -> dict:
         total_eligible += len(eligible_ids)
         total_indexable += len(indexable_ids)
         short_filtered += len(eligible_ids) - len(indexable_ids)
+        short_retained += payload.get("short_chunks_retained", 0)
+        indexable_under_20 += sum(
+            1
+            for chunk in chunks
+            if chunk["chunk_id"] in indexable_ids
+            and len(chunk["text"]) < MIN_INDEXABLE_CHARS
+        )
         total_ineligible += len(chunks) - len(eligible_ids)
         for reason, count in payload.get("eligibility", {}).get(
             "ineligible_by_reason", {}
@@ -491,6 +652,10 @@ def stage_report(build_dir: Path, revisions) -> dict:
         "eligible_chunks": total_eligible,
         "indexable_chunks": total_indexable,
         "short_chunks_filtered": short_filtered,
+        "short_chunks_retained": short_retained,
+        "indexable_under_20_chars": indexable_under_20,
+        "record_files": len(record_files),
+        "table_record_count": table_record_count,
         "ineligible_chunks": total_ineligible,
         "ineligible_by_reason": dict(sorted(ineligible_reasons.items())),
         "total_chars": total_chars,
@@ -584,12 +749,29 @@ def stage_manifest(
             "eligible_chunks": quality.get("eligible_chunks", 0),
             "indexable_chunks": quality.get("indexable_chunks", 0),
             "short_chunks_filtered": quality.get("short_chunks_filtered", 0),
+            "short_chunks_retained": quality.get("short_chunks_retained", 0),
             "ineligible_chunks": quality.get("ineligible_chunks", 0),
+            "table_record_count": quality.get("table_record_count", 0),
+            "media_file_count": sum(
+                record.get("media_files", 0) for record in parse_records
+            ),
+            "media_bytes": sum(
+                record.get("media_bytes", 0) for record in parse_records
+            ),
+            "media_manifest": "media-manifest.json",
+            "media_manifest_sha256": (
+                file_sha256(build_dir / "media-manifest.json")
+                if (build_dir / "media-manifest.json").is_file()
+                else ""
+            ),
             "parse_status_counts": dict(sorted(parse_counts.items())),
         },
         "contracts": {
             "schema_version": 2,
-            "chunking_algorithm": "kb2-chunks-v1 (legacy PDF/Markdown keeps v1 IDs)",
+            "chunking_algorithm": (
+                "kb2-chunks-v2 (Office/structured); "
+                "legacy PDF/Markdown keeps v1 IDs"
+            ),
             "scope_policy": "retrieval.scope.RetrievalScope",
         },
         "indexes": [],
@@ -605,7 +787,7 @@ def stage_manifest(
         },
         "incomplete_reasons": [
             "index construction requires the GPU release environment",
-            "OCR has not been run",
+            "OCR content (when present) still requires manual review",
             "release directory and rollback target are not created",
             f"parse status counts: {json.dumps(parse_counts, ensure_ascii=False)}",
             f"selected_revisions={len(revisions)}",
@@ -628,6 +810,10 @@ def main() -> int:
     build_id = args.build_id or f"kb2-{date.today():%Y%m%d}-{git_commit()[:8]}"
     if not _BUILD_ID.fullmatch(build_id):
         raise SystemExit("build-id must be a lowercase slug")
+    if not 0 <= args.image_ocr_max <= 200:
+        raise SystemExit("--image-ocr-max must be between 0 and 200")
+    if args.media_max_bytes < 0 or args.media_min_bytes < 0:
+        raise SystemExit("media byte limits must be nonnegative")
     build_dir = args.build_root.resolve() / build_id
     revisions = selected_revisions(
         registry,
@@ -656,7 +842,14 @@ def main() -> int:
             )
         elif stage == "parse":
             results.append(
-                stage_parse(build_dir, revisions, args.allow_missing_source)
+                stage_parse(
+                    build_dir,
+                    revisions,
+                    args.allow_missing_source,
+                    image_ocr_max=args.image_ocr_max,
+                    media_max_bytes=args.media_max_bytes,
+                    media_min_bytes=args.media_min_bytes,
+                )
             )
         elif stage == "chunks":
             results.append(

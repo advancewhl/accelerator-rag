@@ -29,6 +29,73 @@ class SupplementaryQueries(Contract):
     queries: list[SupplementaryQuery] = Field(min_length=1, max_length=3)
 
 
+_QUERY_LIMIT = 8
+
+
+def _retrieval_queries(query, requirements, limit=_QUERY_LIMIT):
+    """Original question plus per-requirement English and local-language probes.
+
+    Each requirement contributes an English paraphrase (``search_query``, or
+    its own question when absent) and, when present, a verbatim local-language
+    probe (``search_query_local``).  Duplicates are removed in construction
+    order: original, English probes, local probes.
+
+    A request must not fan out into 13 separate dense/lexical searches.  The
+    cap first guarantees one primary probe per requirement (local language
+    preferred because it preserves device, PV, terminal and version
+    identifiers verbatim), then spends spare slots on English paraphrases.
+    With six requirements the original plus six primaries fit in seven slots,
+    leaving one bilingual synonym.  Survivors keep the construction order so
+    retrieval traces stay stable.
+    """
+
+    english = [
+        r.search_query.strip() or r.question.strip() for r in requirements
+    ]
+    local = [r.search_query_local.strip() for r in requirements]
+    primary, secondary = [], []
+    for requirement, english_text, local_text in zip(
+        requirements, english, local, strict=True
+    ):
+        probe = local_text or english_text or requirement.question.strip()
+        if probe:
+            primary.append(probe)
+        if local_text and english_text and english_text != local_text:
+            secondary.append(english_text)
+    ordered = list(
+        dict.fromkeys(
+            [query, *[text for text in english if text],
+             *[text for text in local if text]]
+        )
+    )
+    if len(ordered) <= limit:
+        return ordered
+    # Every requirement must get at least one dedicated probe.  The original
+    # question is always first; primary probes follow in requirement order;
+    # spare slots go to English paraphrases for the same requirements.
+    priority = list(dict.fromkeys([query, *primary, *secondary]))
+    keep = set(priority[:limit])
+    return [text for text in ordered if text in keep][:limit]
+
+
+def _supplement_queries(query, requirements, supplements, limit=_QUERY_LIMIT):
+    """Targeted round-two probes, with the original/local identities retained."""
+
+    targeted = [item.text.strip() for item in supplements if item.text.strip()]
+    local = [
+        requirement.search_query_local.strip()
+        for requirement in requirements
+        if requirement.search_query_local.strip()
+    ]
+    english = [
+        requirement.search_query.strip() or requirement.question.strip()
+        for requirement in requirements
+    ]
+    return list(
+        dict.fromkeys([query, *targeted, *local, *english])
+    )[:limit]
+
+
 def plan_supplement(provider, query, requirements, missing, context, feedback):
     allowed = {r.id for r in requirements if r.id in missing}
 
@@ -80,9 +147,7 @@ def run_workflow(
             "scope": scope.describe() if scope is not None else None,
         }
     )
-    queries = list(
-        dict.fromkeys([query] + [r.search_query or r.question for r in requirements])
-    )
+    queries = _retrieval_queries(query, requirements)
     merged, anchors, feedback, best = {}, [], None, None
     retrieval_seconds = rerank_seconds = 0.0
     for round_index in range(max_rounds):
@@ -152,7 +217,7 @@ def run_workflow(
             supplements = plan_supplement(
                 provider, query, requirements, missing, context, feedback
             )
-            queries = list(dict.fromkeys(q.text for q in supplements))
+            queries = _supplement_queries(query, requirements, supplements)
             row["supplementary_queries"] = [q.model_dump() for q in supplements]
             continue
         generation_audit = {}
@@ -187,7 +252,7 @@ def run_workflow(
         supplements = plan_supplement(
             provider, query, requirements, missing, context, feedback
         )
-        queries = list(dict.fromkeys(q.text for q in supplements))
+        queries = _supplement_queries(query, requirements, supplements)
         row["supplementary_queries"] = [q.model_dump() for q in supplements]
     if best is None:
         raise AnswerContractError("workflow produced no answer")

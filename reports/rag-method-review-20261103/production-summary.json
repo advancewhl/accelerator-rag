@@ -1,0 +1,73 @@
+{
+  "review_date": "2026-11-03",
+  "timezone": "Asia/Shanghai",
+  "access": "user-authorized read-only server inspection",
+  "release": {
+    "release_id": "kb-2.0.0-rc.2",
+    "runtime_build_id": "unknown",
+    "manifest_build_id": "kb2-prod-20261102-v2",
+    "manifest_git_commit": "bfb04b802ab71f1caad1881c077c4bd7d8606287",
+    "container_started_at_utc": "2026-11-02T15:12:24.999986252Z",
+    "health": "ok",
+    "revision_count": 207,
+    "family_count": 87,
+    "all_parent_count": 8798,
+    "indexed_parent_count": 8661
+  },
+  "table_record_audit": {
+    "total_records": 898,
+    "wrong_data_range": 851,
+    "row_text_not_in_parent": 833,
+    "missing_parent": 0,
+    "unindexed_parent": 0,
+    "range_method": "Compare record.row_number against the final data range in parent.position_label after the sheet separator and repeated-header range. Do not use page_start/page_end: these are table ordinals for cell_range chunks.",
+    "text_method": "Collapse whitespace in row_text and parent.text; check substring membership. This is supplementary and does not validate physical row identity."
+  },
+  "indexed_parent_usage_status": {
+    "reference": 6005,
+    "pending_review": 2067,
+    "historical": 549,
+    "current": 40
+  },
+  "indexed_revision_usage_status": {
+    "reference": 117,
+    "current": 4,
+    "pending_review": 41,
+    "historical": 45
+  },
+  "indexed_revision_approval_status": {"unknown": 207},
+  "indexed_revision_source_format": {
+    "pdf": 48, "md": 4, "docx": 119, "pptx": 19, "doc": 15, "xlsx": 2
+  },
+  "indexed_parent_extraction_method": {
+    "native": 3805, "converted": 42, "text_layer": 87, "ocr": 159, "": 4568
+  },
+  "indexed_parent_formula_status": {
+    "": 8579, "mixed": 14, "latex": 62, "unresolved": 6
+  },
+  "image_audit": {
+    "pptx_image_blocks": 416,
+    "pptx_blocks_with_media_path": 404,
+    "docx_image_blocks": 3017,
+    "docx_blocks_with_media_path": 1360,
+    "unique_media_file_count_from_manifest": 1731,
+    "image_ocr_blocks": 0,
+    "image_ocr_warning_counts": {},
+    "method": "Inspect parsed blocks and metadata.source == image_ocr; media_path presence is not visual quality verification. No image contents exported."
+  },
+  "manifest_referenced_regression": {
+    "file": "reports/kb2-regression-candidate-20261102-v2.json",
+    "generated_at_utc": "2026-11-02T09:13:35.894008+00:00",
+    "endpoint": "http://127.0.0.1:8013/v1/rag/answer",
+    "questions": 50,
+    "successful_requests": 49,
+    "semantic_review": "not performed",
+    "interpretation": "This run predates the evening rc.2 changes; it does not establish final rc.2 semantic quality."
+  },
+  "limits": [
+    "No new production generation requests were sent.",
+    "No independent human semantic grading was performed.",
+    "Snapshot aggregate counts do not measure answer accuracy.",
+    "Rejected export of production body text and recent request traces was not carried out; aggregate-only checks were approved and completed."
+  ]
+}

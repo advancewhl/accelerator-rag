@@ -3,6 +3,7 @@ import pytest
 from accelerator_rag.corpus.eligibility import (
     assess_retrieval_eligibility,
     eligibility_audit,
+    is_indexable_chunk,
     EligibilityConfig,
 )
 
@@ -46,6 +47,24 @@ def test_replacement_ratio_boundary(chunk, ratio, expected):
 
 def test_few_replacement_chars_do_not_remove_short_evidence(chunk):
     assert assess_retrieval_eligibility(replace(chunk, text="�" * 7 + "8 GeV")).eligible
+
+
+@pytest.mark.parametrize(
+    "text,role,expected",
+    [
+        ("三、直线加速器", "", True),
+        ("表 1 通道阈值", "caption", True),
+        ("ABC-01", "", True),
+        ("100 µs", "", True),
+        ("SR:BPM01:X", "", True),
+        ("Sheet1 | 设备 | 通道", "table", True),
+        ("见上图", "", False),
+        ("Normal evidence text long enough.", "", True),
+    ],
+)
+def test_short_chunk_indexability_uses_structure_not_length(chunk, text, role, expected):
+    candidate = replace(chunk, text=text, content_role=role)
+    assert is_indexable_chunk(candidate) is expected
 
 
 def test_document_title_only_policy_preserves_short_technical_titles(chunk):

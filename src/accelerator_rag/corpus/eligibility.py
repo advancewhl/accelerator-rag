@@ -67,6 +67,36 @@ def assess_retrieval_eligibility(
     return EligibilityResult(not reasons, tuple(reasons), effective, tokens, ratio)
 
 
+_SHORT_IDENTIFIER = re.compile(
+    r"(?:[A-Za-z][A-Za-z0-9_\-]*\d"
+    r"|\d+(?:\.\d+)?\s*(?:µs|us|ms|s|min|h|V|mV|A|mA|kW|W|Hz|kHz|MHz|GHz|℃|°C|mm|cm|m|kg|%)"
+    r"|\d+\s*[-:/]\s*\d+)",
+    re.IGNORECASE,
+)
+_CN_NUMBERED_HEADING = re.compile(r"^[一二三四五六七八九十百]+[、.．]")
+
+
+def is_indexable_chunk(chunk: KnowledgeChunk, min_chars: int = 20) -> bool:
+    """Length is a fallback, not a content classifier.
+
+    A short heading, caption, table row or identifier-bearing fragment can be
+    exactly what a question needs.  Only fragments with neither structure nor
+    an identifier remain below the index floor.
+    """
+
+    text = chunk.text.strip()
+    if len(text) >= min_chars:
+        return True
+    role = getattr(chunk, "content_role", "")
+    if role in {"heading", "caption"}:
+        return True
+    if role == "table" and " | " in text:
+        return True
+    if _CN_NUMBERED_HEADING.match(text):
+        return True
+    return bool(_SHORT_IDENTIFIER.search(text))
+
+
 def eligibility_audit(chunks, config=EligibilityConfig()):
     assessed = [(c, assess_retrieval_eligibility(c, config)) for c in chunks]
     bad = [(c, a) for c, a in assessed if not a.eligible]

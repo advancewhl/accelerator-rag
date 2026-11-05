@@ -157,6 +157,9 @@ class TableData:
     header_rows: int = 1
     caption: str = ""
     units: tuple[str, ...] = ()
+    row_numbers: tuple[int, ...] = ()
+    column_letters: tuple[str, ...] = ()
+    merged_ranges: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not self.rows:
@@ -175,6 +178,25 @@ class TableData:
             raise ValueError("table.caption 必须是无首尾空白的字符串")
         if any(not isinstance(unit, str) for unit in self.units):
             raise ValueError("table.units 必须是字符串数组")
+        if self.row_numbers:
+            if len(self.row_numbers) != len(self.rows) or any(
+                type(number) is not int or number < 1
+                for number in self.row_numbers
+            ):
+                raise ValueError("row_numbers 必须与 rows 等长且为正整数")
+        if self.column_letters:
+            if len(self.column_letters) != max(len(row) for row in self.rows):
+                raise ValueError("column_letters 必须覆盖表格列数")
+            if any(
+                not isinstance(letter, str) or not letter
+                for letter in self.column_letters
+            ):
+                raise ValueError("column_letters 必须是非空字符串")
+        if any(
+            not isinstance(item, str) or not item.strip()
+            for item in self.merged_ranges
+        ):
+            raise ValueError("merged_ranges 必须是非空字符串数组")
 
     @property
     def text(self) -> str:
@@ -200,6 +222,9 @@ class TableData:
             "header_rows": self.header_rows,
             "caption": self.caption,
             "units": list(self.units),
+            "row_numbers": list(self.row_numbers),
+            "column_letters": list(self.column_letters),
+            "merged_ranges": list(self.merged_ranges),
         }
 
     @classmethod
@@ -211,6 +236,9 @@ class TableData:
             header_rows=data.get("header_rows", 1),
             caption=data.get("caption", ""),
             units=tuple(data.get("units", ())),
+            row_numbers=tuple(data.get("row_numbers", ())),
+            column_letters=tuple(data.get("column_letters", ())),
+            merged_ranges=tuple(data.get("merged_ranges", ())),
         )
 
 

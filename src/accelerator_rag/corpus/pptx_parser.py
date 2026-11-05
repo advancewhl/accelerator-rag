@@ -16,6 +16,8 @@ instead of failing the whole deck.
 
 from __future__ import annotations
 
+from hashlib import sha256
+from dataclasses import replace
 from pathlib import Path, PurePosixPath
 
 from pptx import Presentation
@@ -111,7 +113,125 @@ def _is_group_shape(shape) -> bool:
     return element is not None and element.tag == pptx_qn("p:grpSp")
 
 
-def _iter_shapes(shapes, warnings: list[str], slide_number: int):
+def _xfrm_element(shape):
+    element = getattr(shape, "_element", None)
+    if element is None:
+        return None
+    return next(
+        (child for child in element.iter() if child.tag == pptx_qn("a:xfrm")),
+        None,
+    )
+
+
+def _xfrm_box(xfrm) -> tuple[int, int, int, int] | None:
+    if xfrm is None:
+        return None
+    off = xfrm.find(pptx_qn("a:off"))
+    ext = xfrm.find(pptx_qn("a:ext"))
+    if off is None or ext is None:
+        return None
+    try:
+        return (
+            int(off.get("x", 0)),
+            int(off.get("y", 0)),
+            int(ext.get("cx", 0)),
+            int(ext.get("cy", 0)),
+        )
+    except (TypeError, ValueError):
+        return None
+
+
+def _group_transform(shape, parent) -> tuple[float, float, float, float, float, float] | None:
+    """Compose a group's chOff/chExt mapping into slide coordinates."""
+
+    xfrm = _xfrm_element(shape)
+    if xfrm is None:
+        return parent
+    off = _xfrm_box(xfrm)
+    ch_off = xfrm.find(pptx_qn("a:chOff"))
+    ch_ext = xfrm.find(pptx_qn("a:chExt"))
+    if off is None or ch_off is None or ch_ext is None:
+        return parent
+    try:
+        ch_x = int(ch_off.get("x", 0))
+        ch_y = int(ch_off.get("y", 0))
+        ch_cx = int(ch_ext.get("cx", 0))
+        ch_cy = int(ch_ext.get("cy", 0))
+    except (TypeError, ValueError):
+        return parent
+    if ch_cx <= 0 or ch_cy <= 0:
+        return parent
+    scale_x = off[2] / ch_cx
+    scale_y = off[3] / ch_cy
+    if parent is None:
+        return (off[0], off[1], scale_x, scale_y, ch_x, ch_y)
+    return (
+        parent[0] + (off[0] - parent[4]) * parent[2],
+        parent[1] + (off[1] - parent[5]) * parent[3],
+        parent[2] * scale_x,
+        parent[3] * scale_y,
+        ch_x,
+        ch_y,
+    )
+
+
+def _shape_box(shape, transform) -> tuple[float, float, float, float]:
+    xfrm = _xfrm_box(_xfrm_element(shape))
+    try:
+        left = int(shape.left) if shape.left is not None else None
+        top = int(shape.top) if shape.top is not None else None
+        width = int(shape.width) if shape.width is not None else None
+        height = int(shape.height) if shape.height is not None else None
+    except _SHAPE_ERRORS:
+        left = top = width = height = None
+    if left is None or top is None:
+        if xfrm is None:
+            return (1 << 60, 1 << 60, 0, 0)
+        left, top, width, height = xfrm
+    if transform is None:
+        return (top, left, width or 0, height or 0)
+    abs_left = transform[0] + (left - transform[4]) * transform[2]
+    abs_top = transform[1] + (top - transform[5]) * transform[3]
+    return (abs_top, abs_left, (width or 0) * transform[2], (height or 0) * transform[3])
+
+
+def _box_order_key(shape, box) -> tuple[int, int, int, str]:
+    """Visual reading order from slide-level coordinates."""
+
+    top, left = box[0], box[1]
+    # A title placeholder starts the slide's evidence even on custom layouts
+    # that position it below some body objects; then follow visual order.
+    title_priority = 0 if _is_title_placeholder(shape) else 1
+    # ~0.25 mm buckets avoid jitter while preserving row order.
+    return (
+        title_priority,
+        round(top / 9144),
+        round(left / 9144),
+        _shape_identity(shape)[0],
+    )
+
+
+def _with_object_order(blocks: list[ParsedBlock]) -> list[ParsedBlock]:
+    """Record each block's order within its slide after visual sorting."""
+
+    counters: dict[int, int] = {}
+    values = []
+    for block in blocks:
+        if block.position.kind == PositionKind.SLIDE.value:
+            order = counters.get(block.position.start, 0)
+            counters[block.position.start] = order + 1
+            values.append(
+                replace(
+                    block,
+                    metadata=block.metadata + (("object_order", str(order)),),
+                )
+            )
+        else:
+            values.append(block)
+    return values
+
+
+def _iter_shapes(shapes, warnings: list[str], slide_number: int, transform=None):
     for shape in shapes:
         if _is_group_shape(shape):
             try:
@@ -123,8 +243,11 @@ def _iter_shapes(shapes, warnings: list[str], slide_number: int):
                     )
                 )
                 continue
+            child_transform = _group_transform(shape, transform)
             try:
-                yield from _iter_shapes(children, warnings, slide_number)
+                yield from _iter_shapes(
+                    children, warnings, slide_number, child_transform
+                )
             except _SHAPE_ERRORS as exc:
                 warnings.append(
                     _shape_warning(
@@ -135,7 +258,7 @@ def _iter_shapes(shapes, warnings: list[str], slide_number: int):
                     )
                 )
         else:
-            yield shape
+            yield shape, _shape_box(shape, transform)
 
 
 def _has_text_frame(shape) -> bool:
@@ -282,8 +405,16 @@ def parse_pptx(
     title: str | None = None,
     parser_profile: str = "python-pptx-v1",
     source_path: str | None = None,
+    media_dir: str | Path | None = None,
+    media_prefix: str = "",
+    media_max_bytes: int = 256 * 1024 * 1024,
+    media_min_bytes: int = 4096,
 ) -> ParsedDocument:
-    """Parse one PPTX deck into slide-positioned typed blocks."""
+    """Parse one PPTX deck into slide-positioned typed blocks.
+
+    Picture blocks record a content hash and, when ``media_dir`` is supplied,
+    a materialized image path beside the parsed snapshot.
+    """
 
     pptx_path = Path(path)
     if not pptx_path.exists():
@@ -302,13 +433,19 @@ def parse_pptx(
     image_count = 0
     note_count = 0
     unhandled_unknown_count = 0
+    media_root = Path(media_dir) if media_dir is not None else None
+    media_written = 0
+    media_names: dict[str, str] = {}
 
     for slide_number, slide in enumerate(presentation.slides, 1):
         slide_shapes = list(
             _iter_shapes(slide.shapes, warnings, slide_number)
         )
+        slide_shapes.sort(
+            key=lambda item: _box_order_key(item[0], item[1])
+        )
 
-        for shape in slide_shapes:
+        for shape, _box in slide_shapes:
             shape_type, shape_error = _safe_shape_type(shape)
             try:
                 locator = _shape_locator(shape)
@@ -360,15 +497,67 @@ def parse_pptx(
                 if _is_picture_shape(shape, shape_type):
                     image_count += 1
                     image_format = ""
-                    try:
-                        image_format = shape.image.ext
-                    except _SHAPE_ERRORS:
-                        image_format = ""
                     metadata = [("kind", "image")]
+                    try:
+                        image = shape.image
+                        image_format = str(image.ext or "")
+                        blob = image.blob
+                        digest = sha256(blob).hexdigest()
+                        metadata.extend(
+                            [
+                                ("media_sha256", digest),
+                                ("media_bytes", str(len(blob))),
+                                (
+                                    "media_type",
+                                    str(getattr(image, "content_type", "")),
+                                ),
+                                ("media_ext", image_format.lstrip(".")),
+                            ]
+                        )
+                        media_status = "not_materialized"
+                        media_path = ""
+                        if media_root is not None and image_format:
+                            if digest in media_names:
+                                media_status = "duplicate"
+                                media_path = (
+                                    f"{media_prefix}/{media_names[digest]}"
+                                    if media_prefix
+                                    else media_names[digest]
+                                )
+                            elif len(blob) < media_min_bytes:
+                                media_status = "below_size_floor"
+                            elif media_written + len(blob) > media_max_bytes:
+                                media_status = "budget_exceeded"
+                            else:
+                                media_root.mkdir(parents=True, exist_ok=True)
+                                name = (
+                                    f"{digest[:16]}."
+                                    f"{image_format.lstrip('.')}"
+                                )
+                                (media_root / name).write_bytes(blob)
+                                media_names[digest] = name
+                                media_written += len(blob)
+                                media_status = "materialized"
+                                media_path = (
+                                    f"{media_prefix}/{name}"
+                                    if media_prefix
+                                    else name
+                                )
+                            if media_path:
+                                metadata.append(("media_path", media_path))
+                        metadata.append(("media_status", media_status))
+                    except _SHAPE_ERRORS:
+                        metadata.append(("media_status", "unreadable"))
                     if image_format:
                         metadata.append(
-                            ("image_format", str(image_format))
+                            ("image_format", image_format)
                         )
+                    for name, value in (
+                        ("width_emu", getattr(shape, "width", None)),
+                        ("height_emu", getattr(shape, "height", None)),
+                    ):
+                        if isinstance(value, int) and value > 0:
+                            metadata.append((name, str(value)))
                     blocks.append(
                         _make_block(
                             revision_id=revision_id,
@@ -494,6 +683,7 @@ def parse_pptx(
                     )
                 )
 
+    blocks = _with_object_order(blocks)
     if not blocks:
         warnings.append("empty_document")
 

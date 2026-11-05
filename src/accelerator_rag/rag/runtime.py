@@ -8,6 +8,7 @@ from pathlib import Path
 import httpx
 from qdrant_client import QdrantClient
 
+from accelerator_rag.corpus.table_records import TableRecordIndex
 from accelerator_rag.embedding import EmbeddingModel
 from accelerator_rag.providers.model import OpenAICompatibleModelProvider
 from accelerator_rag.retrieval.dense import DenseRetriever
@@ -18,6 +19,7 @@ from accelerator_rag.retrieval.reranker import Qwen3Reranker
 from accelerator_rag.storage.qdrant_passages import QdrantPassageStore
 from .service import RagService
 from .catalog import DocumentCatalog
+from .reader import DocumentReader
 from .release import release_identity_from_config
 from .retrieval import RequirementRetriever
 
@@ -89,7 +91,24 @@ class RagRuntime:
             dense = []
             canonical_chunks = {}
             self.documents = {}
+            self.document_sources = {}
+            self.document_titles = {}
             self.catalog = DocumentCatalog()
+            self.snapshot_dir = (
+                config.get("snapshot_dir") or os.environ.get("RAG_SNAPSHOT_DIR")
+            )
+            self.reader = DocumentReader(
+                snapshot_dir=self.snapshot_dir,
+                max_on_demand_bytes=config.get(
+                    "reader_max_on_demand_bytes", 64 * 1024 * 1024
+                ),
+            )
+            record_payload = []
+            if self.snapshot_dir:
+                records_dir = Path(self.snapshot_dir) / "records"
+                for path in sorted(records_dir.glob("*.json")):
+                    payload = json.loads(path.read_text(encoding="utf-8"))
+                    record_payload.extend(payload.get("records", ()))
             for entry, name in zip(
                 config["indexes"],
                 ("intfloat/multilingual-e5-base", "Qwen/Qwen3-Embedding-0.6B"),
@@ -136,16 +155,25 @@ class RagRuntime:
                     source = Path(c.source_path).resolve()
                     root = Path(config.get("source_root", "data/l0_raw")).resolve()
                     if source.is_relative_to(root):
-                        # The catalog lists every indexed format so Office and
-                        # spreadsheet evidence is visible.  Only PDF/Markdown
-                        # get an original-file reader URL for now; DOCX/PPTX/XLSX
-                        # remain catalogued with reader_available=false.
-                        if source.suffix.lower() in {".pdf", ".md"}:
-                            self.documents[c.document_id] = source
+                        # Every public indexed format is downloadable; the
+                        # catalog decides whether a normalized reader exists.
+                        self.documents[c.document_id] = source
+                        self.document_sources[c.document_id] = c.source_path
+                        self.document_titles.setdefault(
+                            c.document_id, c.document_title
+                        )
                         self.catalog.add(c, source)
                 if store.point_count() != entry["point_count"]:
                     raise ValueError("frozen index point count mismatch")
                 dense.append(DenseRetriever(embedder, store, passage_builder=builder))
+            # Row records follow the public registry rule: restricted material
+            # never enters the public lookup index.
+            record_payload = [
+                record
+                for record in record_payload
+                if record.get("revision_id") in self.documents
+            ]
+            self.table_records = TableRecordIndex.from_payload(record_payload)
             self.catalog.finish()
             reranker = Qwen3Reranker(**config["reranker"])
             provider = self.resources.enter_context(
@@ -166,6 +194,7 @@ class RagRuntime:
                     DenseRerankedRetriever(*dense, reranker),
                     list(canonical_chunks.values()),
                     reranker,
+                    structured_index=self.table_records,
                 ),
                 count_tokens=lambda text: len(
                     reranker.tokenizer.encode(text, add_special_tokens=False)

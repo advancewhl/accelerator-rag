@@ -3598,7 +3598,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-archive-query",
       "revision_id": "shine-control-operation-manual-series-rev-7da26046",
       "title": "SHINE存档数据查询软件操作手册",
       "revision_label": "归档文档（202410） | SHINE存档数据查询软件操作手册",
@@ -3630,7 +3630,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:archive-query"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -3813,7 +3815,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-interlock",
       "revision_id": "shine-control-operation-manual-series-rev-fba058ab",
       "title": "SHINE注入器联锁系统操作说明-归档2410",
       "revision_label": "归档文档（202410） | SHINE注入器联锁系统操作说明-归档2410",
@@ -3845,7 +3847,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:interlock"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -3856,7 +3860,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-vacuum",
       "revision_id": "shine-control-operation-manual-series-rev-96ebdc19",
       "title": "SHINE注入段真空控制操作手册",
       "revision_label": "归档文档（202410） | SHINE注入段真空控制操作手册",
@@ -3888,7 +3892,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:vacuum"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4071,7 +4077,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-collimator",
       "revision_id": "shine-control-operation-manual-series-rev-c05637cf",
       "title": "SHINE准直器界面操作手册",
       "revision_label": "操作手册 | SHINE准直器界面操作手册",
@@ -4103,7 +4109,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:collimator"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4114,7 +4122,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-power-source",
       "revision_id": "shine-control-operation-manual-series-rev-ebbcf97e",
       "title": "SHINE功率源控制界面操作说明",
       "revision_label": "操作手册 | SHINE功率源控制界面操作说明",
@@ -4146,7 +4154,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:power-source"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4157,7 +4167,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-four-dof-platform",
       "revision_id": "shine-control-operation-manual-series-rev-2536c98d",
       "title": "SHINE四自由度平台界面操作手册",
       "revision_label": "操作手册 | SHINE四自由度平台界面操作手册",
@@ -4189,7 +4199,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:four-dof-platform"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4200,7 +4212,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-timing",
       "revision_id": "shine-control-operation-manual-series-rev-99ecefba",
       "title": "SHINE定时界面操作手册",
       "revision_label": "操作手册 | SHINE定时界面操作手册",
@@ -4232,7 +4244,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:timing"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4243,7 +4257,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-constant-temperature-cabinet",
       "revision_id": "shine-control-operation-manual-series-rev-0e94a5e4",
       "title": "SHINE恒温机柜界面操作手册",
       "revision_label": "操作手册 | SHINE恒温机柜界面操作手册",
@@ -4275,7 +4289,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:constant-temperature-cabinet"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4286,7 +4302,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-archive-desktop",
       "revision_id": "shine-control-operation-manual-series-rev-fba2ad49",
       "title": "SHINE数据存档系统archiverDesktop操作手册",
       "revision_label": "操作手册 | SHINE数据存档系统archiverDesktop操作手册",
@@ -4318,7 +4334,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:archive-desktop"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4329,7 +4347,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-archive-query",
       "revision_id": "shine-control-operation-manual-series-rev-f12c9ad8",
       "title": "SHINE数据存档系统web查询软件操作手册",
       "revision_label": "操作手册 | SHINE数据存档系统web查询软件操作手册",
@@ -4361,7 +4379,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:archive-query"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4372,7 +4392,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-temperature-humidity",
       "revision_id": "shine-control-operation-manual-series-rev-f11c069c",
       "title": "SHINE温湿度控制界面操作说明",
       "revision_label": "操作手册 | SHINE温湿度控制界面操作说明",
@@ -4404,7 +4424,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:temperature-humidity"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4415,7 +4437,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-laser",
       "revision_id": "shine-control-operation-manual-series-rev-b672c917",
       "title": "SHINE激光界面操作手册",
       "revision_label": "操作手册 | SHINE激光界面操作手册",
@@ -4447,7 +4469,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:laser"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4458,7 +4482,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-pdu",
       "revision_id": "shine-control-operation-manual-series-rev-24e94d16",
       "title": "SHINE电源分配器PDU界面操作手册",
       "revision_label": "操作手册 | SHINE电源分配器PDU界面操作手册",
@@ -4490,7 +4514,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:pdu"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4501,7 +4527,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-power-supply",
       "revision_id": "shine-control-operation-manual-series-rev-e6551458",
       "title": "SHINE电源控制界面操作说明",
       "revision_label": "操作手册 | SHINE电源控制界面操作说明",
@@ -4533,7 +4559,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:power-supply"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4544,7 +4572,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-interlock",
       "revision_id": "shine-control-operation-manual-series-rev-41ba2750",
       "title": "SHINE联锁界面操作手册",
       "revision_label": "操作手册 | SHINE联锁界面操作手册",
@@ -4576,7 +4604,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:interlock"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4587,7 +4617,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-laser-heater",
       "revision_id": "shine-control-operation-manual-series-rev-fd679514",
       "title": "SHINE注入器段Laser Heater控制界面操作手册",
       "revision_label": "操作手册/第三版（202411） | SHINE注入器段Laser Heater控制界面操作手册",
@@ -4619,7 +4649,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:laser-heater"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4630,7 +4662,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-collimator",
       "revision_id": "shine-control-operation-manual-series-rev-afa68262",
       "title": "SHINE注入器段准直器控制界面操作手册",
       "revision_label": "操作手册/第三版（202411） | SHINE注入器段准直器控制界面操作手册",
@@ -4662,7 +4694,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:collimator"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4673,7 +4707,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-switch-platform",
       "revision_id": "shine-control-operation-manual-series-rev-b6698e8a",
       "title": "SHINE注入器段切换平台控制界面操作手册",
       "revision_label": "操作手册/第三版（202411） | SHINE注入器段切换平台控制界面操作手册",
@@ -4705,7 +4739,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:switch-platform"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4716,7 +4752,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-four-dof-platform",
       "revision_id": "shine-control-operation-manual-series-rev-fd3c0264",
       "title": "SHINE注入器段四自由度平台控制界面操作手册",
       "revision_label": "操作手册/第三版（202411） | SHINE注入器段四自由度平台控制界面操作手册",
@@ -4748,7 +4784,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:four-dof-platform"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4759,7 +4797,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-tuner",
       "revision_id": "shine-control-operation-manual-series-rev-eb5d6e0e",
       "title": "SHINE注入器段调谐器控制界面操作手册",
       "revision_label": "操作手册/第三版（202411） | SHINE注入器段调谐器控制界面操作手册",
@@ -4791,7 +4829,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:tuner"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4802,7 +4842,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-vacuum",
       "revision_id": "shine-control-operation-manual-series-rev-b9bfd428",
       "title": "SHINE注入段段真空控制界面操作手册",
       "revision_label": "操作手册/第三版（202411） | SHINE注入段段真空控制界面操作手册",
@@ -4834,7 +4874,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:vacuum"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4888,7 +4930,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-power-source",
       "revision_id": "shine-control-operation-manual-series-rev-6aab6b8c",
       "title": "硬X射线自由电子激光装置项目1号井功率源控制界面操作说明",
       "revision_label": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件 | 硬X射线自由电子激光装置项目1号井功率源控制界面操作说明",
@@ -4920,7 +4962,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:power-source"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4931,7 +4975,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-temperature-humidity",
       "revision_id": "shine-control-operation-manual-series-rev-c6fe79d8",
       "title": "硬X射线自由电子激光装置项目1号井温湿度控制界面操作说明",
       "revision_label": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件 | 硬X射线自由电子激光装置项目1号井温湿度控制界面操作说明",
@@ -4963,7 +5007,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:temperature-humidity"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -4974,7 +5020,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-power-supply",
       "revision_id": "shine-control-operation-manual-series-rev-fe5144f3",
       "title": "硬X射线自由电子激光装置项目1号井电源控制界面操作说明",
       "revision_label": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件 | 硬X射线自由电子激光装置项目1号井电源控制界面操作说明",
@@ -5006,7 +5052,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:power-supply"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5103,7 +5151,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-timing",
       "revision_id": "shine-control-operation-manual-series-rev-715c251d",
       "title": "硬X射线自由电子激光装置项目定时系统控制界面操作说明",
       "revision_label": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件 | 硬X射线自由电子激光装置项目定时系统控制界面操作说明",
@@ -5135,7 +5183,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:timing"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5189,7 +5239,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-constant-temperature-cabinet",
       "revision_id": "shine-control-operation-manual-series-rev-300f0580",
       "title": "硬X射线自由电子激光装置项目恒温机柜控制界面操作说明",
       "revision_label": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件 | 硬X射线自由电子激光装置项目恒温机柜控制界面操作说明",
@@ -5221,7 +5271,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:constant-temperature-cabinet"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5318,7 +5370,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-interlock",
       "revision_id": "shine-control-operation-manual-series-rev-a00f759c",
       "title": "硬X射线自由电子激光装置项目联锁系统控制界面操作说明",
       "revision_label": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件 | 硬X射线自由电子激光装置项目联锁系统控制界面操作说明",
@@ -5350,7 +5402,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:interlock"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5490,7 +5544,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-power-supply",
       "revision_id": "shine-control-operation-manual-series-rev-9aa08d8a",
       "title": "1号井电源控制界面操作说明-2023.12.07",
       "revision_label": "操作手册/第二版 | 1号井电源控制界面操作说明-2023.12.07",
@@ -5522,7 +5576,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:power-supply"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5533,7 +5589,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-timing",
       "revision_id": "shine-control-operation-manual-series-rev-73552d9f",
       "title": "SHINE定时界面操作手册(20231206)",
       "revision_label": "操作手册/第二版 | SHINE定时界面操作手册(20231206)",
@@ -5565,7 +5621,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:timing"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5576,7 +5634,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-interlock",
       "revision_id": "shine-control-operation-manual-series-rev-2a16a52e",
       "title": "SHINE联锁界面操作手册(20231206)",
       "revision_label": "操作手册/第二版 | SHINE联锁界面操作手册(20231206)",
@@ -5608,7 +5666,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:interlock"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -5619,7 +5679,7 @@
       "derived_from": []
     },
     {
-      "family_id": "shine-control-operation-manual-series",
+      "family_id": "shine-control-operation-manual-archive-query",
       "revision_id": "shine-control-operation-manual-series-rev-ec081ce3",
       "title": "archiver appliance数据存档系统web查询软件操作手册(20231206)",
       "revision_label": "操作手册/第二版 | archiver appliance数据存档系统web查询软件操作手册(20231206)",
@@ -5651,7 +5711,9 @@
       "reviewed_by": "",
       "reviewed_at": "",
       "tags": [
-        "batch-2026-11-02"
+        "batch-2026-11-02",
+        "series:shine-control-operation-manual-series",
+        "device:archive-query"
       ],
       "scope": [],
       "applicable_versions": [],
@@ -9493,43 +9555,178 @@
       "created_at": "2026-11-02"
     },
     {
-      "family_id": "shine-control-operation-manual-series",
-      "title": "控制系统界面操作手册（第一版 / 第二版 / 第三版 / 归档副本）",
-      "description": "控制系统各功能界面的操作手册合集。第一版、第二版（2023-12）、第三版（2024-11）与 2023/2024 归档副本之间的关系。统一族仅用于候选分组；具体功能是否逐一手册形成独立版本链，待确认。",
+      "family_id": "shine-control-operation-manual-archive-desktop",
+      "title": "SHINE 数据存档系统 archiverDesktop 操作手册（第一版）",
+      "description": "SHINE 数据存档系统 archiverDesktop 操作手册第一版。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-fba2ad49"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-archive-query",
+      "title": "SHINE 数据存档系统查询软件操作手册（第一版 / 第二版 / 2024 归档副本）",
+      "description": "SHINE 数据存档系统 web 查询软件操作手册第一版、archiver appliance 数据存档系统 web 查询软件操作手册第二版（2023-12-06）与 2024 年 SHINE 存档数据查询软件操作手册归档副本。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-7da26046",
+        "shine-control-operation-manual-series-rev-ec081ce3",
+        "shine-control-operation-manual-series-rev-f12c9ad8"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-collimator",
+      "title": "SHINE 准直器界面操作手册（第一版 / 第三版）",
+      "description": "SHINE 准直器界面操作手册第一版与 2024-11 第三版（SHINE 注入器段准直器控制界面操作手册）。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-afa68262",
+        "shine-control-operation-manual-series-rev-c05637cf"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-constant-temperature-cabinet",
+      "title": "SHINE 恒温机柜界面操作手册（第一版 / 2023 归档副本）",
+      "description": "SHINE 恒温机柜界面操作手册第一版与 2023 年恒温机柜控制界面操作说明归档副本。",
       "revision_ids": [
         "shine-control-operation-manual-series-rev-0e94a5e4",
-        "shine-control-operation-manual-series-rev-24e94d16",
+        "shine-control-operation-manual-series-rev-300f0580"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-four-dof-platform",
+      "title": "SHINE 四自由度平台界面操作手册（第一版 / 第三版）",
+      "description": "SHINE 四自由度平台界面操作手册第一版与 2024-11 第三版（SHINE 注入器段四自由度平台控制界面操作手册）。",
+      "revision_ids": [
         "shine-control-operation-manual-series-rev-2536c98d",
+        "shine-control-operation-manual-series-rev-fd3c0264"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-interlock",
+      "title": "SHINE 联锁系统界面操作手册（第一版 / 第二版 / 2023、2024 归档副本）",
+      "description": "SHINE 联锁界面操作手册第一版、第二版（2023-12-06）、2023 年联锁系统控制界面操作说明归档副本与 2024 年注入器联锁系统操作说明归档副本。",
+      "revision_ids": [
         "shine-control-operation-manual-series-rev-2a16a52e",
-        "shine-control-operation-manual-series-rev-300f0580",
         "shine-control-operation-manual-series-rev-41ba2750",
-        "shine-control-operation-manual-series-rev-6aab6b8c",
-        "shine-control-operation-manual-series-rev-715c251d",
-        "shine-control-operation-manual-series-rev-73552d9f",
-        "shine-control-operation-manual-series-rev-7da26046",
-        "shine-control-operation-manual-series-rev-96ebdc19",
-        "shine-control-operation-manual-series-rev-99ecefba",
-        "shine-control-operation-manual-series-rev-9aa08d8a",
         "shine-control-operation-manual-series-rev-a00f759c",
-        "shine-control-operation-manual-series-rev-afa68262",
-        "shine-control-operation-manual-series-rev-b6698e8a",
-        "shine-control-operation-manual-series-rev-b672c917",
-        "shine-control-operation-manual-series-rev-b9bfd428",
-        "shine-control-operation-manual-series-rev-c05637cf",
-        "shine-control-operation-manual-series-rev-c6fe79d8",
+        "shine-control-operation-manual-series-rev-fba058ab"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-laser",
+      "title": "SHINE 激光界面操作手册（第一版）",
+      "description": "SHINE 激光界面操作手册第一版。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-b672c917"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-laser-heater",
+      "title": "SHINE 注入器段 Laser Heater 控制界面操作手册（第三版）",
+      "description": "SHINE 注入器段 Laser Heater 控制界面操作手册 2024-11 第三版。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-fd679514"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-pdu",
+      "title": "SHINE 电源分配器 PDU 界面操作手册（第一版）",
+      "description": "SHINE 电源分配器 PDU 界面操作手册第一版。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-24e94d16"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-power-source",
+      "title": "SHINE 功率源控制界面操作说明（第一版 / 2023 归档副本）",
+      "description": "SHINE 功率源控制界面操作说明第一版与 2023 年 1 号井功率源控制界面操作说明归档副本。功率源与电源按标题区分为不同设备。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-6aab6b8c",
+        "shine-control-operation-manual-series-rev-ebbcf97e"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-power-supply",
+      "title": "SHINE 电源控制界面操作说明（第一版 / 第二版 / 2023 归档副本）",
+      "description": "SHINE 电源控制界面操作说明第一版、1 号井电源控制界面操作说明第二版（2023-12-07）与 2023 年 1 号井电源控制界面操作说明归档副本。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-9aa08d8a",
         "shine-control-operation-manual-series-rev-e6551458",
-        "shine-control-operation-manual-series-rev-eb5d6e0e",
-        "shine-control-operation-manual-series-rev-ebbcf97e",
-        "shine-control-operation-manual-series-rev-ec081ce3",
-        "shine-control-operation-manual-series-rev-f11c069c",
-        "shine-control-operation-manual-series-rev-f12c9ad8",
-        "shine-control-operation-manual-series-rev-fba058ab",
-        "shine-control-operation-manual-series-rev-fba2ad49",
-        "shine-control-operation-manual-series-rev-fd3c0264",
-        "shine-control-operation-manual-series-rev-fd679514",
         "shine-control-operation-manual-series-rev-fe5144f3"
       ],
-      "notes": "confidence=medium; needs_confirmation=True; evidence=ANALYSIS §2 列出操作手册 23 份第一/二/三版；ANALYSIS §4.2 指出 3 组操作手册与 2023 归档完全重复；目录名含第一版/第二版（20231206）/第三版（202411）。",
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-switch-platform",
+      "title": "SHINE 注入器段切换平台控制界面操作手册（第三版）",
+      "description": "SHINE 注入器段切换平台控制界面操作手册 2024-11 第三版。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-b6698e8a"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-temperature-humidity",
+      "title": "SHINE 温湿度控制界面操作说明（第一版 / 2023 归档副本）",
+      "description": "SHINE 温湿度控制界面操作说明第一版与 2023 年 1 号井温湿度控制界面操作说明归档副本。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-c6fe79d8",
+        "shine-control-operation-manual-series-rev-f11c069c"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-timing",
+      "title": "SHINE 定时系统界面操作手册（第一版 / 第二版 / 2023 归档副本）",
+      "description": "SHINE 定时界面操作手册第一版、第二版（2023-12-06）与 2023 年归档副本（硬X射线自由电子激光装置项目定时系统控制界面操作说明）。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-715c251d",
+        "shine-control-operation-manual-series-rev-73552d9f",
+        "shine-control-operation-manual-series-rev-99ecefba"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-tuner",
+      "title": "SHINE 注入器段调谐器控制界面操作手册（第三版）",
+      "description": "SHINE 注入器段调谐器控制界面操作手册 2024-11 第三版。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-eb5d6e0e"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
+      "created_at": "2026-11-02"
+    },
+    {
+      "family_id": "shine-control-operation-manual-vacuum",
+      "title": "SHINE 注入段真空控制操作手册（第三版 / 2024 归档副本）",
+      "description": "SHINE 注入段段真空控制界面操作手册 2024-11 第三版与 2024 年注入段真空控制操作手册归档副本。",
+      "revision_ids": [
+        "shine-control-operation-manual-series-rev-96ebdc19",
+        "shine-control-operation-manual-series-rev-b9bfd428"
+      ],
+      "notes": "F11 从 shine-control-operation-manual-series 拆出；按 title 与 revision_label 识别设备/手册后归族；未确认 supersedes、生效日期或批准状态。",
       "created_at": "2026-11-02"
     },
     {
@@ -11023,7 +11220,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-archive-query",
       "notes": "2024 归档：控制网络/联锁/真空/EPICS 部署；2024 归档副本；手册代次、批准状态与适用范围 unknown；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11088,7 +11285,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-interlock",
       "notes": "2024 归档：控制网络/联锁/真空/EPICS 部署；2024 归档副本；手册代次、批准状态与适用范围 unknown；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11101,7 +11298,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-vacuum",
       "notes": "2024 归档：控制网络/联锁/真空/EPICS 部署；2024 归档副本；手册代次、批准状态与适用范围 unknown；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11231,7 +11428,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-collimator",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11244,7 +11441,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-power-source",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11257,7 +11454,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-four-dof-platform",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11270,7 +11467,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-timing",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11283,7 +11480,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-constant-temperature-cabinet",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11296,7 +11493,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-archive-desktop",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11309,7 +11506,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-archive-query",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11322,7 +11519,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-temperature-humidity",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11335,7 +11532,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-laser",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11348,7 +11545,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-pdu",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11361,7 +11558,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-power-supply",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11374,7 +11571,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-interlock",
       "notes": "第一版操作手册；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11387,7 +11584,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-laser-heater",
       "notes": "第三版操作手册（最新）；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11400,7 +11597,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-collimator",
       "notes": "第三版操作手册（最新）；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11413,7 +11610,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-switch-platform",
       "notes": "第三版操作手册（最新）；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11426,7 +11623,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-four-dof-platform",
       "notes": "第三版操作手册（最新）；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11439,7 +11636,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-tuner",
       "notes": "第三版操作手册（最新）；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11452,7 +11649,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-vacuum",
       "notes": "第三版操作手册（最新）；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11478,7 +11675,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-power-source",
       "notes": "2023 归档：界面操作说明/监控设计；ANALYSIS §4.2 列为与 操作手册/SHINE功率源控制界面操作说明.docx 完全重复（SHA-256 相同）；最终应共享原始资产，避免重复索引；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11491,7 +11688,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-temperature-humidity",
       "notes": "2023 归档：界面操作说明/监控设计；ANALYSIS §4.2 列为与 操作手册/SHINE温湿度控制界面操作说明.docx 完全重复（SHA-256 相同）；最终应共享原始资产，避免重复索引；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11504,7 +11701,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-power-supply",
       "notes": "2023 归档：界面操作说明/监控设计；ANALYSIS §4.2 列为与 操作手册/SHINE电源控制界面操作说明.docx 完全重复（SHA-256 相同）；最终应共享原始资产，避免重复索引；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11543,7 +11740,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-timing",
       "notes": "2023 归档：界面操作说明/监控设计；2023 归档副本；与 操作手册/ 第一版/第二版定时手册的关系未逐份确认；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11569,7 +11766,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-constant-temperature-cabinet",
       "notes": "2023 归档：界面操作说明/监控设计；2023 归档副本；与 操作手册/ 第一版/第二版恒温机柜手册的关系未逐份确认；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11608,7 +11805,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-interlock",
       "notes": "2023 归档：界面操作说明/监控设计；2023 归档副本；与 操作手册/ 第一版/第二版联锁手册的关系未逐份确认；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11660,7 +11857,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-power-supply",
       "notes": "第二版操作手册，可能被第三版取代；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11673,7 +11870,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-timing",
       "notes": "第二版操作手册，可能被第三版取代；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11686,7 +11883,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；Office 文档需转换后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-interlock",
       "notes": "第二版操作手册，可能被第三版取代；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {
@@ -11699,7 +11896,7 @@
       "disposition": "text_index",
       "planned_action": "convert",
       "reason": "CSV handling=convert；旧版 DOC 需在固定环境转 DOCX/PDF 后解析入库，保留原件与转换记录。",
-      "target_family_id": "shine-control-operation-manual-series",
+      "target_family_id": "shine-control-operation-manual-archive-query",
       "notes": "第二版操作手册，可能被第三版取代；未做 docx/pptx→PDF 转换与版式保真检查（ANALYSIS §7）；未读全文；业务类型与版本按文件名/目录/批次分析草案判断"
     },
     {

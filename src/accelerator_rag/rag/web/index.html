@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>加速器知识工作台</title>
 <link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/katex/katex.min.css">
-<script defer src="/assets/katex/katex.min.js"></script><script defer src="/assets/katex/contrib/auto-render.min.js"></script><script defer src="/assets/markdown/markdown-it.min.js"></script><script defer src="/assets/app.js"></script>
+<script defer src="/assets/katex/katex.min.js"></script><script defer src="/assets/katex/contrib/auto-render.min.js"></script><script defer src="/assets/markdown/markdown-it.min.js"></script><script defer src="/assets/app.js?v=20261102b"></script>
 </head>
 <body>
 <div class="app-shell">
@@ -43,7 +43,7 @@
 <div class="result-footer"><span id="elapsed"></span><button id="copy" class="quiet">复制答案</button></div>
 </section>
 </div>
-<div class="composer-wrap"><form id="ask-form" class="composer"><label class="sr-only" for="question">输入文档问题</label><textarea id="question" name="question" maxlength="8000" rows="2" required placeholder="描述你的问题，尽量写明设备、系统或文档版本…"></textarea><div class="compose-bottom"><span>Enter 发送 <span class="keyboard-divider">·</span> Shift + Enter 换行</span><button id="submit" type="submit" aria-label="查找答案">查找答案 <span>↑</span></button></div></form><p class="composer-note">每次提问独立检索文档。设计参数不代表实时运行状态。</p></div>
+<div class="composer-wrap"><div id="scope-bar" class="scope-bar" hidden><span class="scope-kicker">查阅范围</span><span id="scope-chip" class="scope-chip"></span><button id="scope-clear" type="button" class="scope-clear" aria-label="清除查阅范围">×</button></div><form id="ask-form" class="composer"><label class="sr-only" for="question">输入文档问题</label><textarea id="question" name="question" maxlength="8000" rows="2" required placeholder="描述你的问题，尽量写明设备、系统或文档版本…"></textarea><div class="compose-bottom"><span>Enter 发送 <span class="keyboard-divider">·</span> Shift + Enter 换行</span><button id="submit" type="submit" aria-label="查找答案">查找答案 <span>↑</span></button></div></form><p class="composer-note">每次提问独立检索文档。设计参数不代表实时运行状态。</p></div>
 </section>
 <aside id="research-panel" class="research-panel" aria-label="证据与原文">
 <section id="evidence-panel" class="evidence-panel"><div class="panel-heading"><div><span class="panel-kicker">REFERENCE DESK</span><h2>证据出处</h2></div><span id="source-count" class="source-count">0</span></div><p id="source-hint" class="source-hint">提问后，引用的文档与页码会显示在这里。</p><ol id="sources" class="sources"></ol><div id="source-empty" class="source-empty"><div class="empty-document"><i></i><i></i><i></i><span>“</span></div><strong id="source-empty-title">答案有据可查</strong><p id="source-empty-note">点击答案中的引用编号，<br>在这里对照文档原文。</p></div><div class="evidence-footnote">PDF 按物理页定位，Markdown 按当前修订版的章节定位。</div></section>
@@ -57,7 +57,7 @@
 <section id="library-view" class="library-view" aria-label="知识库目录" hidden>
 <div class="library-header"><div><div class="eyebrow">DOCUMENT LIBRARY</div><h1>你的文档知识库</h1><p>查看当前可检索的资料，以及每份文档的版本与收录情况。</p></div><button id="back-to-chat" class="quiet">← 返回问答</button></div>
 <div class="library-summary" id="library-summary">正在读取知识库…</div>
-<div class="library-tools"><label class="library-search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索已收录文档</span><input id="library-search" type="search" placeholder="搜索文档名称、版本或主题…" autocomplete="off"></label><label class="sr-only" for="library-category">文档分类</label><select id="library-category"><option value="">全部分类</option></select><button id="library-refresh" class="quiet">刷新目录</button></div>
+<div class="library-tools"><label class="library-search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索已收录文档</span><input id="library-search" type="search" placeholder="搜索文档名称、版本或主题…" autocomplete="off"></label><label class="sr-only" for="library-category">文档分类</label><select id="library-category"><option value="">全部分类</option></select><label class="sr-only" for="library-format">文件格式</label><select id="library-format"><option value="">全部格式</option></select><label class="sr-only" for="library-status">资料状态</label><select id="library-status"><option value="">全部状态</option></select><button id="library-refresh" class="quiet">刷新目录</button></div>
 <p id="library-message" class="library-message" role="status"></p>
 <div id="library-documents" class="library-documents"></div>
 <p class="library-footnote">目录展示当前已收录、可用于问答的资料。具体问题能否回答，取决于原文是否有足够依据。</p>

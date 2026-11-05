@@ -58,7 +58,11 @@ class BM25Retriever:
         self._b = b
 
         self._tokenized_documents = [
-            tokenize(f"{chunk.document_title} {chunk.text}") for chunk in self._chunks
+            tokenize(
+                f"{chunk.document_title} "
+                f"{getattr(chunk, 'section_path', '')} {chunk.text}"
+            )
+            for chunk in self._chunks
         ]
 
         self._document_lengths = [len(tokens) for tokens in self._tokenized_documents]
