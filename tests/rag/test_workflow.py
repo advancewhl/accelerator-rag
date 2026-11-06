@@ -219,6 +219,52 @@ def test_exact_question_cannot_be_completed_from_unreviewed_ocr_only():
     assert "待复核" in support.missing
 
 
+def _exact_assessment(chunks, question="联锁响应时间阈值是多少？"):
+    context = EvidenceContextBuilder().build(
+        [RetrievalResult(i, 0.9, c, "test") for i, c in enumerate(chunks, 1)]
+    )
+    output = {
+        "requirements": [
+            {
+                "id": "R1",
+                "supported": True,
+                "span_ids": [f"S{i}.1" for i in range(1, len(chunks) + 1)],
+            }
+        ]
+    }
+    return select_evidence(
+        Provider([("submit_evidence", output)]),
+        question,
+        [Requirement(id="R1", question=question)],
+        context,
+        assessment=True,
+    ).requirements[0]
+
+
+def test_unrelated_native_text_cannot_vouch_for_an_ocr_only_value():
+    scan = replace(
+        hit("scan", "联锁响应时间阈值为 100 µs。", page=3).chunk,
+        extraction_method="ocr",
+        review_status="required",
+    )
+    native = hit("native", "系统对联锁响应时间进行监测。", page=4).chunk
+    support = _exact_assessment([scan, native])
+    assert not support.supported
+    assert "待复核" in support.missing
+
+
+def test_ocr_value_corroborated_by_native_text_or_review_is_usable():
+    scan = replace(
+        hit("scan", "联锁响应时间阈值为 100 µs。", page=3).chunk,
+        extraction_method="ocr",
+        review_status="required",
+    )
+    native = hit("native", "联锁响应时间阈值：100 µs。", page=4).chunk
+    assert _exact_assessment([scan, native]).supported
+    reviewed = replace(scan, review_status="reviewed")
+    assert _exact_assessment([reviewed]).supported
+
+
 def test_quantitative_alternative_cannot_change_document_version_scope():
     context = EvidenceContextBuilder().build(
         [
@@ -308,7 +354,10 @@ def test_subset_excludes_conflicting_sources_and_respects_budget():
     )
     selected, support, _ = choose_subset(context, assessment, len, token_budget=5000)
     assert len(selected.sources) == 1
-    assert sum(s.supported for s in support.requirements) == 1
+    # Keeping one side does not resolve the conflict: the kept requirement
+    # reports it instead of being marked fully supported (review 4.5).
+    assert sum(s.supported for s in support.requirements) == 0
+    assert any("未解决的条件冲突" in s.missing for s in support.requirements)
     selected, support, trace = choose_subset(context, assessment, len, token_budget=100)
     assert not selected.sources and not any(s.supported for s in support.requirements)
     assert trace["context_tokens"] <= 100
@@ -863,3 +912,37 @@ def test_request_traces_are_private_and_bounded(tmp_path):
     files = list(tmp_path.glob("*.json"))
     assert len(files) == 100
     assert all(p.stat().st_mode & 0o777 == 0o600 for p in files)
+
+
+def test_dropping_one_side_of_a_conflict_does_not_count_as_support():
+    from accelerator_rag.rag.answer import EvidenceConflict
+
+    context = EvidenceContextBuilder().build(
+        [
+            hit("spec-a", "The response threshold is 10 us.", 0.9),
+            hit("spec-b", "The response threshold is 20 us.", 0.8),
+        ]
+    )
+    assessment = Selection(
+        requirements=[
+            Support(
+                id="R1",
+                supported=True,
+                span_ids=["S1.1"],
+                alternatives=[["S2.1"]],
+            )
+        ],
+        conflicts=[
+            EvidenceConflict(
+                source_ids=["S1", "S2"], reason="同一条件下阈值不同"
+            )
+        ],
+    )
+    selected, support, trace = choose_subset(
+        context, assessment, len, max_sources=2, token_budget=5000
+    )
+    assert len(selected.sources) == 1
+    requirement = support.requirements[0]
+    assert not requirement.supported
+    assert "未解决的条件冲突" in requirement.missing
+    assert trace["unresolved_conflicts"]

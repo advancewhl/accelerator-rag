@@ -535,3 +535,53 @@ def test_workflow_passes_scope_to_every_retrieval_round():
     assert len(retriever.scopes) == 2
     assert all(item is scope for item in retriever.scopes)
     assert trace["scope"] == scope.describe()
+
+
+def _qdrant_count(chunks, scope):
+    """Count stored payloads the server-side scope filter admits."""
+
+    client = QdrantClient(":memory:")
+    client.create_collection(
+        "scope",
+        vectors_config=models.VectorParams(size=2, distance=models.Distance.COSINE),
+    )
+    points = []
+    for index, chunk in enumerate(chunks, 1):
+        payload = {
+            key: value
+            for key, value in chunk.__dict__.items()
+            if key not in {"chunk_id", "text"}
+        }
+        points.append(models.PointStruct(id=index, vector=[1.0, 0.0], payload=payload))
+    client.upsert("scope", points=points)
+    return client.count("scope", count_filter=build_scope_filter(scope)).count
+
+
+def test_qdrant_family_alias_matches_python_scope():
+    split = make_chunk(
+        "rev-a:split",
+        family_id="shine-control-operation-manual-timing",
+        usage_status="reference",
+        tags="series:shine-control-operation-manual-series;device:timing",
+    )
+    other = make_chunk("rev-b:other", family_id="other-family", usage_status="reference")
+    scope = RetrievalScope(
+        family_ids=frozenset({"shine-control-operation-manual-series"})
+    )
+    assert scope.allows(split) and not scope.allows(other)
+    # Before the fix the vector prefilter admitted 0 of these parents.
+    assert _qdrant_count([split, other], scope) == 1
+
+
+def test_qdrant_prefilters_approval_and_tags_like_python_scope():
+    chunks = [
+        make_chunk("rev-a:approved", approval_status="approved", tags="device:timing"),
+        make_chunk("rev-b:unknown", approval_status="", tags="device:timing"),
+        make_chunk("rev-c:draft", approval_status="draft", tags="device:vacuum"),
+    ]
+    approved = RetrievalScope(approval_statuses=frozenset({"approved"}))
+    assert _qdrant_count(chunks, approved) == sum(map(approved.allows, chunks)) == 1
+    unknown = RetrievalScope(approval_statuses=frozenset({"unknown"}))
+    assert _qdrant_count(chunks, unknown) == sum(map(unknown.allows, chunks)) == 1
+    tagged = RetrievalScope(tags=frozenset({"device:timing"}))
+    assert _qdrant_count(chunks, tagged) == sum(map(tagged.allows, chunks)) == 2

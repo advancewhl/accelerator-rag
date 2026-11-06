@@ -21,11 +21,12 @@ SERIES_FAMILY_ID = "shine-control-operation-manual-series"
 def test_batch_artifact_covers_all_inputs_and_revisions():
     registry = load_registry_v2(REGISTRY)
 
-    assert len(registry.revisions) == 210
+    # 210 + 15 revisions of the 2026-11-05 cable batch.
+    assert len(registry.revisions) == 225
     # F11 replaced the 31-revision operation-manual series family with 16
-    # explicit device/manual families: 74 - 1 + 16 = 89.
-    assert len(registry.families) == 89
-    assert len(registry.dispositions) == 235
+    # explicit device/manual families: 74 - 1 + 16 = 89; plus 15 cable tables.
+    assert len(registry.families) == 104
+    assert len(registry.dispositions) == 251
     batch = [
         item for item in registry.dispositions if item.batch_id == BATCH_ID
     ]
@@ -149,3 +150,25 @@ def test_legacy_baseline_snapshot_stays_separate():
         "legacy-baseline"
     }
     assert len(legacy.dispositions) == 17
+
+
+CABLE_BATCH = "2026-11-05-shine-cables"
+
+
+def test_cable_batch_registers_each_unique_table_once():
+    registry = load_registry_v2(REGISTRY)
+    batch = [d for d in registry.dispositions if d.batch_id == CABLE_BATCH]
+    revisions = [r for r in registry.revisions if r.batch_id == CABLE_BATCH]
+
+    assert len(batch) == 16
+    assert len(revisions) == 15
+    excluded = [d for d in batch if d.disposition == "excluded"]
+    assert len(excluded) == 1 and "副本" in excluded[0].source_path
+    assert {r.source_format for r in revisions} == {"xlsx", "xls"}
+    assert all(r.disposition == "structured_index" for r in revisions)
+    assert all(r.approval_status == "unknown" for r in revisions)
+    assert all(r.usage_status == "reference" for r in revisions)
+    assert all(
+        source_format_for_path(r.source_path).value == r.source_format
+        for r in revisions
+    )

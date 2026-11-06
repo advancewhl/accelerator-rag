@@ -76,6 +76,32 @@ def convert_doc_to_docx(
         raise FileNotFoundError(f"DOC file does not exist: {doc_path}")
     if doc_path.suffix.lower() != ".doc":
         raise ValueError(f"Expected a DOC file: {doc_path}")
+    return _convert(doc_path, output_dir, "docx", timeout=timeout)
+
+
+def convert_xls_to_xlsx(
+    path: str | Path,
+    output_dir: str | Path,
+    *,
+    timeout: int = 180,
+) -> ConversionResult:
+    """Convert one legacy ``.xls`` workbook to ``.xlsx`` (values and merges)."""
+
+    xls_path = Path(path)
+    if not xls_path.exists():
+        raise FileNotFoundError(f"XLS file does not exist: {xls_path}")
+    if xls_path.suffix.lower() != ".xls":
+        raise ValueError(f"Expected an XLS file: {xls_path}")
+    return _convert(xls_path, output_dir, "xlsx", timeout=timeout)
+
+
+def _convert(
+    doc_path: Path,
+    output_dir: str | Path,
+    target_ext: str,
+    *,
+    timeout: int,
+) -> ConversionResult:
     if timeout <= 0:
         raise ValueError("timeout must be positive")
 
@@ -88,13 +114,15 @@ def convert_doc_to_docx(
 
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
-    target = output_path / f"{doc_path.stem}.docx"
+    target = output_path / f"{doc_path.stem}.{target_ext}"
     if target.exists():
         # A stale file from an earlier build must not be mistaken for success.
         target.unlink()
 
     version = _tool_version(tool)
-    profile_text = f"soffice --headless --convert-to docx; version={version}"
+    profile_text = (
+        f"soffice --headless --convert-to {target_ext}; version={version}"
+    )
 
     profile_dir = Path(tempfile.mkdtemp(prefix="accelerator-rag-lo-profile-"))
     command = [
@@ -103,7 +131,7 @@ def convert_doc_to_docx(
         "--norestore",
         f"-env:UserInstallation={profile_dir.resolve().as_uri()}",
         "--convert-to",
-        "docx",
+        target_ext,
         "--outdir",
         str(output_path),
         str(doc_path),
@@ -245,3 +273,51 @@ def _parse_converted_docx(
         media_max_bytes=media_max_bytes,
         media_min_bytes=media_min_bytes,
     )
+
+
+def parse_xls(
+    path: str | Path,
+    *,
+    revision_id: str,
+    asset_id: str | None = None,
+    title: str | None = None,
+    parser_profile: str = "xls-converted-xlsx-v1",
+    source_path: str | None = None,
+    timeout: int = 180,
+    output_dir: str | Path | None = None,
+) -> ParsedDocument:
+    """Convert a ``.xls`` workbook and parse it as the original spreadsheet."""
+
+    from accelerator_rag.corpus.structured_parser import parse_xlsx
+
+    xls_path = Path(path)
+    if not xls_path.exists():
+        raise FileNotFoundError(f"XLS file does not exist: {xls_path}")
+    if xls_path.suffix.lower() != ".xls":
+        raise ValueError(f"Expected an XLS file: {xls_path}")
+    resolved_source = _safe_source_path(xls_path, source_path)
+
+    def finish(conversion: ConversionResult) -> ParsedDocument:
+        document = parse_xlsx(
+            conversion.docx_path,
+            revision_id=revision_id,
+            asset_id=asset_id,
+            title=title or xls_path.stem,
+            parser_profile=parser_profile,
+            source_path=resolved_source,
+            source_format="xls",
+        )
+        return replace(
+            document,
+            conversion_profile=conversion.profile,
+            metadata=document.metadata
+            + (
+                ("conversion_tool", conversion.tool),
+                ("conversion_seconds", f"{conversion.seconds:.3f}"),
+            ),
+        )
+
+    if output_dir is None:
+        with tempfile.TemporaryDirectory(prefix="accelerator-rag-xls-") as tmp:
+            return finish(convert_xls_to_xlsx(xls_path, tmp, timeout=timeout))
+    return finish(convert_xls_to_xlsx(xls_path, output_dir, timeout=timeout))

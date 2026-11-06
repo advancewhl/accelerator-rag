@@ -43,8 +43,11 @@ function renderTable(table) {
   const node = document.createElement('table');
   const rows = table.rows || [];
   const headerRows = Number(table.header_rows || 0);
+  const rowNumbers = table.row_numbers || [];
   for (let i = 0; i < rows.length; i += 1) {
     const tr = document.createElement('tr');
+    if (rowNumbers[i]) tr.dataset.row = String(rowNumbers[i]);
+    if (i >= headerRows && rowNumbers[i]) tr.title = `第 ${rowNumbers[i]} 行`;
     for (const value of rows[i]) {
       const cell = document.createElement(i < headerRows ? 'th' : 'td');
       cell.textContent = value;
@@ -53,8 +56,24 @@ function renderTable(table) {
     }
     node.append(tr);
   }
+  if (rows.length - headerRows > 30) {
+    // Large sheets: an in-table filter keeps the header and row numbers.
+    const filter = document.createElement('input');
+    filter.type = 'search';
+    filter.placeholder = '筛选本表（任一单元格包含）…';
+    filter.className = 'office-table-filter';
+    filter.setAttribute('aria-label', '筛选本表');
+    filter.addEventListener('input', () => {
+      const needle = filter.value.trim().toLocaleLowerCase();
+      node.querySelectorAll('tr').forEach((tr, index) => {
+        if (index < headerRows) return;
+        tr.hidden = Boolean(needle) && !tr.textContent.toLocaleLowerCase().includes(needle);
+      });
+    });
+    wrapper.append(filter);
+  }
   wrapper.append(node);
-  if (table.caption) wrapper.append(el('p', table.caption, 'office-caption'));
+  if (table.caption) wrapper.prepend(el('p', table.caption, 'office-caption'));
   return wrapper;
 }
 function renderBlock(block) {
@@ -212,6 +231,13 @@ function highlight(blocks) {
   }
   if (!target) return;
   target.classList.add('office-hit');
+  const row = Number(params.get('row'));
+  const rowNode = Number.isInteger(row) && row > 0 ? target.querySelector(`tr[data-row="${row}"]`) : null;
+  if (rowNode) {
+    rowNode.classList.add('office-row-hit');
+    rowNode.scrollIntoView({block: 'center'});
+    return;
+  }
   target.scrollIntoView({block: 'center'});
   target.setAttribute('tabindex', '-1');
   target.focus({preventScroll: true});

@@ -5,7 +5,7 @@ import numpy as np
 from qdrant_client import models
 from accelerator_rag.domain.knowledge import KnowledgeChunk
 from accelerator_rag.retrieval.passages import EmbeddingPassage, PASSAGE_ALGORITHM
-from accelerator_rag.retrieval.scope import RetrievalScope
+from accelerator_rag.retrieval.scope import LEGACY_FAMILY_TAGS, RetrievalScope
 from accelerator_rag.storage.qdrant_collection import QdrantCollection
 from accelerator_rag.retrieval.index_contract import DenseIndexContract
 
@@ -62,12 +62,38 @@ def _family_condition(scope: RetrievalScope):
             models.FieldCondition(key="family_id", match=models.MatchValue(value="")),
         ]
     )
+    should = [
+        _match_any("family_id", values),
+        models.Filter(must=[missing_family, _match_any("document_id", values)]),
+    ]
+    # A split family keeps its old name as a ``series:`` tag.  RetrievalScope
+    # admits those parents, so the vector prefilter must as well or BM25 and
+    # dense see different material.  Text match is a superset (substring);
+    # every dense hit is re-checked with ``RetrievalScope.allows``.
+    for family_id in values:
+        tag = LEGACY_FAMILY_TAGS.get(family_id)
+        if tag:
+            should.append(
+                models.FieldCondition(key="tags", match=models.MatchText(text=tag))
+            )
+    return models.Filter(should=should)
+
+
+def _approval_condition(scope: RetrievalScope):
+    values = set(scope.approval_statuses)
+    should = [_match_any("approval_status", values - {"unknown"})] if (
+        values - {"unknown"}
+    ) else []
+    if "unknown" in values:
+        should.extend(_unknown_conditions("approval_status"))
+    return models.Filter(should=should)
+
+
+def _tags_condition(scope: RetrievalScope):
     return models.Filter(
         should=[
-            _match_any("family_id", values),
-            models.Filter(
-                must=[missing_family, _match_any("document_id", values)]
-            ),
+            models.FieldCondition(key="tags", match=models.MatchText(text=tag))
+            for tag in sorted(scope.tags)
         ]
     )
 
@@ -95,6 +121,10 @@ def build_scope_filter(scope: RetrievalScope | None):
         must.append(_match_any("evidence_role", scope.evidence_roles))
     if scope.topics is not None:
         must.append(_match_any("topic", scope.topics))
+    if scope.approval_statuses is not None and scope.approval_statuses:
+        must.append(_approval_condition(scope))
+    if scope.tags is not None and scope.tags:
+        must.append(_tags_condition(scope))
     must.append(_usage_condition(scope))
     must.append(_access_condition(scope))
     return models.Filter(must=must)

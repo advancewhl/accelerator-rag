@@ -43,6 +43,7 @@ class SourceFormat(str, Enum):
     DOC = "doc"
     PPTX = "pptx"
     XLSX = "xlsx"
+    XLS = "xls"
     CSV = "csv"
     ODS = "ods"
     TXT = "txt"
@@ -162,6 +163,7 @@ SOURCE_FORMAT_BY_SUFFIX: dict[str, SourceFormat] = {
     ".doc": SourceFormat.DOC,
     ".pptx": SourceFormat.PPTX,
     ".xlsx": SourceFormat.XLSX,
+    ".xls": SourceFormat.XLS,
     ".csv": SourceFormat.CSV,
     ".ods": SourceFormat.ODS,
     ".txt": SourceFormat.TXT,
@@ -201,7 +203,7 @@ _TEXT_INDEX_FORMATS = frozenset(
     }
 )
 _STRUCTURED_FORMATS = frozenset(
-    {SourceFormat.XLSX, SourceFormat.CSV, SourceFormat.ODS}
+    {SourceFormat.XLSX, SourceFormat.XLS, SourceFormat.CSV, SourceFormat.ODS}
 )
 _DATE_PATTERNS = {
     DatePrecision.DAY: re.compile(r"^\d{4}-\d{2}-\d{2}$"),

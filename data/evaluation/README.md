@@ -4,6 +4,16 @@
 
 2026 年 10 月 30 日已完成生产 50 题问答，保存全部响应和 trace。见[线上报告](../../reports/validity-pilot-online-20261030/README.md)及[评分裁决清单](../../reports/validity-pilot-online-20261030/rubric-adjudication.md)。本轮不修改旧标签来提高分数，独立人工评分仍待完成。
 
+2026-11-05 的 `validity-pilot-v3.json` 是 v2 的题干修订版：按裁决清单给 8 道题补充题干范围，答案、清单和证据组不变。它用于 `kb-2.0.0-rc.3` 的 100 题对照，不单独作为新题集。
+
+# 100 题 rc.3 验证集
+
+`kb2-benchmark-100-v1.json` 由 `scripts/build_benchmark_100.py` 确定性生成：旧 50 题（v3）、线缆 20 题和 60 题草案中 30 道 `verified_from_extracted_text` 题组成。60 题草案的 13 道 `needs_source_check`、8 道 `derived_from_analysis` 和 2 道依赖受限文档的题不纳入；其余 9 道已验证题作为 reserve。核验问题、选题规则与残余限制见[核验报告](../../reports/benchmark-100-20261105/README.md)。其中 30 道 KB2 题另存为 `kb2-benchmark-30-scoped.json`，带显式 version scope，用于定向回归。
+
+# 线缆/端口开发题集
+
+`cable-lookup-v1.json`（20 题）覆盖交换机端口区间、跨表联合、电缆编号、设备列表、XLS、改线标注、不存在对象和现场状态/版本边界。由 `scripts/build_cable_benchmark.py` 生成：金标准行由独立的 openpyxl 读取原件并核对 `required_values`，构建失败即不写出。运行与自动检查见 `scripts/run_cable_benchmark.py`；它与查找代码同一作者编写，只作开发集，语义质量仍需人工评分。
+
 # Retrieval evidence judgments
 
 `retrieval_baseline.json` 使用 `schema_version: 2`，当前 judgment revision 为 `evidence-contract-v2`。查询集包含 21 条可回答问题、3 条明显负例、8 条领域负例。标注覆盖全部 13 份 PDF，已完成 Stage 2.7.1 的全语料 alternative 审核，仍不保证穷尽所有改写。

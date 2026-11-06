@@ -1,0 +1,10 @@
+{
+  "build_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/data/knowledge-builds/kb2-prod-20261105-v3",
+  "chunk_count": 10793,
+  "record_count": 6989,
+  "missing_chunk": 0,
+  "row_not_in_chunk": 0,
+  "missing_chunk_samples": [],
+  "row_not_in_chunk_samples": [],
+  "ok": true
+}

@@ -44,6 +44,7 @@ _FACTORY_IMPORTS = {
     ".docx": ("accelerator_rag.corpus.docx_parser", "parse_docx"),
     ".pptx": ("accelerator_rag.corpus.pptx_parser", "parse_pptx"),
     ".xlsx": ("accelerator_rag.corpus.structured_parser", "parse_xlsx"),
+    ".xls": ("accelerator_rag.corpus.doc_converter", "parse_xls"),
     ".csv": ("accelerator_rag.corpus.structured_parser", "parse_csv"),
 }
 
@@ -154,6 +155,10 @@ class DocumentReader:
                 from accelerator_rag.corpus.doc_converter import parse_doc
 
                 return parse_doc(record.path, timeout=timeout, **common)
+            if suffix == ".xls":
+                return _parse_factory(suffix)(
+                    record.path, timeout=timeout, **common
+                )
             return _parse_factory(suffix)(record.path, **common)
         except Exception as exc:
             # PackageNotFoundError/BadZipFile and similar parser exceptions
@@ -221,7 +226,11 @@ class DocumentReader:
             payload = _payload(
                 parsed,
                 document_id=record.document_id,
-                source=("on_demand_conversion" if suffix == ".doc" else "on_demand"),
+                source=(
+                    "on_demand_conversion"
+                    if suffix in {".doc", ".xls"}
+                    else "on_demand"
+                ),
                 original_path=record.path,
             )
             payload["parse_seconds"] = round(monotonic() - started, 3)

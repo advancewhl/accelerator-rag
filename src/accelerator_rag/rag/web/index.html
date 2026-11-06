@@ -3,65 +3,137 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>加速器知识工作台</title>
-<link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/katex/katex.min.css">
-<script defer src="/assets/katex/katex.min.js"></script><script defer src="/assets/katex/contrib/auto-render.min.js"></script><script defer src="/assets/markdown/markdown-it.min.js"></script><script defer src="/assets/app.js?v=20261102b"></script>
+<link rel="stylesheet" href="/assets/workbench.css?v=20261105a"><link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script><script defer src="/assets/katex/contrib/auto-render.min.js"></script><script defer src="/assets/markdown/markdown-it.min.js"></script><script defer src="/assets/app.js?v=20261105a"></script>
 </head>
 <body>
-<div class="app-shell">
-<aside class="sidebar" id="sidebar">
-<a class="brand" href="/" aria-label="加速器知识工作台首页"><span class="brand-mark">A<span>↗</span></span><span>加速器知识工作台<small>ACCELERATOR RAG</small></span></a>
-<button id="new-session" class="new-session"><span>＋</span> 新建查询</button>
-<div class="sidebar-label">本次查询 <span id="history-count">0</span></div>
-<nav id="history" class="history" aria-label="本次查询记录"></nav>
-<p id="history-empty" class="history-empty">查询记录会留在这里，方便随时回看。</p>
-<button id="open-library" class="sidebar-bottom library-nav"><span class="library-icon">▤</span><span><strong>浏览知识库</strong><small>查看已收录的文档与版本</small></span><span class="library-arrow">→</span></button>
+<div class="shell">
+<aside class="rail" id="rail" aria-label="导航">
+  <a class="brand" href="/" aria-label="加速器知识工作台首页"><span class="brand-mark" aria-hidden="true">A</span><span class="brand-text">知识工作台<small>SHINE · ACCELERATOR RAG</small></span></a>
+  <button id="new-session" class="rail-primary" type="button"><span aria-hidden="true">＋</span> 新建查询</button>
+  <nav class="rail-nav" aria-label="视图">
+    <button class="rail-link active" type="button" data-view="ask" aria-current="page"><span class="rail-icon" aria-hidden="true">✦</span>文档问答</button>
+    <button class="rail-link" type="button" data-view="lookup"><span class="rail-icon" aria-hidden="true">▦</span>表格查询<span class="rail-badge">线缆/端口</span></button>
+    <button class="rail-link" type="button" data-view="library"><span class="rail-icon" aria-hidden="true">▤</span>资料库<span id="library-count" class="rail-badge"></span></button>
+  </nav>
+  <div class="rail-section-label"><span>查询记录</span><button id="history-clear" class="link-button" type="button">清空</button></div>
+  <nav id="history" class="history" aria-label="查询记录"></nav>
+  <p id="history-empty" class="history-empty">问答与表格查询会保存在本机浏览器，方便回看。</p>
+  <footer class="rail-footer"><span id="connection" class="connection">正在连接服务</span><span id="release" class="release"></span></footer>
 </aside>
-<div class="main-shell">
-<header class="topbar"><div class="breadcrumb"><button id="menu-toggle" class="icon-button mobile-only" aria-label="打开查询记录" aria-expanded="false">☰</button><button id="knowledge-nav" class="breadcrumb-link">知识库</button><span class="slash">/</span><strong id="page-title">文档问答</strong></div><span id="connection" class="connection">正在连接服务</span></header>
-<main id="workspace" class="workspace">
-<section class="conversation" aria-label="文档问答">
-<div id="conversation-scroll" class="conversation-scroll">
-<section id="welcome" class="welcome">
-<div class="eyebrow"><span></span> 从文档到答案，每一步都有依据</div>
-<h1>让专业问题，<br>回到可靠的原文。</h1>
-<p class="welcome-description">检索加速器设计、控制系统与运行文档。<br>在同一个工作台里提问、核对引用、阅读原文。</p>
-<div class="suggestion-heading">从这些问题开始 <span>↘</span></div>
-<div class="examples">
-<button data-question="SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？"><span class="example-category">设计参数 <span>↗</span></span><strong>SHINE 主加速器</strong><span>工作模式与最终电子能量</span></button>
-<button data-question="SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？"><span class="example-category">控制系统 <span>↗</span></span><strong>联锁响应时间</strong><span>站内、站间的设计指标</span></button>
-<button data-question="European XFEL 主直线的 RF 频率是多少？"><span class="example-category">射频系统 <span>↗</span></span><strong>European XFEL</strong><span>主直线的射频频率</span></button>
-<button data-question="Which FPGA and language does the SHINE FPIO use? Answer in English."><span class="example-category">硬件设计 <span>↗</span></span><strong>FPIO 实现方案</strong><span>FPGA 型号与开发语言</span></button>
-</div>
-<div class="welcome-note"><span>◈</span> 答案引用可直接打开右侧原文阅读器</div>
-</section>
-<div id="progress" class="progress" role="status" hidden><div class="search-animation">⌕</div><h2>正在查阅文档</h2><p id="progress-message"></p><div class="loading-lines"><i></i><i></i><i></i></div></div>
-<div id="error" class="error" role="alert" hidden></div>
-<section id="result" class="result" aria-label="查询结果" hidden>
-<div class="question-label">你的问题</div><h1 id="asked"></h1>
-<div class="answer-heading"><span class="answer-symbol">✦</span><strong>回答</strong><span id="status" class="status"></span></div>
-<p id="status-note" class="status-note"></p><div id="answer" class="answer"></div>
-<div class="result-footer"><span id="elapsed"></span><button id="copy" class="quiet">复制答案</button></div>
-</section>
-</div>
-<div class="composer-wrap"><div id="scope-bar" class="scope-bar" hidden><span class="scope-kicker">查阅范围</span><span id="scope-chip" class="scope-chip"></span><button id="scope-clear" type="button" class="scope-clear" aria-label="清除查阅范围">×</button></div><form id="ask-form" class="composer"><label class="sr-only" for="question">输入文档问题</label><textarea id="question" name="question" maxlength="8000" rows="2" required placeholder="描述你的问题，尽量写明设备、系统或文档版本…"></textarea><div class="compose-bottom"><span>Enter 发送 <span class="keyboard-divider">·</span> Shift + Enter 换行</span><button id="submit" type="submit" aria-label="查找答案">查找答案 <span>↑</span></button></div></form><p class="composer-note">每次提问独立检索文档。设计参数不代表实时运行状态。</p></div>
-</section>
-<aside id="research-panel" class="research-panel" aria-label="证据与原文">
-<section id="evidence-panel" class="evidence-panel"><div class="panel-heading"><div><span class="panel-kicker">REFERENCE DESK</span><h2>证据出处</h2></div><span id="source-count" class="source-count">0</span></div><p id="source-hint" class="source-hint">提问后，引用的文档与页码会显示在这里。</p><ol id="sources" class="sources"></ol><div id="source-empty" class="source-empty"><div class="empty-document"><i></i><i></i><i></i><span>“</span></div><strong id="source-empty-title">答案有据可查</strong><p id="source-empty-note">点击答案中的引用编号，<br>在这里对照文档原文。</p></div><div class="evidence-footnote">PDF 按物理页定位，Markdown 按当前修订版的章节定位。</div></section>
-<section id="pdf-reader" class="pdf-reader" aria-label="原文阅读器" hidden>
-<div class="reader-heading"><button id="reader-close" class="quiet">← 证据列表</button><button id="reader-expand" class="icon-button" aria-label="展开阅读器" aria-pressed="false"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div><h2 id="reader-title"></h2><p id="reader-version" class="reader-version"></p>
-<div class="reader-toolbar"><div><button id="pdf-prev" class="icon-button" aria-label="上一页">‹</button><label class="sr-only" for="pdf-page">PDF 物理页码</label><input id="pdf-page" type="number" min="1" value="1"><span id="pdf-total">/ —</span><button id="pdf-next" class="icon-button" aria-label="下一页">›</button></div><div><button id="pdf-minus" class="icon-button" aria-label="缩小">−</button><button id="pdf-fit" class="quiet" title="适合宽度">适宽</button><button id="pdf-plus" class="icon-button" aria-label="放大">＋</button></div></div>
-<div id="pdf-viewport" class="pdf-viewport"><p id="pdf-message" role="status">正在加载原文…</p><canvas id="pdf-canvas" aria-label="PDF 页面"></canvas></div><div class="reader-caption"><span id="pdf-caption">PDF 物理页</span><span>原始文档</span></div>
-</section>
-</aside>
-</main>
-<section id="library-view" class="library-view" aria-label="知识库目录" hidden>
-<div class="library-header"><div><div class="eyebrow">DOCUMENT LIBRARY</div><h1>你的文档知识库</h1><p>查看当前可检索的资料，以及每份文档的版本与收录情况。</p></div><button id="back-to-chat" class="quiet">← 返回问答</button></div>
-<div class="library-summary" id="library-summary">正在读取知识库…</div>
-<div class="library-tools"><label class="library-search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索已收录文档</span><input id="library-search" type="search" placeholder="搜索文档名称、版本或主题…" autocomplete="off"></label><label class="sr-only" for="library-category">文档分类</label><select id="library-category"><option value="">全部分类</option></select><label class="sr-only" for="library-format">文件格式</label><select id="library-format"><option value="">全部格式</option></select><label class="sr-only" for="library-status">资料状态</label><select id="library-status"><option value="">全部状态</option></select><button id="library-refresh" class="quiet">刷新目录</button></div>
-<p id="library-message" class="library-message" role="status"></p>
-<div id="library-documents" class="library-documents"></div>
-<p class="library-footnote">目录展示当前已收录、可用于问答的资料。具体问题能否回答，取决于原文是否有足够依据。</p>
-</section>
+<div class="main">
+  <header class="topbar">
+    <button id="rail-toggle" class="icon-button mobile-only" type="button" aria-label="打开导航" aria-expanded="false">☰</button>
+    <h1 id="page-title" class="page-title">文档问答</h1>
+    <span id="page-subtitle" class="page-subtitle">回答只引用可定位的原文</span>
+  </header>
+  <main id="workspace" class="workspace">
+    <div class="stage">
+      <!-- 文档问答 -->
+      <section id="view-ask" class="view view-ask" aria-label="文档问答">
+        <div id="conversation-scroll" class="conversation-scroll">
+          <section id="welcome" class="welcome">
+            <p class="eyebrow">从问题到原文，每一步都有依据</p>
+            <h2>提问、核对引用、阅读原文，<br>在同一个工作台完成。</h2>
+            <p class="lede">默认在现行与参考资料中检索；可在资料库中选定一份或多份资料限定范围。线缆与端口类精确查询，用左侧“表格查询”更快。</p>
+            <div class="examples" id="examples">
+              <button type="button" data-question="FEL2-CN01柜 DEVSW001 交换机的第 20 口属于哪个系统、分配了哪个 VLAN？对应电缆连到哪里？"><span>网络线缆</span><strong>交换机端口归属</strong><em>FEL2-CN01 · DEVSW001 · 20 口</em></button>
+              <button type="button" data-question="UN-LTU1:PS-01 机柜通过哪些网线连接到哪台交换机？"><span>网络线缆</span><strong>设备接入交换机</strong><em>LTU1 电源柜 PS-01</em></button>
+              <button type="button" data-question="SHINE 控制系统设计中慢联锁的站内和站间响应时间指标是什么？"><span>控制系统</span><strong>联锁响应时间</strong><em>站内、站间设计指标</em></button>
+              <button type="button" data-question="SHINE 初步设计中的主加速器采用什么工作模式，最终把电子加速到多少能量？"><span>设计参数</span><strong>主加速器</strong><em>工作模式与最终能量</em></button>
+            </div>
+          </section>
+          <div id="progress" class="progress" role="status" hidden><div class="spinner" aria-hidden="true"></div><div><strong>正在查阅文档</strong><p id="progress-message"></p></div></div>
+          <div id="error" class="error" role="alert" hidden></div>
+          <article id="result" class="result" aria-label="查询结果" hidden>
+            <p class="kicker">你的问题</p>
+            <h2 id="asked" class="asked"></h2>
+            <p id="result-scope" class="result-scope" hidden></p>
+            <div class="answer-head"><strong>回答</strong><span id="status" class="status"></span></div>
+            <p id="status-note" class="status-note"></p>
+            <div id="answer" class="answer"></div>
+            <details id="coverage" class="coverage" hidden><summary>需求覆盖 <span id="coverage-summary"></span></summary><ol id="coverage-list"></ol></details>
+            <div class="result-footer"><span id="elapsed"></span><span class="spacer"></span><button id="copy" class="quiet" type="button">复制答案与出处</button></div>
+          </article>
+        </div>
+        <div class="composer-wrap">
+          <div id="scope-bar" class="scope-bar" hidden><span class="scope-label">查阅范围</span><span id="scope-chips" class="scope-chips"></span><button id="scope-clear" type="button" class="link-button">恢复默认范围</button></div>
+          <form id="ask-form" class="composer">
+            <label class="sr-only" for="question">输入文档问题</label>
+            <textarea id="question" name="question" maxlength="8000" rows="2" required placeholder="描述你的问题，写明设备、机柜、交换机或文档版本…"></textarea>
+            <div class="composer-bar"><span class="hint">Enter 发送 · Shift+Enter 换行</span><button id="submit" type="submit" class="primary">查找答案 <span aria-hidden="true">↑</span></button></div>
+          </form>
+          <p class="footnote">每次提问独立检索。设计与线缆表记录不代表现场实时状态。</p>
+        </div>
+      </section>
+
+      <!-- 表格查询 -->
+      <section id="view-lookup" class="view view-lookup" aria-label="表格查询" hidden>
+        <div class="view-scroll">
+          <div class="lookup-head">
+            <p class="eyebrow">精确行查询 · 不经生成模型</p>
+            <h2>线缆、交换机端口与端子表</h2>
+            <p class="lede">按电缆编号、机柜、设备位置、交换机名与端口号精确匹配表格行；端口号按“1-12”这类区间判断。结果按同时满足的条件数排序。</p>
+          </div>
+          <form id="lookup-form" class="lookup-form" role="search">
+            <label class="sr-only" for="lookup-query">表格查询条件</label>
+            <input id="lookup-query" type="search" autocomplete="off" maxlength="500" placeholder="例如：FEL2-CN01柜 DEVSW001 第20口　或　UN-LTU1:PS-01">
+            <label class="sr-only" for="lookup-document">限定资料</label>
+            <select id="lookup-document"><option value="">全部表格资料</option></select>
+            <button type="submit" class="primary">查询</button>
+          </form>
+          <div class="lookup-examples" id="lookup-examples">
+            <button type="button" data-lookup="FEL2-CN01柜 DEVSW001 第20口">FEL2-CN01 · DEVSW001 · 20 口</button>
+            <button type="button" data-lookup="L3-CN01柜 CTLSW001 端口5">L3-CN01 · CTLSW001 · 5 口</button>
+            <button type="button" data-lookup="UN-LTU1:PS-01">UN-LTU1:PS-01</button>
+            <button type="button" data-lookup="FEL1-CN01/VA01:DEVSW001-E001">电缆 FEL1-CN01/VA01:DEVSW001-E001</button>
+          </div>
+          <p id="lookup-message" class="message" role="status"></p>
+          <div id="lookup-results" class="lookup-results"></div>
+        </div>
+      </section>
+
+      <!-- 资料库 -->
+      <section id="view-library" class="view view-library" aria-label="资料库" hidden>
+        <div class="view-scroll">
+          <div class="library-head">
+            <div><p class="eyebrow">DOCUMENT LIBRARY</p><h2>已收录资料</h2><p id="library-summary" class="lede">正在读取知识库…</p></div>
+            <button id="library-refresh" class="quiet" type="button">刷新目录</button>
+          </div>
+          <div class="library-tools">
+            <label class="search-field"><span class="sr-only">搜索资料</span><input id="library-search" type="search" placeholder="搜索标题、版本、主题或标签…" autocomplete="off"></label>
+            <label class="sr-only" for="library-category">分类</label><select id="library-category"><option value="">全部分类</option></select>
+            <label class="sr-only" for="library-format">格式</label><select id="library-format"><option value="">全部格式</option></select>
+            <label class="sr-only" for="library-status">状态</label><select id="library-status"><option value="">全部状态</option></select>
+          </div>
+          <p id="library-message" class="message" role="status"></p>
+          <div id="library-groups" class="library-groups"></div>
+          <p class="footnote">“默认可问”指现行与参考资料。历史与待核实资料需勾选后作为范围显式提问，回答会保留其状态。</p>
+        </div>
+        <div id="selection-bar" class="selection-bar" hidden>
+          <span id="selection-count"></span>
+          <button id="selection-clear" type="button" class="link-button">取消选择</button>
+          <button id="selection-ask" type="button" class="primary">在所选资料中提问</button>
+        </div>
+      </section>
+    </div>
+
+    <aside id="research-panel" class="research-panel" aria-label="证据与原文">
+      <section id="evidence-panel" class="evidence-panel">
+        <div class="panel-head"><div><p class="kicker">REFERENCE DESK</p><h2>证据出处</h2></div><span id="source-count" class="count">0</span></div>
+        <p id="source-hint" class="hint">提问后，引用的文档和位置会显示在这里；点击可在本栏阅读原文。</p>
+        <ol id="sources" class="sources"></ol>
+        <div id="source-empty" class="empty"><strong id="source-empty-title">答案有据可查</strong><p id="source-empty-note">点击答案中的引用编号，在这里对照原文。</p></div>
+      </section>
+      <section id="pdf-reader" class="pdf-reader" aria-label="原文阅读器" hidden>
+        <div class="reader-head"><button id="reader-close" class="quiet" type="button">← 证据列表</button><button id="reader-expand" class="icon-button" type="button" aria-label="展开阅读器" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button></div>
+        <h2 id="reader-title"></h2><p id="reader-version" class="reader-version"></p>
+        <div class="reader-toolbar"><div><button id="pdf-prev" class="icon-button" type="button" aria-label="上一页">‹</button><label class="sr-only" for="pdf-page">PDF 物理页码</label><input id="pdf-page" type="number" min="1" value="1"><span id="pdf-total">/ —</span><button id="pdf-next" class="icon-button" type="button" aria-label="下一页">›</button></div><div><button id="pdf-minus" class="icon-button" type="button" aria-label="缩小">−</button><button id="pdf-fit" class="quiet" type="button" title="适合宽度">适宽</button><button id="pdf-plus" class="icon-button" type="button" aria-label="放大">＋</button></div></div>
+        <div id="pdf-viewport" class="pdf-viewport"><p id="pdf-message" role="status">正在加载原文…</p><canvas id="pdf-canvas" aria-label="PDF 页面"></canvas></div>
+        <div class="reader-caption"><span id="pdf-caption">PDF 物理页</span><span>原始文档</span></div>
+      </section>
+    </aside>
+  </main>
 </div>
 </div>
 </body></html>

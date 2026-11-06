@@ -8,6 +8,8 @@
 - 人可读题表：[`data/evaluation/kb2-question-plan-v1.md`](../../data/evaluation/kb2-question-plan-v1.md)
 - 总体计划：[`docs/roadmap/knowledge-base-v2-plan.md`](../roadmap/knowledge-base-v2-plan.md) §11、§2.3、§6、§8
 
+2026-11-05 补充：新增线缆/端口开发题集 [`cable-lookup-v1.json`](../../data/evaluation/cable-lookup-v1.json)（20 题，独立于本 60 题规划），说明见 [rc.3 本地实现记录](../../reports/kb-2.0.0-rc.3-20261105/README.md)。本 60 题仍为 `draft`，未冻结。
+
 本文件只定义首版验收题集的**题集规划、评分口径、分组与报告方法**。具体题目的答案边界仍以 JSON 为准；本文件不新增题目，也不修改既有 50 题。
 
 ## 1. 目的、范围与证据边界
@@ -178,6 +180,12 @@ JSON 中每题只有一个 `provenance_status`，含义如下：
 2. **封存集 20 题单独报告**：在最终候选冻结后运行；不与开发集合并成一个“总通过率”。若封存集被用于调参，报告必须标注已污染，并补充新封存题。
 3. **按预期状态拆分**：可回答、部分可回答、完全缺证据/冲突题分别给分母；不能把拒答题计入可回答题的分母。
 4. **按格式/证据类型拆分**：表格、OCR、PPTX、公式、DOCX 事实、版本比较分别给出失败案例；解析/OCR 失败与检索/生成失败分开归因。
+
+### 4.2.1 100 题工程回归集（2026-11-05）
+
+`data/evaluation/kb2-benchmark-100-v1.json` 是 **rc.3 与 rc.2 的工程对照集**，不是本文件定义的 K5 验收题集，也不替代 60 题。组成：旧 50 题（`validity-pilot-v3`，只补充 8 道题干范围）、线缆 20 题、60 题草案中 30 道 `verified_from_extracted_text` 题。它的用途是比较 HTTP 稳定性、预期状态、引用定位和延迟，并暴露题集自身的问题；语义通过率仍按第 2 节人工评分。核验与排除理由见[核验报告](../../reports/benchmark-100-20261105/README.md)。
+
+60 题草案的 13 道 `needs_source_check`、8 道 `derived_from_analysis` 和 2 道依赖受限资料的题不进入工程回归。它们的 `expected_status` 也尚未由业务审核人映射，不能因为进入 100 题就视为已冻结。
 
 ### 4.3 旧题期望答案修订规则
 

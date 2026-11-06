@@ -28,8 +28,8 @@ def test_merge_applies_reviewed_operation_manual_split():
         list(registry.revisions), list(registry.families), "2026-11-02"
     )
 
-    assert len(revisions) == 210
-    assert len(families) == len(registry.families) == 89
+    assert len(revisions) == 225
+    assert len(families) == len(registry.families) == 104
     family_ids = {family.family_id for family in families}
     assert "shine-control-operation-manual-series" not in family_ids
     assert "shine-control-operation-manual-timing" in family_ids

@@ -1,0 +1,158 @@
+{
+  "schema_version": 2,
+  "release_id": "kb-2.0.0-rc.3",
+  "build_id": "kb2-prod-20261105-v3",
+  "status": "live",
+  "created_at": "2026-11-05",
+  "previous_release": "kb-2.0.0-rc.2",
+  "registry": "data/documents/v2/registry-v2.json",
+  "registry_sha256": "f3bd43062ec321fb98b49efefe5a5eb4233d8156c825ced399079989dc2103e7",
+  "source_root": "/workspace/data/l0_raw",
+  "build_dir": "/workspace/data/knowledge-builds/kb2-prod-20261105-v3",
+  "release_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3",
+  "snapshot_dir": "/workspace/data/knowledge-builds/kb2-prod-20261105-v3",
+  "code": {
+    "git_commit": "5717746c0cf92d0f0c193fd1c2fc9003ec235ea4",
+    "worktree_dirty": true,
+    "source_sha256": "c320e6b6335a461c0f8bd39ad3170501e3f78262c9f92a3a6fee7581cee7a7d4",
+    "runtime_image": "accelerator-rag-runtime:20261026",
+    "dependencies": "pyproject.toml",
+    "build_env": "kb2-parse-env Python 3.11.15; LibreOffice 7.1.8.1 + libreoffice-calc; tesseract 4.1.1"
+  },
+  "corpus": {
+    "revision_count": 222,
+    "registry_revision_count": 225,
+    "family_count": 102,
+    "text_index_count": 205,
+    "allow_missing_source": false,
+    "chunked_revisions": 222,
+    "total_chunks": 10793,
+    "eligible_chunks": 10785,
+    "indexable_chunks": 10654,
+    "short_chunks_filtered": 131,
+    "short_chunks_retained": 173,
+    "ineligible_chunks": 8,
+    "table_record_count": 6989,
+    "media_file_count": 3086,
+    "media_bytes": 631338198,
+    "media_manifest": "media-manifest.json",
+    "media_manifest_sha256": "7db7a8b1a0508498aa2be0a9e50d8b50cfc31c04ccf10aad6568bbf841046efa",
+    "parse_status_counts": {
+      "parsed": 222
+    }
+  },
+  "contracts": {
+    "schema_version": 2,
+    "chunking_algorithm": "kb2-chunks-v2 (Office/structured); legacy PDF/Markdown keeps v1 IDs",
+    "scope_policy": "retrieval.scope.RetrievalScope",
+    "parser_profiles": [
+      "pymupdf-blocks-v1",
+      "markdown-sections-v2",
+      "python-docx-v1",
+      "python-pptx-v1",
+      "openpyxl-cells-v1",
+      "doc-converted-docx-v1",
+      "xls-converted-xlsx-v1",
+      "tesseract-pdf-v1"
+    ],
+    "ocr_profile": "tesseract 4.1.1; chi_sim+eng; dpi=250"
+  },
+  "indexes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "model_path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261105-v3/e5/qdrant",
+      "collection": "knowledge_kb2_prod_20261105_v3_e5",
+      "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4",
+      "point_count": 13766,
+      "parent_count": 10654,
+      "device": "cuda:0",
+      "dtype": "float32"
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "model_path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261105-v3/qwen3/qdrant",
+      "collection": "knowledge_kb2_prod_20261105_v3_qwen3",
+      "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823",
+      "point_count": 10654,
+      "parent_count": 10654,
+      "device": "cuda:0",
+      "dtype": "float32"
+    }
+  ],
+  "answer": {
+    "generation_model": "ds-1017",
+    "reranker_model": "Qwen/Qwen3-Reranker-0.6B",
+    "prompt_version": "evidence-contract-v2",
+    "generation_max_tokens": 4096,
+    "max_retrieval_rounds": 2,
+    "max_parents": 5,
+    "max_evidence_tokens": 6000,
+    "default_usage_statuses": [
+      "current",
+      "reference"
+    ]
+  },
+  "verification": {
+    "engineering_report": "reports/benchmark-100-20261105/rc3-candidate-final.json",
+    "baseline_report": "reports/benchmark-100-20261105/rc2-production-final.json",
+    "comparison_report": "reports/benchmark-100-20261105/comparison.md",
+    "cable_lookup_report": "reports/benchmark-100-20261105/rc3-cable-lookup.json",
+    "row_record_integrity": "reports/benchmark-100-20261105/row-record-integrity.json",
+    "question_set": "data/evaluation/kb2-benchmark-100-v1.json",
+    "semantic_review_owner": "待指派",
+    "rollback_drill": "2026-11-06 00:04 切换 kb-2.0.0-rc.2 至 8003，健康 207 文档/8,661 段；随后切回 rc.3，222 文档/10,654 段",
+    "summary": {
+      "candidate_http_success": "97/100",
+      "baseline_http_success": "98/100",
+      "candidate_status": {
+        "answered": 75,
+        "partial": 18,
+        "insufficient": 4
+      },
+      "baseline_status": {
+        "answered": 69,
+        "partial": 13,
+        "insufficient": 16
+      },
+      "cable_lookup_best_hit": "17/17",
+      "row_record_integrity": "0/6989 mismatches",
+      "latency_p50_old50": {
+        "rc3_seconds": 27.4,
+        "rc2_seconds": 28.4
+      },
+      "latency_p95_old50": {
+        "rc3_seconds": 118.6,
+        "rc2_seconds": 66.7
+      },
+      "clean_scoped30": {
+        "rc3": "29/30 success, p50 11.0s",
+        "rc2": "30/30 success, p50 8.9s"
+      }
+    }
+  },
+  "operations": {
+    "runtime_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3",
+    "mounts": [
+      "/workspace:ro",
+      "/workspace/tmp:rw"
+    ],
+    "port": 8003,
+    "log_dir": "/workspace/tmp",
+    "rollback_target": "kb-2.0.0-rc.2",
+    "rollback_verified": true,
+    "remaining_limitations": [
+      "人工语义评分未完成",
+      "OCR 关键参数仍需逐页复核",
+      "K7 观察期未开始"
+    ],
+    "rollback_drill": "2026-11-06 00:04 切换 kb-2.0.0-rc.2 至 8003，健康 207 文档/8,661 段；随后切回 rc.3，222 文档/10,654 段",
+    "observed_at": "2026-11-06T00:05:00+08:00"
+  },
+  "incomplete_reasons": [
+    "人工语义评分未完成",
+    "K7 观察期未开始",
+    "并发 3 时 rc.3 尾部延迟高于 rc.2，需观察"
+  ]
+}

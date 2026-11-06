@@ -8,6 +8,8 @@
 
 | 任务 | 入口 |
 | --- | --- |
+| 查看 2026-11-05 线缆表入库、召回修复、工作台重建与题集 | [rc.3 本地实现记录](../../reports/kb-2.0.0-rc.3-20261105/README.md) |
+| 运行线缆/端口题集 | [题集](../../data/evaluation/cable-lookup-v1.json)、`scripts/build_cable_benchmark.py`、`scripts/run_cable_benchmark.py` |
 | 检查今日新增文档类型的接入成果与待完善项 | [新格式检查与改进计划](../roadmap/new-document-types-review.md) |
 | 改善工作台与新格式原文阅读 | [工作台与阅读改进计划](../roadmap/workbench-document-reading-plan.md) |
 | 扩充资料类型、管理版本并发布新知识库 | [知识库扩建与上线总体计划](../roadmap/knowledge-base-v2-plan.md) |
@@ -33,6 +35,8 @@
 | `deploy/rag-start.sh`、`rag-requirements.txt` | 当前 GPU 部署入口及依赖。 |
 | `deploy/systemd/user/accelerator-rag-tunnel.service` | 本机端口转发与断线重连。 |
 | `tests/rag/`、`tests/providers/test_model*.py` | RAG 与共享模型契约测试。 |
+| `scripts/register_cable_tables.py` | 线缆/交换机配置表登记（复制原件、判重、写 registry v2）。 |
+| `scripts/kb2_candidate_build.py`、`kb2_build_indexes.py`、`kb2_run_regression.py` | 知识库候选构建、双路索引和 HTTP 回归。 |
 | `scripts/rag_framework_{check,review,metrics}.py` | 正式 HTTP 回归、事后核对和已保存结果的指标计算。 |
 | `reports/rag-framework-20261028/` | 完整回归、最终复测、过程记录和指标。 |
 | `papers/rag-thesis/`、`papers/rag-paper/` | 历史论文章节和完整论文源码、数据及图表。 |

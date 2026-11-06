@@ -61,7 +61,7 @@ function render() {
 export async function openReader(citation, trigger, options = {}) {
   const url = citation.document_url;
   const isMarkdown = ['md', 'markdown'].includes(citation.document_format);
-  const isOffice = ['docx', 'doc', 'pptx', 'xlsx', 'csv'].includes(citation.document_format);
+  const isOffice = ['docx', 'doc', 'pptx', 'xlsx', 'xls', 'csv'].includes(citation.document_format);
   if (!/^\/v1\/rag\/documents\/[a-zA-Z0-9_-]+$/.test(url || '')) return;
   if (!visible) returnScroll = $('workspace').scrollTop;
   returnFocus = trigger || document.activeElement; visible = true;
@@ -89,7 +89,8 @@ export async function openReader(citation, trigger, options = {}) {
     } else {
       const anchor = citation.anchor_block_id || (citation.source_block_ids || [])[0] || '';
       $('pdf-caption').textContent = citation.position_label || '规范化正文';
-      officeFrame.src = `${url}/view?embedded=1&block_id=${encodeURIComponent(anchor)}`;
+      const row = Number.isInteger(Number(citation.row_number)) && Number(citation.row_number) > 0 ? `&row=${Number(citation.row_number)}` : '';
+      officeFrame.src = `${url}/view?embedded=1&block_id=${encodeURIComponent(anchor)}${row}`;
     }
     return;
   }

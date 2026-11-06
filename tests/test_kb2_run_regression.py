@@ -264,7 +264,7 @@ def test_collects_outcomes_citations_and_markdown(rag_server, tmp_path):
     assert report["run_status"] == "failed"
     assert report["human_semantic_review"] == "未做人工语义评分"
     assert report["security"]["follow_redirects"] is False
-    assert report["security"]["request_body_fields"] == ["query"]
+    assert report["security"]["request_body_fields"] == ["query", "scope(optional)"]
     assert [case["id"] for case in report["cases"]] == [
         "ok-1",
         "forbidden-1",

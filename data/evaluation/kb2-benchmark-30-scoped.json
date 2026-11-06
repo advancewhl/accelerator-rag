@@ -1,0 +1,996 @@
+{
+  "schema_version": "kb2-benchmark-30-scoped-v1",
+  "generated_on": "2026-11-05",
+  "status": "frozen_for_rc3_validation",
+  "description": "30 道已验证 KB2 题，带 version scope；用于与默认范围分开的定向回归。",
+  "items": [
+    {
+      "id": "KB2-FACT-001",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "按 2023-09《硬X射线自由电子激光装置项目 定时系统控制界面操作说明》，给 Laser、LLRF 和束测系统设置延时值时，输入值的单位是什么？输入后怎样生效？",
+      "expected_status": "answered",
+      "required_facts": [
+        "延时输入单位为 ns",
+        "输入后通过回车键将值设入"
+      ],
+      "forbidden_claims": [
+        "把延时单位写成 µs 或 ps",
+        "把界面说明当作当前现场延时值"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "evidence_location": "§二 监控页面，给与各系统的信号控制段"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“输入想要设置的延时值（单位为ns），最后通过回车键将输入值设入”。提取文本：reports/incoming-2026-11-02/tmp/doc-txt/硬X射线自由电子激光装置项目定时系统控制界面操作说明.txt。"
+    },
+    {
+      "id": "KB2-FACT-002",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "定时界面上的单触发模式应怎样操作？请按顺序说明使能、触发和退出的步骤，以及状态在哪里显示。",
+      "expected_status": "answered",
+      "required_facts": [
+        "先点击 Enable/Disable 进入单触发模式",
+        "点击一次 Trigger 输出单个脉冲",
+        "再次点击 Enable/Disable 退出并恢复原模式",
+        "单触发状态在监测界面显示"
+      ],
+      "forbidden_claims": [
+        "声称 Trigger 会连续输出脉冲",
+        "省略退出单触发模式步骤",
+        "断言当前设备已处于单触发状态"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "evidence_location": "§二 监控页面，额外功能控制段"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“通过点击Enable/Disable按键将所有定时节点的输出设置成单触发模式，再通过点击一次Trigger按键为各个设备输出一次单个脉冲，最后可以通过再次点击Enable/Disable按键关闭单触发模式……单触发模式状态会在前面的单触发模式监测界面中显示”。"
+    },
+    {
+      "id": "KB2-FACT-003",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "定时控制总界面的设备状态灯中，绿色、红色、白色分别表示什么？交换机第一状态灯为灰色有什么特殊含义？",
+      "expected_status": "answered",
+      "required_facts": [
+        "绿色表示设备正常工作，交换机第一状态灯显示灰色",
+        "红色表示报警，可点击状态灯进入高级设置子界面",
+        "白色表示为连接定时设备、为后续设备准备"
+      ],
+      "forbidden_claims": [
+        "把白色状态灯解释为故障",
+        "把绿色状态灯解释为当前设备一定健康"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "evidence_location": "§二 监控页面，所有定时设备状态显示与控制段"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“状态灯显示为绿色（交换机第一状态灯显示为灰色）表示设备正常工作；状态灯显示为红色表示报警……状态灯显示为白色表示为连接定时设备，它们是为后续的定时设备所准备的”。"
+    },
+    {
+      "id": "KB2-FACT-004",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "恒温机柜控制界面控制几台 LLRF 恒温机柜？怎样开停机柜、怎样设置温度报警阈值？超过阈值时界面如何提示？",
+      "expected_status": "answered",
+      "required_facts": [
+        "控制 LLRF01-08 共 8 台恒温机柜",
+        "Running/Stop 控制开关，Status 绿色开、红色关",
+        "Threshold_Setting 输入阈值后按回车设入",
+        "超过阈值 Alarm 变红，否则绿色"
+      ],
+      "forbidden_claims": [
+        "把 8 台写成其他数量",
+        "断言当前机柜温度或 Alarm 状态",
+        "把阈值设置说成自动温度闭环控制"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc",
+          "evidence_location": "§二 监控页面"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-300f0580"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“实现对LLRF01-08总共8台恒温机柜的远程控制”“点击Running/Stop按键控制相应机柜的开关……开启为绿色，关闭为红色”“通过全选Threshold_Setting输入框中的值……最后再通过回车键将阈值设入……Alarm报警指示灯会变红；反之则呈绿色”。"
+    },
+    {
+      "id": "KB2-FACT-005",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "激光控制系统手册中，注入器激光设备分布在哪些层？B3 层和 B5 层当前上线参与调试的设备分别有哪些、各多少台？",
+      "expected_status": "answered",
+      "required_facts": [
+        "设备分布于 B3 层激光洁净间和 B5 层光学平台",
+        "B3：CCD 1 台、光闸 2 台、能量计 1 台",
+        "B5：CCD 1 台、能量计 1 台、电动镜架 2 台"
+      ],
+      "forbidden_claims": [
+        "把文档上线清单当作今天实时在线设备",
+        "遗漏 B3/B5 的分层归属"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+          "evidence_location": "§1 概述"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-b672c917"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“注入器激光设备分布于B3层激光洁净间以及B5层光学平台……目前上线参与调试的设备有B3层CCD1台、光闸2台、能量计1台；B5层CCD1台、能量计1台、电动镜架2台”。"
+    },
+    {
+      "id": "KB2-FACT-009",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "注入器真空设备分布在哪些层？真空计、泵电源和门阀分别通过什么方式与控制系统通信？",
+      "expected_status": "answered",
+      "required_facts": [
+        "注入器真空设备分布于 B4、B5",
+        "真空计与泵电源通过 RS232 或网络通讯",
+        "门阀通过阀门控制器连接至 PLC 与 IOC 通讯"
+      ],
+      "forbidden_claims": [
+        "把门阀说成直接 RS232 或网络设备",
+        "断言当前通信链路在线"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+          "evidence_location": "§1 概述"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-b9bfd428"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“注入器真空设备分布于B4、B5……真空计与泵电源通过RS232或网络通讯实现控制，阀门通过阀门控制器连接至PLC与IOC通讯”。"
+    },
+    {
+      "id": "KB2-FACT-011",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "沈科仪（SKY）离子泵电源的压力保护值、压力回差值和保护电流分别怎样设置？输入格式和回差比例有什么限制？",
+      "expected_status": "answered",
+      "required_facts": [
+        "保护压强有 HighProtectPressure 和 LowProtectPressure",
+        "输入格式为 xE-x",
+        "回差值应小于保护值的 80%",
+        "离子流超过 ProtectCurrent 时切断高压",
+        "只有远控状态才能远程升高压"
+      ],
+      "forbidden_claims": [
+        "把 80% 改成其他比例",
+        "声称回差值应大于保护值",
+        "断言当前保护设定值"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+          "evidence_location": "§3 设备控制页面，1）沈科仪（SKY）离子泵电源"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-b9bfd428"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“保护压强有压力保护值（HighProtectPressure）和压力回差值（LowProtectPressure）……设定时，必须按照xE-x的格式输入数值，且回差值应小于保护值的80%……当离子流超过保护电流时切断高压……只有处于远控状态才能远程升高压”。"
+    },
+    {
+      "id": "KB2-FACT-013",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "dev",
+      "query": "Inficon 094 真空计最多可以带几个真空规？有几路保护继电器输出？修改保护阈值时 SP Low 与 SP High 的关系是什么？设定后为什么要保存参数？",
+      "expected_status": "answered",
+      "required_facts": [
+        "最多带 4 个真空规（A1、B1、A2、B2）",
+        "4 路保护继电器输出",
+        "SP Low 应小于 SP High",
+        "设定成功后点击 <SAVE PARAMETERS> 保存参数",
+        "规管与继电器的对应关系只显示、不能修改"
+      ],
+      "forbidden_claims": [
+        "把 4 路继电器写成其他数量",
+        "声称 SP Low 可以大于 SP High",
+        "断言当前保护阈值"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+          "evidence_location": "§3 设备控制页面，6）Inficon真空计"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-b9bfd428"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“1台Inficon 094真空计最多可以带4个真空规（A1、B1、A2、B2）……有4路保护继电器输出……修改保护阈值时要注意SP Low应小于SP High……点击下方<SAVE PARAMETERS>按钮保存参数，避免设备断电后设定参数丢失……和规管的对应关系只在界面上显示，不能进行修改”。"
+    },
+    {
+      "id": "KB2-FACT-015",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "query": "在 archiver appliance web 查询软件中，Check Status 显示“Being archived”表示什么？输入“*”会看到什么？details 页面可以对 PV 做哪些操作？",
+      "expected_status": "answered",
+      "required_facts": [
+        "Being archived 表示 PV 是正常被测量的",
+        "输入 * 可以看到所有 PV",
+        "details 可查看当前 PV 详细信息",
+        "details 可暂停 PV 存储或删除不需要的 PV 值"
+      ],
+      "forbidden_claims": [
+        "把 Being archived 当作当前值健康或在线证明",
+        "说 * 只匹配单个 PV",
+        "说 details 只能查看不能操作"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+          "evidence_location": "§2 主要功能，（1）查看PV状态、（2）查看详细信息"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-ec081ce3"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“状态为Being archived时表示PV是正常被测量的，可查看相关具体参数。（输入*可以看到所有PV)”“点开details，可以看到当前PV的详细信息，同时可以对PV名称进行操作，暂停PV存储或删除不需要的PV值”。"
+    },
+    {
+      "id": "KB2-FACT-016",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "query": "2023-10《数据存档系统查询软件设计报告》中，Quick chart 显示波形数据时，横坐标的上下两个位置分别表示什么？黄色点表示什么？",
+      "expected_status": "answered",
+      "required_facts": [
+        "波形数据横坐标分上下两个位置",
+        "上坐标为时间",
+        "下坐标根据波形点数量自动调整、显示波形点位置",
+        "黄色点所指的位置为时间"
+      ],
+      "forbidden_claims": [
+        "把上下坐标都说成时间",
+        "把黄色点解释为数值或报警点",
+        "把图形说明当作实时数据证明"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存档系统查询软件设计报告.doc",
+          "evidence_location": "第 4 节 Quick chart，波形数据曲线说明"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-data-storage-and-archive-rev-a14b336b"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“当PV值为波形数据时，横坐标分为上下两个位置，上坐标为时间，下坐标根据波形点的数量自动调整，显示波形点的位置，黄色的点所指的位置为时间”。"
+    },
+    {
+      "id": "KB2-FACT-017",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "query": "第三版（202411）《SHINE注入段段真空控制界面操作手册》中，分子泵机组共有几套？InjCM 段和 BI 段分别采用什么组合？",
+      "expected_status": "answered",
+      "required_facts": [
+        "分子泵机组共有 3 套",
+        "InjCM 段为 2 套 TCP350+HISCROLL 组合",
+        "BI 段为 1 套 TCP350+ACP15 组合"
+      ],
+      "forbidden_claims": [
+        "把 3 套写成 2 套",
+        "把 InjCM 与 BI 的组合互换",
+        "把文档清单当作当前运行状态"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+          "evidence_location": "§3 设备控制页面，7）分子泵机组"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-b9bfd428"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“共有3套， InjCM段为2套TCP350+HISCROLL组合（图11），BI段为1套TCP350+ACP15组合（图12）”。"
+    },
+    {
+      "id": "KB2-FACT-018",
+      "source_set": "kb2-question-plan-v1",
+      "group": "new_facts_operations",
+      "split": "sealed",
+      "query": "2023-10 数据存储系统设计报告中，EPICS Archiver Appliance 服务用什么命令启动和停止？查询运行状态用什么命令？web 查询入口是什么地址？",
+      "expected_status": "answered",
+      "required_facts": [
+        "启动命令：sudo systemctl start epicsarchiverap.service",
+        "停止命令：sudo systemctl stop epicsarchiverap.service",
+        "状态命令：systemctl status -l epicsarchiverap.service | cat -b",
+        "web 查询地址：http://10.101.9.1:17665/mgmt/ui/index.html"
+      ],
+      "forbidden_claims": [
+        "编造其他服务名或端口",
+        "把 2023-10 地址当作当前生产入口",
+        "把启动命令当作服务已正常运行证明"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+          "evidence_location": "§2.5 archiver appliance软件配置，（4）启动和查询服务"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-data-storage-and-archive-rev-3e4fff6e"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“启动/停止服务：sudo systemctl start epicsarchiverap.service / sudo systemctl stop epicsarchiverap.service；查询运行状态：systemctl status -l epicsarchiverap.service | cat -b；web页面查询：http://10.101.9.1:17665/mgmt/ui/index.html”。"
+    },
+    {
+      "id": "KB2-VER-001",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照 2023-09 归档版《定时系统控制界面操作说明》与 2023-12-06 第二版《SHINE定时界面操作手册》：第二版在信号控制和全局频率设置中新增了哪个束测信号？两版的频率分组有何不同？",
+      "expected_status": "answered",
+      "required_facts": [
+        "2023-09 版信号控制为 Profile、SBPM、ICT，无 FC",
+        "2023-12-06 版信号控制为 Profile、SBPM、FC、ICT",
+        "2023-09 版同步频率为 Laser、SBPM、ICT，无 FC",
+        "2023-12-06 版同步频率为 Laser、SBPM、ICT、FC"
+      ],
+      "forbidden_claims": [
+        "把 FC 归到 2023-09 版",
+        "把文档版本差异当作现场已部署差异"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc；操作手册/第二版/SHINE定时界面操作手册(20231206).doc",
+          "evidence_location": "两侧均为 §二/2.1 信号控制区与 2.2 额外功能控制区"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d",
+          "shine-control-operation-manual-series-rev-73552d9f"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2023-09 原文：“束测系统（Profile、SBPM和ICT）”“多个系统同步频率设置（包括：Laser、SBPM、ICT）”；2023-12-06 原文：“束测系统（Profile、SBPM、FC和ICT）”“多个系统同步频率设置（包括：Laser、SBPM、ICT、FC）”。"
+    },
+    {
+      "id": "KB2-VER-002",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照第一版《SHINE定时界面操作手册》与 2023-09 归档版《定时系统控制界面操作说明》：控制机器时钟输出使能时，哪一版要求先点 Enable/Disable 再点 APPLY？两版步骤能否互换？",
+      "expected_status": "answered",
+      "required_facts": [
+        "第一版：点击 Enable/Disable 后再点击 APPLY",
+        "2023-09 版：只写点击 Enable/Disable，未写 APPLY",
+        "两版操作步骤不能直接互换"
+      ],
+      "forbidden_claims": [
+        "把 APPLY 步骤归到 2023-09 版",
+        "把文档步骤差异当作现场已验证行为"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE定时界面操作手册.doc；归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "evidence_location": "两侧均为 §二 监控页面，给与各系统的信号控制段"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d",
+          "shine-control-operation-manual-series-rev-99ecefba"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“通过点击Enable/Disable按键，再点击APPLY按键控制机器时钟输出功能的使能”；2023-09 版原文：“通过点击Enable/Disable按键控制机器时钟输出功能的使能”，无 APPLY。"
+    },
+    {
+      "id": "KB2-VER-003",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照第一版与 2023-12-06 第二版定时界面手册：全局频率设置的分组方式有什么变化？第一版的“其余系统频率设置”与第二版的 LLRF、同步频率设置如何对应？",
+      "expected_status": "answered",
+      "required_facts": [
+        "第一版：Profile + 其余系统（暂定：Laser、LLRF、SBPM、ICT）",
+        "第二版：Profile + LLRF + 多个系统同步（Laser、SBPM、ICT、FC）",
+        "第二版把 LLRF 从“其余系统”中单列"
+      ],
+      "forbidden_claims": [
+        "把第二版的 LLRF 归入“其余系统”",
+        "把 FC 归到第一版",
+        "声称已确认现场采用哪一版"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE定时界面操作手册.doc；操作手册/第二版/SHINE定时界面操作手册(20231206).doc",
+          "evidence_location": "两侧均为 §二 额外功能控制/2.2 额外功能控制区"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-99ecefba",
+          "shine-control-operation-manual-series-rev-73552d9f"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“全局频率设置功能又分为Profile频率设置和其余系统频率设置（暂定：Laser、LLRF、SBPM、ICT）”；第二版原文：“分为Profile频率设置，LLRF频率设置以及多个系统同步频率设置（包括：Laser、SBPM、ICT、FC）”。"
+    },
+    {
+      "id": "KB2-VER-004",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照第一版《SHINE恒温机柜界面操作手册》与 2023-09 归档版《恒温机柜控制界面操作说明》：两版都控制几台机柜？开停机柜、设置温度阈值和报警灯语义是否一致？能否据此认定它们是同一修订？",
+      "expected_status": "answered",
+      "required_facts": [
+        "两版均控制 LLRF01-08 共 8 台",
+        "两版均用 Running/Stop 控制开关，Status 绿色开、红色关",
+        "两版均通过 Threshold_Setting 输入阈值后回车设入",
+        "在提取正文范围内未发现实质差异",
+        "正文相同不等于同一修订，身份仍需登记确认"
+      ],
+      "forbidden_claims": [
+        "仅凭正文相同宣布两版为同一修订",
+        "声称两版控制台数不同",
+        "断言当前机柜报警状态"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE恒温机柜界面操作手册.doc；归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc",
+          "evidence_location": "两侧均为 §二 监控页面"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-300f0580",
+          "shine-control-operation-manual-series-rev-0e94a5e4"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；两版提取正文均含：“实现对LLRF01-08总共8台恒温机柜的远程控制”“点击Running/Stop按键控制相应机柜的开关……开启为绿色，关闭为红色”“通过全选Threshold_Setting输入框中的值……最后再通过回车键将阈值设入……Alarm报警指示灯会变红；反之则呈绿色”。身份/重复关系需查登记表与 sha256，不在本句可证范围。"
+    },
+    {
+      "id": "KB2-VER-005",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照 2024-10 归档版《SHINE注入段真空控制操作手册》与 第三版（202411）《SHINE注入段段真空控制界面操作手册》：GUN 段页面统计是否变化？能否据此认定第三版取代归档版？",
+      "expected_status": "answered",
+      "required_facts": [
+        "两版 GUN 段均为 8 个 CCG、1 个 PRG、14 台 IP、1 个门阀、4 个温度显示",
+        "提取正文未发现计数差异",
+        "第三版是否取代 2024-10 版需批准/修订记录确认"
+      ],
+      "forbidden_claims": [
+        "仅凭目录名“第三版”宣布现行",
+        "声称两版 GUN 计数不同",
+        "把文档版本当作现场部署版本"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202410）/SHINE注入段真空控制操作手册.doc；操作手册/第三版（202411）/SHINE注入段段真空控制界面操作手册.doc",
+          "evidence_location": "两侧均为 §2 分段页面，1）GUN Vacuum"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-96ebdc19",
+          "shine-control-operation-manual-series-rev-b9bfd428"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；两版均含：“为电子枪段真空控制页面。包含8个CCG、1个PRG、14台离子泵（IP）、1个门阀（VAL，仅显示开关状态）、4个温度显示”。是否取代须查封面批准栏与修订记录，当前不能判定。"
+    },
+    {
+      "id": "KB2-VER-006",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照 2023-09 第一版《SHINE数据存档系统archiverDesktop操作手册》与 2024-11《SHINE存档数据查询软件操作手册》：主窗口区域数从几变几？新增了哪些区域？",
+      "expected_status": "answered",
+      "required_facts": [
+        "第一版主窗口为 4 个区域",
+        "2024-11 版主窗口为 5 个区域",
+        "2024-11 版新增中部时间快捷键组",
+        "2024-11 版左上改为 PV 模糊搜索+起止时间，中上改为曲线属性，右上为坐标轴属性，下部为绘图区"
+      ],
+      "forbidden_claims": [
+        "把两版区域数说成相同",
+        "把中上曲线属性与右上坐标轴属性互换"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+          "evidence_location": "第一版 §2 软件启动；2024-11 版 §1 软件启动"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-fba2ad49",
+          "shine-control-operation-manual-series-rev-7da26046"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“主窗口共分4个区域，下部为主要的图形显示区域……左上区域为操作区域……中上区域为PV列表……右上区域为坐标轴列表”；2024-11 版原文：“主窗口共分5个区域，分为左上，中上，右上，中部、下部”并列出五区职责。"
+    },
+    {
+      "id": "KB2-VER-007",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照 2023-09 第一版与 2024-11 版 archiverDesktop 手册：图形右键菜单的可用性说明有什么变化？2024-11 版给出的导出路径是什么？",
+      "expected_status": "answered",
+      "required_facts": [
+        "2023-09 版：右键菜单功能尚未完成开发，暂时不要使用",
+        "2024-11 版：右键-Export，默认 Plot+Image File，点击 Export"
+      ],
+      "forbidden_claims": [
+        "把右键 Export 可用性归到 2023-09 版",
+        "把 2024-11 版说成仍禁用右键菜单"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+          "evidence_location": "第一版 §3.4 图形控制；2024-11 版 §3.5 图形控制与导出"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-fba2ad49",
+          "shine-control-operation-manual-series-rev-7da26046"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第一版原文：“右键点击图形会出现控件自带的一些操作功能，这些功能尚未完成开发，因此请暂时不要使用这些功能”；2024-11 版原文：“在绘图区域，右键-Export，弹出图 13所示的对话框，采用默认设置Plot+Image File，点击Export即可”。"
+    },
+    {
+      "id": "KB2-VER-010",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "dev",
+      "query": "对照第一版《SHINE数据存档系统web查询软件操作手册》与 2023-12-06 第二版《archiver appliance数据存档系统web查询软件操作手册》：第二版新增了哪些概述和多 PV 说明？第一版是否已有这些内容？",
+      "expected_status": "answered",
+      "required_facts": [
+        "第二版新增概述：EPICS Archiver Appliance 可存储数百万个 PV",
+        "第二版新增多 PV 说明：可同时显示多条曲线、自动生成左右坐标、点击纵坐标显示对数单位",
+        "第一版提取正文未见这些概述/说明"
+      ],
+      "forbidden_claims": [
+        "把第二版概述归到第一版",
+        "把 web 查询软件与 archiverDesktop 当作同一产品"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE数据存档系统web查询软件操作手册.doc；操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc",
+          "evidence_location": "第一版 §1–5；第二版 §1 概述、§3（9）Add PVs 说明"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-f12c9ad8",
+          "shine-control-operation-manual-series-rev-ec081ce3"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；第二版原文：“EPICS Archiver Appliance是EPICS控制系统存档器的实现，能够存储数百万个PV”“说明：①可同时显示多条曲线……自动在左右两侧生成坐标。②点击纵坐标，可以显示对数单位”；第一版全文无此概述和说明。"
+    },
+    {
+      "id": "KB2-VER-008",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "sealed",
+      "query": "对照 2023-09 第一版与 2024-11 版 archiverDesktop 手册：2024-11 版新增了哪两种历史数据导出方式？各自的时间限制是什么？第一版是否已有这些导出说明？",
+      "expected_status": "answered",
+      "required_facts": [
+        "2024-11 版有 Export Raw Data，最多 2 周",
+        "2024-11 版有 Export Plot Data，无时间限制",
+        "第一版提取正文未见这两种导出说明"
+      ],
+      "forbidden_claims": [
+        "说第一版已有 Export Raw Data/Plot Data",
+        "把 2 周限制套到 Export Plot Data",
+        "把导出说明当作导出成功证明"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+          "evidence_location": "第一版 §3 操作说明（3.1–3.6）；2024-11 版 §3.6 历史数据导出"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-fba2ad49",
+          "shine-control-operation-manual-series-rev-7da26046"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2024-11 版原文：“‘Export Raw Data’……最多导出2周的数据；‘Export Plot Data’……没有时间范围限制”；第一版全文共 3.1–3.6 节，无 Export Raw/Plot Data 段落。"
+    },
+    {
+      "id": "KB2-VER-009",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "sealed",
+      "query": "对照 2023-09 第一版与 2024-11 版 archiverDesktop 手册：2024-11 版新增的 Live 和关联图功能分别是什么？第一版是否已有这两项？",
+      "expected_status": "answered",
+      "required_facts": [
+        "2024-11 版有 Live：1 秒刷新，4 个时间窗口",
+        "2024-11 版有 Correlation：一个 PV 为横坐标、其他 PV 为纵坐标的散点图",
+        "第一版提取正文未见 Live 或 Correlation 说明"
+      ],
+      "forbidden_claims": [
+        "说第一版已有 Live/Correlation",
+        "把关联图解释为因果关系或物理同步证明"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE数据存档系统archiverDesktop操作手册.doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+          "evidence_location": "第一版 §3 操作说明；2024-11 版 §3.8 Live功能、§3.9 多个PV的关联图"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-fba2ad49",
+          "shine-control-operation-manual-series-rev-7da26046"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2024-11 版原文：“实时更新PV数据，1秒刷新一次……15min、30min、1hour、2hour”“以一个PV作为横坐标，其他PV作为纵坐标绘制一段时间的关联图……（散点图）”；第一版全文无 Live/Correlation 章节。"
+    },
+    {
+      "id": "KB2-VER-015",
+      "source_set": "kb2-question-plan-v1",
+      "group": "version_comparison",
+      "split": "sealed",
+      "query": "web 查询软件与 archiverDesktop 是同一软件的两个版本吗？两者在架构和主要功能上分别是什么关系？",
+      "expected_status": "answered",
+      "required_facts": [
+        "web 查询软件是 web 界面，功能含 Check Status、details、Quick chart",
+        "archiverDesktop 是 Qt/Python 的 C/S 桌面客户端",
+        "archiverDesktop 功能含 Plot、曲线/坐标轴属性、导出、Live、关联图",
+        "两者共享 archiver appliance 数据源但不是同一产品的版本关系"
+      ],
+      "forbidden_claims": [
+        "说 archiverDesktop 只是 web 查询的新版",
+        "把 web 的 Check Status 当作 archiverDesktop 控件",
+        "把一者的限制套到另一者"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/第二版/archiver appliance数据存档系统web查询软件操作手册(20231206).doc；归档文档（202410）/SHINE存档数据查询软件操作手册.doc；操作手册/SHINE数据存档系统archiverDesktop操作手册.doc",
+          "evidence_location": "web 手册 §1–5；2024-11 archiverDesktop §1 概述/§1 软件启动；2023-09 archiverDesktop §1 概述"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-fba2ad49",
+          "shine-control-operation-manual-series-rev-f12c9ad8",
+          "shine-control-operation-manual-series-rev-ec081ce3"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；2024-11 原文：“archiverDesktop是基于archiver appliance存档数据库的客户端软件，用于查询PV历史数据”；2023-09 原文：“基于Qt开发的一套专用于archiver appliance存档数据查询的客户端软件……C/S软件架构……Python”；web 手册标题为“web查询软件操作手册”，功能为 Check Status/details/Quick chart。"
+    },
+    {
+      "id": "KB2-BND-004",
+      "source_set": "kb2-question-plan-v1",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "query": "2023-10《数据存储系统设计报告》一方面写“将服务器磁盘配置为 RAID5”，另一方面配置清单写“2 x 480GB raid 1”。能否回答“所有磁盘都是 RAID5”？",
+      "expected_status": "answered",
+      "required_facts": [
+        "配置清单写 2 x 480GB RAID1",
+        "报告 §4 写“服务器磁盘配置为 RAID5”",
+        "RAID5 是总体设计表述，不等于每块盘都是 RAID5",
+        "具体 vdiskhdd/vdiskssd 的 RAID 级别需核对配置表/实施记录"
+      ],
+      "forbidden_claims": [
+        "把 2 x 480GB 说成 RAID5",
+        "把总体表述当成逐盘事实",
+        "忽略系统盘/数据盘区分"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+          "evidence_location": "§1(1) 服务器配置信息；§4 波形数据采集测试"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-data-storage-and-archive-rev-3e4fff6e"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“physical disk: …… 2 x 480GB raid 1”；同文 §4：“将服务器磁盘配置为RAID5”“将固态硬盘组合成一个虚拟硬盘阵列……将机械硬盘组合成一个虚拟硬盘阵列”。两处对象/范围不同，不能合并为“全部 RAID5”。"
+    },
+    {
+      "id": "KB2-BND-006",
+      "source_set": "kb2-question-plan-v1",
+      "group": "conflict_boundary",
+      "split": "dev",
+      "query": "2023-09《硬X射线自由电子激光装置项目 定时系统控制界面操作说明》封面编制、审核、审定、会签栏均为空，只有“2023年9月”。能否据此认定它是已批准的现行操作依据？",
+      "expected_status": "answered",
+      "required_facts": [
+        "封面仅写 2023 年 9 月",
+        "编制、审核、审定、会签栏均为空",
+        "不能认定已批准/现行",
+        "应标为待核实",
+        "不能推断现场适用性或替代关系"
+      ],
+      "forbidden_claims": [
+        "把归档日期当批准日期",
+        "因在归档目录就认定已批准",
+        "编造签署人",
+        "断言现场适用"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "evidence_location": "封面（编制/审核/审定/会签栏与日期）"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；封面原文：“编制: 审核: 审定: 会签: 2023年9月”，四个签署栏后均无内容。"
+    },
+    {
+      "id": "KB2-BND-007",
+      "source_set": "kb2-question-plan-v1",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "query": "仅凭《恒温机柜控制界面操作说明》或《定时系统控制界面操作说明》，能否回答“今天 8 台 LLRF 恒温机柜的实际温度是多少”或“当前定时系统频率是多少”？",
+      "expected_status": "insufficient",
+      "required_facts": [
+        "文档为静态界面说明，不含实时测量",
+        "不能回答今天实际温度/当前频率",
+        "需实时 PV、Archiver 记录或现场测量",
+        "不得编造数值"
+      ],
+      "forbidden_claims": [
+        "把界面字段当作实时值",
+        "编造温度或频率",
+        "用文档日期推断当前状态",
+        "把历史记录当作当前值"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目恒温机柜控制界面操作说明.doc；归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目定时系统控制界面操作说明.doc",
+          "evidence_location": "两份文档全文；均无实时数据接口或测量记录"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-715c251d",
+          "shine-control-operation-manual-series-rev-300f0580"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；恒温机柜文档只写“Temperature一栏为机柜内温度的实时监测”，定时文档只写界面状态灯与频率设置，均未给出任何当前温度/频率数值或数据源。"
+    },
+    {
+      "id": "KB2-BND-008",
+      "source_set": "kb2-question-plan-v1",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "query": "《SHINE激光界面操作手册》写“目前上线参与调试的设备有……”。能否用它回答“今天 B3/B5 激光设备实际在线哪些”？",
+      "expected_status": "insufficient",
+      "required_facts": [
+        "该手册为第一版、无日期",
+        "“目前上线参与调试”是文档编写时清单",
+        "不能直接回答今天在线状态",
+        "需实时设备状态/PV 或现场确认",
+        "可引用清单但需标注时点不明"
+      ],
+      "forbidden_claims": [
+        "把“目前上线”当作今天实时状态",
+        "编造在线/离线设备",
+        "把提供台数当作上线台数"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "操作手册/SHINE激光界面操作手册.doc",
+          "evidence_location": "§1 概述"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-b672c917"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“目前上线参与调试的设备有B3层CCD1台、光闸2台、能量计1台；B5层CCD1台、能量计1台、电动镜架2台”。文档无日期，不能证明今天状态。"
+    },
+    {
+      "id": "KB2-BND-010",
+      "source_set": "kb2-question-plan-v1",
+      "group": "conflict_boundary",
+      "split": "sealed",
+      "query": "2024-11 archiverDesktop 手册写“Export Raw Data……最多导出 2 周的数据”。能否据此回答“存档系统只保留 2 周历史数据”？",
+      "expected_status": "answered",
+      "required_facts": [
+        "2 周是 Export Raw Data 的导出上限",
+        "不等于存档保留期",
+        "Export Plot Data 没有时间范围限制",
+        "保留期需查服务器配置/运维策略"
+      ],
+      "forbidden_claims": [
+        "把导出上限当作存档保留期",
+        "说所有数据只保留 2 周",
+        "用客户端限制推断服务器容量"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202410）/SHINE存档数据查询软件操作手册.doc",
+          "evidence_location": "§3.6 历史数据导出"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-control-operation-manual-series-rev-7da26046"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文：“‘Export Raw Data’导出一段时间的所有历史数据，因为数据量很大，考虑到网络负荷，限定了时间范围，最多导出2周的数据；‘Export Plot Data’……这个没有时间范围限制”。"
+    },
+    {
+      "id": "KB2-FMT-001",
+      "source_set": "kb2-question-plan-v1",
+      "group": "format_evidence",
+      "split": "dev",
+      "query": "2023-10《数据存储系统设计报告》的服务器配置清单中，服务器型号、CPU、内存和物理磁盘分别是什么？请逐项给出数量、型号/规格和容量。",
+      "expected_status": "answered",
+      "required_facts": [
+        "Model: PowerEdge R750",
+        "CPU: 2 x Intel XEON Gold 6346 3.1G, 16C/32T",
+        "RAM: 16 x 16GB DDR4 3200MHz",
+        "物理磁盘: 4 x 1.92TB SATA",
+        "物理磁盘: 8 x 8TB SATA",
+        "物理磁盘: 2 x 480GB RAID1"
+      ],
+      "forbidden_claims": [
+        "漏掉数量或容量",
+        "把 2 x 480GB RAID1 说成数据盘 RAID5",
+        "把 2023-10 配置当作当前生产服务器"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+          "evidence_location": "§1 数据存储系统配置，（1）服务器配置信息（原 DOC 表格/清单，无 PDF 页码）"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-data-storage-and-archive-rev-3e4fff6e"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文逐行：“Model: PowerEdge R750”“cpu: 2 x Intel XEON Gold 6346 3.1G, 16C/32T”“ram: 16 x 16GB DDR4 3200MHz”“physical disk: 4 x 1.92 TB sata / 8 x 8 TB sata / 2 x 480GB raid 1”。"
+    },
+    {
+      "id": "KB2-FMT-002",
+      "source_set": "kb2-question-plan-v1",
+      "group": "format_evidence",
+      "split": "dev",
+      "query": "2023-10《数据存储系统设计报告》的目录结构表中，/arch 根目录下的 sts、mts、lts 分别指向哪里？请按表格结构给出对应关系。",
+      "expected_status": "answered",
+      "required_facts": [
+        "/arch/sts → /dev/shm",
+        "/arch/mts → mtsdata",
+        "/arch/lts → /data",
+        "数据盘根目录为 /data"
+      ],
+      "forbidden_claims": [
+        "把 sts 与 lts 目标互换",
+        "把 mts 指向 /data",
+        "把 2023-10 目录结构当作当前生产挂载"
+      ],
+      "evidence": [
+        {
+          "candidate_source": "归档文档（202310）/2023控制系统硬线项目归档文件(1)/2023控制系统硬线项目归档文件/硬X射线自由电子激光装置项目数据存储系统设计报告.doc",
+          "evidence_location": "§2.2 存储配置，目录结构（树形表）"
+        }
+      ],
+      "scope": {
+        "mode": "version",
+        "revision_ids": [
+          "shine-data-storage-and-archive-rev-3e4fff6e"
+        ]
+      },
+      "verification_level": "verified_from_extracted_text",
+      "notes": "verified_from_extracted_text；原文树形结构：“/arch ├─ sts ──> /dev/shm ├─ mts ──> mtsdata └─ lts ──> /data”，并写“数据盘根目录为/data”。"
+    }
+  ]
+}

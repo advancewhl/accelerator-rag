@@ -10,7 +10,7 @@ import zipfile
 from typing import Annotated, Literal
 from urllib.parse import quote
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import (
@@ -68,9 +68,21 @@ _MEDIA_TYPES = {
         "application/vnd.openxmlformats-officedocument."
         "spreadsheetml.sheet"
     ),
+    ".xls": "application/vnd.ms-excel",
     ".csv": "text/csv; charset=utf-8",
 }
-_OFFICE_SUFFIXES = {".docx", ".doc", ".pptx", ".xlsx", ".csv"}
+_RECORD_KEYS = (
+    "record_id",
+    "revision_id",
+    "table_block_id",
+    "sheet",
+    "row_number",
+    "headers",
+    "cells",
+    "row_text",
+    "chunk_id",
+)
+_OFFICE_SUFFIXES = {".docx", ".doc", ".pptx", ".xlsx", ".xls", ".csv"}
 # Only browser-renderable raster formats are served.  SVG is deliberately
 # excluded: a same-origin SVG can execute script when opened directly.
 _IMAGE_TYPES = {
@@ -216,7 +228,7 @@ def _office_content_available(path: Path) -> bool:
     suffix = path.suffix.lower()
     if suffix in {".docx", ".pptx", ".xlsx"}:
         return zipfile.is_zipfile(path)
-    if suffix == ".doc":
+    if suffix in {".doc", ".xls"}:
         return shutil.which("soffice") is not None
     return suffix == ".csv"
 
@@ -462,17 +474,85 @@ def create_app(service=None, *, config_path=None):
         )
 
     @app.get("/v1/rag/structured/lookup")
-    def structured_lookup(q: str, document_id: str | None = None):
+    def structured_lookup(
+        q: str,
+        document_id: list[str] | None = Query(default=None),
+        limit: int = 50,
+    ):
+        """Ranked exact row matches with headers bound to every value.
+
+        ``records`` keeps the near-best rows the answer path also injects;
+        ``hits`` adds the score, matched constraints and reader location so a
+        workbench can show the row and open the source at that row.
+        """
+
+        q = q.strip()
+        if not q or len(q) > 500:
+            raise HTTPException(422, detail={"code": "INVALID_LOOKUP_QUERY"})
+        limit = max(1, min(int(limit), 200))
         index = getattr(app.state.rag, "table_records", None)
         if index is None:
-            return {"query": q, "count": 0, "records": []}
-        records = index.lookup_in_text(
-            q, revision_ids={document_id} if document_id else None
+            return {"query": q, "count": 0, "records": [], "hits": []}
+        revision_ids = set(document_id) if document_id else None
+        search = getattr(index, "search", None)
+        if not callable(search):
+            records = index.lookup_in_text(q, revision_ids=revision_ids)
+            return {
+                "query": q,
+                "count": len(records),
+                "records": [record.to_dict() for record in records],
+                "hits": [],
+            }
+        hits = search(q, revision_ids, limit=limit)
+        best = hits[0].score if hits else 0.0
+        catalog = getattr(app.state.rag, "catalog", None)
+        getter = getattr(catalog, "get", None)
+        rows = []
+        for hit in hits:
+            record = hit.record
+            row = getter(record.revision_id) if callable(getter) else None
+            payload = hit.to_dict()
+            payload["near_best"] = hit.score >= best * 0.85
+            payload["fields"] = [
+                {
+                    "column": column,
+                    "header": header,
+                    "value": value,
+                }
+                for (column, value), header in zip(
+                    record.cells, record.headers, strict=False
+                )
+                if value
+            ]
+            payload["location"] = f"{record.sheet}!{record.row_number}"
+            payload["document_title"] = (
+                (row or {}).get("document_title") or record.revision_id
+            )
+            payload["document_format"] = (row or {}).get("document_format", "")
+            payload["usage_statuses"] = (row or {}).get("usage_statuses", [])
+            payload["document_url"] = f"/v1/rag/documents/{record.revision_id}"
+            payload["view_url"] = (
+                f"/v1/rag/documents/{record.revision_id}/view?embedded=1"
+                f"&block_id={quote(record.table_block_id, safe='')}"
+                f"&row={record.row_number}"
+            )
+            rows.append(payload)
+        unmatched_fn = getattr(index, "unmatched_identifiers", None)
+        unmatched = (
+            unmatched_fn(q, revision_ids) if callable(unmatched_fn) else []
         )
+        if unmatched:
+            for item in rows:
+                item["near_best"] = False
+        near = [item for item in rows if item["near_best"]]
         return {
             "query": q,
-            "count": len(records),
-            "records": [record.to_dict() for record in records],
+            "unmatched_identifiers": unmatched,
+            "count": len(near),
+            "records": [
+                {key: item[key] for key in _RECORD_KEYS} for item in near
+            ],
+            "hits": rows,
         }
 
     @app.post("/v1/rag/answer")

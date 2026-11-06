@@ -316,3 +316,9 @@ button:focus-visible,a:focus-visible{outline:3px solid #55aab7;outline-offset:3p
 .office-more:hover { background:#f1eadb; }
 .citation-meta { margin:2px 0 6px; color:#7c6a45; font-size:12px; }
 .office-image { display:block; max-width:100%; height:auto; margin:12px 0; border:1px solid #ddd7c9; background:#fff; }
+
+.office-table-wrap{max-height:none}
+.office-table-wrap th{position:sticky;top:0;z-index:1}
+.office-row-hit td{background:#fff3c4!important;box-shadow:inset 3px 0 0 #c98a00}
+.office-table-filter{width:min(360px,100%);margin:0 0 8px;padding:7px 10px;border:1px solid #d5dde3;border-radius:6px;font:inherit}
+@media (prefers-color-scheme: dark){.office-row-hit td{background:#4a3c10!important}}

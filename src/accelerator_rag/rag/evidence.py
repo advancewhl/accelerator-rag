@@ -138,7 +138,28 @@ def choose_subset(
                 if involved
                 else "当前证据预算下未能保留全部所需片段。"
             )
+        # Dropping one side of an unresolved conflict is not a resolution.
+        # A requirement whose evidence sits on either side keeps the conflict
+        # as its state; the answer must report it instead of one value.
+        open_conflicts = [
+            c
+            for c in hard_conflicts
+            if set(c.source_ids) & needs[original.id]
+            and len(set(c.source_ids) & set(best)) == 1
+        ]
+        if open_conflicts and support.supported:
+            support.supported = False
+            kept = [sid for c in open_conflicts for sid in c.source_ids if sid in best]
+            support.missing = (
+                "来源存在未解决的条件冲突（仅保留了 "
+                + "、".join(dict.fromkeys(kept))
+                + "，冲突方未能同时入选）："
+                + "；".join(c.reason for c in open_conflicts)
+            )
         selected_support.append(support)
+    unresolved = [
+        c for c in hard_conflicts if set(c.source_ids) & set(best)
+    ]
     return (
         selected_context,
         Selection(requirements=selected_support),
@@ -149,6 +170,7 @@ def choose_subset(
             "token_budget": token_budget,
             "max_sources": max_sources,
             "conflicts": [c.model_dump() for c in hard_conflicts],
+            "unresolved_conflicts": [c.model_dump() for c in unresolved],
             "scope_differences": [c.model_dump() for c in scope_differences],
         },
     )

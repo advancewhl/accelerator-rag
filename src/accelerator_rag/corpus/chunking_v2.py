@@ -372,8 +372,38 @@ _RANGE_LABEL = re.compile(
 )
 
 
+def _physical_label(
+    base_label: str, table: TableData, header_rows: int, first: int, last: int
+) -> str | None:
+    """Label from the table's own physical row numbers (segmented sheets)."""
+
+    numbers = table.row_numbers
+    letters = table.column_letters
+    if not numbers or not letters or "!" not in base_label:
+        return None
+    sheet = base_label.rsplit("!", 1)[0]
+    start_col, end_col = letters[0], letters[-1]
+    parts = []
+    if header_rows:
+        parts.append(
+            f"{start_col}{numbers[0]}:{end_col}{numbers[header_rows - 1]}"
+        )
+    if first:
+        parts.append(
+            f"{start_col}{numbers[first - 1]}:{end_col}{numbers[last - 1]}"
+        )
+    if not parts:
+        return None
+    return f"{sheet}!" + ";".join(parts)
+
+
 def _table_chunk_label(
-    base_label: str, header_rows: int, first: int, last: int
+    base_label: str,
+    header_rows: int,
+    first: int,
+    last: int,
+    *,
+    table: TableData | None = None,
 ) -> str:
     """Build a physical cell range; block.position.start is the table's row 1.
 
@@ -382,6 +412,10 @@ def _table_chunk_label(
     instead of assuming the header is physical row 1.
     """
 
+    if table is not None:
+        physical = _physical_label(base_label, table, header_rows, first, last)
+        if physical is not None:
+            return physical
     match = _RANGE_LABEL.match(base_label)
     if match is None:
         return base_label
@@ -567,7 +601,11 @@ def chunk_parsed_document(
                         ),
                         position_label=(
                             _table_chunk_label(
-                                base_label, header_rows, first_row, last_row
+                                base_label,
+                                header_rows,
+                                first_row,
+                                last_row,
+                                table=block.table,
                             )
                             if spreadsheet
                             else base_label

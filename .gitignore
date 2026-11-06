@@ -70,3 +70,6 @@ tmp/
 /reports/knowledge-base-v2/prod/trace-*.json
 /reports/knowledge-base-v2/prod/ocr-*.json
 /reports/validity-pilot-online-20261030/traces/
+# 100 题回归运行明细：含内部文档逐字引用与完整答案，仅本地保存；汇总 README/comparison 仍入库
+/reports/benchmark-100-*/rc*.json
+/reports/benchmark-100-*/scoped30-*.json

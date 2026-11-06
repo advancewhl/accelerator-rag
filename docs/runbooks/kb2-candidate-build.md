@@ -17,6 +17,21 @@
 
 当前命令只从旧 v1 注册表生成 17 条修订；218 条新批次处置与家族合并后，必须重新运行并校验。
 
+### 2.1 追加线缆/交换机配置表批次（2026-11-05）
+
+```bash
+/home/whloong/miniconda3/envs/accelerator-rag/bin/python scripts/register_cable_tables.py <解压后的 SHINE线缆表 目录>
+```
+
+脚本把原件复制到 `data/l0_raw/incoming/2026-11-05-shine-cables/SHINE线缆表/`，按 sha256 判重（名称含“副本/copy”的一份记为 `excluded`），幂等写入 15 条 `structured_index` 修订。只构建这一批：
+
+```bash
+/home/whloong/miniconda3/envs/accelerator-rag/bin/python scripts/kb2_candidate_build.py \
+  --build-id cables-local-<date> --batch-id 2026-11-05-shine-cables --stage all
+```
+
+`.xls` 在构建期经 LibreOffice 转为 XLSX 后解析（`source_format` 仍为 `xls`），需要本机 `soffice` 且必须安装 **LibreOffice Calc**（RHEL/Rocky 包名 `libreoffice-calc`）。只有 Writer/Impress 时，`soffice --convert-to xlsx` 会报 `source file could not be loaded`；GPU 主机 2026-11-05 已补装该组件。表格按分组行、重复表头切成独立块，行记录写入 `records/<revision_id>.json` 并指向包含该物理行的父块。
+
 ## 3. 构建阶段
 
 ```bash

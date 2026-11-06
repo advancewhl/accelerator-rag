@@ -271,11 +271,16 @@ def _normalize_item(raw, index):
             "forbidden_claims": forbidden_claims,
             "evidence": evidence,
         }
+    scope = raw.get("scope")
     return {
         "id": qid,
         "category": category,
         "question": question,
         "expected": expected,
+        # Optional retrieval scope chosen by the benchmark author. It carries
+        # only document identity (never labels or answers) and lets a question
+        # about a historical/pending revision run with that revision visible.
+        "scope": scope if isinstance(scope, dict) else None,
     }
 
 
@@ -500,6 +505,7 @@ def _new_case(item):
         "category": item["category"],
         "question": item["question"],
         "expected": item.get("expected"),
+        "scope": item.get("scope"),
         "http_status": None,
         "response_status": None,
         "answer": None,
@@ -652,9 +658,10 @@ def _analyze_response(case, data, item, forbidden_ids):
 
 def _run_case(item, endpoint, base_url, timeout, forbidden_ids):
     case = _new_case(item)
-    payload = json.dumps({"query": item["question"]}, ensure_ascii=False).encode(
-        "utf-8"
-    )
+    body = {"query": item["question"]}
+    if item.get("scope"):
+        body["scope"] = item["scope"]
+    payload = json.dumps(body, ensure_ascii=False).encode("utf-8")
     http_request = request.Request(
         endpoint,
         data=payload,
@@ -1000,7 +1007,7 @@ def build_report(cases, datasets, metadata, *, final):
             "proxy_environment_disabled": True,
             "credentials_in_base_url": False,
             "labels_sent_to_service": False,
-            "request_body_fields": ["query"],
+            "request_body_fields": ["query", "scope(optional)"],
             "output_file_mode": "0600",
         },
         "totals": totals,
@@ -1327,7 +1334,7 @@ def render_markdown(report):
             "",
             "## 8. 说明",
             "",
-            '- 请求体仅为 `{"query": ...}`；题集标签、期望答案、must_cover '
+            '- 请求体为 `{"query": ..., "scope": ...}`（scope 可选，只含文档身份）；题集标签、期望答案、must_cover '
             "和证据均未发送给服务。",
             "- 默认不跟随重定向，禁用环境代理，不发送任何凭据。",
             "- JSON 和 Markdown 输出文件权限为 `0600`。",

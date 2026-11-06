@@ -196,10 +196,17 @@ def _revision_map():
     return registry, {revision.revision_id: revision for revision in registry.revisions}
 
 
+CABLE_BATCH = "2026-11-05-shine-cables"
+
+
 def test_registry_keeps_210_revisions_and_the_31_series_members():
     registry = _registry()
 
-    assert len(registry.revisions) == 210
+    # 210 revisions from the 2026-11-02 merge; the 2026-11-05 cable batch
+    # (15 revisions) is registered separately and checked in its own test.
+    assert len(
+        [r for r in registry.revisions if r.batch_id != CABLE_BATCH]
+    ) == 210
     assert len(EXPECTED_SPLIT) == 31
     assert set(EXPECTED_SPLIT) <= set(_revision_map()[1])
     assert len(EXPECTED_FAMILY_IDS) == 16
@@ -283,6 +290,7 @@ def test_no_non_series_revision_family_id_changed():
         (revision.revision_id, revision.family_id)
         for revision in registry.revisions
         if revision.revision_id not in EXPECTED_SPLIT
+        and revision.batch_id != CABLE_BATCH
     )
     assert len(untouched) == 179
     payload = "\n".join(
@@ -345,10 +353,10 @@ def test_script_is_deterministic_and_registry_is_its_fixed_point():
     assert updated == data
     assert again == updated
     assert summary == again_summary
-    assert summary["revisions"] == 210
+    assert summary["revisions"] == 225
     assert summary["split_revisions"] == 31
     assert summary["device_families"] == 16
-    assert summary["untouched_revisions"] == 179
+    assert summary["untouched_revisions"] == 194
 
 
 def test_script_defaults_to_dry_run_and_write_is_idempotent(tmp_path):

@@ -8,14 +8,15 @@
 | --- | --- |
 | `__main__.py` | `python -m accelerator_rag.rag` 入口，支持 HTTP 服务和单次命令行问答。 |
 | `runtime.py` | 加载已签名索引与本地模型，构建运行时，检查生成接口。 |
-| `api.py` | HTTP 问答、健康检查、文档目录、PDF 和静态资源路由。 |
+| `api.py` | HTTP 问答、健康检查、文档目录、原件/正文/媒体阅读、表格精确查询（`/v1/rag/structured/lookup`，返回排序行、表头—值对与原表定位链接）和静态资源路由。 |
 | `service.py` | 请求隔离、共享 GPU 检索锁、请求 ID 和过程记录。 |
 | `workflow.py` | 检索前拆题、召回、证据选择、核查和定向补检索。 |
-| `retrieval.py` | BM25 与双路语义候选融合、同页补全和统一重排。 |
+| `retrieval.py` | BM25、双路语义和结构化精确行候选融合；同页/阅读顺序邻近补全（统一重排前预留位置）和统一重排，精确命中优先保留。 |
 | `context.py` | 保留规范父块，构建请求内稳定的来源与片段 ID。 |
-| `evidence.py` | 按覆盖、冲突和预算选择证据子集，区分版本比较。 |
+| `evidence.py` | 按覆盖、冲突和预算选择证据子集，区分版本比较；只保留冲突一侧时相关需求保留冲突状态。 |
 | `answer.py` | 结构化输出契约、证据评估、答案综合、数值检查、完整性核查和引用解析。 |
 | `catalog.py` | 从实际索引生成只读文档目录、去重收录数及 PDF 页数。 |
+| `reader.py`、`release.py` | Office/表格规范化正文阅读（发布快照优先）与发布身份。 |
 | `__init__.py` | 导出 `RagService`。 |
 
 ## 请求流转
@@ -28,7 +29,9 @@ HTTP 请求依次进入 `api.py`、`runtime.py`、`service.py` 和 `workflow.py`
 
 | 文件或目录 | 用途 |
 | --- | --- |
-| `web/index.html`、`app.js`、`style.css` | 问答、历史记录、知识库目录和引用展示。 |
+| `web/index.html`、`app.js`、`workbench.css` | 工作台三视图：文档问答（多资料范围、需求覆盖、引用）、表格查询（精确行、定位原表）、资料库（分组、筛选、多选范围）；本机保存查询记录。 |
+| `web/office-document.html`、`office-document.js`、`style.css` | Office/表格正文阅读页：块锚点、表格行高亮（`row=`）、大表筛选、图片与公式。 |
+| `web/markdown-document.*` | Markdown 原文阅读页。 |
 | `web/pdf-reader.js` | 当前页面内的 PDF 阅读器。 |
 | `web/document.html`、`document.js` | 独立 PDF 查看路由使用的页面。 |
 | `web/katex/` | 本地公式渲染资源及许可证。 |

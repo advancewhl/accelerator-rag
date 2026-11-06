@@ -108,3 +108,97 @@ def test_lookup_in_text_and_revision_filter():
         "X09A"
     ]
     assert index.lookup_in_text("X09", revision_ids={"other-rev"}) == []
+
+
+def _split_sheet():
+    rows = [("设备", "端口", "系统", "网络分配")]
+    rows += [(f"SW{i:02d}", f"{i}-{i + 3}", "电源", f"VLAN{i}") for i in range(1, 41, 4)]
+    table = TableData(
+        rows=tuple(rows),
+        header_rows=1,
+        row_numbers=tuple(range(5, 5 + len(rows))),
+        column_letters=("A", "B", "C", "D"),
+    )
+    block = ParsedBlock(
+        block_id="switch-rev:b:t",
+        block_type="table",
+        text=table.text,
+        position=SourcePosition(
+            kind="cell_range",
+            start=5,
+            end=15,
+            label="L3!A5:D15",
+            locator=(("sheet", "L3"),),
+        ),
+        table=table,
+        metadata=(("group", "L3-CN01柜（DEVSW001）"),),
+    )
+    parsed = ParsedDocument(
+        revision_id="switch-rev",
+        asset_id="asset-switch",
+        source_path="data/l0_raw/incoming/x/switch.xlsx",
+        source_format="xlsx",
+        title="交换机配置表",
+        blocks=(block,),
+        parser_profile="openpyxl-cells-v1",
+    )
+
+    def chunk(cid, label):
+        return KnowledgeChunk(
+            chunk_id=cid,
+            document_id="switch-rev",
+            document_title="交换机配置表",
+            text=table.text,
+            source_path=parsed.source_path,
+            document_version="1",
+            language="zh",
+            category="control_system",
+            topic="network",
+            page_start=1,
+            page_end=1,
+            position_kind="cell_range",
+            position_label=label,
+            source_block_ids=block.block_id,
+            content_role="table",
+        )
+
+    return parsed, [chunk("c1", "L3!A5:D5;A6:D10"), chunk("c2", "L3!A5:D5;A11:D15")]
+
+
+def test_split_table_rows_point_at_the_chunk_holding_them():
+    parsed, chunks = _split_sheet()
+    records = build_table_records(parsed, chunks)
+    by_row = {record.row_number: record.chunk_id for record in records}
+    assert by_row[6] == "c1" and by_row[10] == "c1"
+    assert by_row[11] == "c2" and by_row[15] == "c2"
+    assert records[0].values()["_group"] == "L3-CN01柜（DEVSW001）"
+
+
+def test_port_range_and_group_rank_the_matching_row_first():
+    parsed, chunks = _split_sheet()
+    index = TableRecordIndex(build_table_records(parsed, chunks))
+    hits = index.search("L3-CN01柜 DEVSW001 第 14 口是什么 VLAN")
+    assert hits[0].record.values()["B"] == "13-16"
+    assert "端口14" in hits[0].matched
+    top = index.lookup_in_text("L3-CN01柜 DEVSW001 第 14 口是什么 VLAN")
+    assert [record.values()["B"] for record in top] == ["13-16"]
+
+
+def test_identifier_forms_match_exactly_without_prefix_guessing():
+    parsed, chunks = _split_sheet()
+    index = TableRecordIndex(build_table_records(parsed, chunks))
+    # Group label component, case and punctuation variants are exact keys.
+    assert index.search("l3-cn01 端口 2")[0].record.values()["B"] == "1-4"
+    # Components are whole separator-delimited parts, never prefixes.
+    assert index.search("CN0") == []
+    assert index.search("SW0") == []
+
+
+def test_unknown_named_identifier_blocks_partial_row_injection():
+    parsed, chunks = _split_sheet()
+    index = TableRecordIndex(build_table_records(parsed, chunks))
+    query = "L9-CN01柜 DEVSW001 第 14 口"
+    assert index.unmatched_identifiers(query) == ["L9-CN01"]
+    assert index.lookup_in_text(query) == []
+    # The ranked search still shows the partial rows for a UI to flag.
+    assert index.search(query)

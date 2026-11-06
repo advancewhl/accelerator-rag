@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from accelerator_rag.corpus.doc_converter import parse_doc
+from accelerator_rag.corpus.doc_converter import parse_doc, parse_xls
 from accelerator_rag.corpus.docx_parser import parse_docx
 from accelerator_rag.corpus.markdown_parser import parse_markdown
 from accelerator_rag.corpus.parsed_document import (
@@ -144,6 +144,16 @@ def _parse_local(
             title=title,
             source_path=source_path,
         )
+    if source_format == SourceFormat.XLS.value:
+        return parse_xls(
+            path,
+            revision_id=revision_id,
+            asset_id=asset_id,
+            title=title,
+            source_path=source_path,
+            timeout=timeout,
+            output_dir=doc_output_dir,
+        )
     if source_format == SourceFormat.CSV.value:
         return parse_csv(
             path,
@@ -162,7 +172,7 @@ def _parse_local(
         )
     raise ValueError(
         f"unsupported source_format for parsing: {source_format} "
-        "(pdf/md/docx/doc/pptx/xlsx/csv/ods)"
+        "(pdf/md/docx/doc/pptx/xlsx/xls/csv/ods)"
     )
 
 

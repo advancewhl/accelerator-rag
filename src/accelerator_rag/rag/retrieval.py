@@ -19,6 +19,8 @@ class RequirementRetriever:
         *,
         candidate_limit=20,
         structured_index=None,
+        max_exact_per_query=10,
+        neighbor_reserve=12,
     ):
         if type(candidate_limit) is not int or not 1 <= candidate_limit <= 20:
             raise ValueError("invalid candidate limit")
@@ -26,6 +28,8 @@ class RequirementRetriever:
         self.reranker = reranker
         self.candidate_limit = candidate_limit
         self.structured_index = structured_index
+        self.max_exact_per_query = max_exact_per_query
+        self.neighbor_reserve = neighbor_reserve
         self.chunks = {c.chunk_id: c for c in chunks}
         self.lexical = BM25Retriever(list(self.chunks.values()))
         self.by_page = defaultdict(list)
@@ -143,6 +147,7 @@ class RequirementRetriever:
                         {"channel": channel, "query": text, "rank": hit.rank}
                     )
             if self.structured_index is not None:
+                query_exact: list[str] = []
                 for record in self.structured_index.lookup_in_text(
                     text, revision_ids=revision_ids
                 ):
@@ -152,6 +157,10 @@ class RequirementRetriever:
                     if scope is not None and not scope.allows(chunk):
                         continue
                     cid = chunk.chunk_id
+                    if cid not in query_exact:
+                        if len(query_exact) >= self.max_exact_per_query:
+                            continue
+                        query_exact.append(cid)
                     if cid not in hits:
                         hits[cid] = RetrievalResult(
                             1, 1.0, chunk, "structured-exact"
@@ -187,8 +196,19 @@ class RequirementRetriever:
                             "anchor": chunk.chunk_id,
                         }
                     )
-        # Preserve expanded contexts even when a general query has many matches.
-        ordered = sorted(hits, key=lambda cid: (-scores[cid], cid))[:48]
+        # Preserve expanded contexts even when a general query has many
+        # matches: neighbours score 0, so a plain top-48 cut would drop every
+        # one of them once 48 scored candidates exist.
+        scored = sorted(
+            (cid for cid in hits if scores[cid] > 0),
+            key=lambda cid: (-scores[cid], cid),
+        )
+        neighbours = [cid for cid in hits if scores[cid] <= 0]
+        reserved = min(len(neighbours), self.neighbor_reserve)
+        ordered = scored[: 48 - reserved] + neighbours[:reserved]
+        ordered += [cid for cid in scored[48 - reserved :]][
+            : max(0, 48 - len(ordered))
+        ]
         started = perf_counter()
         values = self.reranker.score(query, [hits[cid].chunk.text for cid in ordered])
         rerank_seconds += perf_counter() - started

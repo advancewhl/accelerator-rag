@@ -19,7 +19,7 @@ from .context import EvidenceContext
 # normalized-content reader.  Download itself is available for every indexed
 # revision; this set only controls the curated reader URL.
 _READABLE_SUFFIXES = frozenset(
-    {".pdf", ".md", ".markdown", ".docx", ".doc", ".pptx", ".xlsx", ".csv"}
+    {".pdf", ".md", ".markdown", ".docx", ".doc", ".pptx", ".xlsx", ".xls", ".csv"}
 )
 
 
@@ -131,11 +131,40 @@ def _requires_exact_evidence(question):
 def _unverified_evidence(chunk) -> bool:
     """Parse-time quality signals that cannot solely support an exact claim."""
 
+    review = getattr(chunk, "review_status", "")
+    if review in _CONFIRMED_REVIEW:
+        # A human-confirmed OCR/formula region is back in normal use; the
+        # extraction method alone is not a permanent quality verdict.
+        return False
     return (
-        getattr(chunk, "review_status", "") == "required"
+        review == "required"
         or getattr(chunk, "formula_status", "") in {"unresolved", "mixed"}
         or getattr(chunk, "extraction_method", "") == "ocr"
     )
+
+
+_CONFIRMED_REVIEW = frozenset({"reviewed", "verified", "confirmed"})
+
+
+def _uncorroborated_unverified_values(question, spans, context) -> bool:
+    """True when a value in an unverified span is not carried by native text.
+
+    The old rule only fired when *every* selected span was unverified, so an
+    unrelated native span (``temperature is monitored``) could vouch for an
+    OCR-only threshold.  Bind the check to the numbers each span carries.
+    """
+
+    asked = _numbers(question)
+    native: set = set()
+    pending: set = set()
+    for span in spans:
+        source, text = context.spans[span]
+        values = _numbers(text) - asked
+        if _unverified_evidence(context.sources[source].chunk):
+            pending |= values
+        else:
+            native |= values
+    return bool(pending - native)
 
 
 def _is_list_question(question):
@@ -302,7 +331,12 @@ def select_evidence(
                     context.sources[context.spans[span][0]].chunk
                     for span in r.span_ids
                 ]
-                if chunks and all(_unverified_evidence(chunk) for chunk in chunks):
+                only_unverified = chunks and all(
+                    _unverified_evidence(chunk) for chunk in chunks
+                )
+                if only_unverified or _uncorroborated_unverified_values(
+                    question, r.span_ids, context
+                ):
                     # Retrieval may use an unreviewed OCR page as a lead, but
                     # an exact value cannot be completed from it alone.
                     r.supported = False

@@ -17,7 +17,7 @@ from accelerator_rag.domain.position import PositionKind
 
 UNKNOWN = "unknown"
 _READER_FORMATS = frozenset(
-    {"pdf", "md", "markdown", "docx", "doc", "pptx", "xlsx", "csv"}
+    {"pdf", "md", "markdown", "docx", "doc", "pptx", "xlsx", "xls", "csv"}
 )
 _TEXT_FIELDS = (
     ("revision_labels", "revision_label"),

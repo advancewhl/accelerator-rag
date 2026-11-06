@@ -337,3 +337,85 @@ def test_xlsx_interior_blank_rows_keep_physical_range(tmp_path):
     assert table.rows[2] == ("", "")
     assert "F1001 | X1001" in table.text
     assert "F1002 | X1002" in table.text
+
+
+def _cable_workbook(tmp_path: Path) -> Path:
+    """Cable-table layout: title, two header rows, group rows, merged cells."""
+
+    path = tmp_path / "cables.xlsx"
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "FEL2"
+    sheet.append(["电缆安装统计表", None, None, None, None])
+    sheet.merge_cells("A1:E1")
+    sheet.append(["序号", "电缆编号", "终端设备位置", None, "类别"])
+    sheet.append([None, None, None, "设备用途", None])
+    for column in "ABCE":
+        sheet.merge_cells(f"{column}2:{column}3")
+    sheet.append(["FEL2-CN01柜（DEVSW001）", None, None, None, None])
+    sheet.merge_cells("A4:E4")
+    sheet.append([1, "FEL2-CN01/SYL01:DEVSW001-E001", "UN-FEL2:SYL-01", "同步\n2", "设备网"])
+    sheet.append([2, "FEL2-CN01/SYL01:DEVSW001-E002", "UN-FEL2:SYL-01", None, "设备网"])
+    sheet.merge_cells("D5:D6")
+    sheet.append([None] * 5)
+    sheet.append(["FEL2-CN01柜（CTLSW001）", None, None, None, None])
+    sheet.merge_cells("A8:E8")
+    sheet.append([1, "FEL2-CN01/BI01:CTLSW001-E001", "UN-FEL2:BI-01", "BI01", "控制网"])
+    workbook.save(path)
+    return path
+
+
+def test_xlsx_group_rows_split_blocks_and_headers_compile(tmp_path):
+    parsed = parse_xlsx(_cable_workbook(tmp_path), revision_id="cable-rev")
+    tables = parsed.blocks_of(BlockType.TABLE.value)
+
+    assert len(tables) == 2
+    first, second = tables
+    assert first.table.header_rows == 1
+    assert first.table.rows[0] == (
+        "序号", "电缆编号", "终端设备位置", "设备用途", "类别",
+    )
+    assert first.table.caption == "电缆安装统计表 · FEL2-CN01柜（DEVSW001）"
+    assert dict(first.metadata)["group"] == "FEL2-CN01柜（DEVSW001）"
+    # Vertical merge D5:D6 fills the second row; a cell line break is a space.
+    assert first.table.rows[1][3] == "同步 2"
+    assert first.table.rows[2][3] == "同步 2"
+    assert first.table.row_numbers == (2, 5, 6)
+    assert first.position.label == "FEL2!A2:E2;A5:E6"
+    assert dict(first.position.locator)["header_range"] == "A2:E3"
+    assert second.table.row_numbers == (2, 9)
+    assert second.table.caption.endswith("FEL2-CN01柜（CTLSW001）")
+
+
+def test_xlsx_repeated_header_rows_start_new_blocks(tmp_path):
+    path = tmp_path / "switch.xlsx"
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.title = "L4"
+    sheet.append(["设备", "端口", "系统", "网络分配"])
+    sheet.append(["L4-CN09柜（CTLSW003）", "1-16", "束测", "VLAN1020"])
+    sheet.append([None, "17-48", "预留", None])
+    sheet.merge_cells("A2:A3")
+    sheet.append(["设备", "端口", "系统", "网络分配"])
+    sheet.append(["L4-CN13柜（DEVSW004）", "1-4", "定时", "VLAN50"])
+    workbook.save(path)
+
+    tables = parse_xlsx(path, revision_id="switch-rev").blocks_of(
+        BlockType.TABLE.value
+    )
+    assert [table.table.row_numbers for table in tables] == [(1, 2, 3), (4, 5)]
+    assert tables[0].table.rows[2][0] == "L4-CN09柜（CTLSW003）"
+    assert tables[0].position.label == "L4!A1:D3"
+
+
+def test_xlsx_trailing_empty_columns_are_trimmed(tmp_path):
+    path = tmp_path / "wide.xlsx"
+    workbook = openpyxl.Workbook()
+    sheet = workbook.active
+    sheet.append(["名称", "值"])
+    sheet.append(["a", "1"])
+    sheet.cell(row=1, column=40).value = ""
+    sheet.cell(row=2, column=40).value = None
+    workbook.save(path)
+    table = parse_xlsx(path, revision_id="wide").blocks[0]
+    assert table.table.column_letters == ("A", "B")

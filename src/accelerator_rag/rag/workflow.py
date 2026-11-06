@@ -149,6 +149,7 @@ def run_workflow(
     )
     queries = _retrieval_queries(query, requirements)
     merged, anchors, feedback, best = {}, [], None, None
+    exact_ids: set[str] = set()
     retrieval_seconds = rerank_seconds = 0.0
     for round_index in range(max_rounds):
         retrieval_started = perf_counter()
@@ -167,9 +168,18 @@ def run_workflow(
             if old is not None and old.chunk != hit.chunk:
                 raise ValueError("inconsistent request evidence")
             merged[hit.chunk.chunk_id] = hit
-        ordered = sorted(merged.values(), key=lambda h: (-h.score, h.chunk.chunk_id))[
-            :20
-        ]
+        exact_ids |= set(retrieval_trace.get("structured_exact", ()))
+        # Exact identifier rows keep the priority the retriever gave them
+        # across rounds and through the token trim below (which pops from
+        # the end of this list).
+        ordered = sorted(
+            merged.values(),
+            key=lambda h: (
+                h.chunk.chunk_id not in exact_ids,
+                -h.score,
+                h.chunk.chunk_id,
+            ),
+        )[:20]
         builder = EvidenceContextBuilder(max_sources=20)
         context = builder.build([replace(h, rank=i) for i, h in enumerate(ordered, 1)])
         while len(ordered) > 1 and count_tokens(context.model_content) > 18000:
