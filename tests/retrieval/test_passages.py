@@ -300,6 +300,49 @@ def test_persistent_document_replacement_preserves_other_points(
         client.close()
 
 
+def test_frozen_index_serves_searches_from_memory(chunk, passage_embedder):
+    from accelerator_rag.retrieval.scope import RetrievalScope
+
+    a = replace(chunk, text="a" * 180)
+    b = replace(chunk, chunk_id="b", document_id="doc-b", text="b")
+    builder = PassageBuilder(
+        passage_embedder,
+        PassageConfig(max_tokens=120, guard_tokens=8, overlap_tokens=16),
+    )
+    ps = builder.build([a, b])
+    values = [0.82, 0.80, 0.78, 0.76, 0.74, 0.72]
+    assert len(ps) <= len(values)
+    vectors = np.array(
+        [[s, np.sqrt(1 - s * s)] for s in values[: len(ps)]]
+    )
+    client = QdrantClient(":memory:")
+    try:
+        store = QdrantPassageStore(
+            client, "test", contract_for(passage_embedder, builder)
+        )
+        store.upsert_passages(ps, vectors)
+        query = np.array([1.0, 0.0], dtype=np.float32)
+        stored = store.search_passages(query, 5)
+        store.freeze_read_only()
+        from_memory = store.search_passages(query, 5)
+        assert [h.passage.passage_id for h in from_memory] == [
+            h.passage.passage_id for h in stored
+        ]
+        assert [h.score for h in from_memory] == pytest.approx(
+            [h.score for h in stored], abs=1e-6
+        )
+        assert len(from_memory) == len(ps)
+        scoped = store.search_passages(
+            query, 5, scope=RetrievalScope(revision_ids=frozenset({b.document_id}))
+        )
+        assert {h.passage.parent_chunk_id for h in scoped} == {b.chunk_id}
+        assert store.search_passages(query, 2) == store.search_passages(query, 2)
+        with pytest.raises(ValueError, match="vector/limit"):
+            store.search_passages(np.zeros(2, dtype=np.float32), 5)
+    finally:
+        client.close()
+
+
 def test_model_contract_changes_passages_without_changing_parent(
     chunk, passage_embedder
 ):

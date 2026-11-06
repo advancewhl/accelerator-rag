@@ -1,6 +1,7 @@
 """Passage vectors with self-contained canonical parent reconstruction."""
 
 from dataclasses import MISSING, asdict, dataclass, fields
+from threading import Lock
 import numpy as np
 from qdrant_client import models
 from accelerator_rag.domain.knowledge import KnowledgeChunk
@@ -139,11 +140,21 @@ class QdrantPassageStore(QdrantCollection):
         super().__init__(client, collection_name, contract.dimension)
         self.contract = contract
         self._read_only = False
+        # Embedded Qdrant (local mode) has no ANN index: every query normalizes
+        # and scores the whole collection in numpy, which costs minutes on a
+        # loaded host.  A frozen runtime index is read once into one contiguous
+        # matrix instead, so a query is a single BLAS matvec.
+        self._memory_lock = Lock()
+        self._memory = None
+        # Scope objects are frozen dataclasses; the allowed index only changes
+        # when a release is rebuilt, so one scan per distinct scope is enough.
+        self._scope_index = {}
 
     def freeze_read_only(self):
         """Verify once under exclusive local-index ownership, then prohibit writes."""
         self.verify_contract()
         self._read_only = True
+        self._memory_index()
 
     def verify_contract(self):
         """Full scan: unsigned or mixed collections are rejected before use."""
@@ -260,6 +271,76 @@ class QdrantPassageStore(QdrantCollection):
             ],
         )
 
+    def _memory_index(self):
+        """Load the frozen collection once: unit vectors, passages, parents."""
+
+        if self._memory is not None:
+            return self._memory
+        with self._memory_lock:
+            if self._memory is None:
+                self._memory = self._build_memory_index()
+        return self._memory
+
+    def _build_memory_index(self):
+        passages, vectors = [], []
+        offset = None
+        while True:
+            rows, offset = self._client.scroll(
+                self._collection_name,
+                limit=256,
+                offset=offset,
+                with_payload=True,
+                with_vectors=True,
+            )
+            for row in rows:
+                passages.append(self.decode(row.payload or {}))
+                vectors.append(np.asarray(row.vector, dtype=np.float32))
+            if offset is None:
+                break
+        if not passages:
+            raise ValueError("frozen passage index is empty")
+        matrix = np.asarray(vectors, dtype=np.float32)
+        if matrix.shape != (len(passages), self._vector_size):
+            raise ValueError("passage vector dimension mismatch")
+        # Cosine on unit vectors is a plain dot product; normalizing once here
+        # keeps every query allocation-free apart from the score vector.
+        norms = np.sqrt(np.einsum("ij,ij->i", matrix, matrix))
+        norms[norms == 0] = 1.0
+        matrix /= norms[:, None]
+        return matrix, passages, [p.parent for p in passages]
+
+    def _allowed_positions(self, scope, parents):
+        cached = self._scope_index.get(scope)
+        if cached is None:
+            allowed = [i for i, parent in enumerate(parents) if scope.allows(parent)]
+            cached = np.asarray(allowed, dtype=np.int64)
+            if len(self._scope_index) >= 8:
+                self._scope_index.clear()
+            self._scope_index[scope] = cached
+        return cached
+
+    def _memory_search(self, vector, limit, scope):
+        matrix, passages, parents = self._memory_index()
+        query = np.asarray(vector, dtype=np.float32)
+        query = query / np.linalg.norm(query)
+        scores = matrix @ query
+        if scope is None:
+            candidates = np.arange(scores.shape[0])
+        else:
+            candidates = self._allowed_positions(scope, parents)
+            if candidates.size == 0:
+                return []
+        ranked = scores[candidates]
+        take = min(limit, ranked.shape[0])
+        if take < ranked.shape[0]:
+            top = np.argpartition(-ranked, take - 1, kind="introselect")[:take]
+        else:
+            top = np.arange(ranked.shape[0])
+        top = top[np.argsort(-ranked[top], kind="stable")]
+        return [
+            PassageHit(float(ranked[i]), passages[candidates[i]]) for i in top
+        ]
+
     def search_passages(self, vector, limit, *, scope: RetrievalScope | None = None):
         vector = np.asarray(vector, dtype=np.float32)
         if (
@@ -267,10 +348,12 @@ class QdrantPassageStore(QdrantCollection):
             or limit <= 0
             or vector.shape != (self._vector_size,)
             or not np.isfinite(vector).all()
-            or np.linalg.norm(vector) == 0
+            or not np.linalg.norm(vector) > 0
         ):
             raise ValueError("invalid passage search vector/limit")
         self.verify_contract()
+        if self._read_only:
+            return self._memory_search(vector, limit, scope)
         rows = self._client.query_points(
             self._collection_name,
             query=vector.tolist(),
