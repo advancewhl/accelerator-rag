@@ -1,0 +1,106 @@
+{
+ "count": 300,
+ "by_split": {
+  "dev": 100,
+  "val": 50,
+  "test": 150
+ },
+ "by_scenario": {
+  "s1_connectivity": 100,
+  "s2_revision": 100,
+  "s3_verification": 100
+ },
+ "by_split_scenario": {
+  "dev": {
+   "s1_connectivity": 34,
+   "s2_revision": 33,
+   "s3_verification": 33
+  },
+  "val": {
+   "s1_connectivity": 16,
+   "s2_revision": 17,
+   "s3_verification": 17
+  },
+  "test": {
+   "s1_connectivity": 50,
+   "s2_revision": 50,
+   "s3_verification": 50
+  }
+ },
+ "by_task_type": {
+  "exact_record": 40,
+  "set_enumeration": 21,
+  "negative_boundary": 18,
+  "cross_table_join": 21,
+  "version_same": 56,
+  "version_added": 20,
+  "version_boundary": 7,
+  "version_diff": 14,
+  "version_removed": 3,
+  "requirement_test_match": 23,
+  "scope_mismatch": 19,
+  "design_test_conflict": 15,
+  "acceptance_gap": 14,
+  "verdict_check": 29
+ },
+ "by_verdict_class": {
+  "deterministic": 207,
+  "rubric": 56,
+  "human": 37
+ },
+ "by_gold_status": {
+  "answered": 247,
+  "partial": 34,
+  "insufficient": 19
+ },
+ "by_cluster": {
+  "S1-DEV-L3L4": 34,
+  "S1-TEST-WOBDUAN": 50,
+  "S1-VAL-L2": 16,
+  "S2-DEV-CONSTTEMP": 10,
+  "S2-DEV-TIMING": 10,
+  "S2-DEV-VACUUM": 13,
+  "S2-TEST-COLLIMATOR": 4,
+  "S2-TEST-FOURDOF": 6,
+  "S2-TEST-POWER-SUPPLY": 20,
+  "S2-TEST-POWER-SOURCE": 12,
+  "S2-TEST-TEMPHUM": 8,
+  "S2-VAL-ARCHIVE-QUERY": 7,
+  "S2-VAL-INTERLOCK": 10,
+  "S3-DEV-CONSTTEMP": 15,
+  "S3-DEV-VACUUM": 18,
+  "S3-TEST-DEVENV": 25,
+  "S3-TEST-HIFRAME": 25,
+  "S3-VAL-FASTINTERLOCK": 17
+ },
+ "explicit_scope": {
+  "dev": 10,
+  "test": 10,
+  "val": 10
+ },
+ "interventions": {
+  "total": 600,
+  "should_change": 300,
+  "should_hold": 300,
+  "by_operation": {
+   "change_value": 191,
+   "paraphrase_query": 207,
+   "delete_row": 46,
+   "add_irrelevant_similar": 27,
+   "remove_link_edge": 13,
+   "swap_adjacent_ports": 3,
+   "translate_query": 43,
+   "reorder_paragraphs": 11,
+   "delete_condition": 33,
+   "replace_revision": 4,
+   "substitute_design_for_test": 9,
+   "convert_unit": 12,
+   "change_unit": 1
+  }
+ },
+ "evidence": {
+  "chunks_referenced": 436,
+  "revisions_referenced": 74,
+  "families_referenced": 27
+ }
+}

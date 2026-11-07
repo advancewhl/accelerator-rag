@@ -126,3 +126,9 @@ tmp/
 # 研究探针原始返回：含真实 PV 名与读数，仅本地保存
 /reports/research-reset-20261107/archiver-probes.json
 /reports/research-reset-20261107/probe-analysis.json
+
+# 研究基准 300 题：含内部文档逐字证据与真值，仅本地保存
+# 仅忽略含题干/答案/证据的文件；manifest/stats/baseline 不含原文，可入库
+/data/evaluation/research-benchmark-300-v1/dev/questions.json
+/data/evaluation/research-benchmark-300-v1/val/questions.json
+/data/evaluation/research-benchmark-300-v1/sealed-test/

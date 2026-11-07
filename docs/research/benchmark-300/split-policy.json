@@ -1,0 +1,296 @@
+{
+ "schema_version": "benchmark-300-split-policy-v4",
+ "created_on": "2026-11-07",
+ "supersedes": "benchmark-300-split-policy-v3",
+ "basis": "docs/research/rag-research-reset-20261107.md §5, §7.1, §10",
+ "corpus": {
+  "release_id": "kb-2.0.0-rc.3",
+  "build_id": "kb2-prod-20261105-v3",
+  "revisions": 222,
+  "chunks": 10793
+ },
+ "rules": {
+  "split_unit": "document family and object cluster",
+  "test_isolation": "test clusters must not appear in dev or val questions, gold evidence, interventions, or distractors",
+  "same_chain_rule": "one connection chain, one requirement-test pair, one revision sequence and all its perturbations stay in one split",
+  "subsystem_alignment": "families about the same physical subsystem must share a split across scenarios",
+  "excluded_families": "families listed under reserve are not used by any question in this benchmark"
+ },
+ "prior_exposure": {
+  "source": "data/evaluation/kb2-benchmark-100-v1.json（现有 100 题；按方案 §7.1 全部归入已曝光开发与回归材料，不再具有 sealed 含义）",
+  "exposed_manual_families": [
+   "shine-control-operation-manual-timing",
+   "shine-control-operation-manual-laser",
+   "shine-control-operation-manual-vacuum",
+   "shine-control-operation-manual-archive-query",
+   "shine-control-operation-manual-archive-desktop",
+   "shine-control-operation-manual-constant-temperature-cabinet"
+  ],
+  "exposed_cabinets": [
+   "FEL1-CN01",
+   "FEL2-CN01",
+   "LTU2-CN03",
+   "L2-CN01",
+   "L2-CN03",
+   "L2-CN99",
+   "L3-CN01",
+   "DCP-CN01",
+   "DCP-CN-01",
+   "COL0-CN01",
+   "1#B4-CN01",
+   "FEL3-CN01"
+  ],
+  "exposed_subsystems": [
+   "快联锁样机的单节点/节点间响应时间要求已被旧题 P50-005 以论文来源曝光；该要求数值不得作为 test 题的唯一核对点"
+  ],
+  "rules": {
+   "s1": "test 题不得引用 exposed_cabinets 中任何机柜或以其为始端/终端的电缆行；LTU2 族（不含 EXT-LTU2）不进入 test。S1 test 允许使用同族中未被旧题引用过的机柜簇与行，但必须由 R3 验证行级零重叠。文档族层面的完全未见在 S1 只能覆盖 LTU1/EXT-LTU2 两族，不足以支撑 50 题；因此 S1 采用“族可共享、对象与行不可共享”的操作定义，该例外写入 paper-data-section §5.3。",
+   "s2": "test 只能使用未在旧 100 题中出现的手册族；exposed_manual_families 不得进入 test，可在 dev/val 使用，或列入 reserve 不使用（laser、archive-desktop 已列 reserve）。",
+   "s3": "test 只能使用未在旧 100 题中出现的样机族；快联锁样机族因要求数值已曝光，只进入 val，不进入 test。"
+  },
+  "identity_mapping": {
+   "cabinet_identity": "机柜身份按完整 token 判定；EXT- 为独立命名空间：EXT-LTU2-CN03 与 LTU2-CN03 是不同机柜；UN-/LA- 前缀是区域限定，不改变机柜名。",
+   "verified": "R3 已核验 EXT-LTU2 与 LTU2 两族电缆编号交集为 0、机柜 token 交集为 0。"
+  }
+ },
+ "scenarios": {
+  "s1_connectivity": {
+   "title": "设备与网络连接追踪",
+   "target_count": 100,
+   "clusters": [
+    {
+     "cluster_id": "S1-DEV-L3L4",
+     "split": "dev",
+     "quota": 34,
+     "object_scope": "L3 / L3-EXT / L4 / DCP / EXT-L4 / EXT-DCP / BRK 机柜与跨表连接链，及覆盖这些机柜的 L3 交换机配置",
+     "families": [
+      "network-cable-table-shine-l3-l3-ext-96be1b",
+      "network-cable-table-shine-l4-dcp-3fc622",
+      "network-cable-table-shine-l4-ext-dcp-ext-bb5988",
+      "network-cable-table-shine-brk-ext-brk-cfd202",
+      "network-switch-config-l3-005513"
+     ]
+    },
+    {
+     "cluster_id": "S1-VAL-L2",
+     "split": "val",
+     "quota": 16,
+     "object_scope": "L2 / BC2 / EMIT 机柜与连接链，及 L2 交换机配置",
+     "families": [
+      "network-cable-table-shine-l2-bc2-emit-e58a13",
+      "network-switch-config-l2-af11cd"
+     ]
+    },
+    {
+     "cluster_id": "S1-TEST-WOBDUAN",
+     "split": "test",
+     "quota": 50,
+     "object_scope": "波荡器段未曝光机柜簇：FEL1-CN02..CN14/CN17、FEL2-CN02..CN14/CN17、LTU1-CN03/CN06、EXT-LTU2-CN02/CN03，及其在 FEL1+LTU1 交换机配置中的未曝光端口行",
+     "families": [
+      "network-cable-table-shine-fel1-df7179",
+      "network-cable-table-shine-fel2-895ca8",
+      "network-cable-table-shine-ltu1-efae48",
+      "network-cable-table-shine-ext-ltu2-047b0c",
+      "network-switch-config-fel1-ltu1-70fb5b"
+     ]
+    }
+   ],
+   "reserve": [
+    "network-cable-table-shine-ltu2-1b25a4",
+    "network-cable-table-col0-col1-9e38f9",
+    "network-cable-table-shine-20230308-981163",
+    "shine-control-network-design",
+    "network-interface-specification-9fbf4318",
+    "network-configuration-snapshot-de63544f"
+   ],
+   "reserve_reason": "LTU2 全族只有 CN03 单柜，旧题已使用其中 2 行，无法提供 50 题所需的未见对象；COL0/1 与 20230308 汇总表属于注入器段独立对象簇，保留扩展；控制网络设计族跨全部网络段，放入任一划分都会泄漏其他划分对象；一号测试大厅地址分配为受限修订（不在 rc.3 快照），其配套网络需求 PDF 为扫描 OCR 乱码，均不能作为可复算真值来源。"
+  },
+  "s2_revision": {
+   "title": "操作手册修订比较",
+   "target_count": 100,
+   "clusters": [
+    {
+     "cluster_id": "S2-DEV-TIMING",
+     "split": "dev",
+     "quota": 10,
+     "object_scope": "定时系统界面操作手册修订序列（已曝光族，仅用于开发）",
+     "families": [
+      "shine-control-operation-manual-timing"
+     ]
+    },
+    {
+     "cluster_id": "S2-DEV-VACUUM",
+     "split": "dev",
+     "quota": 13,
+     "object_scope": "注入段真空控制操作手册修订序列（已曝光族，仅用于开发）",
+     "families": [
+      "shine-control-operation-manual-vacuum"
+     ]
+    },
+    {
+     "cluster_id": "S2-DEV-CONSTTEMP",
+     "split": "dev",
+     "quota": 10,
+     "object_scope": "恒温机柜界面操作手册修订序列（已曝光族，仅用于开发）",
+     "families": [
+      "shine-control-operation-manual-constant-temperature-cabinet"
+     ]
+    },
+    {
+     "cluster_id": "S2-VAL-INTERLOCK",
+     "split": "val",
+     "quota": 10,
+     "object_scope": "联锁系统界面操作手册修订序列；与 S3 快联锁样机族同属联锁子系统，同置 val",
+     "families": [
+      "shine-control-operation-manual-interlock"
+     ]
+    },
+    {
+     "cluster_id": "S2-VAL-ARCHIVE-QUERY",
+     "split": "val",
+     "quota": 7,
+     "object_scope": "数据存档系统查询软件操作手册修订序列（已曝光族，仅用于验证）",
+     "families": [
+      "shine-control-operation-manual-archive-query"
+     ]
+    },
+    {
+     "cluster_id": "S2-TEST-POWER-SUPPLY",
+     "split": "test",
+     "quota": 20,
+     "object_scope": "电源控制界面操作说明修订序列（未在旧 100 题中出现）",
+     "families": [
+      "shine-control-operation-manual-power-supply"
+     ]
+    },
+    {
+     "cluster_id": "S2-TEST-POWER-SOURCE",
+     "split": "test",
+     "quota": 12,
+     "object_scope": "功率源控制界面操作说明修订序列（未在旧 100 题中出现）",
+     "families": [
+      "shine-control-operation-manual-power-source"
+     ]
+    },
+    {
+     "cluster_id": "S2-TEST-TEMPHUM",
+     "split": "test",
+     "quota": 8,
+     "object_scope": "温湿度控制界面操作说明修订序列（未在旧 100 题中出现）",
+     "families": [
+      "shine-control-operation-manual-temperature-humidity"
+     ]
+    },
+    {
+     "cluster_id": "S2-TEST-FOURDOF",
+     "split": "test",
+     "quota": 6,
+     "object_scope": "四自由度平台界面操作手册修订序列（未在旧 100 题中出现）",
+     "families": [
+      "shine-control-operation-manual-four-dof-platform"
+     ]
+    },
+    {
+     "cluster_id": "S2-TEST-COLLIMATOR",
+     "split": "test",
+     "quota": 4,
+     "object_scope": "准直器界面操作手册修订序列（未在旧 100 题中出现）",
+     "families": [
+      "shine-control-operation-manual-collimator"
+     ]
+    }
+   ],
+   "reserve": [
+    "shine-control-operation-manual-archive-desktop",
+    "shine-control-operation-manual-switch-platform",
+    "shine-control-operation-manual-laser",
+    "shine-control-operation-manual-pdu",
+    "shine-control-operation-manual-tuner",
+    "shine-control-operation-manual-laser-heater",
+    "shine-ioc-management"
+   ],
+   "reserve_reason": "单修订族（激光、PDU、调谐器、Laser Heater）无法构造修订比较，且 W5 复核认定其内容查询不符合 S2 场景定义，整体移出；archiverDesktop 已在旧 100 题中作为主要证据使用且为单修订族；切换平台手册仅 2 个父块；IOC 管理不是界面操作手册修订序列。"
+  },
+  "s3_verification": {
+   "title": "指标与验收证据核验",
+   "target_count": 100,
+   "clusters": [
+    {
+     "cluster_id": "S3-DEV-CONSTTEMP",
+     "split": "dev",
+     "quota": 15,
+     "object_scope": "恒温机柜控制样机设计、测试、验收证据链",
+     "families": [
+      "shine-prototype-constant-temperature-cabinet-acceptance"
+     ]
+    },
+    {
+     "cluster_id": "S3-DEV-VACUUM",
+     "split": "dev",
+     "quota": 18,
+     "object_scope": "真空设备控制样机设计、测试、验收证据链",
+     "families": [
+      "shine-prototype-vacuum-control-acceptance"
+     ]
+    },
+    {
+     "cluster_id": "S3-VAL-FASTINTERLOCK",
+     "split": "val",
+     "quota": 17,
+     "object_scope": "快联锁样机设计、测试、验收证据链；关键要求数值已被旧题曝光，只用于验证",
+     "families": [
+      "shine-prototype-fast-interlock-acceptance"
+     ]
+    },
+    {
+     "cluster_id": "S3-TEST-HIFRAME",
+     "split": "test",
+     "quota": 25,
+     "object_scope": "高帧率图像采集样机设计、测试、验收证据链（未在旧 100 题中出现）",
+     "families": [
+      "shine-prototype-high-frame-rate-image-acquisition-acceptance"
+     ]
+    },
+    {
+     "cluster_id": "S3-TEST-DEVENV",
+     "split": "test",
+     "quota": 25,
+     "object_scope": "控制系统开发环境样机设计、测试、验收证据链（未在旧 100 题中出现）",
+     "families": [
+      "shine-prototype-control-system-development-environment-acceptance"
+     ]
+    }
+   ],
+   "reserve": [
+    "shine-timing-system-design",
+    "shine-interlock-system-design"
+   ],
+   "reserve_reason": "定时系统设计族与 S2 定时手册族属同一子系统；联锁系统设计族与 S2 联锁手册族属同一子系统。纳入会打破 100/50/150 配额或造成同子系统跨划分，故保留为扩展材料。"
+  }
+ },
+ "global_split_targets": {
+  "dev": 100,
+  "val": 50,
+  "test": 150
+ },
+ "explicit_scope_rule": {
+  "count": 30,
+  "scenario": "s2_revision",
+  "allocation": {
+   "dev": 10,
+   "val": 10,
+   "test": 10
+  },
+  "meaning": "这 30 道版本比较题在题干之外显式传入比较修订范围（scope.mode=explicit_revisions）；其余版本题按全库检索口径评估。两类必须分开报告。"
+ },
+ "restricted_policy": {
+  "default": "任何题目的 gold 证据、干预目标与 scope.revision_ids 均不得引用 access_scope=restricted 的修订",
+  "revisions": 3,
+  "note": "3 个受限修订不在 rc.3 快照内，test/dev/val 均零引用；仅允许原访问范围内的研究使用。"
+ },
+ "test_isolation_definition": {
+  "object_level": "test 不得引用 exposed_cabinets、旧题引用过的电缆行或 chunk；机柜/电缆/设备 token 跨划分交集必须为 0。",
+  "family_level": "S2/S3 测试族必须完全未在旧 100 中出现；S1 因连接链完整性允许同族未曝光机柜簇，但行级零重叠由 R3 验证。",
+  "verification": "W6 隔离审计 + R3 泄漏审核；统计与论文按此口径表述。"
+ }
+}

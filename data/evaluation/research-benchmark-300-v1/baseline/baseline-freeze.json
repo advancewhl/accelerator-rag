@@ -1,0 +1,681 @@
+{
+  "schema_version": "baseline-freeze-v1",
+  "frozen_on": "2026-11-07",
+  "frozen_at": "2026-11-07T18:53:00+11:00",
+  "purpose": "把 kb-2.0.0-rc.3 冻结为论文阶段一的强基线：记录发布身份、语料与索引签名、模型与提示词指纹、预算、运行环境、可重建命令以及已验证/未验证边界。只读探测，不修改生产配置、不在 GPU 主机写文件、不重启容器。",
+  "release": {
+    "release_id": "kb-2.0.0-rc.3",
+    "build_id": "kb2-prod-20261105-v3",
+    "status": "live",
+    "created_at": "2026-11-05",
+    "previous_release": "kb-2.0.0-rc.2",
+    "previous_release_verified": true,
+    "previous_release_evidence": "gpu-bash ls /opt/accelerator-rag-releases/: 存在 kb-2.0.0-rc.2 目录及其 release-manifest.json（release_id=kb-2.0.0-rc.2, build_id=kb2-prod-20261102-v2, status=live）；rc.3 目录 mtime 2026-11-06 00:06 +0800",
+    "manifest_path_repo": "reports/kb-2.0.0-rc.3-20261105/release-manifest.json",
+    "manifest_sha256": "537c209f4520ca6f22262ffde7159d43a52dd36f2502b563c7a1093f7ab69fcf",
+    "manifest_path_server": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/release-manifest.json",
+    "manifest_server_matches_repo": true,
+    "release_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3",
+    "snapshot_dir": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/data/knowledge-builds/kb2-prod-20261105-v3",
+    "registry": {
+      "path_repo": "data/documents/v2/registry-v2.json",
+      "path_server": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/data/documents/v2/registry-v2.json",
+      "sha256": "f3bd43062ec321fb98b49efefe5a5eb4233d8156c825ced399079989dc2103e7",
+      "sha256_verified_on_server": true
+    },
+    "code": {
+      "git_commit": "5717746c0cf92d0f0c193fd1c2fc9003ec235ea4",
+      "git_commit_state": "本地 Git 对象库中存在该 commit（git cat-file -t = commit, 2026-11-05 13:31:44 +0800），但不是当前 HEAD 的祖先，且没有任何本地/远程分支包含它（历史重写后旧 SHA 失效）",
+      "worktree_dirty": true,
+      "worktree_dirty_evidence": "release-source.tar.gz 中的 answer.py / evidence.py / workflow.py / retrieval.py / api.py 与该 commit 的对应文件 sha256 不同；context.py / runtime.py / service.py / retrieval/scope.py 相同。说明构建时工作树确有未提交改动并被快照进发布源码。",
+      "source_sha256": "c320e6b6335a461c0f8bd39ad3170501e3f78262c9f92a3a6fee7581cee7a7d4",
+      "source_sha256_meaning": "sha256(/opt/accelerator-rag-releases/kb-2.0.0-rc.3/release-source.tar.gz)；已在服务器复算并一致",
+      "source_archive_entries": 611,
+      "dependencies": "pyproject.toml",
+      "runtime_image": "accelerator-rag-runtime:20261026",
+      "runtime_image_id": "sha256:6ae5d53ae25c7b9d7b48595653e0370a00d2a48d41c2c27e8f5c1af4e5adc84d",
+      "build_env": "kb2-parse-env Python 3.11.15; LibreOffice 7.1.8.1 + libreoffice-calc; tesseract 4.1.1"
+    },
+    "release_config": {
+      "path_server": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/config/rag-production.json",
+      "sha256": "f089b05106ee458b834d16f9ad2171111610f315015aac7a7e64ecb2d27397b2",
+      "note": "这是生产容器实际读取的配置，含 release_id=kb-2.0.0-rc.3、snapshot_dir 与 rc.3 双索引条目。仓库内 config/rag-production.json（sha256=a542db2e2d23907120bd98a6e0f7c6d905c07453fb31c268f01dc103d71805bc）使用不同的索引路径、集合名与 point_count（4803/4572），不是 rc.3 生产配置，也不能用来描述基线。",
+      "release_id": "kb-2.0.0-rc.3",
+      "model_base_url": "http://127.0.0.1:8000/v1",
+      "model_name": "ds-1017",
+      "generation_max_tokens": 4096,
+      "trace_dir": "/workspace/tmp/rag-request-traces",
+      "source_root": "/workspace/data/l0_raw",
+      "snapshot_dir": "/workspace/data/knowledge-builds/kb2-prod-20261105-v3"
+    },
+    "runtime_api_identity": {
+      "endpoint": "http://127.0.0.1:8003/v1/rag/releases/current",
+      "response": {
+        "release_id": "kb-2.0.0-rc.3",
+        "build_id": "unknown",
+        "document_count": 222,
+        "revision_count": 222,
+        "family_count": 102,
+        "indexed_section_count": 10654,
+        "read_only_attachment_count": 0,
+        "source": "runtime-config"
+      },
+      "build_id_note": "服务只从配置读取 release_id；release.py 固定 build_id=unknown，因此在线服务不暴露 manifest 的 build_id。"
+    }
+  },
+  "corpus": {
+    "revision_count": 222,
+    "registry_revision_count": 225,
+    "restricted_revisions_excluded": 3,
+    "family_count": 102,
+    "registry_family_count": 104,
+    "text_index_count": 205,
+    "chunked_revisions": 222,
+    "parse_status_counts": {
+      "parsed": 222
+    },
+    "total_chunks": 10793,
+    "eligible_chunks": 10785,
+    "indexable_chunks": 10654,
+    "short_chunks_filtered": 131,
+    "short_chunks_retained": 173,
+    "ineligible_chunks": 8,
+    "table_record_count": 6989,
+    "table_record_integrity": "0 missing_chunk, 0 row_not_in_chunk（release 目录 row-record-integrity.json, ok=true）",
+    "media_file_count": 3086,
+    "media_bytes": 631338198,
+    "media_manifest_sha256": "7db7a8b1a0508498aa2be0a9e50d8b50cfc31c04ccf10aad6568bbf841046efa",
+    "allow_missing_source": false,
+    "local_inventory": {
+      "root": "tmp/research-rc3/",
+      "source": "kb-2.0.0-rc.3 build kb2-prod-20261105-v3 (release snapshot)",
+      "chunk_files": 222,
+      "chunks": 10793,
+      "chunks_sha256_concat": "4d935fd08fc55249fef645c36b67d3a38df8fcc41ed19844b7f1b5924ef1c321",
+      "chunks_sha256_concat_verified_on_server": true,
+      "revision_chunk_counts_sha256": "87965b0ca9ac419f5bcf80c15832042ae8e0c580d877d5e84e592afe825c7181",
+      "corpus_digest_file_sha256": "4f611618b54a231470a312519b537b902c221447fee084f063ef38cb6eae823c",
+      "revisions_inventory_sha256": "493fdd735c9ff99234e03bc6cb8ee9739f810c816ec4a94dd78e7afd55013297",
+      "families_inventory_sha256": "129c6b64b838d96d77c6caf013c9d56a920e333ed8820012f5706927d2d24ab5",
+      "chunks_jsonl_sha256": "476e1f7aeced90659dab2a9c70221956e597f2a9f13c2e1f268272e0e5baf72e"
+    },
+    "evidence_role_counts_build_222": {
+      "acceptance_conclusion": 10,
+      "background_reference": 31,
+      "design_target": 57,
+      "historical_record": 39,
+      "operating_step": 44,
+      "specification_requirement": 19,
+      "test_result": 18,
+      "unknown": 4
+    },
+    "evidence_role_counts_registry_225": {
+      "acceptance_conclusion": 10,
+      "background_reference": 32,
+      "design_target": 59,
+      "historical_record": 39,
+      "operating_step": 44,
+      "specification_requirement": 19,
+      "test_result": 18,
+      "unknown": 4
+    },
+    "evidence_role_note": "研究计划第 2 节引用的 59 个设计目标是 225 条登记修订口径；rc.3 实际构建为 222 条，设计目标为 57 条（3 条 restricted 修订中 2 条为 design_target，已排除）。"
+  },
+  "indexes": [
+    {
+      "model_name": "intfloat/multilingual-e5-base",
+      "model_path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261105-v3/e5/qdrant",
+      "collection": "knowledge_kb2_prod_20261105_v3_e5",
+      "dense_index_contract_id": "ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4",
+      "passage_contract_id": "dba19095d5a1360bcdd72e7fbceddf594a23c364cbd423ebe3049dbd2975a0fb",
+      "point_count": 13766,
+      "parent_count": 10654,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "batch_size_build": 8,
+      "passage_count": 13766,
+      "model_fingerprint": {
+        "requested_model_name": "intfloat/multilingual-e5-base",
+        "weights_manifest_sha256": "923e74dc0f652fc6c0fbcdb3a76305e78a13f96c4b7a776e35c821da84bc5b05",
+        "model_config_sha256": "9dab198f24c8c0879e481cf7822005d5ecbceedbacb390ffafa594e28d31bac4",
+        "tokenizer_sha256": "798f7509a92c8e84840c5c860ea274ac7de2e3df22bac00d3a81f45333733968",
+        "dimension": 768,
+        "max_seq_length": 512
+      },
+      "build_report": "tmp/kb2-indexes/kb2-prod-20261105-v3/e5/index-report.json (created_at 2026-11-05T13:07:03+00:00, build_seconds 2216.578)",
+      "server_point_count_check": "一致：集合目录 collection/knowledge_kb2_prod_20261105_v3_e5/storage.sqlite 存在；points=13766，distinct parent_chunk_id=10654，dense_index_contract_id 全部一致",
+      "qdrant_http_api_check": "不可达（127.0.0.1:6333 connection refused；运行时使用嵌入式本地 Qdrant，未启动独立服务）"
+    },
+    {
+      "model_name": "Qwen/Qwen3-Embedding-0.6B",
+      "model_path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+      "index_path": "/workspace/tmp/kb2-indexes/kb2-prod-20261105-v3/qwen3/qdrant",
+      "collection": "knowledge_kb2_prod_20261105_v3_qwen3",
+      "dense_index_contract_id": "6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823",
+      "passage_contract_id": "7ea2c062c7ac7baa3b9023363f0e201558c87335010cd397914b8787d2798348",
+      "point_count": 10654,
+      "parent_count": 10654,
+      "device": "cuda:0",
+      "dtype": "float32",
+      "batch_size_build": 2,
+      "passage_count": 10654,
+      "model_fingerprint": {
+        "requested_model_name": "Qwen/Qwen3-Embedding-0.6B",
+        "weights_manifest_sha256": "2adc7b506e6e9d90617a5cb1f5091fe0c039e153dd9fc72732f606c183c5f541",
+        "model_config_sha256": "b5bf1f51fc45be473a54718cef92448d90a1be001bf9b9a44b8c7f10a19feaa9",
+        "tokenizer_sha256": "f78138e5e2c10f13c512d100a783a466471d57279d55785f5567cd33f01e27ea",
+        "dimension": 1024,
+        "max_seq_length": 32768
+      },
+      "build_report": "tmp/kb2-indexes/kb2-prod-20261105-v3/qwen3/index-report.json (created_at 2026-11-05T14:33:48+00:00, build_seconds 4338.788; README 记录首轮 batch 8 OOM，改 batch 2 续建)",
+      "server_point_count_check": "一致：集合目录 collection/knowledge_kb2_prod_20261105_v3_qwen3/storage.sqlite 存在；points=10654，distinct parent_chunk_id=10654，dense_index_contract_id 全部一致",
+      "qdrant_http_api_check": "不可达（同上）"
+    }
+  ],
+  "index_consistency": {
+    "same_parent_set": true,
+    "same_parent_text": true,
+    "same_parent_evidence": true,
+    "parent_count": 10654,
+    "parent_set_sha256": "a074331e36946b452a8286429719cca4438d995b64cde46c17d9a3f9bf1ec751",
+    "parent_text_sha256": "4fa6d4c69f2b79fddb296ef06ee358c156a1a312b20dc6ed745e6be7059b4d0c",
+    "parent_evidence_sha256": "00de46b4b2e5bbd150d89372e8ec9349f22906aaa3974ea3ead0a24e28cfc5f9",
+    "point_counts_match_embedded": true,
+    "source": "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/tmp/kb2-indexes/kb2-prod-20261105-v3/index-build-report.json"
+  },
+  "models": {
+    "generation": {
+      "model_name": "ds-1017",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "container": "ds-1017",
+      "container_image": "ds1017-nvidia:2b009fc-sm120",
+      "container_image_id": "sha256:0b06ba91414445802caaeed4ce4fe2870df6c31c7a51d8eee69367c15b87a379",
+      "container_created_at": "2026-10-31T12:34:03.185578903Z",
+      "container_env": {
+        "ACCELERATOR_MODEL_BASE_URL": "http://127.0.0.1:8000/v1",
+        "ACCELERATOR_MODEL_NAME": "ds-1017"
+      },
+      "served_model_ids_from_v1_models": [
+        "ds-1017"
+      ],
+      "vllm_build_commit": "2b009fc6d1493a9a1ad19f4d0c7230b7e6b7e63a",
+      "served_weights_path": "/models/nvidia-DeepSeek-V4.1-Flash-1017-NVFP4",
+      "tensor_parallel_size": 8,
+      "max_model_len": 1048576,
+      "max_num_seqs": 18,
+      "quantization": "NVFP4（模型目录名）",
+      "api_key_recorded": false
+    },
+    "embeddings": [
+      {
+        "model_name": "intfloat/multilingual-e5-base",
+        "path": "/workspace/tmp/stage-two-seven/models/intfloat--multilingual-e5-base",
+        "size_on_disk": "1.1G",
+        "device": "cuda:0",
+        "dtype": "float32",
+        "batch_size_runtime": 8
+      },
+      {
+        "model_name": "Qwen/Qwen3-Embedding-0.6B",
+        "path": "/workspace/tmp/stage-two-eight/models/Qwen--Qwen3-Embedding-0.6B",
+        "size_on_disk": "1.2G",
+        "device": "cuda:0",
+        "dtype": "float32",
+        "batch_size_runtime": 8
+      }
+    ],
+    "reranker": {
+      "model_name": "Qwen/Qwen3-Reranker-0.6B",
+      "path": "/workspace/tmp/stage-two-eight-two/models/Qwen--Qwen3-Reranker-0.6B",
+      "size_on_disk": "1.2G",
+      "device": "cuda:0",
+      "dtype_config": "auto",
+      "dtype_effective_note": "代码在 CUDA 上把 auto 解析为 bfloat16（硬件支持时）否则 float16；本次未从运行进程读取实际 dtype",
+      "batch_size": 4,
+      "max_length": 8192,
+      "instruction": "Given a web search query, retrieve relevant passages that answer the query"
+    }
+  },
+  "prompts": {
+    "prompt_version_manifest": "evidence-contract-v2",
+    "prompt_version_source": "release-manifest.json answer.prompt_version",
+    "prompt_version_traceable_to_code": false,
+    "prompt_version_note": "仓库与发布源码中没有 evidence-contract-v2 这一提示词版本常量；同名标签出现在早先检索基线数据集的 judgment_revision 中，不能据此认定当前问答提示词等于该版本。",
+    "fingerprint_algorithm": "对参与文件按仓库相对路径排序，逐行拼接 '<path>\\t<sha256>\\n'，再对 UTF-8 字节取 sha256",
+    "prompt_fingerprint": "00077cbb71e23eaddd5bb641e1d94d0cc42269bce515a121702d6bd01abd1a6d",
+    "files": [
+      {
+        "path": "src/accelerator_rag/rag/answer.py",
+        "sha256": "7d904a24a6d2f07197186a2fed8446421f31735cbc19770957c01076668a0e2b",
+        "role": "要求拆解、证据选择、生成、核查提示词与结构化核验规则",
+        "matches_release_dir": true
+      },
+      {
+        "path": "src/accelerator_rag/rag/context.py",
+        "sha256": "c6b355a5022938493e767928353cd250ae5acc4336bfee40457fc63f302a9980",
+        "role": "证据上下文与可引用 span 构建规则",
+        "matches_release_dir": true
+      },
+      {
+        "path": "src/accelerator_rag/rag/evidence.py",
+        "sha256": "cb225353ec1faa3779e74c29bc4b3f74772c14b7528b43682052888d6b03d999",
+        "role": "5 父块 / 6000 token 预算下的证据子集选择与冲突处理",
+        "matches_release_dir": true
+      },
+      {
+        "path": "src/accelerator_rag/rag/retrieval.py",
+        "sha256": "799db004d3cd4c440f6b4b65ecb779518c80977e4faff16e7d08dcbed485e154",
+        "role": "多路召回、结构化精确命中、邻域扩展与重排选择",
+        "matches_release_dir": true
+      },
+      {
+        "path": "src/accelerator_rag/rag/workflow.py",
+        "sha256": "a7f9620fc9dcad9c2689a4610dd5e8a85ecb83ed7e7c88f141e425cb7cf286de",
+        "role": "焦点—召回—子集—核查—定向补检索闭环与补检索提示词",
+        "matches_release_dir": true
+      }
+    ],
+    "other_code_files": [
+      {
+        "path": "src/accelerator_rag/rag/runtime.py",
+        "sha256": "01eb4c42d1f8ecfbf2e86de730eafcf7d9dcb0454315794fd13ed285a90c3779",
+        "role": "配置/索引/模型装载与生成解码约束"
+      },
+      {
+        "path": "src/accelerator_rag/rag/api.py",
+        "sha256": "c0f1f8cc2859e4381c038a01b9355351f61d0657157f8faa89fb543453cc4ca6",
+        "role": "HTTP 接口层"
+      },
+      {
+        "path": "src/accelerator_rag/rag/service.py",
+        "sha256": "14e83d5b07e9d7b5077fb91d1962cf3c8b1673de1238b931cfec2ffa6f16a2f7",
+        "role": "请求编排、范围默认值与 trace 写入"
+      }
+    ],
+    "prompt_file_scope_check": "grep 'submit_requirements|submit_evidence|submit_claims|submit_grounding_review|submit_supplementary' 只命中 answer.py 与 workflow.py；这两个文件承载全部模型提示词。"
+  },
+  "budgets": {
+    "manifest_answer_section_source": "reports/kb-2.0.0-rc.3-20261105/release-manifest.json answer",
+    "items": [
+      {
+        "name": "max_parents",
+        "value": 5,
+        "manifest_value": 5,
+        "code_source": "src/accelerator_rag/rag/evidence.py: choose_subset(max_sources=5)；workflow.py 以默认值调用",
+        "matches_manifest": true
+      },
+      {
+        "name": "max_evidence_tokens",
+        "value": 6000,
+        "manifest_value": 6000,
+        "code_source": "src/accelerator_rag/rag/workflow.py: run_workflow(token_budget=6000)；service.py 以默认值调用",
+        "matches_manifest": true
+      },
+      {
+        "name": "max_retrieval_rounds",
+        "value": 2,
+        "manifest_value": 2,
+        "code_source": "src/accelerator_rag/rag/workflow.py: run_workflow(max_rounds=2)",
+        "matches_manifest": true
+      },
+      {
+        "name": "generation_max_tokens",
+        "value": 4096,
+        "manifest_value": 4096,
+        "code_source": "src/accelerator_rag/rag/runtime.py: BoundedGenerationTransport(max_tokens=4096), 读 config.generation_max_tokens；发布配置为 4096",
+        "matches_manifest": true
+      },
+      {
+        "name": "default_usage_statuses",
+        "value": [
+          "current",
+          "reference"
+        ],
+        "manifest_value": [
+          "current",
+          "reference"
+        ],
+        "code_source": "src/accelerator_rag/retrieval/scope.py: DEFAULT_USAGE_STATUSES = {current, reference}",
+        "matches_manifest": true
+      }
+    ],
+    "additional_code_budgets": {
+      "candidate_limit": {
+        "value": 20,
+        "source": "src/accelerator_rag/rag/retrieval.py: RequirementRetriever(candidate_limit=20)"
+      },
+      "structured_exact_per_query": {
+        "value": 10,
+        "source": "src/accelerator_rag/rag/retrieval.py: max_exact_per_query=10"
+      },
+      "neighbor_reserve": {
+        "value": 12,
+        "source": "src/accelerator_rag/rag/retrieval.py: neighbor_reserve=12"
+      },
+      "candidate_context_token_cap": {
+        "value": 18000,
+        "source": "src/accelerator_rag/rag/workflow.py: count_tokens(context.model_content) > 18000 时裁剪候选"
+      },
+      "max_requirements": {
+        "value": 6,
+        "source": "src/accelerator_rag/rag/answer.py: Requirements, R1–R6"
+      },
+      "max_queries_per_round": {
+        "value": 8,
+        "source": "src/accelerator_rag/rag/workflow.py: _QUERY_LIMIT = 8"
+      },
+      "max_supplementary_queries": {
+        "value": 3,
+        "source": "src/accelerator_rag/rag/workflow.py: SupplementaryQueries max_length=3"
+      },
+      "generation_decoding": {
+        "temperature": 0,
+        "parallel_tool_calls": false,
+        "enable_thinking": false,
+        "tool_choice": "required（单工具时强制指定）",
+        "source": "src/accelerator_rag/rag/runtime.py: BoundedGenerationTransport"
+      }
+    }
+  },
+  "runtime_environment": {
+    "gpu_host": {
+      "hostname": "localhost.localdomain",
+      "os": "Rocky Linux 9.7 (Blue Onyx)",
+      "kernel": "Linux 5.14.0-611.20.1.el9_7.x86_64 #1 SMP PREEMPT_DYNAMIC Thu Jan 15 13:21:39 UTC 2026 x86_64",
+      "cpu_threads": 96,
+      "memory_gib": 503,
+      "gpus": {
+        "count": 8,
+        "model": "NVIDIA RTX 6000D",
+        "memory_total_mib_each": 85651,
+        "driver_version": "580.65.06",
+        "cuda_version_smi": "13.0",
+        "memory_used_mib_range_at_probe": "70069–75460",
+        "probe_time": "2026-11-07 15:46 +0800"
+      }
+    },
+    "rag_runtime": {
+      "container": "accelerator-rag",
+      "image": "accelerator-rag-runtime:20261026",
+      "image_id": "sha256:6ae5d53ae25c7b9d7b48595653e0370a00d2a48d41c2c27e8f5c1af4e5adc84d",
+      "image_created": "2026-10-22 14:27:23 +0800",
+      "base_label": "ubuntu 22.04",
+      "python": "3.12.12",
+      "packages": {
+        "qdrant-client": "1.18.0",
+        "transformers": "5.14.0",
+        "sentence-transformers": "5.6.0",
+        "torch": "2.9.0+cu129",
+        "fastapi": "0.125.0",
+        "pydantic": "2.13.4"
+      },
+      "working_dir": "/workspace",
+      "network_mode": "host",
+      "port": 8003,
+      "mounts": [
+        "/opt/accelerator-rag-releases/kb-2.0.0-rc.3 -> /workspace (ro)",
+        "/opt/accelerator-rag-releases/kb-2.0.0-rc.3/tmp -> /workspace/tmp (rw)"
+      ],
+      "container_created": "2026-11-05T16:04:59Z",
+      "container_started": "2026-11-06T09:22:52Z",
+      "health": "healthy (probe 2026-11-07 15:50 +0800)",
+      "restart_policy": "unless-stopped"
+    },
+    "qdrant": {
+      "mode": "嵌入式本地目录（QdrantClient(path=...)），无独立 qdrant 服务",
+      "client_version": "1.18.0",
+      "compose_pin": "compose.yaml: qdrant/qdrant:v1.18.1（GPU 主机未运行该镜像）",
+      "http_api_6333": "不可达（connection refused）"
+    },
+    "build_environment": {
+      "recorded_in_manifest": "kb2-parse-env Python 3.11.15; LibreOffice 7.1.8.1 + libreoffice-calc; tesseract 4.1.1",
+      "libreoffice_verified_on_gpu_host": "LibreOffice 7.1.8.1 10(Build:1)",
+      "tesseract_verified_on_gpu_host": "tesseract 4.1.1 / leptonica-1.80.0",
+      "kb2_parse_env_verified": false,
+      "note": "当前 GPU 主机未找到 kb2-parse-env 目录（/opt/accelerator-rag-build/envs 不存在，无 conda）；Python 3.11.15 仅来自 manifest 记录。"
+    }
+  },
+  "rebuild_chain": [
+    {
+      "step": "registry 生成/合并",
+      "command": "python scripts/migrate_registry_v2.py; python scripts/register_cable_tables.py <解压后的 SHINE线缆表 目录>",
+      "environment": "本地 conda accelerator-rag",
+      "status": "只在文档中记录",
+      "note": "会写 registry；本次只读冻结不重跑。registry sha256 已在服务器核对一致。"
+    },
+    {
+      "step": "解析与切块（parse → chunks → report → draft manifest）",
+      "command": "python scripts/kb2_candidate_build.py --build-id kb2-prod-20261105-v3 --stage all",
+      "environment": "GPU 主机 kb2-parse-env（Python 3.11.15 + LibreOffice Calc + tesseract 4.1.1）",
+      "status": "依赖 GPU 环境未复跑",
+      "note": "脚本默认 registry=data/documents/v2/registry-v2.json，build-root=data/knowledge-builds；实际产物已在 release 目录，报告哈希与本地快照一致。"
+    },
+    {
+      "step": "双路密集索引构建",
+      "command": "python scripts/kb2_build_indexes.py --build-dir data/knowledge-builds/kb2-prod-20261105-v3 --model-root /workspace/tmp --output-root /workspace/tmp/kb2-indexes/kb2-prod-20261105-v3 --e5-model intfloat--multilingual-e5-base --qwen-model Qwen--Qwen3-Embedding-0.6B --device cuda:0 --batch-size <N> --write-config /workspace/tmp/kb2-indexes/kb2-prod-20261105-v3/rag-production.json",
+      "environment": "GPU 主机 A100/RTX 6000D，嵌入式 Qdrant",
+      "status": "依赖 GPU 环境未复跑",
+      "note": "历史 batch size 由 index-report 确认：E5=8，Qwen3=2（README 记录 Qwen3 首轮 batch 8 OOM 后改 2 续建）。其他 CLI 参数未在报告中留存，命令按脚本示例重建。"
+    },
+    {
+      "step": "发布清单落盘与发布目录同步",
+      "command": "人工整理 release-manifest.json 并复制到 /opt/accelerator-rag-releases/kb-2.0.0-rc.3/",
+      "environment": "构建机 → GPU 主机",
+      "status": "只在文档中记录",
+      "note": "仓库无发布清单生成脚本；manifest 在 draft 基础上人工补全 indexes/verification/operations。仓库与服务器 manifest 哈希一致。"
+    },
+    {
+      "step": "发布清单结构校验",
+      "command": "python3 scripts/validate_release_manifest.py reports/kb-2.0.0-rc.3-20261105/release-manifest.json",
+      "environment": "本地 conda accelerator-rag（Python 3.11.15）",
+      "status": "已在本机复跑验证",
+      "exit_code": 1,
+      "note": "输出 ERROR: 完整发布缺少 verification 记录: performance_baseline。发布目录中同一脚本（sha256 66f528e4…）与被校验 manifest 也相同，因此不是本地版本差异。"
+    },
+    {
+      "step": "本地只读语料清单",
+      "command": "python3 scripts/research/build_rc3_inventory.py",
+      "environment": "本地 conda accelerator-rag（Python 3.11.15）",
+      "status": "已在本机复跑验证",
+      "exit_code": 0,
+      "note": "输出 chunks=10793, chunks_sha256_concat=4d935fd08fc55249fef645c36b67d3a38df8fcc41ed19844b7f1b5924ef1c321；与 release 目录复算值一致，且重复运行字节级一致。"
+    },
+    {
+      "step": "100 题工程回归",
+      "command": "python scripts/kb2_run_regression.py --base-url http://127.0.0.1:8003 --questions data/evaluation/kb2-benchmark-100-v1.json --output <path>",
+      "environment": "调用生产服务；模型推理产生成本与延迟",
+      "status": "未复跑（引用既有报告）",
+      "exit_code": null,
+      "note": "既有结果：rc3 97/100 HTTP 成功、74/100 状态匹配；这不是准确率。"
+    }
+  ],
+  "verification": [
+    {
+      "item": "发布清单与服务器副本一致",
+      "command": "sha256sum reports/kb-2.0.0-rc.3-20261105/release-manifest.json; gpu-bash 'sha256sum /opt/accelerator-rag-releases/kb-2.0.0-rc.3/release-manifest.json'",
+      "exit_code": 0,
+      "conclusion": "一致，均为 537c209f4520ca6f22262ffde7159d43a52dd36f2502b563c7a1093f7ab69fcf"
+    },
+    {
+      "item": "registry sha256",
+      "command": "gpu-bash 'sha256sum /opt/accelerator-rag-releases/kb-2.0.0-rc.3/data/documents/v2/registry-v2.json'",
+      "exit_code": 0,
+      "conclusion": "一致：f3bd43062ec321fb98b49efefe5a5eb4233d8156c825ced399079989dc2103e7"
+    },
+    {
+      "item": "code.source_sha256 含义",
+      "command": "gpu-bash 'sha256sum /opt/accelerator-rag-releases/kb-2.0.0-rc.3/release-source.tar.gz'",
+      "exit_code": 0,
+      "conclusion": "一致：c320e6b6335a461c0f8bd39ad3170501e3f78262c9f92a3a6fee7581cee7a7d4，说明 manifest 的 source_sha256 是发布源码包哈希"
+    },
+    {
+      "item": "release-source 与 git_commit 差异（worktree_dirty 证据）",
+      "command": "git show 5717746c0cf92d0f0c193fd1c2fc9003ec235ea4:<file> | sha256sum vs sha256sum src/...",
+      "exit_code": 0,
+      "conclusion": "answer.py/evidence.py/workflow.py/retrieval.py/api.py 与提交不同；context.py/runtime.py/service.py/retrieval/scope.py 相同。与 worktree_dirty=true 一致，但当时完整工作树状态未重建。"
+    },
+    {
+      "item": "服务健康与发布身份",
+      "command": "gpu-bash 'curl -sS http://127.0.0.1:8003/health; curl -sS http://127.0.0.1:8003/v1/rag/releases/current'",
+      "exit_code": 0,
+      "conclusion": "health=ok；release_id=kb-2.0.0-rc.3，222 文档、102 族、10,654 索引段；build_id=unknown（服务设计如此）"
+    },
+    {
+      "item": "生成服务模型列表",
+      "command": "gpu-bash 'curl -sS -H \"Authorization: Bearer <from container cmd>\" http://127.0.0.1:8000/v1/models'",
+      "exit_code": 0,
+      "conclusion": "返回 served_ids=['ds-1017']；密钥未写入本记录"
+    },
+    {
+      "item": "qdrant HTTP API 集合核对",
+      "command": "gpu-bash 'curl -sS -m 5 http://127.0.0.1:6333/collections'",
+      "exit_code": 7,
+      "conclusion": "不可达：Failed to connect to 127.0.0.1 port 6333: Connection refused。未启动独立 Qdrant 服务。"
+    },
+    {
+      "item": "E5 索引 points / parents / contract（磁盘只读统计）",
+      "command": "gpu-bash 'python3: sqlite3 file:...storage.sqlite?mode=ro&immutable=1; select count(*) from points; pickle 反序列化统计 parent_chunk_id 与 dense_index_contract_id'",
+      "exit_code": 0,
+      "conclusion": "一致：points=13766，distinct_parents=10654，contract=ccd4601d1698d3bff5b46589f11fc036e035ca57c1d8d179cd56b6b2d50e16f4"
+    },
+    {
+      "item": "Qwen3 索引 points / parents / contract（磁盘只读统计）",
+      "command": "同上，qwen3 路径",
+      "exit_code": 0,
+      "conclusion": "一致：points=10654，distinct_parents=10654，contract=6698d5531a29685c9a4002123d183e4cfa38f0e491fbeb3086448e2f0e6aa823"
+    },
+    {
+      "item": "索引一致性报告",
+      "command": "gpu-bash 'python3: cat index-build-report.json consistency'",
+      "exit_code": 0,
+      "conclusion": "same_parent_set/text/evidence 均为 true，parent_count=10654，point_counts_match_embedded=true，warnings=[]"
+    },
+    {
+      "item": "本地语料快照 chunks 串联哈希 vs 发布目录",
+      "command": "python3 scripts/research/build_rc3_inventory.py; gpu-bash 'python3: sorted chunks/*.json 逐文件 update sha256'",
+      "exit_code": 0,
+      "conclusion": "两边均为 4d935fd08fc55249fef645c36b67d3a38df8fcc41ed19844b7f1b5924ef1c321（222 个文件）"
+    },
+    {
+      "item": "本地报告文件 vs 发布目录报告文件",
+      "command": "sha256sum tmp/research-rc3/{chunk,quality,parse}-report.json; gpu-bash 'sha256sum $BUILD/{chunk,quality,parse}-report.json'",
+      "exit_code": 0,
+      "conclusion": "三份报告逐一相同（chunk-report 768824e3…, quality-report 50c58406…, parse-report ab0054cd…），本地快照忠实于发布目录"
+    },
+    {
+      "item": "表格行记录数量与完整性",
+      "command": "gpu-bash 'python3: 统计 records/*.json 的 records 总数'; cat row-record-integrity.json",
+      "exit_code": 0,
+      "conclusion": "records_total=6989；row-record-integrity.json: record_count=6989, missing_chunk=0, row_not_in_chunk=0, ok=true"
+    },
+    {
+      "item": "媒体清单条目",
+      "command": "gpu-bash 'python3: len(media-manifest.json[\"media\"])'",
+      "exit_code": 0,
+      "conclusion": "3086 条，与 manifest corpus.media_file_count 一致；media-manifest sha256=7db7a8b1… 与 manifest 一致"
+    },
+    {
+      "item": "语料计数本地复算",
+      "command": "python3: 汇总 chunk-report/parse-report/families/revisions/registry",
+      "exit_code": 0,
+      "conclusion": "222 修订（登记 225）、102 族（登记 104）、10,793 父块、10,654 可索引、6,989 表格行、3,086 媒体、631,338,198 字节、222 全部 parsed；与 manifest 一致"
+    },
+    {
+      "item": "生产配置索引条目 vs manifest",
+      "command": "cat /opt/accelerator-rag-releases/kb-2.0.0-rc.3/config/rag-production.json",
+      "exit_code": 0,
+      "conclusion": "两路 model_name/model_path/index_path/collection/contract_id/point_count/device/dtype 与 manifest indexes 完全一致；仓库 config/rag-production.json 是旧开发配置，不代表 rc.3"
+    },
+    {
+      "item": "提示词文件指纹",
+      "command": "sha256sum answer.py context.py evidence.py retrieval.py workflow.py（仓库与发布目录各一次）；python 计算排序拼接哈希",
+      "exit_code": 0,
+      "conclusion": "五文件仓库与发布目录逐一相同；prompt_fingerprint=00077cbb71e23eaddd5bb641e1d94d0cc42269bce515a121702d6bd01abd1a6d"
+    },
+    {
+      "item": "发布清单结构校验",
+      "command": "python3 scripts/validate_release_manifest.py reports/kb-2.0.0-rc.3-20261105/release-manifest.json",
+      "exit_code": 1,
+      "conclusion": "未通过：ERROR: 完整发布缺少 verification 记录: performance_baseline。manifest 现有字段是 baseline_report，校验脚本要求 performance_baseline。"
+    },
+    {
+      "item": "发布 git 提交对象",
+      "command": "git cat-file -t 5717746c0cf92d0f0c193fd1c2fc9003ec235ea4; git merge-base --is-ancestor ... HEAD",
+      "exit_code": 0,
+      "conclusion": "对象存在（commit，2026-11-05 13:31:44 +0800），但不是 HEAD 祖先；当前历史为重写后的 7b57c7c"
+    }
+  ],
+  "unverified": [
+    {
+      "item": "worktree_dirty=true 的完整当时工作树",
+      "reason": "只能通过 release-source.tar.gz 与记录 commit 的逐文件差异间接证明部分文件被改过；未重建构建时完整 status/diff。"
+    },
+    {
+      "item": "code.git_commit 对应的分支与可达历史",
+      "reason": "5717746… 不是当前 HEAD 的祖先，且无分支包含它；历史重写后旧分支信息不可得。"
+    },
+    {
+      "item": "构建环境 Python 3.11.15（kb2-parse-env）",
+      "reason": "当前 GPU 主机未找到该 conda 环境（无 conda，/opt/accelerator-rag-build/envs 不存在）；仅 manifest 记录。LibreOffice/tesseract 已在主机核对版本。"
+    },
+    {
+      "item": "生成模型权重与 tokenizer 指纹",
+      "reason": "只从容器启动参数、镜像与 /v1/models 确认 served-model-name=ds-1017；未读取 /models/... 权重哈希。"
+    },
+    {
+      "item": "重排模型实际 dtype",
+      "reason": "配置 dtype=auto，代码在 CUDA 上解析为 bfloat16/float16；未从运行进程读取实际加载 dtype。"
+    },
+    {
+      "item": "Qdrant HTTP API 级核对",
+      "reason": "127.0.0.1:6333 不可达（运行时嵌入式本地 Qdrant）。改用磁盘 storage.sqlite 只读统计，结果与 manifest 一致。"
+    },
+    {
+      "item": "release-manifest 状态 live 的校验通过性",
+      "reason": "仓库校验脚本返回 1（缺 performance_baseline）。是脚本字段要求与 manifest 字段名不一致，还是 manifest 真的缺验证记录，未由发布负责人确认；本记录不把 live 当作已验证合规。"
+    },
+    {
+      "item": "manifest verification 报告是否随发布冻结",
+      "reason": "manifest 引用 rc3-candidate-final.json / rc2-production-final.json / comparison.md / rc3-cable-lookup.json，这些在仓库 reports/ 中存在；release 目录中的对应文件是更早的 rc3-candidate.json / rc2-production.json（无 -final 后缀），且没有 comparison.md 与 rc3-cable-lookup.json。"
+    },
+    {
+      "item": "发布清单 build_id 与 mtime 时序",
+      "reason": "服务器 manifest mtime 2026-11-06 00:05 +0800，早于其引用的最终报告生成时间（02:57 +0800），但文件内容哈希与仓库相同；同步方式未核实。"
+    },
+    {
+      "item": "索引构建的完整历史 CLI 参数",
+      "reason": "index-report 留存 device/dtype/batch_size/route，未留存全部命令行参数；重建命令按脚本示例与报告字段重建，未逐字复现。"
+    },
+    {
+      "item": "100 题与 30 题运行结果复跑",
+      "reason": "复跑会调用生产生成模型并产生成本/延迟；本次只读取既有报告。"
+    },
+    {
+      "item": "prompt_version=evidence-contract-v2 与当前提示词的对应关系",
+      "reason": "代码无该常量；同名标签出现在早先检索基线数据集的 judgment_revision，不能证明当前问答提示词等于该版本。本记录以 prompt_fingerprint 为准。"
+    },
+    {
+      "item": "release-source.tar.gz 全量源码审计",
+      "reason": "仅抽查 5 个提示词/规则文件与提交差异；未逐文件审计 611 个条目。"
+    },
+    {
+      "item": "模型 API key 的部署合规性",
+      "reason": "部署脚本 switch_release.sh 内含明文模型 API key；本次未记录其值，也未修改生产配置。建议后续迁移到权限受控的 env 文件。"
+    },
+    {
+      "item": "服务进程内实际生效的 device/dtype/索引路径",
+      "reason": "由发布配置、启动命令、健康检查与发布身份接口间接确认；未读取进程内存或运行时内部状态。"
+    }
+  ],
+  "usage_limits": [
+    "30 道版本题显式传入修订范围，必须与未给文档范围的全库检索分开报告；比较方法时必须给所有方法相同范围信息。",
+    "100 题集是已曝光的开发/回归材料，不是独立盲测；标为 sealed 的 10 题已在本轮被阅读，不再具有 sealed 含义。",
+    "97/100 HTTP 成功与 74/100 状态匹配都不是回答准确率；引用父块指标 0/0 是当次运行缺少评价字段，不能解释为引用全错或全对。",
+    "rc.2 → rc.3 同时改变语料与能力，不能解释为某算法的因果效果。",
+    "当前无独立人工语义评分；K7 观察期未开始；并发 3 时 rc.3 尾部延迟高于 rc.2，仍需观察。",
+    "3 条 restricted 修订不在 222 条构建内；研究计划第 2 节的 59 个设计目标是 225 条登记口径，rc.3 构建内为 57 条。",
+    "基线依赖发布目录、模型目录、GPU 与嵌入式 Qdrant；缺少其中任一项不能声称可复现该基线。",
+    "manifest status=live 未通过仓库校验脚本；在阶段一引用该基线时，应同时引用本冻结记录与 manifest，而不是只引用 status。"
+  ]
+}
