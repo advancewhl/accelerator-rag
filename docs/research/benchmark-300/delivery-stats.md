@@ -13,9 +13,9 @@
 
 | 文件 | 题数 | 权限 | sha256 |
 | --- | ---: | --- | --- |
-| `dev/questions.json` | 100 | 664 | `88e12e4e73888106a15c9b581461512614b80deb9d9d37e2f667228c1e25c524` |
-| `val/questions.json` | 50 | 664 | `62c2db1711da5318cedde5934c4bfa07a76c9f7a85efdd6651983b855d08b782` |
-| `sealed-test/questions.json` | 150 | 600 | `70359808fb7bc2d8fce8bb653dda4fd5e32b87746a4c2fd3d4ca53c937e361ca` |
+| `dev/questions.json` | 100 | 664 | `f9872cef1a2982412f43431358b94f59b97383a940caad6b9e07ec78fc9d3851` |
+| `val/questions.json` | 50 | 664 | `7403e4a9bc5e8dea9d0092c612e49f3a556a0406af799500d681e1ee817a09ee` |
+| `sealed-test/questions.json` | 150 | 600 | `dc7a8cf9c251f46a2e7e75cb298f3df615235f1c3e3286a982dc814d54985028` |
 | `sealed-test/SEALED.md` | — | 664（位于 700 目录内） | 内含 questions.json 的 SHA-256，与上表一致 |
 | `manifest.json` / `stats.json` | — | 664 | — |
 
@@ -173,3 +173,5 @@
 - 语料快照 `tmp/research-rc3/{index,chunks,parsed}` 按规范保留为只读语料，不属于 test 题内容；`tmp/` 非语料文件中的 test 题号与 test 机柜行命中数均为 0。
 - `docs/research/benchmark-300/s3-pairing-inventory.md` 已移入 `_work/`；`README.md` 与 `paper-data-section.md` 对该文件的引用现指向封存路径，需协调者决定是否在 docs 保留公开索引说明。
 - W5 报告已同步为 split-policy v4（配额按 v3 生成，v4 仅增加 `test_isolation_definition` 与 `prior_exposure.identity_mapping`，配额不变）。
+
+- 2026-11-08：应用专家代理复核的 5 条补丁（含 1 条题干重写），三份 questions.json 哈希已更新，见 manifest.patches。

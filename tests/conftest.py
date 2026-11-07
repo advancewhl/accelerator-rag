@@ -1,5 +1,6 @@
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 import json
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -8,6 +9,20 @@ import pytest
 
 from accelerator_rag.corpus.registry import DocumentRecord
 from accelerator_rag.domain.knowledge import KnowledgeChunk
+from accelerator_rag.evidence_pack.schema import (
+    Atom,
+    BudgetPolicy,
+    Needs,
+    atom_id_for,
+    estimate_tokens,
+)
+from accelerator_rag.facts.schema import (
+    Citation,
+    EntityRef,
+    Fact,
+    FactSet,
+    UNKNOWN,
+)
 
 
 @pytest.fixture
@@ -162,3 +177,296 @@ class PassageFixtureEmbedder(FakeEmbedder):
 @pytest.fixture
 def passage_embedder():
     return PassageFixtureEmbedder()
+
+
+# ---------------------------------------------------------------------------
+# Phase-3 evidence-pack fixtures
+# ---------------------------------------------------------------------------
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(ROOT / "src"))
+
+
+@dataclass(frozen=True)
+class FakeChunk:
+    chunk_id: str
+    document_id: str
+    text: str
+    position_label: str = "p1"
+    evidence_role: str = ""
+    family_id: str = "fam"
+    page_start: int = 1
+    page_end: int = 1
+
+
+def make_citation(
+    *,
+    chunk_id: str = "c1",
+    revision_id: str = "rev-a",
+    locator_kind: str = "table_row",
+    locator_label: str = "t1r1",
+    excerpt: str = "指标甲 | 60s",
+    source_role: str = "design_target",
+    table_block_id: str = "t1",
+    row_number: int | None = 1,
+) -> Citation:
+    return Citation(
+        chunk_id=chunk_id,
+        revision_id=revision_id,
+        locator_kind=locator_kind,
+        locator_label=locator_label,
+        excerpt=excerpt,
+        source_role=source_role,
+        table_block_id=table_block_id,
+        row_number=row_number,
+    )
+
+
+def make_fact(
+    fact_id: str = "F" + "0" * 16,
+    *,
+    layer: str = "parameter",
+    fact_type: str = "attribute",
+    subject: str = "指标甲",
+    attribute: str = "指标甲",
+    raw_value: str = "60",
+    unit: str = "s",
+    number: float | None = 60.0,
+    source_role: str = "design_target",
+    revision_id: str = "rev-a",
+    chunk_id: str = "c1",
+    excerpt: str = "指标甲 | 60s",
+    value_kind: str = "quantity",
+    comparator: str = "eq",
+    object_ref: EntityRef | None = None,
+    conditions=(),
+    table_block_id: str = "t1",
+    row_number: int = 1,
+) -> Fact:
+    citation = make_citation(
+        chunk_id=chunk_id,
+        revision_id=revision_id,
+        excerpt=excerpt,
+        source_role=source_role,
+        table_block_id=table_block_id,
+        row_number=row_number,
+    )
+    return Fact(
+        fact_id=fact_id,
+        layer=layer,
+        fact_type=fact_type,
+        subject=EntityRef(kind="module", raw_id=subject),
+        attribute=attribute,
+        raw_value=raw_value,
+        value_kind=value_kind,
+        comparator=comparator,
+        revision_id=revision_id,
+        source_role=source_role,
+        evidence_role="fact_support",
+        citation=citation,
+        conditions=tuple(conditions),
+        object_ref=object_ref or UNKNOWN,
+        number=number if number is not None else UNKNOWN,
+        unit=unit if unit else UNKNOWN,
+        unknown_fields=("conditions",) if not conditions else (),
+        extracted_by="test",
+    )
+
+
+def make_fact_atom(fact: Fact, *, score: float = 1.0) -> Atom:
+    return Atom(
+        atom_id=atom_id_for(
+            chunk_id=fact.citation.chunk_id,
+            locator_kind=fact.citation.locator_kind,
+            locator_label=fact.citation.locator_label,
+            excerpt=fact.citation.excerpt,
+            row_number=fact.citation.row_number,
+            table_block_id=fact.citation.table_block_id,
+            evidence_role=fact.evidence_role,
+        ),
+        chunk_id=fact.citation.chunk_id,
+        revision_id=fact.revision_id,
+        locator_kind=fact.citation.locator_kind,
+        locator_label=fact.citation.locator_label,
+        excerpt=fact.citation.excerpt,
+        source_role=fact.source_role,
+        evidence_role=fact.evidence_role,
+        route="fact",
+        score=score,
+        tokens=estimate_tokens(fact.citation.excerpt),
+        row_number=fact.citation.row_number,
+        table_block_id=fact.citation.table_block_id,
+        fact_ids=(fact.fact_id,),
+    )
+
+
+def make_row_atom(
+    chunk_id: str = "c1",
+    *,
+    revision_id: str = "rev-a",
+    excerpt: str = "设备 | 端口 | 系统\nCAB-A-CN01柜（DEVXSW02） | 45-48 | 系统甲",
+    row_number: int = 1,
+    table_block_id: str = "t1",
+    source_role: str = "",
+    score: float = 1.0,
+) -> Atom:
+    return Atom(
+        atom_id=atom_id_for(
+            chunk_id=chunk_id,
+            locator_kind="table_row",
+            locator_label=f"t1r{row_number}",
+            excerpt=excerpt,
+            row_number=row_number,
+            table_block_id=table_block_id,
+        ),
+        chunk_id=chunk_id,
+        revision_id=revision_id,
+        locator_kind="table_row",
+        locator_label=f"t1r{row_number}",
+        excerpt=excerpt,
+        source_role=source_role,
+        evidence_role="fact_support",
+        route="row_exact",
+        score=score,
+        tokens=estimate_tokens(excerpt),
+        row_number=row_number,
+        table_block_id=table_block_id,
+    )
+
+
+@dataclass
+class FakeIndex:
+    chunks: dict[str, FakeChunk]
+    facts: FactSet
+    rows: tuple = ()
+    row_atoms: dict = None
+    chunk_headers: dict = None
+    facts_by_revision: dict = None
+    facts_by_subject: dict = None
+    paragraphs: dict = None
+
+    def __post_init__(self):
+        self.row_atoms = dict(self.row_atoms or {})
+        self.chunk_headers = dict(self.chunk_headers or {})
+        self.facts_by_revision = dict(self.facts_by_revision or {})
+        self.facts_by_subject = dict(self.facts_by_subject or {})
+        self.paragraphs = dict(self.paragraphs or {})
+        for fact in self.facts.sorted():
+            self.facts_by_revision.setdefault(fact.revision_id, []).append(
+                fact.fact_id
+            )
+            self.facts_by_subject.setdefault(fact.subject.raw_id.casefold(), []).append(
+                fact.fact_id
+            )
+
+    def chunk(self, chunk_id: str):
+        return self.chunks[chunk_id]
+
+    def revision_of(self, chunk_id: str) -> str:
+        return self.chunks[chunk_id].document_id
+
+    def chunk_tokens(self, chunk_id: str) -> int:
+        return estimate_tokens(self.chunks[chunk_id].text)
+
+    def rows_of(self, chunk_id: str):
+        return tuple(row for row in self.rows if row.chunk_id == chunk_id)
+
+    def all_paragraphs(self, revision_id: str):
+        return tuple(self.paragraphs.get(revision_id, ()))
+
+    def fact_atom(self, fact: Fact, *, score: float, route: str = "fact") -> Atom:
+        return Atom(
+            atom_id=atom_id_for(
+                chunk_id=fact.citation.chunk_id,
+                locator_kind=fact.citation.locator_kind,
+                locator_label=fact.citation.locator_label,
+                excerpt=fact.citation.excerpt,
+                row_number=fact.citation.row_number,
+                table_block_id=fact.citation.table_block_id,
+                evidence_role=fact.evidence_role,
+            ),
+            chunk_id=fact.citation.chunk_id,
+            revision_id=fact.revision_id,
+            locator_kind=fact.citation.locator_kind,
+            locator_label=fact.citation.locator_label,
+            excerpt=fact.citation.excerpt,
+            source_role=fact.source_role,
+            evidence_role=fact.evidence_role,
+            route=route,
+            score=score,
+            tokens=estimate_tokens(fact.citation.excerpt),
+            row_number=fact.citation.row_number,
+            table_block_id=fact.citation.table_block_id,
+            fact_ids=(fact.fact_id,),
+        )
+
+
+@pytest.fixture
+def fact_factory():
+    return make_fact
+
+
+@pytest.fixture
+def fact_atom_factory():
+    return make_fact_atom
+
+
+@pytest.fixture
+def row_atom_factory():
+    return make_row_atom
+
+
+@pytest.fixture
+def index_factory():
+    def build(chunks, facts=(), rows=(), paragraphs=None):
+        fact_set = FactSet()
+        for fact in facts:
+            fact_set.add(fact)
+        return FakeIndex(
+            chunks={chunk.chunk_id: chunk for chunk in chunks},
+            facts=fact_set,
+            rows=tuple(rows),
+            paragraphs=paragraphs or {},
+        )
+
+    return build
+
+
+@pytest.fixture
+def needs_factory():
+    def build(
+        *,
+        route="cross_source",
+        entities=(),
+        relations=(),
+        revision_ids=(),
+        version_pair=(),
+        comparison=False,
+    ):
+        return Needs(
+            question_id="Q",
+            route=route,
+            entities=tuple(entities),
+            relations=tuple(relations),
+            revision_ids=tuple(revision_ids),
+            version_pair=tuple(version_pair),
+            comparison=comparison,
+        )
+
+    return build
+
+
+@pytest.fixture
+def policy_factory():
+    def build(tokens=600, route="cross_source", parents=8, rounds=2, relations=3):
+        return BudgetPolicy(
+            route=route,
+            base_tokens=tokens,
+            max_parents=parents,
+            max_rounds=rounds,
+            tokens=tokens,
+            relation_count=relations,
+        )
+
+    return build

@@ -136,3 +136,10 @@ tmp/
 # 阶段二事实层与原型报告：含内部文档逐字摘录，仅本地保存
 /data/facts/
 /reports/phase2/
+
+# 阶段三证据包学习权重与逐题记录：含开发集派生数据，仅本地保存
+/data/evidence-pack/
+/reports/phase3/
+
+# 其他会话的专家复核输出：可能含 sealed-test 内容，禁止入库
+/reports/expert-review-*/

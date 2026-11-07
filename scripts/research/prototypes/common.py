@@ -239,7 +239,7 @@ def gold_alignment(claims: list[dict], question: dict) -> dict:
 
     answer = question["gold"].get("answer", "")
     statements = " ".join(
-        item.get("statement", "")
+        item.get("statement", "") if isinstance(item, dict) else str(item)
         for item in question["gold"].get("required_facts", ())
     )
     haystack = answer + " " + statements
