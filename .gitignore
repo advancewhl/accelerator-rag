@@ -122,3 +122,7 @@ tmp/
 /reports/validity-pilot-online-20261030/http.json
 /reports/validity-pilot-online-20261030/http.review.json
 /scripts/build_cable_benchmark.py
+
+# 研究探针原始返回：含真实 PV 名与读数，仅本地保存
+/reports/research-reset-20261107/archiver-probes.json
+/reports/research-reset-20261107/probe-analysis.json

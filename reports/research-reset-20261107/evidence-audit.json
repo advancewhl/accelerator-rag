@@ -1,0 +1,92 @@
+{
+  "audited_on": "2026-11-07",
+  "local_git_revision": "a67dcb4",
+  "registry_revision_count": 225,
+  "registry_family_count": 104,
+  "by_format": {
+    "pdf": 49,
+    "md": 4,
+    "docx": 121,
+    "pptx": 19,
+    "doc": 15,
+    "xlsx": 15,
+    "xls": 2
+  },
+  "by_evidence_role": {
+    "specification_requirement": 19,
+    "design_target": 59,
+    "background_reference": 32,
+    "operating_step": 44,
+    "unknown": 4,
+    "historical_record": 39,
+    "test_result": 18,
+    "acceptance_conclusion": 10
+  },
+  "by_source_approval_status": {
+    "unknown": 225
+  },
+  "by_access_scope": {
+    "internal": 222,
+    "restricted": 3
+  },
+  "release_corpus": {
+    "revision_count": 222,
+    "registry_revision_count": 225,
+    "family_count": 102,
+    "text_index_count": 205,
+    "allow_missing_source": false,
+    "chunked_revisions": 222,
+    "total_chunks": 10793,
+    "eligible_chunks": 10785,
+    "indexable_chunks": 10654,
+    "short_chunks_filtered": 131,
+    "short_chunks_retained": 173,
+    "ineligible_chunks": 8,
+    "table_record_count": 6989,
+    "media_file_count": 3086,
+    "media_bytes": 631338198,
+    "media_manifest": "media-manifest.json",
+    "media_manifest_sha256": "7db7a8b1a0508498aa2be0a9e50d8b50cfc31c04ccf10aad6568bbf841046efa",
+    "parse_status_counts": {
+      "parsed": 222
+    }
+  },
+  "research_admission_file": "data/documents/v2/research-admission-20261107.json",
+  "gpu_read_only_observation": {
+    "gpu_name": "NVIDIA RTX 6000D",
+    "count": 8,
+    "total_memory_mib_per_gpu": 85651,
+    "used_memory_mib": [
+      70069,
+      70069,
+      75460,
+      70069,
+      73222,
+      73180,
+      73180,
+      73180
+    ],
+    "utilization_percent": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "health": "ok",
+    "production_mount_release": "kb-2.0.0-rc.3",
+    "limitation": "point-in-time snapshot; neither available capacity reservation nor throughput measurement"
+  },
+  "benchmark_limitations": [
+    "development/regression exposure",
+    "no independent human semantic scoring",
+    "release comparison changes corpus as well as implementation",
+    "30 version questions provide revision scope",
+    "some sealed questions read during this review; not held out for future research"
+  ],
+  "primary_research_scope": "existing heterogeneous knowledge base and RAG implementation",
+  "archiver_role": "auxiliary evidence adapter and feasibility example"
+}
