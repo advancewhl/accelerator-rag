@@ -132,3 +132,7 @@ tmp/
 /data/evaluation/research-benchmark-300-v1/dev/questions.json
 /data/evaluation/research-benchmark-300-v1/val/questions.json
 /data/evaluation/research-benchmark-300-v1/sealed-test/
+
+# 阶段二事实层与原型报告：含内部文档逐字摘录，仅本地保存
+/data/facts/
+/reports/phase2/

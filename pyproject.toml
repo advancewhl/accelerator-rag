@@ -37,6 +37,7 @@ where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = ["corpus: reads the local frozen rc.3 snapshot (skipped when absent)"]
 pythonpath = ["src"]
 
 [tool.ruff]
