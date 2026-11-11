@@ -1,180 +1,228 @@
 {
-  "schema_version": "benchmark-300-manifest-v1",
-  "assembled_on": "2026-11-07",
-  "sealed": true,
-  "sealing_policy": {
-    "sealed_dir": "sealed-test",
-    "dir_mode": "700",
-    "file_mode": "600",
-    "review_access": "R1-R5 may read during review per review-protocol",
-    "loader_guard": "phase-4 evaluator must implement BENCHMARK_ALLOW_SEALED",
-    "source_files": "test-bearing source JSONL and w5 report are kept under sealed-test/_work with 600"
-  },
-  "release_id": "kb-2.0.0-rc.3",
-  "corpus_digest": {
-    "source": "kb-2.0.0-rc.3 build kb2-prod-20261105-v3 (release snapshot)",
-    "chunk_files": 222,
-    "chunks": 10793,
-    "chunks_sha256_concat": "4d935fd08fc55249fef645c36b67d3a38df8fcc41ed19844b7f1b5924ef1c321",
-    "revision_chunk_counts_sha256": "87965b0ca9ac419f5bcf80c15832042ae8e0c580d877d5e84e592afe825c7181"
-  },
-  "spec_sha256": "cbabdcf05e39a9e6bd327ece27ec22eaaf5e240c927752a6622c1f693ff2446f",
-  "split_policy_sha256": "2d06fc5ee1d4ef8048cfc86347cd9a8539da17d32c196257550829f1ad463758",
-  "source_files": [
-    {
-      "path": "data/evaluation/research-benchmark-300-v1/sealed-test/_work/w5-gold-interventions.jsonl",
-      "sha256": "c8f9e34f2ea0d692be347fb0a585d1f6d72a138063243541bed1fb902016d710"
-    }
-  ],
-  "splits": {
-    "dev": {
-      "path": "dev/questions.json",
-      "count": 100,
-      "sha256": "f9872cef1a2982412f43431358b94f59b97383a940caad6b9e07ec78fc9d3851"
-    },
-    "val": {
-      "path": "val/questions.json",
-      "count": 50,
-      "sha256": "7403e4a9bc5e8dea9d0092c612e49f3a556a0406af799500d681e1ee817a09ee"
-    },
-    "test": {
-      "path": "sealed-test/questions.json",
-      "count": 150,
-      "sha256": "dc7a8cf9c251f46a2e7e75cb298f3df615235f1c3e3286a982dc814d54985028"
-    }
-  },
-  "stats": {
-    "count": 300,
-    "by_split": {
-      "dev": 100,
-      "val": 50,
-      "test": 150
-    },
-    "by_scenario": {
-      "s1_connectivity": 100,
-      "s2_revision": 100,
-      "s3_verification": 100
-    },
-    "by_split_scenario": {
-      "dev": {
-        "s1_connectivity": 34,
-        "s2_revision": 33,
-        "s3_verification": 33
-      },
-      "val": {
-        "s1_connectivity": 16,
-        "s2_revision": 17,
-        "s3_verification": 17
-      },
-      "test": {
-        "s1_connectivity": 50,
-        "s2_revision": 50,
-        "s3_verification": 50
-      }
-    },
-    "by_task_type": {
-      "exact_record": 40,
-      "set_enumeration": 21,
-      "negative_boundary": 18,
-      "cross_table_join": 21,
-      "version_same": 56,
-      "version_added": 20,
-      "version_boundary": 7,
-      "version_diff": 14,
-      "version_removed": 3,
-      "requirement_test_match": 23,
-      "scope_mismatch": 19,
-      "design_test_conflict": 15,
-      "acceptance_gap": 14,
-      "verdict_check": 29
-    },
-    "by_verdict_class": {
-      "deterministic": 207,
-      "rubric": 56,
-      "human": 37
-    },
-    "by_gold_status": {
-      "answered": 247,
-      "partial": 34,
-      "insufficient": 19
-    },
-    "by_cluster": {
-      "S1-DEV-L3L4": 34,
-      "S1-TEST-WOBDUAN": 50,
-      "S1-VAL-L2": 16,
-      "S2-DEV-CONSTTEMP": 10,
-      "S2-DEV-TIMING": 10,
-      "S2-DEV-VACUUM": 13,
-      "S2-TEST-COLLIMATOR": 4,
-      "S2-TEST-FOURDOF": 6,
-      "S2-TEST-POWER-SUPPLY": 20,
-      "S2-TEST-POWER-SOURCE": 12,
-      "S2-TEST-TEMPHUM": 8,
-      "S2-VAL-ARCHIVE-QUERY": 7,
-      "S2-VAL-INTERLOCK": 10,
-      "S3-DEV-CONSTTEMP": 15,
-      "S3-DEV-VACUUM": 18,
-      "S3-TEST-DEVENV": 25,
-      "S3-TEST-HIFRAME": 25,
-      "S3-VAL-FASTINTERLOCK": 17
-    },
-    "explicit_scope": {
-      "dev": 10,
-      "test": 10,
-      "val": 10
-    },
-    "interventions": {
-      "total": 600,
-      "should_change": 300,
-      "should_hold": 300,
-      "by_operation": {
-        "change_value": 191,
-        "paraphrase_query": 207,
-        "delete_row": 46,
-        "add_irrelevant_similar": 27,
-        "remove_link_edge": 13,
-        "swap_adjacent_ports": 3,
-        "translate_query": 43,
-        "reorder_paragraphs": 11,
-        "delete_condition": 33,
-        "replace_revision": 4,
-        "substitute_design_for_test": 9,
-        "convert_unit": 12,
-        "change_unit": 1
-      }
-    },
-    "evidence": {
-      "chunks_referenced": 436,
-      "revisions_referenced": 74,
-      "families_referenced": 27
-    }
-  },
-  "patches": {
-    "applied_on": "2026-11-08",
-    "reviewer_type": "AI expert-agent (simulated senior engineer)",
-    "source": "reports/expert-review-20261108/patches/manifest.json",
-    "sha256": "c03bb5e5bd32c71de44313d134267b98210302cc6257d28b960c4c18d2ed05bd",
-    "issues": [
-      {
-        "question_id": "S1-DEV-006",
-        "decision": "amend"
-      },
-      {
-        "question_id": "S1-VAL-002",
-        "decision": "reject"
-      },
-      {
-        "question_id": "S1-TEST-025",
-        "decision": "amend"
-      },
-      {
-        "question_id": "S2-VAL-IL-05",
-        "decision": "amend"
-      },
-      {
-        "question_id": "S3-VAL-FI-008",
-        "decision": "amend"
-      }
-    ]
+ "schema_version": "benchmark-300-manifest-v1",
+ "assembled_on": "2026-11-08",
+ "sealed": true,
+ "sealing_policy": {
+  "sealed_dir": "sealed-test",
+  "dir_mode": "700",
+  "file_mode": "600",
+  "review_access": "R1-R5 may read during review per review-protocol",
+  "loader_guard": "phase-4 evaluator must implement BENCHMARK_ALLOW_SEALED",
+  "source_files": "test-bearing source JSONL and w5 report are kept under sealed-test/_work with 600"
+ },
+ "release_id": "kb-2.0.0-rc.3",
+ "corpus_digest": {
+  "source": "kb-2.0.0-rc.3 build kb2-prod-20261105-v3 (release snapshot)",
+  "chunk_files": 222,
+  "chunks": 10793,
+  "chunks_sha256_concat": "4d935fd08fc55249fef645c36b67d3a38df8fcc41ed19844b7f1b5924ef1c321",
+  "revision_chunk_counts_sha256": "87965b0ca9ac419f5bcf80c15832042ae8e0c580d877d5e84e592afe825c7181"
+ },
+ "spec_sha256": "cbabdcf05e39a9e6bd327ece27ec22eaaf5e240c927752a6622c1f693ff2446f",
+ "split_policy_sha256": "2d06fc5ee1d4ef8048cfc86347cd9a8539da17d32c196257550829f1ad463758",
+ "source_files": [
+  {
+   "path": "data/evaluation/research-benchmark-300-v1/sealed-test/_work/w5-gold-interventions.jsonl",
+   "sha256": "c8f9e34f2ea0d692be347fb0a585d1f6d72a138063243541bed1fb902016d710"
   }
+ ],
+ "splits": {
+  "dev": {
+   "path": "dev/questions.json",
+   "count": 100,
+   "sha256": "804db5fb765bd6ec2229f8414eee5320d5f0f42174fbf6de3e20917754e3b14c"
+  },
+  "val": {
+   "path": "val/questions.json",
+   "count": 50,
+   "sha256": "dcedc7e2062d4243edca61e177a8844411c8fdf36c0c5d07f45351894c121c6e"
+  },
+  "test": {
+   "path": "sealed-test/questions.json",
+   "count": 150,
+   "sha256": "77b7f53c03b480b6988d295b4180f1c103a4dde357649c6bf76c983afa87bb4d",
+   "query_patch": "2026-11-08 S1-TEST-077/078 grouping wording"
+  }
+ },
+ "stats": {
+  "count": 300,
+  "by_split": {
+   "dev": 100,
+   "val": 50,
+   "test": 150
+  },
+  "by_scenario": {
+   "s1_connectivity": 100,
+   "s2_revision": 100,
+   "s3_verification": 100
+  },
+  "by_split_scenario": {
+   "dev": {
+    "s1_connectivity": 34,
+    "s2_revision": 33,
+    "s3_verification": 33
+   },
+   "val": {
+    "s1_connectivity": 16,
+    "s2_revision": 17,
+    "s3_verification": 17
+   },
+   "test": {
+    "s1_connectivity": 50,
+    "s2_revision": 50,
+    "s3_verification": 50
+   }
+  },
+  "by_task_type": {
+   "set_enumeration": 41,
+   "cross_table_join": 57,
+   "negative_boundary": 2,
+   "version_same": 56,
+   "version_added": 20,
+   "version_boundary": 7,
+   "version_diff": 14,
+   "version_removed": 3,
+   "requirement_test_match": 23,
+   "scope_mismatch": 21,
+   "design_test_conflict": 15,
+   "acceptance_gap": 14,
+   "verdict_check": 27
+  },
+  "by_verdict_class": {
+   "deterministic": 209,
+   "rubric": 56,
+   "human": 35
+  },
+  "by_gold_status": {
+   "answered": 249,
+   "partial": 32,
+   "insufficient": 19
+  },
+  "by_cluster": {
+   "S1-DEV-L3L4": 34,
+   "S2-DEV-CONSTTEMP": 10,
+   "S2-DEV-TIMING": 10,
+   "S2-DEV-VACUUM": 13,
+   "S3-DEV-CONSTTEMP": 15,
+   "S3-DEV-VACUUM": 18,
+   "S1-VAL-L2": 16,
+   "S2-VAL-ARCHIVE-QUERY": 7,
+   "S2-VAL-INTERLOCK": 10,
+   "S3-VAL-FASTINTERLOCK": 17,
+   "S1-TEST-WOBDUAN": 50,
+   "S2-TEST-COLLIMATOR": 4,
+   "S2-TEST-FOURDOF": 6,
+   "S2-TEST-POWER-SUPPLY": 20,
+   "S2-TEST-POWER-SOURCE": 12,
+   "S2-TEST-TEMPHUM": 8,
+   "S3-TEST-DEVENV": 25,
+   "S3-TEST-HIFRAME": 25
+  },
+  "explicit_scope": {
+   "dev": 10,
+   "val": 10,
+   "test": 10
+  },
+  "interventions": {
+   "total": 600,
+   "should_change": 300,
+   "should_hold": 300,
+   "by_operation": {
+    "delete_row": 34,
+    "add_irrelevant_similar": 27,
+    "remove_link_edge": 11,
+    "paraphrase_query": 208,
+    "change_value": 206,
+    "translate_query": 43,
+    "reorder_paragraphs": 11,
+    "delete_condition": 33,
+    "replace_revision": 4,
+    "substitute_design_for_test": 10,
+    "convert_unit": 11,
+    "swap_adjacent_ports": 1,
+    "change_unit": 1
+   }
+  },
+  "evidence": {
+   "chunks_referenced": 577,
+   "revisions_referenced": 75,
+   "families_referenced": 27
+  }
+ },
+ "patches": {
+  "applied_on": "2026-11-08",
+  "reviewer_type": "AI expert-agent (simulated senior engineer)",
+  "source": "reports/expert-review-20261108/patches/manifest.json",
+  "sha256": "c03bb5e5bd32c71de44313d134267b98210302cc6257d28b960c4c18d2ed05bd",
+  "issues": [
+   {
+    "question_id": "S1-DEV-006",
+    "decision": "amend"
+   },
+   {
+    "question_id": "S1-VAL-002",
+    "decision": "reject"
+   },
+   {
+    "question_id": "S1-TEST-025",
+    "decision": "amend"
+   },
+   {
+    "question_id": "S2-VAL-IL-05",
+    "decision": "amend"
+   },
+   {
+    "question_id": "S3-VAL-FI-008",
+    "decision": "amend"
+   }
+  ]
+ },
+ "benchmark_version": "v2-composition-required",
+ "v2": {
+  "created_on": "2026-11-08",
+  "reason": "Decision A: rebuild as composition-required benchmark; remove single-source items, replace with cross-source/cross-table/complete-enumeration/requirement-test items; audit answerability and rebuild sealed test.",
+  "removed": {
+   "dev": 21,
+   "val": 7,
+   "test": 34
+  },
+  "added": {
+   "dev": 21,
+   "val": 7,
+   "test": 34
+  },
+  "removed_added_record": "reports/phase4/audit/benchmark-v2/removed-added.md",
+  "composition_audit": "reports/phase4/audit/benchmark-v2/composition-audit.md",
+  "answerability_audit": "reports/phase4/audit/benchmark-v2/answerability-v2.md",
+  "answerability_test_detail": "data/evaluation/research-benchmark-300-v1/sealed-test/_work/v2-answerability-test.md",
+  "review": "reports/phase4/audit/benchmark-v2/review-new-questions.md",
+  "review_test_detail": "data/evaluation/research-benchmark-300-v1/sealed-test/_work/v2-review-test.md",
+  "answerability_ceiling": {
+   "dev": 1.0,
+   "val": 1.0,
+   "test": 1.0
+  },
+  "previous_splits_sha256": {
+   "dev": "f9872cef1a2982412f43431358b94f59b97383a940caad6b9e07ec78fc9d3851",
+   "val": "7403e4a9bc5e8dea9d0092c612e49f3a556a0406af799500d681e1ee817a09ee",
+   "test": "dc7a8cf9c251f46a2e7e75cb298f3df615235f1c3e3286a982dc814d54985028"
+  },
+  "invalidated": {
+   "sealed_test_v1_sha256": "dc7a8cf9c251f46a2e7e75cb298f3df615235f1c3e3286a982dc814d54985028",
+   "status": "invalidated-by-benchmark-v2"
+  },
+  "new_question_sources": [
+   {
+    "path": "reports/phase4/audit/benchmark-v2/new-questions-dev-val.json",
+    "sha256": "e97480ce5c59e5ab289be0c0963fe06722981b6e52eea1a1ef28ae899fa80100"
+   },
+   {
+    "path": "data/evaluation/research-benchmark-300-v1/sealed-test/_work/v2-new-test-questions.json",
+    "sha256": "58e52d43fadedf1d1df65ce6305bcf4044b827207c942d89b125f01168be4636"
+   }
+  ],
+  "validation": "validate_benchmark.py over 300 items: 0 errors, 0 warnings",
+  "internal_label_patch": "reports/phase4/audit/benchmark-v2/patch-internal-labels.md"
+ },
+ "source_files_note": "source_files and patches below are v1 assembly history; v2 questions were authored from the rc.3 chunk index as recorded in v2.new_question_sources."
 }

@@ -2,6 +2,8 @@
 
 日期：2026-11-07。依据 `docs/research/rag-research-reset-20261107.md` 阶段一（第 1—2 周）。
 
+2026-11-08：已按阶段四重设计决定 A 重建为 v2「组合必需」。当前哈希、移出/补入与审计见 `delivery-stats.md` 第 11 节与 `reports/phase4/audit/benchmark-v2/`；本文件其余段落保留为 v1 交付说明。
+
 ## 1. 交付物
 
 | 交付物 | 位置 | 说明 |

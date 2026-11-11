@@ -1,21 +1,23 @@
 # 300 题基准划分与组装统计（W6 交付，最终封存版）
 
-日期：2026-11-07
+日期：2026-11-08（v2 重建）
 数据版本：`kb-2.0.0-rc.3`（222 修订 / 10,793 父块）
 划分政策：`docs/research/benchmark-300/split-policy.json`（`benchmark-300-split-policy-v4`）
 规范：`docs/research/benchmark-300/SPEC.md`
-组装输入：`data/evaluation/research-benchmark-300-v1/sealed-test/_work/w5-gold-interventions.jsonl`
-组装命令：`python3 scripts/research/assemble_benchmark.py --out data/evaluation/research-benchmark-300-v1 data/evaluation/research-benchmark-300-v1/sealed-test/_work/w5-gold-interventions.jsonl`
+组装输入（v1）：`data/evaluation/research-benchmark-300-v1/sealed-test/_work/w5-gold-interventions.jsonl`
+组装命令（v1）：`python3 scripts/research/assemble_benchmark.py --out data/evaluation/research-benchmark-300-v1 data/evaluation/research-benchmark-300-v1/sealed-test/_work/w5-gold-interventions.jsonl`
 
-本文件只记录统计与核验结论，不含题干、答案、证据摘录或 sealed-test 内容。除特别标注外，统计数字取自同目录 `stats.json`。
+v2 重建输入：`reports/phase4/audit/benchmark-v2/new-questions-dev-val.json` 与 `sealed-test/_work/v2-new-test-questions.json`；生成与修补脚本在 `sealed-test/_work/v2-build-s1.py`、`v2-fix-review-blocking.py` 与 `reports/phase4/audit/benchmark-v2/build_v2_s3.py`。
+
+本文件只记录统计与核验结论，不含题干、答案、证据摘录或 sealed-test 内容。除特别标注外，统计数字取自同目录 `stats.json`。2026-11-08 的 v2「组合必需」重建见第 11 节；第 1、4—7 节已按 v2 重算，第 2、3、8 节不变，第 9、10 节保留为 v1 审计历史。2026-11-08 的 v2「组合必需」重建见第 11 节；第 1、4—7 节已按 v2 重算，第 2、3、8 节不变，第 9、10 节保留为 v1 审计历史。
 
 ## 1. 交付文件、封存与完整性
 
 | 文件 | 题数 | 权限 | sha256 |
 | --- | ---: | --- | --- |
-| `dev/questions.json` | 100 | 664 | `f9872cef1a2982412f43431358b94f59b97383a940caad6b9e07ec78fc9d3851` |
-| `val/questions.json` | 50 | 664 | `7403e4a9bc5e8dea9d0092c612e49f3a556a0406af799500d681e1ee817a09ee` |
-| `sealed-test/questions.json` | 150 | 600 | `dc7a8cf9c251f46a2e7e75cb298f3df615235f1c3e3286a982dc814d54985028` |
+| `dev/questions.json` | 100 | 644 | `42bbe002e0d962a1f9c22e56d2220eba736324e8d212d548d3d9f9e1e633163a` |
+| `val/questions.json` | 50 | 644 | `dcedc7e2062d4243edca61e177a8844411c8fdf36c0c5d07f45351894c121c6e` |
+| `sealed-test/questions.json` | 150 | 600 | `cf0e8d2f6c9654dec923ad6622e4117a5153fccbc560c6219c4b620ace3ce59a` |
 | `sealed-test/SEALED.md` | — | 664（位于 700 目录内） | 内含 questions.json 的 SHA-256，与上表一致 |
 | `manifest.json` / `stats.json` | — | 664 | — |
 
@@ -24,6 +26,7 @@
 - `w2-scenario1.jsonl`、`w3-scenario2.jsonl`、`w4-scenario3.jsonl`、`w5-gold-interventions.jsonl`
 - `w5-report.md`、`template-families.json`
 - `s3-pairing-inventory.md`（含 test 题号，已从 `docs/research/benchmark-300/` 移入）
+- v2：`v2-new-test-questions.json`、`v2-review-test.md`、`v2-answerability-test.md`、`v2-answerability-classifications-test.json`、`v2-build-s1.py`、`v2-fix-review-blocking.py`
 - `tmp-w2/`（含 test 题号的 W2 临时生成脚本）
 
 `data/evaluation/research-benchmark-300-v1/` 根目录已不保留上述文件的副本。
@@ -74,18 +77,17 @@
 
 | 场景 | task_type | 题数 |
 | --- | --- | ---: |
-| S1 | `exact_record` | 40 |
-| S1 | `set_enumeration` | 21 |
-| S1 | `negative_boundary` | 18 |
-| S1 | `cross_table_join` | 21 |
+| S1 | `set_enumeration` | 41 |
+| S1 | `negative_boundary` | 2 |
+| S1 | `cross_table_join` | 57 |
 | S2 | `version_same` | 56 |
 | S2 | `version_added` | 20 |
 | S2 | `version_diff` | 14 |
 | S2 | `version_boundary` | 7 |
 | S2 | `version_removed` | 3 |
-| S3 | `verdict_check` | 29 |
+| S3 | `verdict_check` | 27 |
 | S3 | `requirement_test_match` | 23 |
-| S3 | `scope_mismatch` | 19 |
+| S3 | `scope_mismatch` | 21 |
 | S3 | `design_test_conflict` | 15 |
 | S3 | `acceptance_gap` | 14 |
 
@@ -93,14 +95,14 @@
 
 | verdict_class | 题数 |
 | --- | ---: |
-| `deterministic` | 207 |
+| `deterministic` | 209 |
 | `rubric` | 56 |
-| `human` | 37 |
+| `human` | 35 |
 
 | gold.status | 题数 |
 | --- | ---: |
-| `answered` | 247 |
-| `partial` | 34 |
+| `answered` | 249 |
+| `partial` | 32 |
 | `insufficient` | 19 |
 
 ## 6. 干预操作分布
@@ -109,24 +111,24 @@
 
 | pair_role | operation | 条数 |
 | --- | --- | ---: |
-| `should_change` | `change_value` | 191 |
-| `should_change` | `delete_row` | 46 |
-| `should_change` | `delete_condition` | 33 |
-| `should_change` | `remove_link_edge` | 13 |
-| `should_change` | `substitute_design_for_test` | 9 |
-| `should_change` | `replace_revision` | 4 |
-| `should_change` | `swap_adjacent_ports` | 3 |
-| `should_change` | `change_unit` | 1 |
-| `should_hold` | `paraphrase_query` | 207 |
-| `should_hold` | `translate_query` | 43 |
 | `should_hold` | `add_irrelevant_similar` | 27 |
-| `should_hold` | `convert_unit` | 12 |
+| `should_change` | `change_unit` | 1 |
+| `should_change` | `change_value` | 206 |
+| `should_hold` | `convert_unit` | 11 |
+| `should_change` | `delete_condition` | 33 |
+| `should_change` | `delete_row` | 34 |
+| `should_hold` | `paraphrase_query` | 208 |
+| `should_change` | `remove_link_edge` | 11 |
 | `should_hold` | `reorder_paragraphs` | 11 |
+| `should_change` | `replace_revision` | 4 |
+| `should_change` | `substitute_design_for_test` | 10 |
+| `should_change` | `swap_adjacent_ports` | 1 |
+| `should_hold` | `translate_query` | 43 |
 
 ## 7. 证据覆盖
 
-- 被引用 evidence chunk：436 个。
-- 被引用修订：74 个。
+- 被引用 evidence chunk：577 个。
+- 被引用修订：75 个。
 - 被引用文档族：27 个。
 
 ## 8. 30 道显式修订范围题
@@ -175,3 +177,19 @@
 - W5 报告已同步为 split-policy v4（配额按 v3 生成，v4 仅增加 `test_isolation_definition` 与 `prior_exposure.identity_mapping`，配额不变）。
 
 - 2026-11-08：应用专家代理复核的 5 条补丁（含 1 条题干重写），三份 questions.json 哈希已更新，见 manifest.patches。
+
+## 11. v2 重建（2026-11-08，组合必需）
+
+按 `docs/research/phase4-redesign-20261108.md` 决定 A 重建：
+
+- **移出**：dev 21（18 道 S1 单源 + 3 道 S3 单修订 verdict_check）、val 7（S1 单源）、test 34（23 exact_record + 8 negative_boundary + 3 单 chunk 的 cross_table_join）。
+- **补入**：dev 21、val 7、test 34；新题均为组合必需（S1 跨表连接，test 另有完备集合枚举，S3 要求—测试配对）。
+- **可答上限**：dev 100/100=1.000、val 50/50=1.000、test 150/150=1.000（严格 grounded 分别为 98/46/144，其余为逐题记录的负向/派生断言）。明细：`reports/phase4/audit/benchmark-v2/answerability-v2.md`。
+- **组合审计**：`reports/phase4/audit/benchmark-v2/composition-audit.md`；test 组合审计：`test-composition-audit.md`。
+- **移出/补入记录**：`reports/phase4/audit/benchmark-v2/removed-added.md`。
+- **新题来源与复核**：`new-questions-dev-val.json`、`sealed-test/_work/v2-new-test-questions.json`、`review-new-questions.md`（test 逐题复核在 `sealed-test/_work/v2-review-test.md`）。
+- **校验**：`validate_benchmark.py` 对 300 题报 0 errors / 0 warnings。
+- **封存**：v1 sealed sha `dc7a8cf9c251f46a2e7e75cb298f3df615235f1c3e3286a982dc814d54985028` 标记 `invalidated-by-benchmark-v2`；v2 sealed sha 见第 1 节与 `sealed-test/SEALED.md`。`docs/research/phase4/freeze.json`、`OPENED.json` 仍是 v1 记录，v2 打开前必须重新 freeze。
+- **口径变化**：单源 `exact_record` 题已全部移出（v1 的 40 道 exact_record 全为单源），因此 task_type 分布不再与 v1 相同；这不是缺口，而是决定 A 的直接结果。场景计数 100/50/150 与三场景各 100 不变。
+
+- **2026-11-08 追加**：移除 dev `S1-DEV-027`/`S1-DEV-030` 的内部表标签 D2/D3/D4（全库 0 命中），改用元数据中的确切文档标题；保留 E 范围、预留段与前缀语义，顶层镜像同步。记录：`reports/phase4/audit/benchmark-v2/patch-internal-labels.md`；dev sha 更新为第 1 节所示。

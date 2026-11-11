@@ -28,79 +28,78 @@
   }
  },
  "by_task_type": {
-  "exact_record": 40,
-  "set_enumeration": 21,
-  "negative_boundary": 18,
-  "cross_table_join": 21,
+  "set_enumeration": 41,
+  "cross_table_join": 57,
+  "negative_boundary": 2,
   "version_same": 56,
   "version_added": 20,
   "version_boundary": 7,
   "version_diff": 14,
   "version_removed": 3,
   "requirement_test_match": 23,
-  "scope_mismatch": 19,
+  "scope_mismatch": 21,
   "design_test_conflict": 15,
   "acceptance_gap": 14,
-  "verdict_check": 29
+  "verdict_check": 27
  },
  "by_verdict_class": {
-  "deterministic": 207,
+  "deterministic": 209,
   "rubric": 56,
-  "human": 37
+  "human": 35
  },
  "by_gold_status": {
-  "answered": 247,
-  "partial": 34,
+  "answered": 249,
+  "partial": 32,
   "insufficient": 19
  },
  "by_cluster": {
   "S1-DEV-L3L4": 34,
-  "S1-TEST-WOBDUAN": 50,
-  "S1-VAL-L2": 16,
   "S2-DEV-CONSTTEMP": 10,
   "S2-DEV-TIMING": 10,
   "S2-DEV-VACUUM": 13,
+  "S3-DEV-CONSTTEMP": 15,
+  "S3-DEV-VACUUM": 18,
+  "S1-VAL-L2": 16,
+  "S2-VAL-ARCHIVE-QUERY": 7,
+  "S2-VAL-INTERLOCK": 10,
+  "S3-VAL-FASTINTERLOCK": 17,
+  "S1-TEST-WOBDUAN": 50,
   "S2-TEST-COLLIMATOR": 4,
   "S2-TEST-FOURDOF": 6,
   "S2-TEST-POWER-SUPPLY": 20,
   "S2-TEST-POWER-SOURCE": 12,
   "S2-TEST-TEMPHUM": 8,
-  "S2-VAL-ARCHIVE-QUERY": 7,
-  "S2-VAL-INTERLOCK": 10,
-  "S3-DEV-CONSTTEMP": 15,
-  "S3-DEV-VACUUM": 18,
   "S3-TEST-DEVENV": 25,
-  "S3-TEST-HIFRAME": 25,
-  "S3-VAL-FASTINTERLOCK": 17
+  "S3-TEST-HIFRAME": 25
  },
  "explicit_scope": {
   "dev": 10,
-  "test": 10,
-  "val": 10
+  "val": 10,
+  "test": 10
  },
  "interventions": {
   "total": 600,
   "should_change": 300,
   "should_hold": 300,
   "by_operation": {
-   "change_value": 191,
-   "paraphrase_query": 207,
-   "delete_row": 46,
+   "delete_row": 34,
    "add_irrelevant_similar": 27,
-   "remove_link_edge": 13,
-   "swap_adjacent_ports": 3,
+   "remove_link_edge": 11,
+   "paraphrase_query": 208,
+   "change_value": 206,
    "translate_query": 43,
    "reorder_paragraphs": 11,
    "delete_condition": 33,
    "replace_revision": 4,
-   "substitute_design_for_test": 9,
-   "convert_unit": 12,
+   "substitute_design_for_test": 10,
+   "convert_unit": 11,
+   "swap_adjacent_ports": 1,
    "change_unit": 1
   }
  },
  "evidence": {
-  "chunks_referenced": 436,
-  "revisions_referenced": 74,
+  "chunks_referenced": 577,
+  "revisions_referenced": 75,
   "families_referenced": 27
  }
 }
