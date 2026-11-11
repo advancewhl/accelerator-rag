@@ -129,9 +129,10 @@ tmp/
 
 # 研究基准 300 题：含内部文档逐字证据与真值，仅本地保存
 # 仅忽略含题干/答案/证据的文件；manifest/stats/baseline 不含原文，可入库
-/data/evaluation/research-benchmark-300-v1/dev/questions.json
-/data/evaluation/research-benchmark-300-v1/val/questions.json
+/data/evaluation/research-benchmark-300-v1/dev/questions*.json
+/data/evaluation/research-benchmark-300-v1/val/questions*.json
 /data/evaluation/research-benchmark-300-v1/sealed-test/
+/data/evaluation/research-benchmark-300-v1/manifest.pre-patch.json
 
 # 阶段二事实层与原型报告：含内部文档逐字摘录，仅本地保存
 /data/facts/
@@ -143,3 +144,26 @@ tmp/
 
 # 其他会话的专家复核输出：可能含 sealed-test 内容，禁止入库
 /reports/expert-review-*/
+
+# 阶段四逐题运行、盲评映射与干预记录：含内部原文，仅本地
+/reports/phase4/
+/reports/phase4b/
+
+# 阶段四冻结实验及复核材料包含本机运行配置和评测细节
+/docs/research/phase4/
+/docs/research/phase4-redesign-20261108.md
+/scripts/research/phase4/
+/src/accelerator_rag/phase4/
+
+# Archiver 补充实验包含实际 PV 和内部资料摘录
+/docs/research/phase3/archiver-observation-experiment.md
+/docs/research/phase3/archiver-timeline.svg
+/scripts/research/run_archiver_observation_experiment.py
+
+# 未发布的论文稿、构建和复核材料
+/papers/rag-prab-20261108*/
+/papers/BUILD-MATRIX.md
+/papers/check_paper_parity.py
+
+# 归档内未跟踪的本地资料仍只留本地，已跟踪文件的迁移保留在 Git
+/archive/2026-11-09/
