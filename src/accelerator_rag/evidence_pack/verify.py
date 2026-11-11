@@ -574,9 +574,17 @@ def verify(
     *,
     alignment: tuple[dict, ...] = (),
     enumeration: dict | None = None,
+    run_all: bool = False,
 ) -> Verification:
+    """Run deterministic operators over the pack.
+
+    ``run_all`` is the phase-4 mode: operators run without consulting the
+    benchmark's ``verdict_class``, so a method never learns whether the
+    question is deterministic.  The default keeps phase-3 behaviour.
+    """
+
     verdict = question.get("gold", {}).get("verdict_class", "")
-    if verdict != "deterministic":
+    if not run_all and verdict != "deterministic":
         return Verification(
             status="not_evaluated",
             answer="",

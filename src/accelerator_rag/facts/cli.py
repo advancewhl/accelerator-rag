@@ -36,8 +36,19 @@ def _load_layers(layers=None):
     return tuple(loaded)
 
 
-def build(splits: tuple[str, ...], out: Path, revisions=None, layers=None) -> dict:
-    scope = load_scope(splits, revision_ids=revisions)
+def build(
+    splits: tuple[str, ...],
+    out: Path,
+    revisions=None,
+    layers=None,
+    family_ids=None,
+) -> dict:
+    scope = load_scope(
+        splits,
+        family_ids=family_ids,
+        revision_ids=revisions,
+        allow_family_ids=family_ids,
+    )
     wanted = set(layers) if layers else None
     fact_set = FactSet()
     counts: dict[str, int] = {}
@@ -64,7 +75,9 @@ def build(splits: tuple[str, ...], out: Path, revisions=None, layers=None) -> di
     manifest = {
         "schema_version": SCHEMA_VERSION,
         "splits": list(splits),
-        "family_ids": list(split_family_ids(splits)),
+        "family_ids": (
+            list(family_ids) if family_ids is not None else list(split_family_ids(splits))
+        ),
         "revision_count": len(scope.revisions),
         "revision_ids": list(scope.revision_ids()),
         "fact_counts": counts,
@@ -95,6 +108,15 @@ def main(argv=None) -> None:
         help="restrict to one revision id (repeatable)",
     )
     parser.add_argument(
+        "--family",
+        action="append",
+        default=None,
+        help=(
+            "explicit family id (repeatable); bypasses the dev/val family gate. "
+            "Phase 4 uses this for the benchmark families from split-policy."
+        ),
+    )
+    parser.add_argument(
         "--layer",
         action="append",
         choices=["parameter", "connectivity", "process"],
@@ -106,6 +128,7 @@ def main(argv=None) -> None:
         Path(args.out),
         revisions=args.revision,
         layers=args.layer,
+        family_ids=tuple(args.family) if args.family else None,
     )
     print(json.dumps(manifest, ensure_ascii=False, indent=1))
 

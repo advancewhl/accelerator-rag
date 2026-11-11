@@ -139,11 +139,18 @@ def load_scope(
     revision_ids: Iterable[str] | None = None,
     *,
     with_parsed: bool = True,
+    allow_family_ids: Iterable[str] | None = None,
 ) -> CorpusScope:
     """Load the allowed families from the local rc.3 copy.
 
     ``family_ids`` defaults to the dev/val families; ``revision_ids`` narrows
     further, which tests use to stay small.
+
+    ``allow_family_ids`` is the phase-4 escape hatch: when supplied, it is the
+    exact family set a caller may name.  The default keeps the phase-2 rule
+    (only families named by dev/val questions).  Phase 4 uses it to load the
+    full 102-family retrieval corpus and the 27 benchmark families without
+    reading any sealed question.
     """
 
     selected = tuple(splits)
@@ -165,7 +172,11 @@ def load_scope(
     missing = [family_id for family_id in wanted if family_id not in families_all]
     if missing:
         raise KeyError(f"unknown family ids: {missing}")
-    allowed = set(split_family_ids(selected))
+    allowed = (
+        set(allow_family_ids)
+        if allow_family_ids is not None
+        else set(split_family_ids(selected))
+    )
     outside = [family_id for family_id in wanted if family_id not in allowed]
     if outside:
         raise ValueError(

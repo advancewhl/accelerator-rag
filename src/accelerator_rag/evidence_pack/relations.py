@@ -401,7 +401,12 @@ def _align_versions(
 
 
 def _enumerate_rows(
-    index: CorpusIndex, atoms, needs: Needs, *, limit: int = 160
+    index: CorpusIndex,
+    atoms,
+    needs: Needs,
+    revisions: set[str],
+    *,
+    limit: int = 160,
 ) -> tuple[list[Atom], dict]:
     if needs.relation("enumeration") is None:
         return [], {}
@@ -416,7 +421,7 @@ def _enumerate_rows(
         rows = [
             row
             for row in index.rows
-            if row.table_block_id == block
+            if row.table_block_id == block and row.revision_id in revisions
         ]
         rows.sort(key=lambda row: (row.chunk_id, row.row_number))
         selected = rows[:limit]
@@ -680,7 +685,7 @@ def complete(
         trace["version_atoms"] += 1
 
     # 5. complete enumerations from the matched tables.
-    enumerated, enumeration = _enumerate_rows(index, pool, needs)
+    enumerated, enumeration = _enumerate_rows(index, pool, needs, revisions)
     for atom in enumerated:
         if atom.atom_id in seen_ids:
             continue

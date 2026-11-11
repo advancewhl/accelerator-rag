@@ -152,6 +152,7 @@ def recall(
         entity_kinds=entity_kinds,
         text_terms=terms,
         family_ids=family_ids,
+        revision_ids=revisions,
         limit=80,
     )
     rows_by_chunk: dict[str, list] = {}

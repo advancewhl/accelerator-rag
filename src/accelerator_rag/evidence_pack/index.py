@@ -394,11 +394,14 @@ class CorpusIndex:
         entity_kinds: dict[str, str],
         text_terms: set[str],
         family_ids: set[str],
+        revision_ids: set[str] | None = None,
         limit: int = 120,
     ) -> list[tuple[RowAtom, float]]:
         scored: list[tuple[RowAtom, float]] = []
         for row in self.rows:
             if row.family_id not in family_ids:
+                continue
+            if revision_ids is not None and row.revision_id not in revision_ids:
                 continue
             cells = {_text(value) for _, value in row.cells if value}
             line = _text(row.line)
@@ -558,8 +561,14 @@ def load_index(
     family_ids: tuple[str, ...] | None = None,
     facts_path: str | Path,
     with_parsed: bool = True,
+    allow_family_ids: tuple[str, ...] | None = None,
 ) -> CorpusIndex:
-    scope = load_scope(splits, family_ids=family_ids, with_parsed=with_parsed)
+    scope = load_scope(
+        splits,
+        family_ids=family_ids,
+        with_parsed=with_parsed,
+        allow_family_ids=allow_family_ids,
+    )
     facts = FactSet.read_jsonl(facts_path)
     return build_index(scope, facts)
 
